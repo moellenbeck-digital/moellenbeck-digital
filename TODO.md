@@ -1,12 +1,12 @@
-# TODO – Go-Live moellenbeck-digital.de
+# TODO – Go-Live moellenbeck-digital.io
 
-Offene Schritte, damit die Seite unter `https://moellenbeck-digital.de` live ist.
+Offene Schritte, damit die Seite unter `https://moellenbeck-digital.io` live ist.
 
 ## 1. DNS-Records beim Domain-Provider eintragen
 
-Domain: `moellenbeck-digital.de`
+Domain: `moellenbeck-digital.io`
 
-### Apex-Domain (`moellenbeck-digital.de`)
+### Apex-Domain (`moellenbeck-digital.io`)
 
 A-Records auf GitHub-Pages-IPs:
 
@@ -37,8 +37,8 @@ CNAME  www  moellenbeck-digital.github.io.
 ## 2. DNS-Propagation prüfen
 
 ```
-dig +short moellenbeck-digital.de
-dig +short www.moellenbeck-digital.de
+dig +short moellenbeck-digital.io
+dig +short www.moellenbeck-digital.io
 ```
 
 Erwartet: Die vier `185.199.108-111.153` IPs bzw. `moellenbeck-digital.github.io`.
@@ -59,8 +59,8 @@ Oder in **Settings → Pages → "Enforce HTTPS"** anhaken.
 
 ## 5. Smoke-Test
 
-- [ ] `https://moellenbeck-digital.de` lädt
-- [ ] `https://www.moellenbeck-digital.de` leitet auf Apex weiter
+- [ ] `https://moellenbeck-digital.io` lädt
+- [ ] `https://www.moellenbeck-digital.io` leitet auf Apex weiter
 - [ ] `http://` wird auf `https://` umgeleitet
 - [ ] `impressum.html` und `datenschutz.html` sind erreichbar
 - [ ] Favicons und SVGs werden geladen
