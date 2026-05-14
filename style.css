@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@400;500;600&family=Syne:wght@400;600;700;800&display=swap');
 
 :root {
   --bg: #08080a;
@@ -10,6 +10,7 @@
   --accent-dim: rgba(255, 107, 0, 0.08);
   --accent-glow: rgba(255, 107, 0, 0.25);
   --border: #222228;
+  --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --mono: 'DM Mono', 'Fira Code', monospace;
   --display: 'Syne', sans-serif;
 }
@@ -26,11 +27,11 @@ html {
 }
 
 body {
-  font-family: var(--mono);
-  font-weight: 300;
+  font-family: var(--sans);
+  font-weight: 400;
   color: var(--text);
   background-color: var(--bg);
-  line-height: 1.7;
+  line-height: 1.6;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -183,10 +184,9 @@ nav .nav-links a:hover::before {
 }
 
 .hero .lead {
-  font-family: var(--mono);
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   color: var(--text);
-  line-height: 1.7;
+  line-height: 1.6;
   max-width: 560px;
   margin-bottom: 2rem;
   animation: fadeUp 0.6s ease-out 0.6s both;
@@ -217,6 +217,7 @@ nav .nav-links a:hover::before {
   max-width: 1080px;
   margin: 0 auto;
   width: 100%;
+  scroll-margin-top: 5rem;
 }
 
 .block-header {
@@ -309,10 +310,9 @@ nav .nav-links a:hover::before {
 }
 
 .card p {
-  font-family: var(--mono);
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: var(--text-muted);
-  line-height: 1.7;
+  line-height: 1.6;
   margin-bottom: 1rem;
 }
 
@@ -323,8 +323,7 @@ nav .nav-links a:hover::before {
 }
 
 .card ul li {
-  font-family: var(--mono);
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: var(--text-muted);
   padding: 0.15rem 0 0.15rem 1.2rem;
   position: relative;
@@ -358,16 +357,36 @@ nav .nav-links a:hover::before {
 
 /* ============ MEMBER ============ */
 
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card > .stack {
+  margin-top: auto;
+}
+
 .member {
   display: flex;
-  gap: 1.25rem;
-  align-items: flex-start;
+  flex-direction: column;
+  flex: 1;
 }
+
+.member-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.member-meta { min-width: 0; }
+
+.member > p { flex: 1; }
 
 .avatar {
   flex-shrink: 0;
-  width: 56px;
-  height: 56px;
+  width: 48px;
+  height: 48px;
   border-radius: 4px;
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -376,12 +395,10 @@ nav .nav-links a:hover::before {
   justify-content: center;
   font-family: var(--mono);
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: var(--accent);
   letter-spacing: 0.05em;
 }
-
-.member-body { flex: 1; min-width: 0; }
 
 .member .role {
   font-family: var(--mono);
@@ -389,10 +406,10 @@ nav .nav-links a:hover::before {
   color: var(--accent);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.15rem;
 }
 
-.member h3 { margin-bottom: 0.5rem; }
+.member h3 { margin: 0; }
 
 /* ============ PROJECTS ============ */
 
@@ -442,6 +459,7 @@ nav .nav-links a:hover::before {
   max-width: 1080px;
   margin: 0 auto;
   width: 100%;
+  scroll-margin-top: 5rem;
 }
 
 .contact-card {
@@ -596,6 +614,17 @@ nav .nav-links a:hover::before {
   color: var(--text-muted);
   margin-bottom: 0.5rem;
   line-height: 1.8;
+}
+
+.section a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.section a:hover {
+  border-color: var(--accent);
 }
 
 .section ul { list-style: none; padding: 0; margin-bottom: 0.5rem; }
