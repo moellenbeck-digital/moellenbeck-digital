@@ -34,12 +34,15 @@
 <body>
   <nav>
     <a class="logo" href="index.html"><img src="assets/mbd_variante1.svg" alt="Moellenbeck-Digital" height="28"></a>
-    <div class="nav-links">
-      <a href="#services">Services</a>
-      <a href="#member">Member</a>
-      <a href="#projekte">Projekte</a>
-      <a href="#kontakt">Kontakt</a>
-    </div>
+    <details class="nav-menu" open>
+      <summary aria-label="Menü öffnen"><span></span><span></span><span></span></summary>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#member">Member</a>
+        <a href="#projekte">Projekte</a>
+        <a href="#kontakt">Kontakt</a>
+      </div>
+    </details>
   </nav>
 
   <main>
@@ -262,6 +265,16 @@
   </footer>
 
   <script>
+    // Menü auf Mobile geschlossen starten; schließen, wenn ein Link geklickt wird
+    const navMenu = document.querySelector('.nav-menu');
+    const mq = window.matchMedia('(max-width: 600px)');
+    const syncMenu = () => { if (mq.matches) navMenu.removeAttribute('open'); else navMenu.setAttribute('open', ''); };
+    syncMenu();
+    mq.addEventListener('change', syncMenu);
+    navMenu.querySelectorAll('.nav-links a').forEach((a) => {
+      a.addEventListener('click', () => { if (mq.matches) navMenu.removeAttribute('open'); });
+    });
+
     // Sanftes Scroll-Reveal für Sektionen
     const io = new IntersectionObserver((entries) => {
       for (const e of entries) {
