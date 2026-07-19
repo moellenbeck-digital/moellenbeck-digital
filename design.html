@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <script>document.documentElement.classList.add('js')</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Das Design-System von Moellenbeck-Digital — Farben, Typografie, Motive und Komponenten.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#08080a">
+
+  <title>Design-System — Moellenbeck-Digital</title>
+  <link rel="icon" href="assets/favicon.ico" sizes="48x48">
+  <link rel="icon" href="assets/md_favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ---- seitenspezifisch: Design-Showcase ---- */
+
+    .design-hero { min-height: auto; padding-bottom: 3rem; }
+
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .swatch {
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--bg-elevated);
+    }
+
+    .swatch .chip {
+      height: 72px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .swatch .meta {
+      padding: 0.75rem 0.9rem;
+    }
+
+    .swatch .meta .token {
+      display: block;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--text);
+      letter-spacing: 0.03em;
+      margin-bottom: 0.2rem;
+    }
+
+    .swatch .meta .value {
+      display: block;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      letter-spacing: 0.03em;
+      margin-bottom: 0.35rem;
+    }
+
+    .swatch .meta .desc {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .type-sample { margin-bottom: 0.75rem; }
+
+    .type-sample .sample-display {
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: clamp(1.6rem, 4vw, 2.6rem);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--text);
+    }
+
+    .type-sample .sample-sans {
+      font-size: 0.95rem;
+      color: var(--text);
+      max-width: 46ch;
+    }
+
+    .type-sample .sample-mono {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .spec {
+      display: block;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      margin-top: 0.4rem;
+    }
+
+    .spec::before { content: '// '; color: var(--border); }
+
+    .demo-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Motive-Demos */
+    .motif-demo {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      color: var(--text);
+      letter-spacing: 0.03em;
+    }
+
+    .motif-demo .dim { color: var(--border); }
+    .motif-demo .hi  { color: var(--accent); }
+
+    .dotgrid-demo {
+      height: 88px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background-color: var(--bg);
+      background-image: radial-gradient(circle at 1.5px 1.5px, rgba(251, 146, 60, 0.35) 1.5px, transparent 0);
+      background-size: 24px 24px;
+      margin-bottom: 0.5rem;
+    }
+
+    .glow-demo {
+      position: relative;
+      height: 88px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: var(--bg);
+      overflow: hidden;
+      margin-bottom: 0.5rem;
+    }
+
+    .glow-demo::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 220px; height: 220px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      opacity: 0.5;
+    }
+
+    /* Demo-Buttons ohne .hero-Kontext */
+    .btn-primary-demo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.75rem 1.25rem;
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--bg);
+      background: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 4px;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-primary-demo:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px var(--accent-glow);
+    }
+
+    .btn-link-demo {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-link-demo:hover { color: var(--accent); border-color: var(--accent); }
+
+    .tag-demo {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--accent);
+      background: var(--accent-dim);
+      border: 1px solid rgba(251, 146, 60, 0.15);
+      padding: 0.3rem 0.75rem;
+      border-radius: 2px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .resource-list { list-style: none; padding: 0; }
+
+    .resource-list li {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.5rem 1rem;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .resource-list li:last-child { border-bottom: none; }
+
+    .resource-list .what {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      flex: 1 1 300px;
+    }
+
+    code.inline {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--accent);
+      background: var(--accent-dim);
+      padding: 0.1rem 0.4rem;
+      border-radius: 2px;
+      letter-spacing: 0.02em;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="logo" href="index.html"><img src="assets/md_variante1.svg" alt="Moellenbeck-Digital" height="28"></a>
+    <details class="nav-menu" open>
+      <summary aria-label="Menü öffnen"><span></span><span></span><span></span></summary>
+      <div class="nav-links">
+        <a href="#warum">Warum</a>
+        <a href="#farben">Farben</a>
+        <a href="#typografie">Typografie</a>
+        <a href="#motive">Motive</a>
+        <a href="#komponenten">Komponenten</a>
+        <a href="#mehr">Mehr</a>
+      </div>
+    </details>
+  </nav>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero-wrapper design-hero">
+      <div class="hero">
+        <div class="tag">Design System</div>
+        <h1>Ein Look.<span>Alle Produkte.</span></h1>
+        <div class="suffix">terminal-ästhetik trifft editorial-design<span class="cursor"></span></div>
+        <p class="lead">
+          Das Design-System von Moellenbeck-Digital: ein dunkler, technischer Look
+          mit einem einzigen warmen Akzent. Diese Seite zeigt live, woraus er besteht
+          &mdash; und wo Produkte die verbindlichen Regeln finden.
+        </p>
+        <div class="hero-cta">
+          <a class="btn-primary" href="https://moellenbeck-digital.io/DESIGN.md">DESIGN.md laden &rarr;</a>
+          <a class="btn-link" href="#warum">Warum ein Design-System? &darr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- WARUM -->
+    <section id="warum" class="block">
+      <div class="block-header reveal">
+        <span class="marker">// 01</span>
+        <h2>Warum</h2>
+        <div class="line"></div>
+      </div>
+      <div class="grid cols-3">
+        <article class="card reveal">
+          <span class="card-num">WHY/01</span>
+          <h3>Wiedererkennung</h3>
+          <p>Website, Tools und Produkte von Moellenbeck-Digital sollen auf den ersten Blick als Familie erkennbar sein &mdash; gleiche Farben, gleiche Schriften, gleiche Details.</p>
+          <ul>
+            <li>Ein Akzent: Soft Orange</li>
+            <li>Drei Schriften, klare Rollen</li>
+            <li>ASCII-Motive statt Icon-Sets</li>
+          </ul>
+        </article>
+        <article class="card reveal">
+          <span class="card-num">WHY/02</span>
+          <h3>Schneller bauen</h3>
+          <p>Neue Produkte starten nicht bei null: Tokens, Komponenten-Rezepte und ein Copy-paste-Fundament stehen bereit. Design-Entscheidungen sind einmal getroffen.</p>
+          <ul>
+            <li>CSS-Tokens zum Übernehmen</li>
+            <li>Fertige Komponenten-Rezepte</li>
+            <li>Do &amp; Don't als Leitplanken</li>
+          </ul>
+        </article>
+        <article class="card reveal">
+          <span class="card-num">WHY/03</span>
+          <h3>Maschinenlesbar</h3>
+          <p>Die Regeln liegen als Markdown unter einer stabilen URL. Agenten und Codegeneratoren laden sie als Kontext und leiten daraus konsistente Designs ab.</p>
+          <div class="stack">
+            <span>DESIGN.md</span>
+            <span>curl</span>
+            <span>Agent-Kontext</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- FARBEN -->
+    <section id="farben" class="block">
+      <div class="block-header reveal">
+        <span class="marker">// 02</span>
+        <h2>Farben</h2>
+        <div class="line"></div>
+      </div>
+      <div class="swatch-grid reveal">
+        <div class="swatch">
+          <div class="chip" style="background:#08080a"></div>
+          <div class="meta">
+            <span class="token">--bg</span>
+            <span class="value">#08080a</span>
+            <span class="desc">Seitenhintergrund</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background:#111114"></div>
+          <div class="meta">
+            <span class="token">--bg-elevated</span>
+            <span class="value">#111114</span>
+            <span class="desc">Cards, Panels, Sections</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background:#16161a"></div>
+          <div class="meta">
+            <span class="token">--bg-card</span>
+            <span class="value">#16161a</span>
+            <span class="desc">Avatare, Inputs, Nested</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background:#e8e8ed"></div>
+          <div class="meta">
+            <span class="token">--text</span>
+            <span class="value">#e8e8ed</span>
+            <span class="desc">Primärtext &mdash; kein reines Weiß</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background:#6b6b76"></div>
+          <div class="meta">
+            <span class="token">--text-muted</span>
+            <span class="value">#6b6b76</span>
+            <span class="desc">Sekundärtext, Labels, Meta</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background:#fb923c"></div>
+          <div class="meta">
+            <span class="token">--accent</span>
+            <span class="value">#fb923c</span>
+            <span class="desc">Der einzige Akzent &mdash; sparsam einsetzen</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background:rgba(251,146,60,0.10)"></div>
+          <div class="meta">
+            <span class="token">--accent-dim</span>
+            <span class="value">rgba(251,146,60,.10)</span>
+            <span class="desc">Tag- und Badge-Flächen</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background:#222228"></div>
+          <div class="meta">
+            <span class="token">--border</span>
+            <span class="value">#222228</span>
+            <span class="desc">1px-Rahmen und Linien</span>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:0.85rem; color:var(--text-muted); margin-top:1.5rem;" class="reveal">
+        Regel: Die Fläche bleibt zu ~95&nbsp;% Graustufen. Orange markiert Interaktion,
+        Marker und Status &mdash; nie große Flächen. Es gibt keinen Light Mode.
+      </p>
+    </section>
+
+    <!-- TYPOGRAFIE -->
+    <section id="typografie" class="block">
+      <div class="block-header reveal">
+        <span class="marker">// 03</span>
+        <h2>Typografie</h2>
+        <div class="line"></div>
+      </div>
+      <div class="grid cols-3">
+        <article class="card reveal">
+          <span class="card-num">TYP/01 · Display</span>
+          <div class="type-sample">
+            <div class="sample-display">Syne 800</div>
+          </div>
+          <p>Nur für Headlines. Immer schwer (700&ndash;800), immer eng gesetzt.</p>
+          <span class="spec">letter-spacing: -0.03em · line-height: 1.05</span>
+        </article>
+        <article class="card reveal">
+          <span class="card-num">TYP/02 · Text</span>
+          <div class="type-sample">
+            <p class="sample-sans">Inter für Fließtext &mdash; ruhig, neutral, gut lesbar. Trägt den Inhalt, nie die Bühne.</p>
+          </div>
+          <p>Fließtext und UI-Copy in 400&ndash;600.</p>
+          <span class="spec">line-height: 1.6 · 0.85&ndash;1.05rem</span>
+        </article>
+        <article class="card reveal">
+          <span class="card-num">TYP/03 · Mono</span>
+          <div class="type-sample">
+            <span class="sample-mono">DM Mono · Technik</span>
+          </div>
+          <p>Für alles Technische: Nav, Buttons, Badges, Nummern, Status, Links.</p>
+          <span class="spec">letter-spacing: 0.04&ndash;0.15em · oft uppercase</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- MOTIVE -->
+    <section id="motive" class="block">
+      <div class="block-header reveal">
+        <span class="marker">// 04</span>
+        <h2>Signatur-Motive</h2>
+        <div class="line"></div>
+      </div>
+      <div class="grid cols-2">
+        <article class="card reveal">
+          <span class="card-num">SIG/01 · ASCII statt Icons</span>
+          <h3>Prompt, Kommentar, Pfeil</h3>
+          <p class="motif-demo"><span class="hi">&gt;</span> Listenpunkte mit Prompt-Zeichen</p>
+          <p class="motif-demo"><span class="dim">//</span> Subline im Kommentar-Stil</p>
+          <p class="motif-demo">Weiterführender Link <span class="hi">-&gt;</span> &nbsp;·&nbsp; Zurück <span class="hi">&lt;-</span></p>
+          <span class="spec">via ::before / ::after &mdash; keine Icon-Fonts</span>
+        </article>
+        <article class="card reveal">
+          <span class="card-num">SIG/02 · Cursor &amp; Status</span>
+          <h3>Leben im Detail</h3>
+          <p class="motif-demo">Blinkender Cursor<span class="cursor"></span></p>
+          <p class="project-status" style="margin-top:0.75rem;">Aktiv</p>
+          <p class="project-status archived">Archiviert</p>
+          <span class="spec">blink 1s step-end · 6px-Punkt mit Glow</span>
+        </article>
+        <article class="card reveal">
+          <span class="card-num">SIG/03 · Punktraster</span>
+          <h3>Hintergrund-Textur</h3>
+          <div class="dotgrid-demo" role="img" aria-label="Punktraster-Demo"></div>
+          <span class="spec">radial-gradient 1px · 32px Raster · hier verstärkt dargestellt</span>
+        </article>
+        <article class="card reveal">
+          <span class="card-num">SIG/04 · Glow</span>
+          <h3>Akzent-Leuchten</h3>
+          <div class="glow-demo" role="img" aria-label="Glow-Demo"></div>
+          <span class="spec">radial-gradient mit --accent-glow · opacity 0.15&ndash;0.3</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- KOMPONENTEN -->
+    <section id="komponenten" class="block">
+      <div class="block-header reveal">
+        <span class="marker">// 05</span>
+        <h2>Komponenten</h2>
+        <div class="line"></div>
+      </div>
+      <div class="grid cols-2">
+        <article class="card reveal">
+          <span class="card-num">CMP/01</span>
+          <h3>Buttons &amp; Links</h3>
+          <div class="demo-row">
+            <a class="btn-primary-demo" href="#komponenten">Primär &rarr;</a>
+            <a class="btn-link-demo" href="#komponenten">Sekundär-Link</a>
+          </div>
+          <span class="spec">Mono · uppercase · 4px Radius · Hover: 2px-Lift + Glow</span>
+        </article>
+        <article class="card reveal">
+          <span class="card-num">CMP/02</span>
+          <h3>Tags &amp; Chips</h3>
+          <div class="demo-row">
+            <span class="tag-demo">Akzent-Tag</span>
+          </div>
+          <div class="stack">
+            <span>TypeScript</span>
+            <span>BPMN 2.0</span>
+            <span>Claude</span>
+          </div>
+          <span class="spec">2px Radius · Akzent für Gewicht, neutral für Metadaten</span>
+        </article>
+        <article class="card reveal">
+          <span class="card-num">CMP/03</span>
+          <h3>Diese Card</h3>
+          <p>Cards sind das Grundmodul: erhabene Fläche, 1px-Rahmen, Mono-Nummer, Syne-Titel. Beim Hover: Rahmen färbt sich, die Card hebt sich 2px, links blendet ein 3px-Akzentbalken ein &mdash; probier es aus.</p>
+          <span class="spec">--bg-elevated · 4px Radius · Aufbau: Nummer &gt; Titel &gt; Text &gt; Chips</span>
+        </article>
+        <article class="card reveal">
+          <span class="card-num">CMP/04</span>
+          <h3>Section-Header</h3>
+          <p>Jede Sektion beginnt mit Mono-Marker (<code class="inline">// 01</code>), Syne-Headline und einer Linie, die den Rest der Zeile füllt &mdash; wie oben auf dieser Seite.</p>
+          <span class="spec">Marker uppercase · Linie in --border · mobil ohne Linie</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- MEHR INFORMATIONEN -->
+    <section id="mehr" class="contact">
+      <div class="contact-card reveal">
+        <div class="marker">// 06 · Mehr Informationen</div>
+        <h2>Wo finde ich die Regeln?</h2>
+        <ul class="resource-list" style="text-align:left; max-width:640px; margin:1.5rem auto 0; position:relative;">
+          <li>
+            <a class="project-link" style="margin-top:0;" href="https://moellenbeck-digital.io/DESIGN.md">DESIGN.md</a>
+            <span class="what">Der verbindliche Styleguide: alle Tokens, Regeln, Komponenten-Rezepte und Do/Don'ts &mdash; als Markdown, auch für Agenten: <code class="inline">curl -s https://moellenbeck-digital.io/DESIGN.md</code></span>
+          </li>
+          <li>
+            <a class="project-link" style="margin-top:0;" href="https://github.com/moellenbeck-digital/moellenbeck-digital">GitHub-Repo</a>
+            <span class="what">Quelle der Wahrheit: <code class="inline">style.css</code> ist die Referenz-Implementierung, <code class="inline">assets/</code> enthält Logos und Favicons.</span>
+          </li>
+          <li>
+            <a class="project-link" style="margin-top:0;" href="index.html">Website</a>
+            <span class="what">Das lebende Beispiel &mdash; jede Sektion der Startseite nutzt exakt diese Bausteine.</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a href="impressum.html">Impressum</a>
+    <span class="separator">/</span>
+    <a href="datenschutz.html">Datenschutzerklärung</a>
+  </footer>
+
+  <script>
+    const navMenu = document.querySelector('.nav-menu');
+    const mq = window.matchMedia('(max-width: 600px)');
+    const syncMenu = () => { if (mq.matches) navMenu.removeAttribute('open'); else navMenu.setAttribute('open', ''); };
+    syncMenu();
+    mq.addEventListener('change', syncMenu);
+    navMenu.querySelectorAll('.nav-links a').forEach((a) => {
+      a.addEventListener('click', () => { if (mq.matches) navMenu.removeAttribute('open'); });
+    });
+
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      }
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+  </script>
+</body>
+</html>
