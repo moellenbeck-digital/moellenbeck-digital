@@ -45,11 +45,18 @@
     <section class="section legal-intro">
       <h2>Dokumentenübersicht</h2>
       <p>
-        Diese Seite bündelt die allgemeinen Vertragsbedingungen der Moellenbeck-Digital UG (haftungsbeschränkt) und die ergänzenden Bedingungen für einzelne Produkte. Maßgeblich ist jeweils die Fassung, die im Angebot, Vertrag, Auftrag oder Bestellprozess referenziert wird.
+        Diese Seite bündelt die allgemeinen Vertragsbedingungen der Moellenbeck-Digital UG (haftungsbeschränkt) und die ergänzenden Bedingungen für einzelne Produkte. Maßgeblich ist jeweils die Fassung, die im Angebot, Vertrag, Auftrag oder Bestellprozess ausdrücklich referenziert wird.
+      </p>
+      <p>
+        Diese Übersicht ersetzt nicht den Hinweis auf die jeweils anwendbaren Bedingungen beim Vertragsschluss. Für Verbraucher bleiben zwingende gesetzliche Rechte, insbesondere gesetzliche Mängelrechte und gesonderte Widerrufsbelehrungen, soweit anwendbar, unberührt.
       </p>
       <p>
         Bei Fragen zu Vertragsunterlagen oder produktspezifischen Regelungen erreichen Sie uns unter <a href="mailto:admin@moellenbeck-digital.io">admin@moellenbeck-digital.io</a>.
       </p>
+      <div class="legal-actions" aria-label="Dokumentenaktionen">
+        <button type="button" data-open-all>Alle Bedingungen öffnen</button>
+        <button type="button" data-print>Alle öffnen &amp; drucken</button>
+      </div>
     </section>
 
     <section class="legal-library" aria-label="AGB-Dokumente">
@@ -101,12 +108,12 @@
 
               <h3>7. Haftung</h3>
               <p>
-                Die Haftung richtet sich nach den gesetzlichen Vorschriften. Bei leicht fahrlässiger Verletzung wesentlicher Vertragspflichten ist die Haftung auf den vertragstypischen, vorhersehbaren Schaden begrenzt. Die Haftung für Vorsatz, grobe Fahrlässigkeit, Verletzung von Leben, Körper oder Gesundheit sowie nach zwingenden gesetzlichen Vorschriften bleibt unberührt.
+                Die Haftung richtet sich nach den gesetzlichen Vorschriften. Bei leicht fahrlässiger Verletzung wesentlicher Vertragspflichten ist die Haftung auf den vertragstypischen, vorhersehbaren Schaden begrenzt. Eine Haftungsbeschränkung gilt nicht bei Vorsatz, grober Fahrlässigkeit, Verletzung von Leben, Körper oder Gesundheit, übernommenen Garantien, Ansprüchen nach dem Produkthaftungsgesetz oder anderen zwingenden gesetzlichen Vorschriften.
               </p>
 
               <h3>8. Schlussbestimmungen</h3>
               <p>
-                Es gilt deutsches Recht. Sofern einzelne Bestimmungen unwirksam sein sollten, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt.
+                Es gilt deutsches Recht unter Ausschluss des UN-Kaufrechts, soweit zwingende Verbraucherschutzvorschriften nicht entgegenstehen. Individualvereinbarungen gehen diesen Bedingungen vor. Soweit einzelne Bestimmungen nicht Vertragsbestandteil geworden oder unwirksam sind, gelten die gesetzlichen Vorschriften; die Wirksamkeit des Vertrags im Übrigen bleibt unberührt.
               </p>
             </div>
           </details>
@@ -153,6 +160,11 @@
               <p>
                 Automatisierte Prozesse sind vor produktiver Nutzung fachlich und technisch zu prüfen. Der Kunde ist verantwortlich für Freigaben, Testdaten, fachliche Richtigkeit und die Einhaltung interner Vorgaben.
               </p>
+
+              <h3>6. Export und Sicherung</h3>
+              <p>
+                Der Kunde ist verantwortlich, geschäftskritische Prozessmodelle, Konfigurationen und Ausführungsergebnisse entsprechend den eigenen gesetzlichen, vertraglichen und organisatorischen Aufbewahrungspflichten zu sichern, soweit keine abweichende Vereinbarung getroffen wurde.
+              </p>
             </div>
           </details>
 
@@ -172,12 +184,12 @@
 
               <h3>2. Digitale Organisation und Tiergesundheit</h3>
               <p>
-                anipal.io unterstützt bei der Organisation und Dokumentation tierbezogener Informationen. Die Nutzung ersetzt keine tierärztliche Untersuchung, Diagnose oder Behandlung. In dringenden Fällen ist eine Tierarztpraxis oder ein tierärztlicher Notdienst zu kontaktieren.
+                anipal.io unterstützt bei der Organisation und Dokumentation tierbezogener Informationen. Erinnerungen, Auswertungen und Hinweise sind digitale Organisations- und Informationsfunktionen. Sie ersetzen keine tierärztliche Untersuchung, Diagnose, Therapieempfehlung oder Behandlung. In dringenden Fällen ist unmittelbar eine Tierarztpraxis oder ein tierärztlicher Notdienst zu kontaktieren.
               </p>
 
               <h3>3. Nutzerangaben und Inhalte</h3>
               <p>
-                Nutzer sind für die Richtigkeit, Aktualität und Rechtmäßigkeit der von ihnen eingetragenen Angaben, Dokumente, Bilder und sonstigen Inhalte verantwortlich. Gesundheitsbezogene Hinweise hängen von den bereitgestellten Informationen ab.
+                Nutzer sind für die Richtigkeit, Aktualität und Rechtmäßigkeit der von ihnen eingetragenen Angaben, Dokumente, Bilder und sonstigen Inhalte verantwortlich. App-Hinweise hängen von den bereitgestellten Informationen ab und können unvollständig oder veraltet sein, wenn Angaben fehlen oder nicht aktualisiert werden.
               </p>
 
               <h3>4. Verfügbarkeit und Weiterentwicklung</h3>
@@ -203,5 +215,24 @@
     <span class="separator">/</span>
     <a href="../legal/">AGB</a>
   </footer>
+
+  <script>
+    const legalDetails = document.querySelectorAll('.legal-accordion');
+    const openAllButton = document.querySelector('[data-open-all]');
+    const printButton = document.querySelector('[data-print]');
+
+    openAllButton?.addEventListener('click', () => {
+      legalDetails.forEach((detail) => detail.setAttribute('open', ''));
+    });
+
+    printButton?.addEventListener('click', () => {
+      legalDetails.forEach((detail) => detail.setAttribute('open', ''));
+      window.print();
+    });
+
+    window.addEventListener('beforeprint', () => {
+      legalDetails.forEach((detail) => detail.setAttribute('open', ''));
+    });
+  </script>
 </body>
 </html>
