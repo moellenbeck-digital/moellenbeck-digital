@@ -57,7 +57,7 @@ im Komponenten-Code.
 Drei Schriften mit klar getrennten Rollen:
 
 ```css
---display: 'Syne', sans-serif;                                  /* Headlines */
+--display: 'Space Grotesk', sans-serif;                                  /* Headlines */
 --sans:    'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; /* Fließtext */
 --mono:    'DM Mono', 'Fira Code', monospace;                   /* UI-Details */
 ```
@@ -65,20 +65,20 @@ Drei Schriften mit klar getrennten Rollen:
 Google-Fonts-Import (Gewichte genau so laden):
 
 ```css
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@400;500;600&family=Syne:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 ```
 
 | Rolle | Schrift | Gewicht | Größe | Besonderheit |
 |---|---|---|---|---|
-| H1 / Hero | Syne | 800 | `clamp(2rem, 8vw, 4.5rem)` | `letter-spacing: -0.03em`, `line-height: 1.05` |
-| H2 / Section | Syne | 800 | `clamp(1.75rem, 4vw, 2.5rem)` | `letter-spacing: -0.02em` |
-| H3 / Card-Titel | Syne | 700 | `1.1rem` | `letter-spacing: -0.01em` |
+| H1 / Hero | Space Grotesk | 700 | `clamp(2rem, 8vw, 4.5rem)` | `letter-spacing: -0.03em`, `line-height: 1.05` |
+| H2 / Section | Space Grotesk | 700 | `clamp(1.75rem, 4vw, 2.5rem)` | `letter-spacing: -0.02em` |
+| H3 / Card-Titel | Space Grotesk | 700 | `1.1rem` | `letter-spacing: -0.01em` |
 | Fließtext | Inter | 400 | `0.85–1.05rem` | `line-height: 1.6` |
 | Labels, Nav, Tags, Buttons | DM Mono | 400–500 | `0.7–0.85rem` | `letter-spacing: 0.04–0.15em`, oft `uppercase` |
 
 ### Regeln
 
-- **Syne nur für Überschriften**, nie für Fließtext oder UI-Elemente.
+- **Space Grotesk nur für Überschriften**, nie für Fließtext oder UI-Elemente.
 - **DM Mono für alles "Technische":** Navigation, Buttons, Badges, Nummern,
   Status, Meta-Angaben, Links. Mono-Text bekommt immer positives
   Letter-Spacing; Display-Text immer negatives.
@@ -162,17 +162,17 @@ für Metadaten ohne Gewicht.
 ### Card
 `--bg-elevated`, `1px --border`, `4px` Radius. Hover: Rahmen
 `rgba(251,146,60,0.25)`, `translateY(-2px)`, linker 3px-Akzentbalken
-blendet ein. Aufbau: Mono-Nummer/Marker (`01`, `02` …) → Syne-H3 →
+blendet ein. Aufbau: Mono-Nummer/Marker (`01`, `02` …) → Space-Grotesk-H3 →
 muted Fließtext → optional `>`-Liste → Chips unten (`margin-top: auto`).
 
 ### Section-Header
-Zeile aus: Mono-Marker (z. B. `01`, uppercase, `--accent`) + Syne-H2 +
+Zeile aus: Mono-Marker (z. B. `01`, uppercase, `--accent`) + Space-Grotesk-H2 +
 1px-Linie in `--border`, die den Rest der Zeile füllt (mobil entfällt
 die Linie).
 
 ### CTA- / Kontakt-Panel
 Zentrierte Card mit großem Glow-Radial hinter dem Inhalt
-(`opacity: 0.15`), Mono-Marker, Syne-H2, E-Mail-Link in DM Mono
+(`opacity: 0.15`), Mono-Marker, Space-Grotesk-H2, E-Mail-Link in DM Mono
 `--accent` mit Border-Bottom-Hover.
 
 ## 6. Motion
@@ -228,7 +228,7 @@ als Utility-Klassen oder Komponenten nachbauen.
 
 **Do**
 - Dark-only, ein Orange-Akzent, viel Grau-Raum.
-- Mono für alles Technische, Syne nur für Headlines.
+- Mono für alles Technische, Space Grotesk nur für Headlines.
 - ASCII statt Icons (`>`, `//`, `->`, `<-`).
 - Hover-Feedback über Farbe/Border/2px-Lift.
 - Semantisches HTML, funktionsfähig ohne JavaScript.
@@ -236,6 +236,6 @@ als Utility-Klassen oder Komponenten nachbauen.
 **Don't**
 - Keine zweite Akzentfarbe, keine Verläufe als Flächenfüllung.
 - Keine Radien > 4px, keine Pills, keine weichen Schatten-Stapel.
-- Kein Syne im Fließtext, kein Mono für lange Absätze.
+- Kein Space Grotesk im Fließtext, kein Mono für lange Absätze.
 - Keine Icon-Bibliotheken für Pfeile/Bullets, wo ASCII reicht.
 - Kein reines Weiß (`#fff`) und kein reines Schwarz (`#000`).
