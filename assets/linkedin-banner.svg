@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1584" height="396" viewBox="0 0 1584 396" role="img" aria-labelledby="title desc">
+  <title id="title">Moellenbeck-Digital LinkedIn Banner</title>
+  <desc id="desc">Dark technical banner for Moellenbeck-Digital with orange accent typography.</desc>
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fb923c" stop-opacity="0.32"/>
+      <stop offset="62%" stop-color="#fb923c" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#fb923c" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dot-grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#fb923c" opacity="0.08"/>
+    </pattern>
+    <linearGradient id="status-band" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#fb923c" stop-opacity="0.22"/>
+      <stop offset="48%" stop-color="#fb923c" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#111114" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1584" height="396" fill="#08080a"/>
+  <rect width="1584" height="396" fill="url(#dot-grid)"/>
+  <circle cx="1280" cy="198" r="360" fill="url(#glow)"/>
+  <rect x="72" y="76" width="1440" height="232" fill="none" stroke="#222228"/>
+  <rect x="72" y="76" width="5" height="232" fill="#fb923c"/>
+  <rect x="72" y="76" width="520" height="34" fill="url(#status-band)"/>
+
+  <g font-family="DM Mono, SFMono-Regular, Consolas, monospace" font-size="18" letter-spacing="4" text-transform="uppercase">
+    <circle cx="112" cy="93" r="5" fill="#fb923c"/>
+    <text x="132" y="100" fill="#fb923c">MD_</text>
+    <text x="198" y="100" fill="#222228">/</text>
+    <text x="222" y="100" fill="#6b6b76">Digital Studio</text>
+  </g>
+
+  <g transform="translate(440 128)">
+    <text x="0" y="0" fill="#fb923c" font-family="DM Mono, SFMono-Regular, Consolas, monospace" font-size="15" font-weight="500" letter-spacing="3">UG (HAFTUNGSBESCHRAENKT)</text>
+    <text x="0" y="68" fill="#e8e8ed" font-family="Syne, Inter, system-ui, sans-serif" font-size="66" font-weight="800" letter-spacing="-2">moellenbeck</text>
+    <text x="0" y="134" fill="#fb923c" font-family="Syne, Inter, system-ui, sans-serif" font-size="66" font-weight="800" letter-spacing="-2">digital</text>
+    <text x="3" y="176" fill="#e8e8ed" font-family="Inter, system-ui, sans-serif" font-size="23">Software, Automatisierung und KI.</text>
+  </g>
+
+  <g font-family="DM Mono, SFMono-Regular, Consolas, monospace" font-size="16" letter-spacing="1.6">
+    <text x="112" y="282" fill="#222228">//</text>
+    <text x="146" y="282" fill="#6b6b76">Digital · Remote</text>
+    <text x="1254" y="282" fill="#fb923c">moellenbeck-digital.io -&gt;</text>
+  </g>
+</svg>
