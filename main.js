@@ -58,7 +58,7 @@
   }
 
   /* ── Hover-Glow folgt dem Zeiger ── */
-  document.querySelectorAll('.cap-tile, .shw').forEach((el) => {
+  document.querySelectorAll('.cap-tile, .prod').forEach((el) => {
     el.addEventListener('pointermove', (ev) => {
       const r = el.getBoundingClientRect();
       el.style.setProperty('--mx', `${ev.clientX - r.left}px`);

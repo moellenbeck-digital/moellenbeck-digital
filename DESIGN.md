@@ -14,7 +14,7 @@ Statische Seite mit den Prinzipien von x.ai, umgesetzt in MD-Farben. Die Prinzip
 4. **Eigener Player.** Glas-Pill „Mit Ton ansehen“, danach Pause/Weiter und eine Ton-Pill, Zeitangabe, dünne orange Fortschrittslinie. Kein Browser-Chrome.
 5. **Ton.** Die Vorschau (`v6-preview.mp4`, 12 s) läuft stumm in Schleife, nur wenn sie sichtbar ist. Ein Klick lädt `v6-main.mp4` (48 s) und spielt mit Ton. UI-Sounds (WebAudio-Klick) sind optional über den Schalter in der Nav, standardmäßig aus.
 6. **Fähigkeiten.** Vier große Kacheln mit den 2D-Agenten-Bots aus v6 (Stills, `assets/img/bots/`). Ein Hover-Glow folgt dem Zeiger und nimmt die Farbe des Bots an.
-7. **Showcases als Bento.** MD-Agenten und KI-Mitarbeiter Hausverwaltung als große Medien-Kacheln (Stills aus v6), Anipal, BloomMD und wave-mesh als Typo-Kacheln. Darunter „Weitere Projekte“ als Zeilenliste.
+7. **Plattform als Bento (Phase 3).** Leitsatz „Agents prepare. Humans decide.“ Jedes Produkt: ein Satz, ein Visual in Bot-/Karten-/Glow-Sprache (SVG/HTML, keine Screenshots), ein Link. HV nur als „Bald“ + Warteliste (mailto), keine Preise. Anipal nur als Referenz. SitePilot bewusst nicht (Frage an Max). Früher: **Showcases als Bento.** MD-Agenten und KI-Mitarbeiter Hausverwaltung als große Medien-Kacheln (Stills aus v6), Anipal, BloomMD und wave-mesh als Typo-Kacheln. Darunter „Weitere Projekte“ als Zeilenliste.
 8. **Motion.** Fade-up und Blur-in, Zeitkurve `cubic-bezier(.22,1,.36,1)`. Bei `prefers-reduced-motion` gibt es keine Animation, kein Autoplay und keine Sticky-Strecke.
 9. **Nav.** Minimal, sticky, wird beim Scrollen zur Glas-Pill.
 10. **Footer.** Groß: Spalten plus ein riesiges `MD_`-Wordmark mit Orange-Verlauf.
@@ -37,8 +37,8 @@ Nav (Glas-Pill, Sound-Schalter, Kontakt)
 Hero (Headline + Roboter-Avatar)
 Film / SHW-01 (sticky Bühne, v6)
 Fähigkeiten (2×2 Kacheln mit Bots)
-Showcases (Bento: MD-Agenten, KI-Mitarbeiter HV, Anipal, BloomMD, wave-mesh + Weitere Projekte)
-Team
+Die Plattform (Bento: Agentische Infrastruktur als Anker, BloomMD, wave-mesh, ProcessCube, KI-Mitarbeiter HV „Bald“ + Referenzen & Beteiligungen)
+Team (+ Zeile „Plus ein Team aus KI-Agenten“)
 Kontakt
 Footer (groß)
 ```
