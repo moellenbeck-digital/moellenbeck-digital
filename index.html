@@ -33,582 +33,323 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"></noscript>
+  <link rel="preload" as="image" href="assets/img/roboter.webp" type="image/webp" fetchpriority="high">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
-  <!-- ══ NAV ══ -->
-  <nav>
-    <a class="logo" href="index.html">
-      <img src="assets/md_variante1.svg" alt="Moellenbeck-Digital" height="28">
-    </a>
-    <div class="nav-right">
+  <!-- ══ NAV: minimal, sticky, glasig ══ -->
+  <header class="site-nav" id="siteNav">
+    <div class="nav-inner">
+      <a class="logo" href="index.html" aria-label="Moellenbeck-Digital – Startseite">
+        <img src="assets/md_variante1.svg" alt="" width="93" height="28">
+      </a>
       <details class="nav-menu">
-        <summary aria-label="Menü öffnen"><span></span><span></span><span></span></summary>
-        <div class="nav-links">
-          <a href="#showcase">Showcase</a>
+        <summary aria-label="Menü"><span></span><span></span></summary>
+        <nav class="nav-links" aria-label="Hauptnavigation">
+          <a href="#film">Film</a>
           <a href="#services">Fähigkeiten</a>
+          <a href="#showcases">Showcases</a>
           <a href="#member">Team</a>
-          <a href="#projekte">Projekte</a>
-          <a href="#kontakt">Kontakt</a>
-        </div>
+        </nav>
       </details>
-      <button class="sound-toggle" id="soundToggle" type="button"
-              aria-label="UI-Sounds einschalten" aria-pressed="false"
-              title="UI-Sounds (Standard: aus)">
-        <span class="sound-icon sound-off" aria-hidden="true">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M2 5H4L7 2V12L4 9H2V5Z" stroke="currentColor" stroke-width="1.2" fill="none"/>
-            <line x1="10" y1="4.5" x2="12.5" y2="9.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-            <line x1="12.5" y1="4.5" x2="10" y2="9.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+      <div class="nav-actions">
+        <button class="sound-toggle" id="soundToggle" type="button"
+                aria-label="UI-Sounds einschalten" aria-pressed="false"
+                title="UI-Sounds (Standard: aus)">
+          <svg class="sound-off" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M2 5H4L7 2V12L4 9H2V5Z" stroke="currentColor" stroke-width="1.2"/>
+            <path d="M10 4.5L12.5 9.5M12.5 4.5L10 9.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
           </svg>
-        </span>
-        <span class="sound-icon sound-on" aria-hidden="true" hidden>
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M2 5H4L7 2V12L4 9H2V5Z" stroke="currentColor" stroke-width="1.2" fill="none"/>
-            <path d="M9 4.5C9.8 5.3 10.5 6.1 10.5 7C10.5 7.9 9.8 8.7 9 9.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-            <path d="M11 2.5C12.5 3.8 13.5 5.3 13.5 7C13.5 8.7 12.5 10.2 11 11.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <svg class="sound-on" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" hidden>
+            <path d="M2 5H4L7 2V12L4 9H2V5Z" stroke="currentColor" stroke-width="1.2"/>
+            <path d="M9 4.5C9.8 5.3 10.5 6.1 10.5 7C10.5 7.9 9.8 8.7 9 9.5M11 2.5C12.5 3.8 13.5 5.3 13.5 7C13.5 8.7 12.5 10.2 11 11.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
           </svg>
-        </span>
-      </button>
+        </button>
+        <a class="nav-cta" href="#kontakt" data-sound="click">Kontakt</a>
+      </div>
     </div>
-  </nav>
+  </header>
 
-  <main>
+  <main id="main">
 
-    <!-- ══════════════════════════════════════════════
-         HERO — Vollflächig, kinematisch
-    ══════════════════════════════════════════════ -->
-    <section class="hero" id="hero">
-      <div class="hero-bg" aria-hidden="true">
-        <video class="hero-bg-video" id="heroBgVideo"
-               autoplay muted loop playsinline preload="auto"
-               poster="assets/img/v6-poster.jpg">
-          <source src="assets/video/v6-preview.mp4" type="video/mp4">
-        </video>
-        <div class="hero-vignette"></div>
-      </div>
-      <!-- decorative glows -->
-      <div class="hero-glow-orange" aria-hidden="true"></div>
-      <div class="hero-glow-blue" aria-hidden="true"></div>
-
-      <div class="hero-content">
-        <div class="hero-label fadeup" style="--d:0.1s">// MD_ Digital Studio</div>
-        <h1>
-          <span class="fadeup" style="--d:0.25s">Software.</span>
-          <span class="fadeup" style="--d:0.35s">Automatisierung.</span>
-          <span class="accent fadeup" style="--d:0.45s">KI-Agenten<span class="cursor" aria-hidden="true"></span></span>
-        </h1>
-        <p class="hero-sub fadeup" style="--d:0.6s">
-          Wir bauen Software, automatisieren Prozesse und entwickeln KI-Agenten – pragmatisch, durchdacht und remote.
-        </p>
-        <div class="hero-actions fadeup" style="--d:0.75s">
-          <a href="#kontakt" class="btn-primary" data-sound="click">Kontakt aufnehmen</a>
-          <a href="#showcase" class="btn-ghost" data-sound="click">Showcase ansehen</a>
-        </div>
+    <!-- ══ HERO: kinematisch, Licht statt Karte ══ -->
+    <section class="hero" id="hero" aria-labelledby="heroTitle">
+      <div class="hero-light" aria-hidden="true">
+        <span class="light light-orange"></span>
+        <span class="light light-blue"></span>
+        <span class="light light-violet"></span>
+        <span class="hero-lines"></span>
       </div>
 
-      <div class="hero-scroll-hint fadeup" style="--d:1.2s" aria-hidden="true">
-        <div class="scroll-line"></div>
-        <span>scroll</span>
-      </div>
-    </section>
-
-    <!-- ══════════════════════════════════════════════
-         SHOWCASE — v6 Video, Scroll-Scale
-    ══════════════════════════════════════════════ -->
-    <section class="showcase-section" id="showcase">
-      <div class="container">
-        <div class="section-intro reveal">
-          <span class="section-marker">SHW / 01</span>
-          <h2>One team of<br><em>humans and agents.</em></h2>
-          <p>Wasserschaden, 7:12 Uhr. Sechs Stationen – von der Meldung bis zur Freigabe.</p>
-        </div>
-      </div>
-
-      <!-- Scroll-scale sticky wrapper -->
-      <div class="showcase-sticky-wrap" id="showcaseStickyWrap">
-        <div class="showcase-sticky">
-          <div class="showcase-video-stage" id="showcaseVideoStage">
-            <!-- Preview (muted loop autoplay) -->
-            <video id="previewVideo"
-                   class="showcase-video"
-                   muted loop playsinline preload="none"
-                   poster="assets/img/v6-poster.jpg"
-                   aria-label="Vorschau: One team of humans and agents (stumm, Schleife)">
-              <source src="assets/video/v6-preview.mp4" type="video/mp4">
-            </video>
-            <!-- Reduced-motion: statisches Poster (standardmäßig hidden; JS oder CSS tauscht) -->
-            <div class="video-static-poster" id="videoStaticPoster" hidden>
-              <picture>
-                <source srcset="assets/img/v6-poster.webp" type="image/webp">
-                <img src="assets/img/v6-poster.jpg"
-                     alt="One team of humans and agents – Video Poster"
-                     width="1280" height="720" loading="lazy">
-              </picture>
-            </div>
-            <!-- Custom Player UI -->
-            <div class="player-ui" id="playerUI">
-              <button class="sound-pill" id="soundPill" type="button"
-                      aria-label="Video mit Ton abspielen">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                  <polygon points="1,0 12,6 1,12" fill="currentColor"/>
-                </svg>
-                <span>Mit Ton abspielen</span>
-              </button>
-              <div class="progress-wrap" aria-hidden="true">
-                <div class="progress-track" id="progressTrack">
-                  <div class="progress-bar" id="progressBar"></div>
-                </div>
-              </div>
-              <span class="video-meta">EN · 48 s</span>
-            </div>
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <a class="announce fadeup" style="--d:.05s" href="#film" data-sound="click">
+            <span class="announce-tag">Neu</span>
+            <span>Film: One team of humans and agents</span>
+            <span class="announce-arrow" aria-hidden="true">→</span>
+          </a>
+          <h1 id="heroTitle" class="hero-title">
+            <span class="line blurin" style="--d:.15s">Software.</span>
+            <span class="line blurin" style="--d:.28s">Automatisierung.</span>
+            <span class="line accent blurin" style="--d:.41s">KI-Agenten<span class="cursor" aria-hidden="true"></span></span>
+          </h1>
+          <p class="hero-sub fadeup" style="--d:.6s">
+            Wir bauen Software, automatisieren Prozesse und entwickeln KI-Agenten – pragmatisch, durchdacht und remote.
+          </p>
+          <div class="hero-actions fadeup" style="--d:.72s">
+            <a href="#kontakt" class="btn btn-primary" data-sound="click">Kontakt aufnehmen</a>
+            <a href="#film" class="btn-text" data-sound="click">Film ansehen <span aria-hidden="true">↓</span></a>
           </div>
         </div>
-      </div>
 
-      <div class="container">
-        <div class="showcase-desc reveal">
-          <ul>
-            <li>Mail-Agent erkennt Dringlichkeit und meldet den Fall</li>
-            <li>Prozess-Agent arbeitet festgelegte Schritte ab</li>
-            <li>Entwurf mit Quellenangabe, Freigabe eingeholt</li>
-            <li>Keine Nachricht geht ohne Genehmigung raus</li>
-            <li>Ein Nein zählt – Lauf gestoppt, Regel verbessert</li>
-          </ul>
-          <div class="tag-row">
-            <span>Agenten-System</span>
-            <span>Prozessautomatisierung</span>
-            <span>KI</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══════════════════════════════════════════════
-         FÄHIGKEITEN — 2×2-Kacheln
-    ══════════════════════════════════════════════ -->
-    <section class="capabilities-section" id="services">
-      <div class="cap-glow-blue" aria-hidden="true"></div>
-      <div class="cap-glow-violet" aria-hidden="true"></div>
-      <div class="container">
-        <div class="section-intro reveal">
-          <span class="section-marker">// 01</span>
-          <h2>Was wir bauen.</h2>
-        </div>
-        <div class="cap-grid">
-          <div class="cap-tile reveal">
-            <div class="cap-num">01</div>
-            <h3>KI-Agenten<br>&amp; OpenClaw</h3>
-            <p>Assistenten, Agents und Integrationen, die Wissen und Werkzeuge verbinden. MCP-Server, RAG und Dokumenten-Suche.</p>
-            <div class="tag-row">
-              <span>Claude</span><span>OpenClaw</span><span>MCP</span><span>RAG</span>
-            </div>
-          </div>
-          <div class="cap-tile reveal">
-            <div class="cap-num">02</div>
-            <h3>Prozess&shy;automatisierung</h3>
-            <p>Wiederkehrende Abläufe in Workflows – BPMN modelliert, sauber integriert. Prüf- und Freigabe-Routing, Fristüberwachung, ProcessCube als Engine.</p>
-            <div class="tag-row">
-              <span>ProcessCube</span><span>BPMN 2.0</span><span>APIs</span>
-            </div>
-          </div>
-          <div class="cap-tile reveal">
-            <div class="cap-num">03</div>
-            <h3>Web &amp; Apps</h3>
-            <p>Webapps, mobile Apps, interne Tools und APIs – vom Konzept bis ins Deployment.</p>
-            <div class="tag-row">
-              <span>TypeScript</span><span>Next.js</span><span>iOS</span><span>Supabase</span>
-            </div>
-          </div>
-          <div class="cap-tile reveal">
-            <div class="cap-num">04</div>
-            <h3>Plattform<br>&amp; Infra</h3>
-            <p>Selbst gehostete Infrastruktur, Netzwerke und DevOps für Teams, die ihre Daten selbst kontrollieren wollen.</p>
-            <div class="tag-row">
-              <span>k3s</span><span>GitOps</span><span>WireGuard</span><span>Self-Hosting</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══════════════════════════════════════════════
-         MASKOTTCHEN — Das ist MD_
-    ══════════════════════════════════════════════ -->
-    <section class="mascot-section" id="md">
-      <div class="mascot-bg-glow" aria-hidden="true"></div>
-      <div class="container">
-        <div class="mascot-content">
-          <div class="mascot-visual reveal">
-            <div class="mascot-halo" aria-hidden="true"></div>
+        <div class="hero-avatar" aria-hidden="true">
+          <div class="avatar-halo"></div>
+          <div class="avatar-parallax" id="avatarParallax">
             <picture>
               <source srcset="assets/img/roboter.webp" type="image/webp">
-              <img src="assets/img/roboter.png"
-                   alt="MD_ Roboter-Maskottchen"
-                   class="mascot-robot" id="mascotRobot"
-                   width="380" height="380" loading="lazy">
+              <img src="assets/img/roboter.png" alt="" class="avatar-img"
+                   width="760" height="760" fetchpriority="high" decoding="async">
             </picture>
           </div>
-          <div class="mascot-text reveal">
-            <span class="section-marker">// Das ist MD_</span>
-            <h2>Ein kleines Team.<br>Echte Produkte.</h2>
-            <p>Drei Menschen, ein klarer Fokus: Software, die wirklich funktioniert – ohne Buzzwords, ohne versteckte Kosten.</p>
-            <a href="#kontakt" class="btn-primary" data-sound="click">Gespräch anfangen</a>
+          <div class="avatar-shadow"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ FILM: sticky Bühne, wächst beim Scrollen ══ -->
+    <section class="film" id="film" aria-labelledby="filmTitle">
+      <div class="film-track" id="filmTrack">
+        <div class="film-sticky">
+          <div class="film-head" id="filmHead">
+            <span class="marker">SHW / 01 · Film · 48 s</span>
+            <h2 id="filmTitle" class="sr-only">One team of humans and agents</h2>
+          </div>
+
+          <div class="film-stage" id="filmStage">
+            <div class="film-glow" aria-hidden="true"></div>
+            <div class="film-media" id="filmMedia">
+              <video id="filmVideo" class="film-video"
+                     muted loop playsinline preload="none"
+                     poster="assets/img/v6-poster.jpg"
+                     aria-label="One team of humans and agents – Vorschau ohne Ton">
+                <source src="assets/video/v6-preview.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <div class="player" id="player" data-state="preview">
+              <button class="glass-pill" id="playPill" type="button" data-sound="click">
+                <svg class="i-play" width="11" height="12" viewBox="0 0 11 12" aria-hidden="true"><path d="M0 0L11 6L0 12Z" fill="currentColor"/></svg>
+                <svg class="i-pause" width="11" height="12" viewBox="0 0 11 12" aria-hidden="true"><path d="M0 0H3.5V12H0ZM7.5 0H11V12H7.5Z" fill="currentColor"/></svg>
+                <span class="pill-label" id="playLabel">Mit Ton ansehen</span>
+              </button>
+              <button class="glass-pill glass-pill--icon" id="mutePill" type="button" aria-label="Ton aus" hidden>
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 5H4L7 2V12L4 9H2V5Z" stroke="currentColor" stroke-width="1.2"/><path class="wave" d="M9 4.5C9.8 5.3 10.5 6.1 10.5 7C10.5 7.9 9.8 8.7 9 9.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+              </button>
+              <span class="player-meta" id="playerMeta">EN · 48 s</span>
+            </div>
+            <div class="progress" aria-hidden="true"><span class="progress-bar" id="progressBar"></span></div>
           </div>
         </div>
       </div>
+
+      <div class="container film-caption">
+        <p class="lead reveal">Wasserschaden, 7:12 Uhr. Sechs Stationen – von der Meldung bis zur Freigabe.</p>
+        <ol class="steps reveal">
+          <li><span>01</span>Mail-Agent erkennt Dringlichkeit und meldet den Fall</li>
+          <li><span>02</span>Prozess-Agent arbeitet festgelegte Schritte ab</li>
+          <li><span>03</span>Entwurf mit Quellenangabe, Freigabe eingeholt</li>
+          <li><span>04</span>Keine Nachricht geht ohne Genehmigung raus</li>
+          <li><span>05</span>Ein Nein zählt – Lauf gestoppt, Regel verbessert</li>
+        </ol>
+      </div>
     </section>
 
-    <!-- ══════════════════════════════════════════════
-         TEAM
-    ══════════════════════════════════════════════ -->
-    <section class="team-section" id="member">
+    <!-- ══ FÄHIGKEITEN ══ -->
+    <section class="section capabilities" id="services" aria-labelledby="capTitle">
+      <div class="section-light" aria-hidden="true"></div>
       <div class="container">
-        <div class="section-intro reveal">
-          <span class="section-marker">// 02</span>
-          <h2>Team.</h2>
-        </div>
-        <div class="team-grid">
-          <article class="team-card reveal">
-            <div class="team-avatar">EM</div>
-            <div class="team-info">
-              <div class="team-role">CEO · Organisation</div>
-              <h3>Emma Möllenbeck</h3>
-              <p>Hält bei Moellenbeck-Digital Menschen, Themen und Abläufe zusammen. Als CEO kümmert sie sich um Organisation und Administration – mit einem Blick für Details und den Zusammenhalt im Team. Fitnesstrainerin und Sportmanagement-Studentin.</p>
-              <div class="tag-row">
-                <span>Organisation</span><span>Coaching</span><span>Sportmanagement</span>
-              </div>
-            </div>
+        <header class="section-head reveal">
+          <span class="marker">// 01 · Fähigkeiten</span>
+          <h2 id="capTitle">Was wir bauen.</h2>
+        </header>
+        <div class="cap-grid">
+          <article class="cap-tile reveal" style="--tone:96,165,250">
+            <img class="cap-bot" src="assets/img/bots/bot-blue.webp" alt="" width="280" height="320" loading="lazy" decoding="async">
+            <span class="cap-num">01</span>
+            <h3>KI-Agenten &amp; OpenClaw</h3>
+            <p>Assistenten und Agents, die Wissen und Werkzeuge verbinden.</p>
+            <ul class="tags"><li>Claude</li><li>OpenClaw</li><li>MCP</li><li>RAG</li></ul>
           </article>
-          <article class="team-card reveal">
-            <div class="team-avatar">MM</div>
-            <div class="team-info">
-              <div class="team-role">Tech Lead · Software &amp; KI</div>
-              <h3>Martin Möllenbeck</h3>
-              <p>Entwickelt Software und macht komplexe Technik verständlich. Fokus auf Automatisierung, KI und OpenClaw – mit einem Blick für praktischen Nutzen.</p>
-              <div class="tag-row">
-                <span>Softwarearchitektur</span><span>KI &amp; OpenClaw</span><span>BPMN</span>
-              </div>
-            </div>
+          <article class="cap-tile reveal" style="--tone:167,139,250">
+            <img class="cap-bot" src="assets/img/bots/bot-violet.webp" alt="" width="280" height="320" loading="lazy" decoding="async">
+            <span class="cap-num">02</span>
+            <h3>Prozess&shy;automatisierung</h3>
+            <p>Wiederkehrende Abläufe als BPMN-Workflows – mit Prüfung und Freigabe.</p>
+            <ul class="tags"><li>ProcessCube</li><li>BPMN 2.0</li><li>APIs</li></ul>
           </article>
-          <article class="team-card reveal">
-            <div class="team-avatar">MX</div>
-            <div class="team-info">
-              <div class="team-role">Product Builder</div>
-              <h3>Max Möllenbeck</h3>
-              <p>Leitet anipal.io und bringt technische Ideen schnell in echte Produkte. Zuhause in TypeScript, iOS, React und Supabase – mit starkem Fokus auf AI.</p>
-              <div class="tag-row">
-                <span>TypeScript</span><span>iOS</span><span>React</span><span>AI</span>
-              </div>
-            </div>
+          <article class="cap-tile reveal" style="--tone:244,114,182">
+            <img class="cap-bot" src="assets/img/bots/bot-pink.webp" alt="" width="280" height="320" loading="lazy" decoding="async">
+            <span class="cap-num">03</span>
+            <h3>Web &amp; Apps</h3>
+            <p>Webapps, mobile Apps, interne Tools und APIs – bis ins Deployment.</p>
+            <ul class="tags"><li>TypeScript</li><li>Next.js</li><li>iOS</li><li>Supabase</li></ul>
+          </article>
+          <article class="cap-tile reveal" style="--tone:52,211,153">
+            <img class="cap-bot" src="assets/img/bots/bot-green.webp" alt="" width="280" height="320" loading="lazy" decoding="async">
+            <span class="cap-num">04</span>
+            <h3>Plattform &amp; Infra</h3>
+            <p>Selbst gehostete Infrastruktur für Teams, die ihre Daten selbst kontrollieren.</p>
+            <ul class="tags"><li>k3s</li><li>GitOps</li><li>WireGuard</li></ul>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ══════════════════════════════════════════════
-         PROJEKTE
-    ══════════════════════════════════════════════ -->
-    <section class="projects-section" id="projekte">
+    <!-- ══ SHOWCASES ══ -->
+    <section class="section showcases" id="showcases" aria-labelledby="shwTitle">
       <div class="container">
-        <div class="section-intro reveal">
-          <span class="section-marker">// 03</span>
-          <h2>Projekte.</h2>
-        </div>
-        <div class="projects-grid">
-          <article class="project-card reveal">
-            <div class="project-badge active">Aktiv</div>
-            <span class="project-num">PRJ/01</span>
-            <h3>ProcessCube®</h3>
-            <p>BPMN-basierte Automatisierungs-Plattform mit Engine, Studio und Portal – modular und API-getrieben.</p>
-            <div class="tag-row">
-              <span>BPMN 2.0</span><span>Node.js</span><span>TypeScript</span><span>AI</span>
+        <header class="section-head reveal">
+          <span class="marker">// 02 · Showcases</span>
+          <h2 id="shwTitle">Im Einsatz.</h2>
+        </header>
+
+        <div class="bento">
+          <article class="shw shw--media reveal" style="--tone:251,146,60">
+            <div class="shw-visual">
+              <img src="assets/img/showcase/md-agenten-record.webp" alt="Protokoll aus dem Film: Übergaben zwischen Agenten und Freigabe durch einen Menschen" width="1280" height="720" loading="lazy" decoding="async">
             </div>
-            <a class="project-link" href="https://processcube.io" target="_blank" rel="noopener">processcube.io</a>
-          </article>
-          <article class="project-card reveal">
-            <div class="project-badge active">Aktiv</div>
-            <span class="project-num">PRJ/02</span>
-            <h3>anipal.io</h3>
-            <p>Moderne Plattform für Tiergesundheit – für Tierbesitzer und Praxen. App, Daten und AI.</p>
-            <div class="tag-row">
-              <span>TypeScript</span><span>iOS</span><span>Supabase</span><span>AI</span>
+            <div class="shw-body">
+              <span class="shw-meta">SHW/01 · Agenten-System</span>
+              <h3>MD-Agenten</h3>
+              <p>Ein Team aus Menschen und Agenten. Jeder Schritt ist protokolliert, jede Nachricht braucht eine Freigabe.</p>
+              <a class="shw-link" href="#film" data-sound="click">Film ansehen <span aria-hidden="true">→</span></a>
             </div>
-            <a class="project-link" href="https://anipal.io" target="_blank" rel="noopener">anipal.io</a>
           </article>
-          <article class="project-card reveal">
-            <div class="project-badge active">Aktiv</div>
-            <span class="project-num">PRJ/03</span>
-            <h3>wave-mesh</h3>
-            <p>Selbst gehostetes Netzwerk über WireGuard – auch hinter NAT und ohne Portfreigabe.</p>
-            <div class="tag-row">
-              <span>WireGuard</span><span>Mesh-Netzwerk</span><span>Self-Hosting</span>
+
+          <article class="shw shw--media reveal" style="--tone:96,165,250">
+            <div class="shw-visual">
+              <img src="assets/img/showcase/hv-eingang.webp" alt="Posteingang einer Hausverwaltung: Meldung „Water dripping from the ceiling!“ mit Mail-Agent" width="1280" height="720" loading="lazy" decoding="async">
             </div>
-            <a class="project-link" href="https://wave-mesh.org/" target="_blank" rel="noopener">wave-mesh.org</a>
-          </article>
-          <article class="project-card reveal">
-            <div class="project-badge preview">Preview</div>
-            <span class="project-num">PRJ/04</span>
-            <h3>Content World Easy</h3>
-            <p>KI-Arbeitsbereich für Redaktionen: Webinhalte sammeln, verarbeiten und als Post, Newsletter oder Übersetzung weiterverwenden.</p>
-            <div class="tag-row">
-              <span>KI</span><span>Redaktion</span><span>Content-Workflows</span>
+            <div class="shw-body">
+              <span class="shw-meta">SHW/02 · Pilot</span>
+              <h3>KI-Mitarbeiter Hausverwaltung</h3>
+              <p>Liest den Eingang, erkennt Notfälle und bereitet Maßnahmen mit Quellen vor. Raus geht nur, was ein Mensch freigibt.</p>
             </div>
-            <a class="project-link" href="https://content-world.de/" target="_blank" rel="noopener">content-world.de</a>
           </article>
-          <article class="project-card reveal">
-            <div class="project-badge closed-beta">Closed Beta</div>
-            <span class="project-num">PRJ/05</span>
+
+          <article class="shw shw--type reveal" style="--tone:56,189,248">
+            <span class="shw-meta">SHW/03 · Aktiv</span>
+            <h3>Anipal</h3>
+            <p>Plattform für Tiergesundheit – für Tierbesitzer und Praxen. App, Daten und AI.</p>
+            <a class="shw-link" href="https://anipal.io" target="_blank" rel="noopener">anipal.io <span aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="shw shw--type reveal" style="--tone:234,88,12">
+            <span class="shw-meta">SHW/04 · Closed Beta</span>
             <h3>BloomMD</h3>
-            <p>Markdown-Dateien als interaktive Maps – local-first, offene .md-Dateien, Obsidian-kompatibel.</p>
-            <div class="tag-row">
-              <span>Markdown</span><span>Local-first</span><span>Obsidian</span>
-            </div>
-            <a class="project-link" href="https://bloommd.io" target="_blank" rel="noopener">bloommd.io</a>
+            <p>Markdown-Dateien als interaktive Maps – local-first und Obsidian-kompatibel.</p>
+            <a class="shw-link" href="https://bloommd.io" target="_blank" rel="noopener">bloommd.io <span aria-hidden="true">↗</span></a>
           </article>
-          <article class="project-card reveal">
-            <div class="project-badge active">Aktiv</div>
-            <span class="project-num">PRJ/06</span>
-            <h3>WAVe</h3>
-            <p>Verbindet Initiativen rund um Wissenschaft, Kultur und Community – mit Forschung, Dialog und globaler Wertegemeinschaft.</p>
-            <div class="tag-row">
-              <span>Science</span><span>Culture</span><span>Community</span>
-            </div>
-            <a class="project-link" href="https://wavecenter.org" target="_blank" rel="noopener">wavecenter.org</a>
+
+          <article class="shw shw--type reveal" style="--tone:129,140,248">
+            <span class="shw-meta">SHW/05 · Aktiv</span>
+            <h3>wave-mesh</h3>
+            <p>Selbst gehostetes Netzwerk über WireGuard – auch hinter NAT, ohne Portfreigabe.</p>
+            <a class="shw-link" href="https://wave-mesh.org/" target="_blank" rel="noopener">wave-mesh.org <span aria-hidden="true">↗</span></a>
           </article>
-          <article class="project-card project-cta reveal">
-            <div class="project-badge slot">Freier Slot</div>
-            <span class="project-num">PRJ/07</span>
-            <h3>Hier könnte Ihr Projekt stehen</h3>
-            <p>Idee, internen Prozess oder Produkt? Melden Sie sich – wir prüfen gemeinsam, was sinnvoll und machbar ist.</p>
-            <div class="tag-row">
-              <span>Software</span><span>Automatisierung</span><span>KI</span>
-            </div>
-            <a class="project-link" href="#kontakt">Kontakt aufnehmen</a>
+        </div>
+
+        <div class="more reveal">
+          <h3 class="more-title">Weitere Projekte</h3>
+          <ul class="more-list">
+            <li><a href="https://processcube.io" target="_blank" rel="noopener"><span class="more-name">ProcessCube®</span><span class="more-desc">BPMN-Plattform mit Engine, Studio und Portal</span><span class="more-go" aria-hidden="true">↗</span></a></li>
+            <li><a href="https://content-world.de/" target="_blank" rel="noopener"><span class="more-name">Content World Easy</span><span class="more-desc">KI-Arbeitsbereich für Redaktionen · Preview</span><span class="more-go" aria-hidden="true">↗</span></a></li>
+            <li><a href="https://wavecenter.org" target="_blank" rel="noopener"><span class="more-name">WAVe</span><span class="more-desc">Wissenschaft, Kultur und Community</span><span class="more-go" aria-hidden="true">↗</span></a></li>
+            <li><a href="#kontakt"><span class="more-name">Ihr Projekt</span><span class="more-desc">Freier Slot – wir prüfen, was sinnvoll ist</span><span class="more-go" aria-hidden="true">→</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ TEAM ══ -->
+    <section class="section team" id="member" aria-labelledby="teamTitle">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="marker">// 03 · Team</span>
+          <h2 id="teamTitle">Ein kleines Team.<br><span class="muted">Echte Produkte.</span></h2>
+        </header>
+        <div class="team-grid">
+          <article class="person reveal">
+            <span class="person-initials" aria-hidden="true">EM</span>
+            <span class="person-role">CEO · Organisation</span>
+            <h3>Emma Möllenbeck</h3>
+            <p>Hält Menschen, Themen und Abläufe zusammen. Kümmert sich als CEO um Organisation und Administration. Fitnesstrainerin und Sportmanagement-Studentin.</p>
+          </article>
+          <article class="person reveal">
+            <span class="person-initials" aria-hidden="true">MM</span>
+            <span class="person-role">Tech Lead · Software &amp; KI</span>
+            <h3>Martin Möllenbeck</h3>
+            <p>Entwickelt Software und macht komplexe Technik verständlich. Fokus auf Automatisierung, KI und OpenClaw.</p>
+          </article>
+          <article class="person reveal">
+            <span class="person-initials" aria-hidden="true">MX</span>
+            <span class="person-role">Product Builder</span>
+            <h3>Max Möllenbeck</h3>
+            <p>Leitet anipal.io und bringt technische Ideen schnell in echte Produkte. TypeScript, iOS, React und Supabase – mit Fokus auf AI.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ══════════════════════════════════════════════
-         KONTAKT
-    ══════════════════════════════════════════════ -->
-    <section class="contact-section" id="kontakt">
-      <div class="contact-glow" aria-hidden="true"></div>
-      <div class="container">
-        <div class="contact-inner reveal">
-          <span class="section-marker">// 04 · Kontakt</span>
-          <h2>Idee, Problem<br>oder Projekt?</h2>
-          <a class="contact-email" href="mailto:admin@moellenbeck-digital.io">
-            admin@moellenbeck-digital.io
-          </a>
-        </div>
+    <!-- ══ KONTAKT ══ -->
+    <section class="contact" id="kontakt" aria-labelledby="contactTitle">
+      <div class="contact-light" aria-hidden="true"></div>
+      <div class="container contact-inner reveal">
+        <span class="marker">// 04 · Kontakt</span>
+        <h2 id="contactTitle">Idee, Problem<br>oder Projekt?</h2>
+        <a class="btn btn-primary btn-lg" href="mailto:admin@moellenbeck-digital.io" data-sound="click">admin@moellenbeck-digital.io</a>
       </div>
     </section>
 
   </main>
 
-  <!-- ══ FOOTER ══ -->
-  <footer>
+  <!-- ══ FOOTER: groß ══ -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="assets/md_variante1.svg" alt="Moellenbeck-Digital" width="93" height="28" loading="lazy">
+        <p>Software, Automatisierung und KI-Agenten. Digital &amp; Remote.</p>
+      </div>
+      <nav class="footer-col" aria-label="Seite">
+        <span class="footer-h">Seite</span>
+        <a href="#film">Film</a>
+        <a href="#services">Fähigkeiten</a>
+        <a href="#showcases">Showcases</a>
+        <a href="#member">Team</a>
+      </nav>
+      <nav class="footer-col" aria-label="Projekte">
+        <span class="footer-h">Projekte</span>
+        <a href="https://anipal.io" target="_blank" rel="noopener">Anipal</a>
+        <a href="https://bloommd.io" target="_blank" rel="noopener">BloomMD</a>
+        <a href="https://wave-mesh.org/" target="_blank" rel="noopener">wave-mesh</a>
+        <a href="https://processcube.io" target="_blank" rel="noopener">ProcessCube</a>
+      </nav>
+      <nav class="footer-col" aria-label="Rechtliches">
+        <span class="footer-h">Rechtliches</span>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutzerklärung</a>
+        <a href="mailto:admin@moellenbeck-digital.io">Kontakt</a>
+      </nav>
+    </div>
     <div class="footer-wordmark" aria-hidden="true">MD_<span class="cursor"></span></div>
-    <nav class="footer-nav" aria-label="Footer-Navigation">
-      <a href="impressum.html">Impressum</a>
-      <span aria-hidden="true">/</span>
-      <a href="datenschutz.html">Datenschutzerklärung</a>
-    </nav>
+    <div class="container footer-base">
+      <span>© 2026 Moellenbeck-Digital UG (haftungsbeschränkt)</span>
+      <span>UI-Sounds: Standard aus</span>
+    </div>
   </footer>
 
-  <script>
-    // ── Reduced motion ──
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-    // ── Nav: Mobile-Menü ──
-    const navMenu = document.querySelector('.nav-menu');
-    const mq = window.matchMedia('(max-width: 600px)');
-    const syncMenu = () => { if (mq.matches) navMenu.removeAttribute('open'); else navMenu.setAttribute('open', ''); };
-    syncMenu();
-    mq.addEventListener('change', syncMenu);
-    navMenu.querySelectorAll('.nav-links a').forEach((a) => {
-      a.addEventListener('click', () => { if (mq.matches) navMenu.removeAttribute('open'); });
-    });
-
-    // ── UI-Sounds (Standard: aus) ──
-    const soundToggle = document.getElementById('soundToggle');
-    let soundsOn = localStorage.getItem('md-sounds') === 'on';
-    let audioCtx = null;
-
-    function getAudioCtx() {
-      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      return audioCtx;
-    }
-
-    function playClick() {
-      if (!soundsOn) return;
-      try {
-        const ctx = getAudioCtx();
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-        osc.connect(gain); gain.connect(ctx.destination);
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(880, ctx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(440, ctx.currentTime + 0.06);
-        gain.gain.setValueAtTime(0.08, ctx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.08);
-        osc.start(ctx.currentTime);
-        osc.stop(ctx.currentTime + 0.08);
-      } catch (e) { /* ignore */ }
-    }
-
-    function updateSoundToggle() {
-      soundToggle.setAttribute('aria-pressed', soundsOn ? 'true' : 'false');
-      soundToggle.setAttribute('aria-label', soundsOn ? 'UI-Sounds ausschalten' : 'UI-Sounds einschalten');
-      soundToggle.querySelector('.sound-off').hidden = soundsOn;
-      soundToggle.querySelector('.sound-on').hidden = !soundsOn;
-    }
-
-    updateSoundToggle();
-    soundToggle.addEventListener('click', () => {
-      soundsOn = !soundsOn;
-      localStorage.setItem('md-sounds', soundsOn ? 'on' : 'off');
-      updateSoundToggle();
-      if (soundsOn) playClick();
-    });
-    document.querySelectorAll('[data-sound="click"]').forEach((el) => {
-      el.addEventListener('click', playClick);
-    });
-
-    // ── Scroll-Reveal ──
-    const revealObs = new IntersectionObserver((entries) => {
-      for (const e of entries) {
-        if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
-      }
-    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal').forEach((el) => revealObs.observe(el));
-
-    // ── Hero Video: Autoplay + Pause outside viewport ──
-    const heroBgVideo = document.getElementById('heroBgVideo');
-    if (heroBgVideo) {
-      if (reducedMotion.matches) {
-        heroBgVideo.removeAttribute('autoplay');
-        heroBgVideo.style.display = 'none';
-      } else {
-        const heroObs = new IntersectionObserver((entries) => {
-          for (const e of entries) {
-            if (e.isIntersecting) heroBgVideo.play().catch(() => {});
-            else heroBgVideo.pause();
-          }
-        }, { threshold: 0 });
-        heroObs.observe(heroBgVideo);
-      }
-    }
-
-    // ── Showcase Video: load + autoplay muted loop ──
-    const previewVideo = document.getElementById('previewVideo');
-    const videoStaticPoster = document.getElementById('videoStaticPoster');
-    const playerUI = document.getElementById('playerUI');
-    const soundPill = document.getElementById('soundPill');
-    const progressBar = document.getElementById('progressBar');
-
-    if (previewVideo) {
-      if (reducedMotion.matches) {
-        previewVideo.style.display = 'none';
-        videoStaticPoster.hidden = false;
-      } else {
-        videoStaticPoster.hidden = true;
-        const vidObs = new IntersectionObserver((entries) => {
-          for (const e of entries) {
-            if (e.isIntersecting) {
-              previewVideo.load();
-              previewVideo.play().catch(() => {});
-            } else {
-              previewVideo.pause();
-            }
-          }
-        }, { threshold: 0.15 });
-        vidObs.observe(previewVideo);
-
-        previewVideo.addEventListener('timeupdate', () => {
-          if (previewVideo.duration) {
-            progressBar.style.width = (previewVideo.currentTime / previewVideo.duration * 100) + '%';
-          }
-        });
-      }
-    }
-
-    // Sound Pill: replace preview with full video (with controls + sound)
-    if (soundPill) {
-      soundPill.addEventListener('click', () => {
-        playClick();
-        const stage = document.getElementById('showcaseVideoStage');
-        const fullVideo = document.createElement('video');
-        fullVideo.src = 'assets/video/v6-main.mp4';
-        fullVideo.poster = 'assets/img/v6-poster.jpg';
-        fullVideo.controls = true;
-        fullVideo.playsInline = true;
-        fullVideo.setAttribute('aria-label', 'One team of humans and agents – EN, 48 s');
-        fullVideo.className = 'showcase-video full-video';
-        const replaceTarget = reducedMotion.matches ? videoStaticPoster : previewVideo;
-        replaceTarget.replaceWith(fullVideo);
-        if (playerUI) playerUI.style.display = 'none';
-        fullVideo.play().catch(() => {});
-      });
-    }
-
-    // ── Showcase: Scroll-Scale effect (rAF-throttled) ──
-    if (!reducedMotion.matches) {
-      const stickyWrap = document.getElementById('showcaseStickyWrap');
-      const videoStage = document.getElementById('showcaseVideoStage');
-
-      if (stickyWrap && videoStage) {
-        let rafPending = false;
-
-        function updateScale() {
-          rafPending = false;
-          const rect = stickyWrap.getBoundingClientRect();
-          const totalScroll = stickyWrap.offsetHeight - window.innerHeight;
-          if (totalScroll <= 0) {
-            videoStage.style.transform = 'scale(1)';
-            videoStage.style.opacity = '1';
-            return;
-          }
-          const scrolled = Math.max(0, -rect.top);
-          const progress = Math.min(1, scrolled / totalScroll);
-          const scale = 0.78 + progress * 0.22;
-          const opacity = 0.45 + progress * 0.55;
-          videoStage.style.transform = `scale(${scale})`;
-          videoStage.style.opacity = opacity;
-        }
-
-        window.addEventListener('scroll', () => {
-          if (!rafPending) { rafPending = true; requestAnimationFrame(updateScale); }
-        }, { passive: true });
-        updateScale();
-      }
-    }
-
-    // ── Mascot: Scroll-Parallax ──
-    if (!reducedMotion.matches) {
-      const mascotRobot = document.getElementById('mascotRobot');
-      if (mascotRobot) {
-        const mascotSection = mascotRobot.closest('.mascot-section');
-        let rafPending = false;
-        window.addEventListener('scroll', () => {
-          if (!rafPending) {
-            rafPending = true;
-            requestAnimationFrame(() => {
-              rafPending = false;
-              const rect = mascotSection.getBoundingClientRect();
-              const vh = window.innerHeight;
-              if (rect.bottom < 0 || rect.top > vh) return;
-              const progress = (vh - rect.top) / (vh + rect.height);
-              const y = (progress - 0.5) * -50;
-              mascotRobot.style.transform = `translateY(${y}px)`;
-            });
-          }
-        }, { passive: true });
-      }
-    }
-  </script>
+  <script src="main.js" defer></script>
 </body>
 </html>
