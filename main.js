@@ -182,21 +182,6 @@
   window.addEventListener('resize', onScroll, { passive: true });
   frame();
 
-  /* ── Hero-Hintergrundvideo: nur laden/abspielen wenn sichtbar ── */
-  const heroBgVideo = $('heroBgVideo');
-  if (heroBgVideo && !reduce.matches) {
-    new IntersectionObserver((entries) => {
-      for (const e of entries) {
-        const visible = e.isIntersecting && getComputedStyle(heroBgVideo).display !== 'none';
-        if (visible) {
-          if (heroBgVideo.preload === 'none') { heroBgVideo.preload = 'auto'; heroBgVideo.load(); }
-          heroBgVideo.play().catch(() => {});
-        } else {
-          heroBgVideo.pause();
-        }
-      }
-    }, { threshold: 0.05 }).observe(heroBgVideo);
-  }
 
   /* Zeiger-Parallax für den Avatar (nur Desktop, nur mit Motion) */
   const hero = $('hero');
