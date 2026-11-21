@@ -4,21 +4,21 @@
   <script>document.documentElement.classList.add('js')</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Moellenbeck-Digital UG — Software-Engineering, Automatisierung und KI-Lösungen. Digital &amp; Remote.">
+  <meta name="description" content="Moellenbeck-Digital UG — Software-Engineering, Automatisierung und KI-Agenten. Digital &amp; Remote.">
   <meta name="theme-color" content="#08080a">
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://moellenbeck-digital.io/">
   <meta property="og:title" content="Moellenbeck-Digital UG (haftungsbeschränkt)">
-  <meta property="og:description" content="Pragmatisch gebaute Software, Automatisierung und KI. Digital &amp; Remote.">
+  <meta property="og:description" content="Software, Automatisierung und KI-Agenten – pragmatisch gebaut. Digital &amp; Remote.">
   <meta property="og:image" content="https://moellenbeck-digital.io/assets/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Moellenbeck-Digital — Pragmatisch gebaute Software, Automatisierung und KI.">
+  <meta property="og:image:alt" content="Moellenbeck-Digital — Software, Automatisierung und KI-Agenten.">
   <meta property="og:locale" content="de_DE">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Moellenbeck-Digital UG (haftungsbeschränkt)">
-  <meta name="twitter:description" content="Pragmatisch gebaute Software, Automatisierung und KI. Digital &amp; Remote.">
+  <meta name="twitter:description" content="Software, Automatisierung und KI-Agenten – pragmatisch gebaut.">
   <meta name="twitter:image" content="https://moellenbeck-digital.io/assets/og-image.png">
 
   <title>Moellenbeck-Digital UG (haftungsbeschränkt)</title>
@@ -29,40 +29,132 @@
   <link rel="icon" href="assets/favicon-192x192.png" sizes="192x192" type="image/png">
   <link rel="icon" href="assets/favicon-512x512.png" sizes="512x512" type="image/png">
   <link rel="apple-touch-icon" href="assets/favicon-180x180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"></noscript>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <nav>
     <a class="logo" href="index.html"><img src="assets/md_variante1.svg" alt="Moellenbeck-Digital" height="28"></a>
-    <details class="nav-menu" open>
-      <summary aria-label="Menü öffnen"><span></span><span></span><span></span></summary>
-      <div class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#member">Member</a>
-        <a href="#projekte">Projekte</a>
-        <a href="#kontakt">Kontakt</a>
-      </div>
-    </details>
+    <div class="nav-right">
+      <details class="nav-menu">
+        <summary aria-label="Menü öffnen"><span></span><span></span><span></span></summary>
+        <div class="nav-links">
+          <a href="#showcases">Showcases</a>
+          <a href="#services">Services</a>
+          <a href="#member">Team</a>
+          <a href="#projekte">Projekte</a>
+          <a href="#kontakt">Kontakt</a>
+        </div>
+      </details>
+      <button class="sound-toggle" id="soundToggle" type="button"
+              aria-label="UI-Sounds einschalten" aria-pressed="false"
+              title="UI-Sounds (Standard: aus)">
+        <span class="sound-icon sound-off" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 5H4L7 2V12L4 9H2V5Z" stroke="currentColor" stroke-width="1.2" fill="none"/>
+            <line x1="10" y1="4.5" x2="12.5" y2="9.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+            <line x1="12.5" y1="4.5" x2="10" y2="9.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="sound-icon sound-on" aria-hidden="true" hidden>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 5H4L7 2V12L4 9H2V5Z" stroke="currentColor" stroke-width="1.2" fill="none"/>
+            <path d="M9 4.5C9.8 5.3 10.5 6.1 10.5 7C10.5 7.9 9.8 8.7 9 9.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+            <path d="M11 2.5C12.5 3.8 13.5 5.3 13.5 7C13.5 8.7 12.5 10.2 11 11.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </span>
+      </button>
+    </div>
   </nav>
 
   <main>
     <!-- HERO -->
     <section class="hero-wrapper">
-      <div class="hero">
-        <div class="tag">Digital Studio</div>
-        <h1>moellenbeck<span>digital</span></h1>
-        <div class="suffix">UG (haftungsbeschränkt)<span class="cursor"></span></div>
-        <p class="lead">
-          Software, Automatisierung und KI &mdash; pragmatisch gebaut.
-          Wir machen Technik nahbar und liefern Lösungen, die im Alltag funktionieren.
-        </p>
-        <div class="hero-cta">
-          <a class="btn-primary" href="#kontakt">Kontakt aufnehmen &rarr;</a>
-          <a class="btn-link" href="#services">Was wir machen &darr;</a>
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-new">
+        <div class="hero-text">
+          <div class="tag" style="animation-delay: 0.1s">// Digital Studio</div>
+          <h1>
+            <span class="hero-line fadeup" style="--d:0.25s">Software</span>
+            <span class="hero-sep fadeup" style="--d:0.3s" aria-hidden="true"> · </span>
+            <span class="hero-line fadeup" style="--d:0.35s">Automatisierung</span>
+            <span class="hero-sep fadeup" style="--d:0.4s" aria-hidden="true"> · </span>
+            <span class="hero-line hero-line-accent fadeup" style="--d:0.45s">KI-Agenten<span class="cursor" aria-hidden="true"></span></span>
+          </h1>
+          <p class="hero-lead fadeup" style="--d:0.55s">
+            Wir bauen Software, automatisieren Prozesse und entwickeln KI-Agenten –<br>
+            pragmatisch, durchdacht und remote.
+          </p>
+          <div class="hero-cta fadeup" style="--d:0.65s">
+            <a class="btn-primary" href="#kontakt" data-sound="click">Kontakt aufnehmen</a>
+            <a class="btn-secondary" href="#showcases" data-sound="click">Showcases ansehen -></a>
+          </div>
         </div>
-        <address class="address">
-          Remote
-        </address>
+        <div class="hero-visual fadeup" style="--d:0.3s" aria-hidden="true">
+          <div class="robot-glow"></div>
+          <picture>
+            <source srcset="assets/img/roboter.webp" type="image/webp">
+            <img src="assets/img/roboter.png" alt="" class="robot-float" width="400" height="400">
+          </picture>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHOWCASES -->
+    <section id="showcases" class="block showcase-section">
+      <div class="block-header reveal">
+        <span class="marker">// SHW</span>
+        <h2>Showcases</h2>
+        <div class="line"></div>
+      </div>
+
+      <!-- MD_Process Showcase -->
+      <div class="showcase-item reveal">
+        <div class="showcase-text">
+          <span class="card-num">SHW/01</span>
+          <h3>MD_Process</h3>
+          <p>Rechnungsprüfung mit festem Ablauf – Skonto sicher. Eine ProcessCube-Automatisierung, die zeigt, wie BPMN-Prozesse im Alltag aussehen und laufen.</p>
+          <ul>
+            <li>Festes Prüf- und Freigabe-Routing</li>
+            <li>Skonto-Fristüberwachung automatisiert</li>
+            <li>ProcessCube als Engine</li>
+          </ul>
+          <div class="stack">
+            <span>ProcessCube</span>
+            <span>BPMN 2.0</span>
+            <span>Automatisierung</span>
+          </div>
+        </div>
+
+        <div class="video-card" id="mdProcessCard">
+          <div class="video-wrapper" role="region" aria-label="MD_Process Showcase-Video">
+            <!-- Preview loop (autoplay, muted, stumm) -->
+            <video class="video-preview" id="videoPreview"
+                   muted loop playsinline preload="none"
+                   poster="assets/img/md-process-poster.jpg"
+                   aria-label="MD_Process Kurzvorschau (stumm, Schleife)">
+              <source src="assets/video/md-process-preview.mp4" type="video/mp4">
+            </video>
+            <!-- Reduced-motion: statisches Poster mit Play-Button -->
+            <div class="video-static-poster" id="videoStaticPoster" hidden>
+              <picture>
+                <source srcset="assets/img/md-process-poster.webp" type="image/webp">
+                <img src="assets/img/md-process-poster.jpg"
+                     alt="MD_Process Video Vorschaubild"
+                     width="720" height="900" loading="lazy">
+              </picture>
+            </div>
+          </div>
+          <div class="video-controls">
+            <button class="btn-sound-trigger" id="btnSound" type="button"
+                    aria-label="MD_Process-Video mit Ton abspielen">
+              <span aria-hidden="true">▶</span> Video mit Ton abspielen
+            </button>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -323,12 +415,10 @@
     <a href="impressum.html">Impressum</a>
     <span class="separator">/</span>
     <a href="datenschutz.html">Datenschutzerklärung</a>
-    <span class="separator">/</span>
-    <a href="legal/">AGB</a>
   </footer>
 
   <script>
-    // Menü auf Mobile geschlossen starten; schließen, wenn ein Link geklickt wird
+    // ── Nav: Mobile-Menü ──
     const navMenu = document.querySelector('.nav-menu');
     const mq = window.matchMedia('(max-width: 600px)');
     const syncMenu = () => { if (mq.matches) navMenu.removeAttribute('open'); else navMenu.setAttribute('open', ''); };
@@ -338,16 +428,117 @@
       a.addEventListener('click', () => { if (mq.matches) navMenu.removeAttribute('open'); });
     });
 
-    // Sanftes Scroll-Reveal für Sektionen
-    const io = new IntersectionObserver((entries) => {
+    // ── Scroll-Reveal ──
+    const revealObs = new IntersectionObserver((entries) => {
       for (const e of entries) {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          io.unobserve(e.target);
-        }
+        if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
       }
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+    document.querySelectorAll('.reveal').forEach((el) => revealObs.observe(el));
+
+    // ── UI-Sounds (Standard: aus) ──
+    const soundToggle = document.getElementById('soundToggle');
+    let soundsOn = localStorage.getItem('md-sounds') === 'on';
+    let audioCtx = null;
+
+    function getAudioCtx() {
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      return audioCtx;
+    }
+
+    function playClick() {
+      if (!soundsOn) return;
+      try {
+        const ctx = getAudioCtx();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain); gain.connect(ctx.destination);
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(880, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(440, ctx.currentTime + 0.06);
+        gain.gain.setValueAtTime(0.08, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.08);
+        osc.start(ctx.currentTime);
+        osc.stop(ctx.currentTime + 0.08);
+      } catch (e) { /* ignore */ }
+    }
+
+    function updateSoundToggle() {
+      soundToggle.setAttribute('aria-pressed', soundsOn ? 'true' : 'false');
+      soundToggle.setAttribute('aria-label', soundsOn ? 'UI-Sounds ausschalten' : 'UI-Sounds einschalten');
+      soundToggle.querySelector('.sound-off').hidden = soundsOn;
+      soundToggle.querySelector('.sound-on').hidden = !soundsOn;
+    }
+
+    updateSoundToggle();
+
+    soundToggle.addEventListener('click', () => {
+      soundsOn = !soundsOn;
+      localStorage.setItem('md-sounds', soundsOn ? 'on' : 'off');
+      updateSoundToggle();
+      if (soundsOn) playClick();
+    });
+
+    document.querySelectorAll('[data-sound="click"]').forEach((el) => {
+      el.addEventListener('click', playClick);
+      el.addEventListener('mouseenter', () => { if (soundsOn) playClick(); });
+    });
+
+    // ── Video Showcase ──
+    const videoPreview = document.getElementById('videoPreview');
+    const videoStaticPoster = document.getElementById('videoStaticPoster');
+    const btnSound = document.getElementById('btnSound');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    if (videoPreview) {
+      if (reducedMotion.matches) {
+        // Kein Autoplay: Poster zeigen, Play-Button für volles Video
+        videoPreview.hidden = true;
+        videoStaticPoster.hidden = false;
+        btnSound.setAttribute('aria-label', 'MD_Process-Video abspielen');
+      } else {
+        // Autoplay-Preview nur wenn sichtbar
+        const vidObs = new IntersectionObserver((entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              videoPreview.play().catch(() => {});
+            } else {
+              videoPreview.pause();
+            }
+          }
+        }, { threshold: 0.2 });
+        vidObs.observe(videoPreview);
+      }
+    }
+
+    // "Ton an"-Button: volles Video laden und mit Ton abspielen
+    if (btnSound && videoPreview) {
+      btnSound.addEventListener('click', () => {
+        playClick();
+
+        const card = document.querySelector('.video-card');
+        const wrapper = card.querySelector('.video-wrapper');
+
+        const fullVideo = document.createElement('video');
+        fullVideo.src = 'assets/video/md-process-main.mp4';
+        fullVideo.poster = 'assets/img/md-process-poster.jpg';
+        fullVideo.controls = true;
+        fullVideo.playsInline = true;
+        fullVideo.setAttribute('aria-label', 'MD_Process Showcase-Video mit Ton und Sprache');
+        fullVideo.style.cssText = 'width:100%;display:block;border-radius:4px;';
+        fullVideo.setAttribute('tabindex', '0');
+
+        // Ersetze Preview oder statisches Poster
+        const toReplace = reducedMotion.matches ? videoStaticPoster : videoPreview;
+        toReplace.replaceWith(fullVideo);
+
+        btnSound.hidden = true;
+
+        fullVideo.play().catch(() => {
+          fullVideo.muted = false;
+        });
+      });
+    }
   </script>
 </body>
 </html>
