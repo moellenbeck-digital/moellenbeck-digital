@@ -76,6 +76,14 @@
 
     <!-- ══ HERO: kinematisch, Licht statt Karte ══ -->
     <section class="hero" id="hero" aria-labelledby="heroTitle">
+      <!-- stumme Hintergrundschleife; aria-hidden, kein LCP-Einfluss -->
+      <div class="hero-bg-video" aria-hidden="true">
+        <video class="hero-bg-reel" id="heroBgVideo"
+               muted loop playsinline preload="none"
+               poster="assets/img/v6-poster.webp">
+          <source src="assets/video/v6-preview.mp4" type="video/mp4">
+        </video>
+      </div>
       <div class="hero-light" aria-hidden="true">
         <span class="light light-orange"></span>
         <span class="light light-blue"></span>
