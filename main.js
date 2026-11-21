@@ -192,9 +192,8 @@
       const dx = (ev.clientX - r.left) / r.width - 0.5;
       const dy = (ev.clientY - r.top) / r.height - 0.5;
       img.style.translate = `${(dx * 18).toFixed(1)}px ${(dy * 12).toFixed(1)}px`;
-      img.style.rotate = `${(dx * 4).toFixed(2)}deg`;
     });
-    hero.addEventListener('pointerleave', () => { img.style.translate = '0 0'; img.style.rotate = '0deg'; });
+    hero.addEventListener('pointerleave', () => { img.style.translate = '0 0'; });
   }
 
   /* ── Kontaktformular: Validierung + mailto-Versand (kein externer Dienst) ── */
