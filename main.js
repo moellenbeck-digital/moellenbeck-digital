@@ -196,4 +196,49 @@
     });
     hero.addEventListener('pointerleave', () => { img.style.translate = '0 0'; img.style.rotate = '0deg'; });
   }
+
+  /* ── Kontaktformular: Validierung + mailto-Versand (kein externer Dienst) ── */
+  const form = $('contactForm');
+  if (form) {
+    const TO = 'admin@moellenbeck-digital.io';
+    const subject = $('cfSubject');
+    const status = $('formStatus');
+    const rules = [
+      ['cfName', (v) => v.trim().length >= 2, 'Bitte geben Sie Ihren Namen ein.'],
+      ['cfMail', (v) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()), 'Bitte geben Sie eine gültige E-Mail-Adresse ein.'],
+      ['cfSubject', (v) => v !== '', 'Bitte wählen Sie einen Betreff.'],
+      ['cfMsg', (v) => v.trim().length >= 10, 'Bitte schreiben Sie mindestens 10 Zeichen.'],
+    ];
+    const check = (id) => {
+      const [, ok, msg] = rules.find((r) => r[0] === id);
+      const el = $(id); const err = $(`${id}Err`);
+      const valid = ok(el.value);
+      el.setAttribute('aria-invalid', String(!valid));
+      err.textContent = valid ? '' : msg;
+      return valid;
+    };
+    rules.forEach(([id]) => $(id).addEventListener('blur', () => { if ($(id).value) check(id); }));
+    rules.forEach(([id]) => $(id).addEventListener('input', () => { if ($(id).getAttribute('aria-invalid') === 'true') check(id); }));
+
+    form.addEventListener('submit', (ev) => {
+      ev.preventDefault();
+      const bad = rules.map(([id]) => check(id) ? null : id).filter(Boolean);
+      if (bad.length) { status.textContent = 'Bitte prüfen Sie die markierten Felder.'; $(bad[0]).focus(); return; }
+      const name = $('cfName').value.trim();
+      const mail = $('cfMail').value.trim();
+      const body = `${$('cfMsg').value.trim()}\n\n—\nName: ${name}\nE-Mail: ${mail}`;
+      const href = `mailto:${TO}?subject=${encodeURIComponent(`[Website] ${subject.value} – ${name}`)}&body=${encodeURIComponent(body)}`;
+      status.textContent = 'Ihr E-Mail-Programm öffnet sich mit der fertigen Nachricht. Bitte dort absenden.';
+      window.location.href = href;
+    });
+
+    /* CTA mit data-subject: springt zum Formular und setzt den Betreff vor */
+    document.querySelectorAll('[data-subject]').forEach((a) => a.addEventListener('click', () => {
+      subject.value = a.dataset.subject;
+      if (subject.getAttribute('aria-invalid') === 'true') check('cfSubject');
+      setTimeout(() => $('cfName').focus({ preventScroll: true }), reduce.matches ? 0 : 600);
+    }));
+    const pre = new URLSearchParams(location.search).get('betreff');
+    if (pre && [...subject.options].some((o) => o.value === pre || o.text === pre)) subject.value = pre;
+  }
 })();

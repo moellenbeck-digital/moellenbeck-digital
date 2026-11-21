@@ -37,9 +37,9 @@ Nav (Glas-Pill, Sound-Schalter, Kontakt)
 Hero (Headline + Roboter-Avatar)
 Film / SHW-01 (sticky Bühne, v6)
 Fähigkeiten (2×2 Kacheln mit Bots)
-Die Plattform (Bento: Agentische Infrastruktur als Anker, BloomMD, wave-mesh, ProcessCube, KI-Mitarbeiter HV „Bald“ + Referenzen & Beteiligungen)
+Die Plattform (Bento, 5 Kacheln: Agentische Infrastruktur (Anker), MD_Process, KI-Agenten & KI-Mitarbeiter („Bald“, HV als Beispiel), BloomMD, wave-mesh) + kleine Referenz Anipal
 Team (+ Zeile „Plus ein Team aus KI-Agenten“)
-Kontakt
+Kontakt (statisches Formular: Name, E-Mail, Betreff, Nachricht; Validierung + aria-invalid/aria-live; Versand per mailto an admin@, kein externer Dienst)
 Footer (groß)
 ```
 
@@ -61,3 +61,7 @@ Das MD_Process-Video und das 3D-v9-Video sind nicht im Repo und nicht auf der Se
 - **ElevenLabs:** Für Stimmen und Musik im v6-Video ist vor dem Live-Gang ein bezahlter ElevenLabs-Plan nötig (kommerzielle Nutzung). Das entscheidet Max.
 - **Sprache:** Das Video ist auf Englisch, die Seite auf Deutsch. Ob es eine deutsche Fassung gibt, entscheidet Max.
 - **Merge = Live:** Ein Merge auf `main` geht sofort über GitHub Pages live. Er braucht Max' Freigabe.
+
+## Phase 4 (Max, 21.11. 16:47)
+
+ProcessCube raus, SitePilot bleibt draußen. Plattform zeigt nur MD_Process, BloomMD, wave-mesh, Agenten-Infrastruktur, KI-Agenten/KI-Mitarbeiter. Warteliste über das Kontaktformular (Betreff „KI-Mitarbeiter Warteliste“, CTAs mit `data-subject` setzen den Betreff vor, auch `?betreff=` in der URL). Öffentlich nur „Pilotphase startet bald“.
