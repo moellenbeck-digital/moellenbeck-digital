@@ -36,14 +36,18 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- ══ NAV ══ -->
   <nav>
-    <a class="logo" href="index.html"><img src="assets/md_variante1.svg" alt="Moellenbeck-Digital" height="28"></a>
+    <a class="logo" href="index.html">
+      <img src="assets/md_variante1.svg" alt="Moellenbeck-Digital" height="28">
+    </a>
     <div class="nav-right">
       <details class="nav-menu">
         <summary aria-label="Menü öffnen"><span></span><span></span><span></span></summary>
         <div class="nav-links">
-          <a href="#showcases">Showcases</a>
-          <a href="#services">Services</a>
+          <a href="#showcase">Showcase</a>
+          <a href="#services">Fähigkeiten</a>
           <a href="#member">Team</a>
           <a href="#projekte">Projekte</a>
           <a href="#kontakt">Kontakt</a>
@@ -71,353 +75,354 @@
   </nav>
 
   <main>
-    <!-- HERO -->
-    <section class="hero-wrapper">
-      <div class="hero-glow" aria-hidden="true"></div>
-      <div class="hero-new">
-        <div class="hero-text">
-          <div class="tag" style="animation-delay: 0.1s">// Digital Studio</div>
-          <h1>
-            <span class="hero-line fadeup" style="--d:0.25s">Software</span>
-            <span class="hero-sep fadeup" style="--d:0.3s" aria-hidden="true"> · </span>
-            <span class="hero-line fadeup" style="--d:0.35s">Automatisierung</span>
-            <span class="hero-sep fadeup" style="--d:0.4s" aria-hidden="true"> · </span>
-            <span class="hero-line hero-line-accent fadeup" style="--d:0.45s">KI-Agenten<span class="cursor" aria-hidden="true"></span></span>
-          </h1>
-          <p class="hero-lead fadeup" style="--d:0.55s">
-            Wir bauen Software, automatisieren Prozesse und entwickeln KI-Agenten –<br>
-            pragmatisch, durchdacht und remote.
-          </p>
-          <div class="hero-cta fadeup" style="--d:0.65s">
-            <a class="btn-primary" href="#kontakt" data-sound="click">Kontakt aufnehmen</a>
-            <a class="btn-secondary" href="#showcases" data-sound="click">Showcases ansehen -></a>
-          </div>
+
+    <!-- ══════════════════════════════════════════════
+         HERO — Vollflächig, kinematisch
+    ══════════════════════════════════════════════ -->
+    <section class="hero" id="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <video class="hero-bg-video" id="heroBgVideo"
+               autoplay muted loop playsinline preload="auto"
+               poster="assets/img/v6-poster.jpg">
+          <source src="assets/video/v6-preview.mp4" type="video/mp4">
+        </video>
+        <div class="hero-vignette"></div>
+      </div>
+      <!-- decorative glows -->
+      <div class="hero-glow-orange" aria-hidden="true"></div>
+      <div class="hero-glow-blue" aria-hidden="true"></div>
+
+      <div class="hero-content">
+        <div class="hero-label fadeup" style="--d:0.1s">// MD_ Digital Studio</div>
+        <h1>
+          <span class="fadeup" style="--d:0.25s">Software.</span>
+          <span class="fadeup" style="--d:0.35s">Automatisierung.</span>
+          <span class="accent fadeup" style="--d:0.45s">KI-Agenten<span class="cursor" aria-hidden="true"></span></span>
+        </h1>
+        <p class="hero-sub fadeup" style="--d:0.6s">
+          Wir bauen Software, automatisieren Prozesse und entwickeln KI-Agenten – pragmatisch, durchdacht und remote.
+        </p>
+        <div class="hero-actions fadeup" style="--d:0.75s">
+          <a href="#kontakt" class="btn-primary" data-sound="click">Kontakt aufnehmen</a>
+          <a href="#showcase" class="btn-ghost" data-sound="click">Showcase ansehen</a>
         </div>
-        <div class="hero-visual fadeup" style="--d:0.3s" aria-hidden="true">
-          <div class="robot-glow"></div>
-          <picture>
-            <source srcset="assets/img/roboter.webp" type="image/webp">
-            <img src="assets/img/roboter.png" alt="" class="robot-float" width="400" height="400">
-          </picture>
-        </div>
+      </div>
+
+      <div class="hero-scroll-hint fadeup" style="--d:1.2s" aria-hidden="true">
+        <div class="scroll-line"></div>
+        <span>scroll</span>
       </div>
     </section>
 
-    <!-- SHOWCASES -->
-    <section id="showcases" class="block showcase-section">
-      <div class="block-header reveal">
-        <span class="marker">// SHW</span>
-        <h2>Showcases</h2>
-        <div class="line"></div>
+    <!-- ══════════════════════════════════════════════
+         SHOWCASE — v6 Video, Scroll-Scale
+    ══════════════════════════════════════════════ -->
+    <section class="showcase-section" id="showcase">
+      <div class="container">
+        <div class="section-intro reveal">
+          <span class="section-marker">SHW / 01</span>
+          <h2>One team of<br><em>humans and agents.</em></h2>
+          <p>Wasserschaden, 7:12 Uhr. Sechs Stationen – von der Meldung bis zur Freigabe.</p>
+        </div>
       </div>
 
-      <!-- MD_Process Showcase -->
-      <div class="showcase-item reveal">
-        <div class="showcase-text">
-          <span class="card-num">SHW/01</span>
-          <h3>MD_Process</h3>
-          <p>Rechnungsprüfung mit festem Ablauf – Skonto sicher. Eine ProcessCube-Automatisierung, die zeigt, wie BPMN-Prozesse im Alltag aussehen und laufen.</p>
-          <ul>
-            <li>Festes Prüf- und Freigabe-Routing</li>
-            <li>Skonto-Fristüberwachung automatisiert</li>
-            <li>ProcessCube als Engine</li>
-          </ul>
-          <div class="stack">
-            <span>ProcessCube</span>
-            <span>BPMN 2.0</span>
-            <span>Automatisierung</span>
-          </div>
-        </div>
-
-        <div class="video-card" id="mdProcessCard">
-          <div class="video-wrapper" role="region" aria-label="MD_Process Showcase-Video">
-            <!-- Preview loop (autoplay, muted, stumm) -->
-            <video class="video-preview" id="videoPreview"
+      <!-- Scroll-scale sticky wrapper -->
+      <div class="showcase-sticky-wrap" id="showcaseStickyWrap">
+        <div class="showcase-sticky">
+          <div class="showcase-video-stage" id="showcaseVideoStage">
+            <!-- Preview (muted loop autoplay) -->
+            <video id="previewVideo"
+                   class="showcase-video"
                    muted loop playsinline preload="none"
-                   poster="assets/img/md-process-poster.jpg"
-                   aria-label="MD_Process Kurzvorschau (stumm, Schleife)">
-              <source src="assets/video/md-process-preview.mp4" type="video/mp4">
+                   poster="assets/img/v6-poster.jpg"
+                   aria-label="Vorschau: One team of humans and agents (stumm, Schleife)">
+              <source src="assets/video/v6-preview.mp4" type="video/mp4">
             </video>
-            <!-- Reduced-motion: statisches Poster mit Play-Button -->
-            <div class="video-static-poster" id="videoStaticPoster" hidden>
+            <!-- Reduced-motion: statisches Poster -->
+            <div class="video-static-poster" id="videoStaticPoster">
               <picture>
-                <source srcset="assets/img/md-process-poster.webp" type="image/webp">
-                <img src="assets/img/md-process-poster.jpg"
-                     alt="MD_Process Video Vorschaubild"
-                     width="720" height="900" loading="lazy">
+                <source srcset="assets/img/v6-poster.webp" type="image/webp">
+                <img src="assets/img/v6-poster.jpg"
+                     alt="One team of humans and agents – Video Poster"
+                     width="1280" height="720" loading="lazy">
               </picture>
             </div>
+            <!-- Custom Player UI -->
+            <div class="player-ui" id="playerUI">
+              <button class="sound-pill" id="soundPill" type="button"
+                      aria-label="Video mit Ton abspielen">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <polygon points="1,0 12,6 1,12" fill="currentColor"/>
+                </svg>
+                <span>Mit Ton abspielen</span>
+              </button>
+              <div class="progress-wrap" aria-hidden="true">
+                <div class="progress-track" id="progressTrack">
+                  <div class="progress-bar" id="progressBar"></div>
+                </div>
+              </div>
+              <span class="video-meta">EN · 48 s</span>
+            </div>
           </div>
-          <div class="video-controls">
-            <button class="btn-sound-trigger" id="btnSound" type="button"
-                    aria-label="MD_Process-Video mit Ton abspielen">
-              <span aria-hidden="true">▶</span> Video mit Ton abspielen
-            </button>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="showcase-desc reveal">
+          <ul>
+            <li>Mail-Agent erkennt Dringlichkeit und meldet den Fall</li>
+            <li>Prozess-Agent arbeitet festgelegte Schritte ab</li>
+            <li>Entwurf mit Quellenangabe, Freigabe eingeholt</li>
+            <li>Keine Nachricht geht ohne Genehmigung raus</li>
+            <li>Ein Nein zählt – Lauf gestoppt, Regel verbessert</li>
+          </ul>
+          <div class="tag-row">
+            <span>Agenten-System</span>
+            <span>Prozessautomatisierung</span>
+            <span>KI</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SERVICES -->
-    <section id="services" class="block">
-      <div class="block-header reveal">
-        <span class="marker">// 01</span>
-        <h2>Services</h2>
-        <div class="line"></div>
-      </div>
-      <div class="grid cols-3">
-        <article class="card reveal">
-          <span class="card-num">SRV/01</span>
-          <h3>Automatisierung &amp; Prozesse</h3>
-          <p>Wiederkehrende Abläufe in Workflows gießen &mdash; mit BPMN modelliert, sauber integriert, dokumentiert.</p>
-          <ul>
-            <li>BPMN-basierte Prozess-Engines</li>
-            <li>API- und System-Integrationen</li>
-            <li>Workflow-Monitoring</li>
-          </ul>
-          <div class="stack">
-            <span>ProcessCube</span>
-            <span>BPMN 2.0</span>
+    <!-- ══════════════════════════════════════════════
+         FÄHIGKEITEN — 2×2-Kacheln
+    ══════════════════════════════════════════════ -->
+    <section class="capabilities-section" id="services">
+      <div class="cap-glow-blue" aria-hidden="true"></div>
+      <div class="cap-glow-violet" aria-hidden="true"></div>
+      <div class="container">
+        <div class="section-intro reveal">
+          <span class="section-marker">// 01</span>
+          <h2>Was wir bauen.</h2>
+        </div>
+        <div class="cap-grid">
+          <div class="cap-tile reveal">
+            <div class="cap-num">01</div>
+            <h3>KI-Agenten<br>&amp; OpenClaw</h3>
+            <p>Assistenten, Agents und Integrationen, die Wissen und Werkzeuge verbinden. MCP-Server, RAG und Dokumenten-Suche.</p>
+            <div class="tag-row">
+              <span>Claude</span><span>OpenClaw</span><span>MCP</span><span>RAG</span>
+            </div>
           </div>
-        </article>
-
-        <article class="card reveal">
-          <span class="card-num">SRV/02</span>
-          <h3>Software-Engineering</h3>
-          <p>Webapps, interne Tools und APIs &mdash; vom Konzept bis ins Deployment.</p>
-          <ul>
-            <li>Web-Frontends &amp; Backends</li>
-            <li>APIs und Datenbanken</li>
-            <li>Code-Reviews &amp; Refactorings</li>
-          </ul>
-          <div class="stack">
-            <span>TypeScript</span>
-            <span>Next.js</span>
-            <span>Node.js</span>
-            <span>iOS</span>
-            <span>PostgreSQL</span>
+          <div class="cap-tile reveal">
+            <div class="cap-num">02</div>
+            <h3>Prozess&shy;automatisierung</h3>
+            <p>Wiederkehrende Abläufe in Workflows – BPMN modelliert, sauber integriert. Prüf- und Freigabe-Routing, Fristüberwachung, ProcessCube als Engine.</p>
+            <div class="tag-row">
+              <span>ProcessCube</span><span>BPMN 2.0</span><span>APIs</span>
+            </div>
           </div>
-        </article>
-
-        <article class="card reveal">
-          <span class="card-num">SRV/03</span>
-          <h3>KI-Lösungen</h3>
-          <p>Assistenten, Agents und Integrationen, die Wissen und Werkzeuge in einem Interface verbinden.</p>
-          <ul>
-            <li>Chat-Assistenten &amp; Agents</li>
-            <li>MCP-Server für eigene Tools</li>
-            <li>RAG &amp; Dokumenten-Suche</li>
-          </ul>
-          <div class="stack">
-            <span>Claude</span>
-            <span>OpenAI</span>
-            <span>OpenClaw</span>
-            <span>Agenten</span>
-            <span>MCP</span>
-            <span>RAG</span>
+          <div class="cap-tile reveal">
+            <div class="cap-num">03</div>
+            <h3>Web &amp; Apps</h3>
+            <p>Webapps, mobile Apps, interne Tools und APIs – vom Konzept bis ins Deployment.</p>
+            <div class="tag-row">
+              <span>TypeScript</span><span>Next.js</span><span>iOS</span><span>Supabase</span>
+            </div>
           </div>
-        </article>
-
+          <div class="cap-tile reveal">
+            <div class="cap-num">04</div>
+            <h3>Plattform<br>&amp; Infra</h3>
+            <p>Selbst gehostete Infrastruktur, Netzwerke und DevOps für Teams, die ihre Daten selbst kontrollieren wollen.</p>
+            <div class="tag-row">
+              <span>k3s</span><span>GitOps</span><span>WireGuard</span><span>Self-Hosting</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- MEMBER -->
-    <section id="member" class="block">
-      <div class="block-header reveal">
-        <span class="marker">// 02</span>
-        <h2>Member</h2>
-        <div class="line"></div>
+    <!-- ══════════════════════════════════════════════
+         MASKOTTCHEN — Das ist MD_
+    ══════════════════════════════════════════════ -->
+    <section class="mascot-section" id="md">
+      <div class="mascot-bg-glow" aria-hidden="true"></div>
+      <div class="container">
+        <div class="mascot-content">
+          <div class="mascot-visual reveal">
+            <div class="mascot-halo" aria-hidden="true"></div>
+            <picture>
+              <source srcset="assets/img/roboter.webp" type="image/webp">
+              <img src="assets/img/roboter.png"
+                   alt="MD_ Roboter-Maskottchen"
+                   class="mascot-robot" id="mascotRobot"
+                   width="380" height="380" loading="lazy">
+            </picture>
+          </div>
+          <div class="mascot-text reveal">
+            <span class="section-marker">// Das ist MD_</span>
+            <h2>Ein kleines Team.<br>Echte Produkte.</h2>
+            <p>Drei Menschen, ein klarer Fokus: Software, die wirklich funktioniert – ohne Buzzwords, ohne versteckte Kosten.</p>
+            <a href="#kontakt" class="btn-primary" data-sound="click">Gespräch anfangen</a>
+          </div>
+        </div>
       </div>
-      <div class="grid cols-3">
-        <article class="card reveal">
-          <div class="member">
-            <div class="member-header">
-              <div class="avatar">EM</div>
-              <div class="member-meta">
-                <div class="role">CEO &middot; Organisation</div>
-                <h3>Emma M&ouml;llenbeck</h3>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         TEAM
+    ══════════════════════════════════════════════ -->
+    <section class="team-section" id="member">
+      <div class="container">
+        <div class="section-intro reveal">
+          <span class="section-marker">// 02</span>
+          <h2>Team.</h2>
+        </div>
+        <div class="team-grid">
+          <article class="team-card reveal">
+            <div class="team-avatar">EM</div>
+            <div class="team-info">
+              <div class="team-role">CEO · Organisation</div>
+              <h3>Emma Möllenbeck</h3>
+              <p>Hält bei Moellenbeck-Digital Menschen, Themen und Abläufe zusammen. Als CEO kümmert sie sich um Organisation und Administration – mit einem Blick für Details und den Zusammenhalt im Team. Fitnesstrainerin und Sportmanagement-Studentin.</p>
+              <div class="tag-row">
+                <span>Organisation</span><span>Coaching</span><span>Sportmanagement</span>
               </div>
             </div>
-            <p>Emma hält bei Moellenbeck-Digital Menschen, Themen und Abläufe zusammen. Als CEO kümmert sie sich um Organisation und Administration &mdash; mit einem Blick für Details und den Zusammenhalt im Team. Sie ist Fitnesstrainerin und studiert Sportmanagement.</p>
-            <p>Auch in ihrer Freizeit ist Emma gern in Bewegung: Sie spielt begeistert Fußball, bereist neue Länder und liebt Konzerte.</p>
-            <div class="stack">
-              <span>Organisation</span>
-              <span>Coaching</span>
-              <span>Sportmanagement</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="card reveal">
-          <div class="member">
-            <div class="member-header">
-              <div class="avatar">MM</div>
-              <div class="member-meta">
-                <div class="role">Tech Lead &middot; Software &amp; KI</div>
-                <h3>Martin M&ouml;llenbeck</h3>
+          </article>
+          <article class="team-card reveal">
+            <div class="team-avatar">MM</div>
+            <div class="team-info">
+              <div class="team-role">Tech Lead · Software &amp; KI</div>
+              <h3>Martin Möllenbeck</h3>
+              <p>Entwickelt Software und macht komplexe Technik verständlich. Fokus auf Automatisierung, KI und OpenClaw – mit einem Blick für praktischen Nutzen.</p>
+              <div class="tag-row">
+                <span>Softwarearchitektur</span><span>KI &amp; OpenClaw</span><span>BPMN</span>
               </div>
             </div>
-            <p>Martin entwickelt Software und macht komplexe Technik verständlich. Als Tech Lead bei Moellenbeck-Digital und ProcessCube beschäftigt ihn vor allem eine Frage: Was lässt sich einfacher machen, statt es immer wieder von Hand zu erledigen? Er arbeitet mit KI und OpenClaw und entwickelt Projekte wie BloomMD und wave-mesh mit Neugier und einem Blick für den praktischen Nutzen.</p>
-            <p>Auch abseits des Codes bleibt er technikbegeistert &ndash; besonders bei seinem Mercedes 190er. Dazu kommen Hunde, Schalke und die Freude, Dingen auf den Grund zu gehen.</p>
-            <div class="stack">
-              <span>Softwarearchitektur</span>
-              <span>KI &amp; OpenClaw</span>
-              <span>Prozessautomatisierung</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="card reveal">
-          <div class="member">
-            <div class="member-header">
-              <div class="avatar">MX</div>
-              <div class="member-meta">
-                <div class="role">Product Builder</div>
-                <h3>Max M&ouml;llenbeck</h3>
+          </article>
+          <article class="team-card reveal">
+            <div class="team-avatar">MX</div>
+            <div class="team-info">
+              <div class="team-role">Product Builder</div>
+              <h3>Max Möllenbeck</h3>
+              <p>Leitet anipal.io und bringt technische Ideen schnell in echte Produkte. Zuhause in TypeScript, iOS, React und Supabase – mit starkem Fokus auf AI.</p>
+              <div class="tag-row">
+                <span>TypeScript</span><span>iOS</span><span>React</span><span>AI</span>
               </div>
             </div>
-            <p>Leitet anipal.io und bringt technische Ideen schnell in echte Produkte. Zuhause in TypeScript, iOS, React und Supabase &mdash; mit starkem Fokus auf AI und praktische Umsetzung.</p>
-            <div class="stack">
-              <span>TypeScript</span>
-              <span>iOS</span>
-              <span>React</span>
-              <span>Supabase</span>
-              <span>AI</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         PROJEKTE
+    ══════════════════════════════════════════════ -->
+    <section class="projects-section" id="projekte">
+      <div class="container">
+        <div class="section-intro reveal">
+          <span class="section-marker">// 03</span>
+          <h2>Projekte.</h2>
+        </div>
+        <div class="projects-grid">
+          <article class="project-card reveal">
+            <div class="project-badge active">Aktiv</div>
+            <span class="project-num">PRJ/01</span>
+            <h3>ProcessCube®</h3>
+            <p>BPMN-basierte Automatisierungs-Plattform mit Engine, Studio und Portal – modular und API-getrieben.</p>
+            <div class="tag-row">
+              <span>BPMN 2.0</span><span>Node.js</span><span>TypeScript</span><span>AI</span>
             </div>
-          </div>
-        </article>
+            <a class="project-link" href="https://processcube.io" target="_blank" rel="noopener">processcube.io</a>
+          </article>
+          <article class="project-card reveal">
+            <div class="project-badge active">Aktiv</div>
+            <span class="project-num">PRJ/02</span>
+            <h3>anipal.io</h3>
+            <p>Moderne Plattform für Tiergesundheit – für Tierbesitzer und Praxen. App, Daten und AI.</p>
+            <div class="tag-row">
+              <span>TypeScript</span><span>iOS</span><span>Supabase</span><span>AI</span>
+            </div>
+            <a class="project-link" href="https://anipal.io" target="_blank" rel="noopener">anipal.io</a>
+          </article>
+          <article class="project-card reveal">
+            <div class="project-badge active">Aktiv</div>
+            <span class="project-num">PRJ/03</span>
+            <h3>wave-mesh</h3>
+            <p>Selbst gehostetes Netzwerk über WireGuard – auch hinter NAT und ohne Portfreigabe.</p>
+            <div class="tag-row">
+              <span>WireGuard</span><span>Mesh-Netzwerk</span><span>Self-Hosting</span>
+            </div>
+            <a class="project-link" href="https://wave-mesh.org/" target="_blank" rel="noopener">wave-mesh.org</a>
+          </article>
+          <article class="project-card reveal">
+            <div class="project-badge preview">Preview</div>
+            <span class="project-num">PRJ/04</span>
+            <h3>Content World Easy</h3>
+            <p>KI-Arbeitsbereich für Redaktionen: Webinhalte sammeln, verarbeiten und als Post, Newsletter oder Übersetzung weiterverwenden.</p>
+            <div class="tag-row">
+              <span>KI</span><span>Redaktion</span><span>Content-Workflows</span>
+            </div>
+            <a class="project-link" href="https://content-world.de/" target="_blank" rel="noopener">content-world.de</a>
+          </article>
+          <article class="project-card reveal">
+            <div class="project-badge closed-beta">Closed Beta</div>
+            <span class="project-num">PRJ/05</span>
+            <h3>BloomMD</h3>
+            <p>Markdown-Dateien als interaktive Maps – local-first, offene .md-Dateien, Obsidian-kompatibel.</p>
+            <div class="tag-row">
+              <span>Markdown</span><span>Local-first</span><span>Obsidian</span>
+            </div>
+            <a class="project-link" href="https://bloommd.io" target="_blank" rel="noopener">bloommd.io</a>
+          </article>
+          <article class="project-card reveal">
+            <div class="project-badge active">Aktiv</div>
+            <span class="project-num">PRJ/06</span>
+            <h3>WAVe</h3>
+            <p>Verbindet Initiativen rund um Wissenschaft, Kultur und Community – mit Forschung, Dialog und globaler Wertegemeinschaft.</p>
+            <div class="tag-row">
+              <span>Science</span><span>Culture</span><span>Community</span>
+            </div>
+            <a class="project-link" href="https://wavecenter.org" target="_blank" rel="noopener">wavecenter.org</a>
+          </article>
+          <article class="project-card project-cta reveal">
+            <div class="project-badge slot">Freier Slot</div>
+            <span class="project-num">PRJ/07</span>
+            <h3>Hier könnte Ihr Projekt stehen</h3>
+            <p>Idee, internen Prozess oder Produkt? Melden Sie sich – wir prüfen gemeinsam, was sinnvoll und machbar ist.</p>
+            <div class="tag-row">
+              <span>Software</span><span>Automatisierung</span><span>KI</span>
+            </div>
+            <a class="project-link" href="#kontakt">Kontakt aufnehmen</a>
+          </article>
+        </div>
       </div>
     </section>
 
-    <!-- PROJEKTE -->
-    <section id="projekte" class="block">
-      <div class="block-header reveal">
-        <span class="marker">// 03</span>
-        <h2>Projekte</h2>
-        <div class="line"></div>
-      </div>
-      <div class="grid cols-3">
-        <article class="card reveal">
-          <div class="project-banner active">Aktiv</div>
-          <span class="card-num">PRJ/01</span>
-          <h3>ProcessCube®</h3>
-          <p>BPMN-basierte Automatisierungs-Plattform mit Engine, Studio, Low-Code-Umgebung und Portal &mdash; modular und API-getrieben. Entwickler-Teams und Fachbereiche modellieren, führen und integrieren Geschäftsprozesse darüber gemeinsam &mdash; von der ersten Idee bis zur produktiven Ausführung.</p>
-          <div class="stack">
-            <span>BPMN 2.0</span>
-            <span>Node.js</span>
-            <span>TypeScript</span>
-            <span>AI</span>
-            <span>OpenClaw</span>
-          </div>
-          <a class="project-link" href="https://processcube.io" target="_blank" rel="noopener">processcube.io</a>
-        </article>
-
-        <article class="card reveal">
-          <div class="project-banner active">Aktiv</div>
-          <span class="card-num">PRJ/02</span>
-          <h3>anipal.io</h3>
-          <p>Moderne Plattform für Tiergesundheit &mdash; für Tierbesitzer und Tierarzt-Praxen. Verbindet App, Daten und AI, um Gesundheitsinfos, Aktivitäten und Betreuung rund ums Tier einfacher zu organisieren.</p>
-          <div class="stack">
-            <span>TypeScript</span>
-            <span>iOS</span>
-            <span>Supabase</span>
-            <span>Postgres</span>
-            <span>React</span>
-            <span>AI</span>
-          </div>
-          <a class="project-link" href="https://anipal.io" target="_blank" rel="noopener">anipal.io</a>
-        </article>
-
-        <article class="card reveal">
-          <div class="project-banner active">Aktiv</div>
-          <span class="card-num">PRJ/03</span>
-          <h3>wave-mesh</h3>
-          <p>Selbst gehostetes Netzwerk für Geräte an verschiedenen Standorten. wave-mesh verbindet sie direkt über WireGuard &mdash; auch hinter NAT und ohne Portfreigabe. Ein Gerät kann dabei Teil mehrerer Waves sein.</p>
-          <div class="stack">
-            <span>WireGuard</span>
-            <span>Mesh-Netzwerk</span>
-            <span>Self-Hosting</span>
-            <span>NAT-Traversal</span>
-          </div>
-          <a class="project-link" href="https://wave-mesh.org/" target="_blank" rel="noopener">wave-mesh.org</a>
-        </article>
-
-        <article class="card reveal">
-          <div class="project-banner preview">Preview</div>
-          <span class="card-num">PRJ/04</span>
-          <h3>Content World Easy</h3>
-          <p>KI-Arbeitsbereich für Redaktionen und Teams: Webinhalte sammeln, mit eigenen Aktionen verarbeiten und als Zusammenfassung, Social-Media-Post, Newsletter oder Übersetzung weiterverwenden. Gemeinsame Aktionen machen wiederkehrende Aufgaben im Team einfacher.</p>
-          <div class="stack">
-            <span>KI</span>
-            <span>Redaktion</span>
-            <span>Content-Workflows</span>
-            <span>Teamarbeit</span>
-          </div>
-          <a class="project-link" href="https://content-world.de/" target="_blank" rel="noopener">content-world.de</a>
-        </article>
-
-        <article class="card reveal">
-          <div class="project-banner closed-beta">Closed Beta</div>
-          <span class="card-num">PRJ/05</span>
-          <h3>BloomMD</h3>
-          <p>BloomMD macht Markdown-Dateien als interaktive Maps sichtbar. Das Tool bleibt local-first, arbeitet mit offenen .md-Dateien und ergänzt Obsidian, VS Code und Git um eine visuelle Strukturebene.</p>
-          <div class="stack">
-            <span>Markdown</span>
-            <span>Knowledge Maps</span>
-            <span>Closed Beta</span>
-            <span>Local-first</span>
-            <span>Obsidian</span>
-          </div>
-          <a class="project-link" href="https://bloommd.io" target="_blank" rel="noopener">bloommd.io</a>
-        </article>
-
-        <article class="card reveal">
-          <div class="project-banner active">Aktiv</div>
-          <span class="card-num">PRJ/06</span>
-          <h3>WAVe</h3>
-          <p>WAVe International verbindet Initiativen rund um Wissenschaft, Kultur und Community unter einem Dach &mdash; mit Forschung, Dialog, globaler Wertegemeinschaft und kommenden Medienformaten.</p>
-          <div class="stack">
-            <span>Science</span>
-            <span>Culture</span>
-            <span>Community</span>
-            <span>Media</span>
-          </div>
-          <a class="project-link" href="https://wavecenter.org" target="_blank" rel="noopener">wavecenter.org</a>
-        </article>
-
-        <article class="card project-card-cta reveal">
-          <div class="project-banner opportunity">Freier Slot</div>
-          <span class="card-num">PRJ/07</span>
-          <h3>Hier könnte Ihr Projekt stehen</h3>
-          <p>Sie haben eine Idee, einen internen Prozess oder ein Produkt, das digital klarer werden soll? Melden Sie sich gern bei uns &mdash; wir prüfen gemeinsam, was sinnvoll und machbar ist.</p>
-          <div class="stack">
-            <span>Software</span>
-            <span>Automatisierung</span>
-            <span>KI</span>
-            <span>Beratung</span>
-          </div>
-          <a class="project-link" href="#kontakt">Kontakt aufnehmen</a>
-        </article>
+    <!-- ══════════════════════════════════════════════
+         KONTAKT
+    ══════════════════════════════════════════════ -->
+    <section class="contact-section" id="kontakt">
+      <div class="contact-glow" aria-hidden="true"></div>
+      <div class="container">
+        <div class="contact-inner reveal">
+          <span class="section-marker">// 04 · Kontakt</span>
+          <h2>Idee, Problem<br>oder Projekt?</h2>
+          <a class="contact-email" href="mailto:admin@moellenbeck-digital.io">
+            admin@moellenbeck-digital.io
+          </a>
+        </div>
       </div>
     </section>
 
-    <!-- KONTAKT -->
-    <section id="kontakt" class="contact">
-      <div class="contact-card reveal">
-        <div class="marker">// 04 · Kontakt</div>
-        <h2>Idee, Problem oder Projekt?</h2>
-        <a class="email" href="mailto:admin@moellenbeck-digital.io">admin@moellenbeck-digital.io</a>
-      </div>
-    </section>
   </main>
 
+  <!-- ══ FOOTER ══ -->
   <footer>
-    <a href="impressum.html">Impressum</a>
-    <span class="separator">/</span>
-    <a href="datenschutz.html">Datenschutzerklärung</a>
+    <div class="footer-wordmark" aria-hidden="true">MD_<span class="cursor"></span></div>
+    <nav class="footer-nav" aria-label="Footer-Navigation">
+      <a href="impressum.html">Impressum</a>
+      <span aria-hidden="true">/</span>
+      <a href="datenschutz.html">Datenschutzerklärung</a>
+    </nav>
   </footer>
 
   <script>
+    // ── Reduced motion ──
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
     // ── Nav: Mobile-Menü ──
     const navMenu = document.querySelector('.nav-menu');
     const mq = window.matchMedia('(max-width: 600px)');
@@ -427,14 +432,6 @@
     navMenu.querySelectorAll('.nav-links a').forEach((a) => {
       a.addEventListener('click', () => { if (mq.matches) navMenu.removeAttribute('open'); });
     });
-
-    // ── Scroll-Reveal ──
-    const revealObs = new IntersectionObserver((entries) => {
-      for (const e of entries) {
-        if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
-      }
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal').forEach((el) => revealObs.observe(el));
 
     // ── UI-Sounds (Standard: aus) ──
     const soundToggle = document.getElementById('soundToggle');
@@ -471,73 +468,146 @@
     }
 
     updateSoundToggle();
-
     soundToggle.addEventListener('click', () => {
       soundsOn = !soundsOn;
       localStorage.setItem('md-sounds', soundsOn ? 'on' : 'off');
       updateSoundToggle();
       if (soundsOn) playClick();
     });
-
     document.querySelectorAll('[data-sound="click"]').forEach((el) => {
       el.addEventListener('click', playClick);
-      el.addEventListener('mouseenter', () => { if (soundsOn) playClick(); });
     });
 
-    // ── Video Showcase ──
-    const videoPreview = document.getElementById('videoPreview');
-    const videoStaticPoster = document.getElementById('videoStaticPoster');
-    const btnSound = document.getElementById('btnSound');
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    // ── Scroll-Reveal ──
+    const revealObs = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
+      }
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach((el) => revealObs.observe(el));
 
-    if (videoPreview) {
+    // ── Hero Video: Autoplay + Pause outside viewport ──
+    const heroBgVideo = document.getElementById('heroBgVideo');
+    if (heroBgVideo) {
       if (reducedMotion.matches) {
-        // Kein Autoplay: Poster zeigen, Play-Button für volles Video
-        videoPreview.hidden = true;
-        videoStaticPoster.hidden = false;
-        btnSound.setAttribute('aria-label', 'MD_Process-Video abspielen');
+        heroBgVideo.removeAttribute('autoplay');
+        heroBgVideo.style.display = 'none';
       } else {
-        // Autoplay-Preview nur wenn sichtbar
-        const vidObs = new IntersectionObserver((entries) => {
+        const heroObs = new IntersectionObserver((entries) => {
           for (const e of entries) {
-            if (e.isIntersecting) {
-              videoPreview.play().catch(() => {});
-            } else {
-              videoPreview.pause();
-            }
+            if (e.isIntersecting) heroBgVideo.play().catch(() => {});
+            else heroBgVideo.pause();
           }
-        }, { threshold: 0.2 });
-        vidObs.observe(videoPreview);
+        }, { threshold: 0 });
+        heroObs.observe(heroBgVideo);
       }
     }
 
-    // "Ton an"-Button: volles Video laden und mit Ton abspielen
-    if (btnSound && videoPreview) {
-      btnSound.addEventListener('click', () => {
+    // ── Showcase Video: load + autoplay muted loop ──
+    const previewVideo = document.getElementById('previewVideo');
+    const videoStaticPoster = document.getElementById('videoStaticPoster');
+    const playerUI = document.getElementById('playerUI');
+    const soundPill = document.getElementById('soundPill');
+    const progressBar = document.getElementById('progressBar');
+
+    if (previewVideo) {
+      if (reducedMotion.matches) {
+        previewVideo.style.display = 'none';
+        videoStaticPoster.hidden = false;
+      } else {
+        videoStaticPoster.hidden = true;
+        const vidObs = new IntersectionObserver((entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              previewVideo.load();
+              previewVideo.play().catch(() => {});
+            } else {
+              previewVideo.pause();
+            }
+          }
+        }, { threshold: 0.15 });
+        vidObs.observe(previewVideo);
+
+        previewVideo.addEventListener('timeupdate', () => {
+          if (previewVideo.duration) {
+            progressBar.style.width = (previewVideo.currentTime / previewVideo.duration * 100) + '%';
+          }
+        });
+      }
+    }
+
+    // Sound Pill: replace preview with full video (with controls + sound)
+    if (soundPill) {
+      soundPill.addEventListener('click', () => {
         playClick();
-
-        const card = document.querySelector('.video-card');
-        const wrapper = card.querySelector('.video-wrapper');
-
+        const stage = document.getElementById('showcaseVideoStage');
         const fullVideo = document.createElement('video');
-        fullVideo.src = 'assets/video/md-process-main.mp4';
-        fullVideo.poster = 'assets/img/md-process-poster.jpg';
+        fullVideo.src = 'assets/video/v6-main.mp4';
+        fullVideo.poster = 'assets/img/v6-poster.jpg';
         fullVideo.controls = true;
         fullVideo.playsInline = true;
-        fullVideo.setAttribute('aria-label', 'MD_Process Showcase-Video mit Ton und Sprache');
-        fullVideo.style.cssText = 'width:100%;display:block;border-radius:4px;';
-        fullVideo.setAttribute('tabindex', '0');
-
-        // Ersetze Preview oder statisches Poster
-        const toReplace = reducedMotion.matches ? videoStaticPoster : videoPreview;
-        toReplace.replaceWith(fullVideo);
-
-        btnSound.hidden = true;
-
-        fullVideo.play().catch(() => {
-          fullVideo.muted = false;
-        });
+        fullVideo.setAttribute('aria-label', 'One team of humans and agents – EN, 48 s');
+        fullVideo.className = 'showcase-video full-video';
+        const replaceTarget = reducedMotion.matches ? videoStaticPoster : previewVideo;
+        replaceTarget.replaceWith(fullVideo);
+        if (playerUI) playerUI.style.display = 'none';
+        fullVideo.play().catch(() => {});
       });
+    }
+
+    // ── Showcase: Scroll-Scale effect (rAF-throttled) ──
+    if (!reducedMotion.matches) {
+      const stickyWrap = document.getElementById('showcaseStickyWrap');
+      const videoStage = document.getElementById('showcaseVideoStage');
+
+      if (stickyWrap && videoStage) {
+        let rafPending = false;
+
+        function updateScale() {
+          rafPending = false;
+          const rect = stickyWrap.getBoundingClientRect();
+          const totalScroll = stickyWrap.offsetHeight - window.innerHeight;
+          if (totalScroll <= 0) {
+            videoStage.style.transform = 'scale(1)';
+            videoStage.style.opacity = '1';
+            return;
+          }
+          const scrolled = Math.max(0, -rect.top);
+          const progress = Math.min(1, scrolled / totalScroll);
+          const scale = 0.78 + progress * 0.22;
+          const opacity = 0.45 + progress * 0.55;
+          videoStage.style.transform = `scale(${scale})`;
+          videoStage.style.opacity = opacity;
+        }
+
+        window.addEventListener('scroll', () => {
+          if (!rafPending) { rafPending = true; requestAnimationFrame(updateScale); }
+        }, { passive: true });
+        updateScale();
+      }
+    }
+
+    // ── Mascot: Scroll-Parallax ──
+    if (!reducedMotion.matches) {
+      const mascotRobot = document.getElementById('mascotRobot');
+      if (mascotRobot) {
+        const mascotSection = mascotRobot.closest('.mascot-section');
+        let rafPending = false;
+        window.addEventListener('scroll', () => {
+          if (!rafPending) {
+            rafPending = true;
+            requestAnimationFrame(() => {
+              rafPending = false;
+              const rect = mascotSection.getBoundingClientRect();
+              const vh = window.innerHeight;
+              if (rect.bottom < 0 || rect.top > vh) return;
+              const progress = (vh - rect.top) / (vh + rect.height);
+              const y = (progress - 0.5) * -50;
+              mascotRobot.style.transform = `translateY(${y}px)`;
+            });
+          }
+        }, { passive: true });
+      }
     }
   </script>
 </body>
