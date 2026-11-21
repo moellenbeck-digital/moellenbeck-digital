@@ -222,7 +222,10 @@ body::after {
           mask-image: linear-gradient(to right, transparent, #000 9%, #000 91%, transparent), linear-gradient(to bottom, transparent, #000 12%, #000 76%, transparent 95%);
           mask-composite: intersect;
 }
-.film-video { width: 100%; height: 100%; object-fit: cover; background: var(--bg); cursor: pointer; }
+.film-video { width: 100%; height: 100%; object-fit: cover; background: var(--bg); cursor: pointer;
+  /* Crop: Fußzeile des Videos ("MD_ Möllenbeck Digital", untere ~8 %) liegt außerhalb */
+  transform: scale(1.1); transform-origin: 50% 0; }
+.film-media { overflow: hidden; }
 
 .player {
   position: absolute; left: 50%; bottom: 7%; z-index: 3;
