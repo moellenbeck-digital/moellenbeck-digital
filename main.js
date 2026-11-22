@@ -291,14 +291,4 @@
     });
   }
 
-  /* ── Unterseite Hausverwaltung: stummes Video spielt nur, wenn sichtbar ── */
-  const hvVideo = $('hvVideo');
-  if (hvVideo && 'IntersectionObserver' in window && !reduce.matches) {
-    new IntersectionObserver((entries) => {
-      for (const e of entries) {
-        if (e.isIntersecting) { if (hvVideo.preload === 'none') { hvVideo.preload = 'auto'; hvVideo.load(); } hvVideo.play().catch(() => {}); }
-        else hvVideo.pause();
-      }
-    }, { threshold: 0.25 }).observe(hvVideo);
-  } else if (hvVideo) { hvVideo.controls = true; }
 })();

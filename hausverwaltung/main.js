@@ -294,6 +294,7 @@
   /* ── Unterseite Hausverwaltung: stummes Video spielt nur, wenn sichtbar ── */
   const hvVideo = $('hvVideo');
   if (hvVideo && 'IntersectionObserver' in window && !reduce.matches) {
+    hvVideo.removeAttribute('controls'); // ohne JS/IO/reduced-motion bleiben die Bedienelemente
     // Video erst nach dem Laden der Seite holen (preload bleibt bis dahin "none"), dann nur abspielen, wenn sichtbar
     const startVideo = () => new IntersectionObserver((entries) => {
       for (const e of entries) {
