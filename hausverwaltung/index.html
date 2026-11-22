@@ -23,16 +23,13 @@
 
   <title>KI-Mitarbeiter für Hausverwaltungen · Moellenbeck-Digital</title>
   <link rel="canonical" href="https://moellenbeck-digital.io/hausverwaltung/">
-  <link rel="icon" href="../assets/favicon.ico" sizes="48x48">
-  <link rel="icon" href="../assets/md_favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="../assets/favicon-16x16.png" sizes="16x16" type="image/png">
-  <link rel="icon" href="../assets/favicon-32x32.png" sizes="32x32" type="image/png">
-  <link rel="icon" href="../assets/favicon-192x192.png" sizes="192x192" type="image/png">
-  <link rel="icon" href="../assets/favicon-512x512.png" sizes="512x512" type="image/png">
-  <link rel="apple-touch-icon" href="../assets/favicon-180x180.png">
-  <link rel="preload" href="../assets/fonts/space-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="../assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" href="assets/favicon.ico" sizes="48x48">
+  <link rel="icon" href="assets/md_favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-32x32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/favicon-180x180.png">
+  <link rel="preload" href="assets/fonts/space-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
@@ -40,16 +37,17 @@
   <!-- ══ NAV: minimal, sticky, glasig ══ -->
   <header class="site-nav" id="siteNav">
     <div class="nav-inner">
-      <a class="logo" href="../" aria-label="Moellenbeck-Digital – Startseite">
-        <img src="../assets/md_variante1.svg" alt="" width="93" height="28">
+      <a class="logo" href="https://moellenbeck-digital.io/" aria-label="Moellenbeck-Digital – Startseite">
+        <img src="assets/md_variante1.svg" alt="" width="93" height="28">
       </a>
       <details class="nav-menu" open>
         <summary aria-label="Menü"><span></span><span></span><span></span></summary>
         <nav class="nav-links" aria-label="Hauptnavigation">
-          <a href="../#film">Film</a>
-          <a href="../#services">Fähigkeiten</a>
-          <a href="../#plattform">Plattform</a>
-          <a href="../#member">Team</a>
+          <a class="nav-back" href="https://moellenbeck-digital.io/">&lt;- Moellenbeck Digital</a>
+          <a href="#ablauf">Ablauf</a>
+          <a href="#nutzen">Nutzen</a>
+          <a href="#sicherheit">Sicherheit</a>
+          <a href="#pilot">Pilot</a>
         </nav>
       </details>
       <div class="nav-actions">
@@ -65,7 +63,7 @@
             <path d="M9 4.5C9.8 5.3 10.5 6.1 10.5 7C10.5 7.9 9.8 8.7 9 9.5M11 2.5C12.5 3.8 13.5 5.3 13.5 7C13.5 8.7 12.5 10.2 11 11.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
           </svg>
         </button>
-        <a class="nav-cta" href="#kontakt" data-sound="click">Kontakt</a>
+        <a class="nav-cta" href="#kontakt" data-subject="HV-Pilot" data-sound="click">Probetag</a>
       </div>
     </div>
   </header>
@@ -96,10 +94,10 @@
         </div>
         <figure class="hv-video fadeup" style="--d:.5s">
           <div class="hv-video-glow" aria-hidden="true"></div>
-          <video id="hvVideo" muted loop playsinline preload="none" poster="../assets/img/hv-wasserschaden-poster.webp"
+          <video id="hvVideo" muted loop playsinline preload="none" poster="assets/img/hv-wasserschaden-poster.webp"
                  width="720" height="720" aria-describedby="hvVideoCap">
-            <source src="../assets/video/hv-wasserschaden-de.mp4" type="video/mp4">
-            <track kind="captions" src="../assets/video/hv-wasserschaden-de.vtt" srclang="de" label="Deutsch">
+            <source src="assets/video/hv-wasserschaden-de.mp4" type="video/mp4">
+            <track kind="captions" src="assets/video/hv-wasserschaden-de.vtt" srclang="de" label="Deutsch">
           </video>
           <figcaption id="hvVideoCap">// 20 Sekunden, ohne Ton. Fiktive Demodaten.</figcaption>
         </figure>
@@ -116,13 +114,13 @@
         </header>
         <ol class="hv-steps">
           <li class="hv-step reveal" style="--tone:96,165,250">
-            <img class="hv-bot" src="../assets/img/bots/bot-blue.webp" alt="" width="280" height="320" loading="lazy" decoding="async">
+            <img class="hv-bot" src="assets/img/bots/bot-blue.webp" alt="" width="280" height="320" loading="lazy" decoding="async">
             <span class="hv-num">01 · Eingang</span>
             <h3>Die Meldung kommt an</h3>
             <p>„Wasser tropft von der Decke, Whg. 3. OG.“ Objekt und Einheit sind erkannt, die Dringlichkeit eingeschätzt. Der Mieter bekommt eine Standardantwort.</p>
           </li>
           <li class="hv-step reveal" style="--tone:167,139,250">
-            <img class="hv-bot" src="../assets/img/bots/bot-violet.webp" alt="" width="280" height="320" loading="lazy" decoding="async">
+            <img class="hv-bot" src="assets/img/bots/bot-violet.webp" alt="" width="280" height="320" loading="lazy" decoding="async">
             <span class="hv-num">02 · Maßnahmenpaket</span>
             <h3>Alle Nachrichten als Entwurf</h3>
             <p>An Mieter, Handwerker, Eigentümer, Beirat und für die Akte – jede Aussage mit Quelle.</p>
@@ -134,7 +132,7 @@
             <p>Sie prüft, ändert bei Bedarf und klickt auf Freigabe. Außer der Standardantwort geht ohne diesen Klick nichts raus.</p>
           </li>
           <li class="hv-step reveal" style="--tone:52,211,153">
-            <img class="hv-bot" src="../assets/img/bots/bot-green.webp" alt="" width="280" height="320" loading="lazy" decoding="async">
+            <img class="hv-bot" src="assets/img/bots/bot-green.webp" alt="" width="280" height="320" loading="lazy" decoding="async">
             <span class="hv-num">04 · Akte</span>
             <h3>Der Vorgang ist belegt</h3>
             <p>Die Vorgangsakte enthält Freigaben und Versionen – vorlegbar für Beirat, Eigentümer oder im Streitfall.</p>
@@ -283,7 +281,7 @@
             <span class="field-err" id="cfMsgErr" aria-live="polite"></span>
           </div>
           <div class="form-foot field--full">
-            <p class="form-hint" id="formHint">Alle Felder sind Pflicht. Hinweise zum Datenschutz: <a href="../datenschutz.html">Datenschutzerklärung</a>.</p>
+            <p class="form-hint" id="formHint">Alle Felder sind Pflicht. Hinweise zum Datenschutz: <a href="https://moellenbeck-digital.io/datenschutz.html">Datenschutzerklärung</a>.</p>
             <button class="md-btn" type="submit" data-sound="click">Nachricht vorbereiten -&gt;</button>
           </div>
           <p class="form-status field--full" id="formStatus" role="status" aria-live="polite"></p>
@@ -297,26 +295,26 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="footer-brand">
-        <img src="../assets/md_variante1.svg" alt="Moellenbeck-Digital" width="93" height="28" loading="lazy">
+        <img src="assets/md_variante1.svg" alt="Moellenbeck-Digital" width="93" height="28" loading="lazy">
         <p>Software, Automatisierung und KI-Agenten. Digital &amp; Remote.</p>
       </div>
       <nav class="footer-col" aria-label="Seite">
         <span class="footer-h">Seite</span>
-        <a href="../#film">Film</a>
-        <a href="../#services">Fähigkeiten</a>
-        <a href="../#plattform">Plattform</a>
-        <a href="../#member">Team</a>
+        <a href="#ablauf">Ablauf</a>
+        <a href="#nutzen">Nutzen</a>
+        <a href="#sicherheit">Sicherheit</a>
+        <a href="#kontakt">Probetag</a>
       </nav>
-      <nav class="footer-col" aria-label="Projekte">
-        <span class="footer-h">Plattform</span>
-        <a href="https://bloommd.io" target="_blank" rel="noopener">BloomMD</a>
-        <a href="https://wave-mesh.org/" target="_blank" rel="noopener">wave-mesh</a>
-        <a href="./">Hausverwaltung</a>
+      <nav class="footer-col" aria-label="Moellenbeck Digital">
+        <span class="footer-h">Moellenbeck Digital</span>
+        <a href="https://moellenbeck-digital.io/">Startseite</a>
+        <a href="https://moellenbeck-digital.io/#plattform">Plattform</a>
+        <a href="https://moellenbeck-digital.io/#member">Team</a>
       </nav>
       <nav class="footer-col" aria-label="Rechtliches">
         <span class="footer-h">Rechtliches</span>
-        <a href="../impressum.html">Impressum</a>
-        <a href="../datenschutz.html">Datenschutzerklärung</a>
+        <a href="https://moellenbeck-digital.io/impressum.html">Impressum</a>
+        <a href="https://moellenbeck-digital.io/datenschutz.html">Datenschutzerklärung</a>
         <a href="mailto:admin@moellenbeck-digital.io">Kontakt</a>
       </nav>
     </div>
@@ -327,6 +325,6 @@
     </div>
   </footer>
 
-  <script src="../main.js" defer></script>
+  <script src="main.js" defer></script>
 </body>
 </html>
