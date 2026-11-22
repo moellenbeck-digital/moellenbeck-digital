@@ -226,7 +226,7 @@
                 <li>Freigabeprinzip: ein Mensch entscheidet</li>
                 <li>Jeder Schritt protokolliert</li>
               </ul>
-              <a class="pcard-link" href="#film" data-sound="click">So arbeitet es</a>
+              <span class="pcard-links"><a class="pcard-link" href="#film" data-sound="click">Film ansehen</a><a class="pcard-link" href="#infrastruktur" data-sound="click">Rollen und Sicherheit</a></span>
             </div>
             <div class="pcard-visual term" aria-hidden="true">
               <div class="term-head"><span>// lauf 07:12 · wasserschaden</span></div>
@@ -236,6 +236,60 @@
               <div class="term-row term-wait"><span class="p">//</span><span class="who">wartet auf</span><span class="what">freigabe durch mensch</span></div>
               <div class="term-gate"><span>Versand gesperrt bis Freigabe</span><span class="term-btn">Freigeben -&gt;</span></div>
               <div class="term-cursor"><span class="p">&gt;</span><span class="cursor"></span></div>
+            </div>
+          </article>
+
+          <!-- Infrastruktur im Detail: Organisation · Sicherheit · Individualisierung -->
+          <article class="pcard infra reveal" id="infrastruktur" style="--tone:251,146,60" aria-labelledby="infraTitle">
+            <div class="infra-head">
+              <div class="pcard-meta"><span class="pcard-num">01</span><span class="status-dot" aria-hidden="true"></span><span>Kern im Detail · auf OpenClaw gebaut</span></div>
+              <h3 id="infraTitle">Eine Organisation aus Menschen und Agenten.</h3>
+            </div>
+
+            <div class="infra-cols">
+              <section class="infra-col" style="--tone:96,165,250" aria-labelledby="infraOrg">
+                <span class="infra-k">a · Organisation</span>
+                <h4 id="infraOrg">Teams mit klaren Rollen</h4>
+                <div class="org" aria-hidden="true">
+                  <div class="org-row"><span class="org-node org-human"><span class="org-m">M</span><span class="org-l">Mensch<br>entscheidet</span></span></div>
+                  <div class="org-row"><span class="org-node" style="--t:251,146,60"><img src="assets/img/bots/bot-orange.webp" alt="" width="280" height="320" loading="lazy" decoding="async"><span class="org-l">Chief of Staff</span></span></div>
+                  <div class="org-row org-team">
+                    <span class="org-node" style="--t:96,165,250"><img src="assets/img/bots/bot-blue.webp" alt="" width="280" height="320" loading="lazy" decoding="async"><span class="org-l">Engineer</span></span>
+                    <span class="org-node" style="--t:52,211,153"><img src="assets/img/bots/bot-green.webp" alt="" width="280" height="320" loading="lazy" decoding="async"><span class="org-l">Tester</span></span>
+                    <span class="org-node" style="--t:167,139,250"><img src="assets/img/bots/bot-violet.webp" alt="" width="280" height="320" loading="lazy" decoding="async"><span class="org-l">Reviewer</span></span>
+                    <span class="org-node" style="--t:244,114,182"><img src="assets/img/bots/bot-pink.webp" alt="" width="280" height="320" loading="lazy" decoding="async"><span class="org-l">Fach-<br>agenten</span></span>
+                  </div>
+                </div>
+                <ul class="prompt-list">
+                  <li>Ein Chief of Staff verteilt die Arbeit an sein Team.</li>
+                  <li>Tester und Reviewer prüfen unabhängig. Widersprechen sie sich, gilt das strengere Urteil.</li>
+                  <li>Jede Freigabe eines Menschen wird protokolliert.</li>
+                </ul>
+              </section>
+
+              <section class="infra-col" style="--tone:52,211,153" aria-labelledby="infraSec">
+                <span class="infra-k">b · Sicherheit</span>
+                <h4 id="infraSec">Kontrolle im System, nicht im Versprechen</h4>
+                <ul class="prompt-list">
+                  <li>Ohne Freigabe eines Menschen geht nichts raus – im HV-Paket im Code erzwungen.</li>
+                  <li>Jede Freigabe ist belegt: wer, wann, welcher Vorgang.</li>
+                  <li>Jeder Agent hat einen festen Bereich. Wen er beauftragen darf, legt die Konfiguration fest.</li>
+                  <li>Wir prüfen jede Regel: technisch durchgesetzt oder nur Text.</li>
+                  <li>Zugangsdaten liegen in einem Passwort-Tresor.</li>
+                  <li>Eigene Server in Deutschland.</li>
+                </ul>
+              </section>
+
+              <section class="infra-col" style="--tone:167,139,250" aria-labelledby="infraInd">
+                <span class="infra-k">c · Individualisierung</span>
+                <h4 id="infraInd">Passt sich dem Betrieb an</h4>
+                <ul class="prompt-list">
+                  <li>Was je Kunde anders ist, ist Konfiguration – kein Umbau.</li>
+                  <li><span class="tag tag-goal">Ziel</span> Eine eigene Agenten-Umgebung je Kunde, mit eigenen Regeln.</li>
+                  <li>Verbunden über wave-mesh: Ende-zu-Ende über WireGuard, auch hinter NAT. Auch der Server kann nicht mitlesen.</li>
+                  <li>So kann eine Umgebung auch Systeme im eigenen Netz erreichen – ohne Portfreigabe.</li>
+                </ul>
+              </section>
             </div>
           </article>
 

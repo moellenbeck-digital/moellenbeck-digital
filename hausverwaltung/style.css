@@ -573,6 +573,8 @@ body::after {
 
 
 /* ════ Unterseite Hausverwaltung ════ */
+.hv-more { --tone: 251,146,60; margin-top: 28px; }
+.hv-more .pcard-link { color: var(--text-2); }
 .nav-links a.nav-back { color: var(--accent); }
 .pcard-links { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: auto; padding-top: 8px; }
 .pcard-links .pcard-link { margin-top: 0; padding-top: 0; }

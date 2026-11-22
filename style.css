@@ -571,6 +571,41 @@ body::after {
 .egg-done .egg-msg { animation: eggIn .4s ease-out both; }
 
 
+
+/* ════ Infrastruktur im Detail (Organisation · Sicherheit · Individualisierung) ════ */
+.pcard.infra { grid-column: 1 / -1; padding: clamp(28px, 3.5vw, 48px); }
+.infra-head { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+.infra-head h3 { font-family: var(--display); font-weight: 700; font-size: clamp(1.8rem, 3.4vw, 2.8rem); letter-spacing: -0.035em; line-height: 1.05; }
+.infra-cols { position: relative; z-index: 1; display: grid; grid-template-columns: 1.15fr 1fr 1fr; gap: 16px; }
+.infra-col {
+  --tone: 251,146,60;
+  position: relative; isolation: isolate; overflow: hidden; padding: 24px; border-radius: 14px;
+  background: linear-gradient(90deg, rgba(var(--tone),0), rgba(var(--tone),.5), rgba(var(--tone),0)) top / 100% 1px no-repeat, rgba(255,255,255,.02);
+  border: 1px solid rgba(var(--tone),.18);
+}
+.infra-col::after { content: ''; position: absolute; z-index: -1; width: 90%; aspect-ratio: 1; right: -35%; top: -45%; border-radius: 50%; background: radial-gradient(closest-side, rgba(var(--tone), .2), rgba(var(--tone), 0)); }
+.infra-k { font-family: var(--mono); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: rgb(var(--tone)); }
+.infra-col h4 { margin: 8px 0 16px; font-family: var(--display); font-weight: 700; font-size: 1.25rem; letter-spacing: -0.02em; line-height: 1.2; }
+.infra-col .prompt-list { display: grid; gap: 8px; }
+.infra-col .prompt-list li { font-size: .92rem; }
+.infra-col .prompt-list li::before { color: rgb(var(--tone)); }
+.tag-goal { margin-right: 4px; color: rgb(var(--tone)); background: rgba(var(--tone),.1); border: 1px solid rgba(var(--tone),.3); border-radius: 6px; padding: .1rem .45rem; font-family: var(--mono); font-size: .64rem; letter-spacing: .08em; text-transform: uppercase; vertical-align: 1px; }
+/* Org-Diagramm aus Bot-Figuren */
+.org { display: grid; gap: 14px; margin-bottom: 20px; }
+.org-row { position: relative; display: flex; justify-content: center; gap: 6px; }
+.org-row + .org-row::before { content: ''; position: absolute; left: 50%; top: -14px; height: 14px; width: 1px; background: rgba(255,255,255,.18); }
+.org-team::after { content: ''; position: absolute; left: 12.5%; right: 12.5%; top: -7px; height: 1px; background: rgba(255,255,255,.18); }
+.org-team::before { top: -14px !important; height: 7px !important; }
+.org-node { --t: 251,146,60; display: flex; flex-direction: column; align-items: center; gap: 2px; flex: 1; max-width: 25%; text-align: center; }
+.org-row:not(.org-team) .org-node { max-width: none; flex: none; }
+.org-node img { width: 56px; height: auto; -webkit-mask-image: radial-gradient(closest-side, #000 50%, transparent 92%); mask-image: radial-gradient(closest-side, #000 50%, transparent 92%); filter: drop-shadow(0 6px 14px rgba(var(--t), .35)); }
+.org-l { font-family: var(--mono); font-size: .66rem; letter-spacing: .04em; color: rgb(var(--t)); line-height: 1.3; }
+.org-human { flex-direction: row; gap: 10px; }
+.org-m { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: #f1ead9; color: #2a2016; font-family: var(--display); font-weight: 700; box-shadow: 0 0 0 4px rgba(251,146,60,.15), 0 0 24px rgba(251,146,60,.3); }
+.org-human .org-l { color: var(--text-2); text-align: left; }
+@media (max-width: 1100px) { .infra-cols { grid-template-columns: 1fr 1fr; } .infra-col:first-child { grid-column: 1 / -1; } }
+@media (max-width: 760px) { .infra-cols { grid-template-columns: 1fr; } .infra-col:first-child { grid-column: auto; } .org-node img { width: 44px; } .org-l { font-size: .6rem; } .infra-col { padding: 20px 14px; } }
+
 /* ════ Unterseite Hausverwaltung ════ */
 .pcard-links { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: auto; padding-top: 8px; }
 .pcard-links .pcard-link { margin-top: 0; padding-top: 0; }
