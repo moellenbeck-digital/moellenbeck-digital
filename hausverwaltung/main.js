@@ -294,11 +294,14 @@
   /* ── Unterseite Hausverwaltung: stummes Video spielt nur, wenn sichtbar ── */
   const hvVideo = $('hvVideo');
   if (hvVideo && 'IntersectionObserver' in window && !reduce.matches) {
-    new IntersectionObserver((entries) => {
+    // Video erst nach dem Laden der Seite holen (preload bleibt bis dahin "none"), dann nur abspielen, wenn sichtbar
+    const startVideo = () => new IntersectionObserver((entries) => {
       for (const e of entries) {
-        if (e.isIntersecting) { if (hvVideo.preload === 'none') { hvVideo.preload = 'auto'; hvVideo.load(); } hvVideo.play().catch(() => {}); }
+        if (e.isIntersecting) { if (hvVideo.preload === 'none') { hvVideo.preload = 'metadata'; hvVideo.load(); } hvVideo.play().catch(() => {}); }
         else hvVideo.pause();
       }
     }, { threshold: 0.25 }).observe(hvVideo);
+    const later = () => (window.requestIdleCallback ? requestIdleCallback(startVideo, { timeout: 3000 }) : setTimeout(startVideo, 1500));
+    if (document.readyState === 'complete') later(); else window.addEventListener('load', later, { once: true });
   } else if (hvVideo) { hvVideo.controls = true; }
 })();
