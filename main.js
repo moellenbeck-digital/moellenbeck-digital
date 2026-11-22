@@ -240,4 +240,54 @@
     const pre = new URLSearchParams(location.search).get('betreff');
     if (pre && [...subject.options].some((o) => o.value === pre || o.text === pre)) subject.value = pre;
   }
+
+  /* ── Easter Eggs (nur mit JS; ohne JS bleibt alles unverändert) ── */
+  // BloomMD: unscheinbarer Knoten öffnet eine versteckte Notiz
+  const bloomBtn = $('bloomEgg'), bloomLeaf = $('bloomLeaf'), bloomNote = $('bloomNote'), bloomHost = $('eggBloom');
+  if (bloomBtn && bloomLeaf && bloomNote && bloomHost) {
+    const place = () => {
+      const h = bloomHost.getBoundingClientRect(), r = bloomLeaf.getBoundingClientRect();
+      const w = Math.max(r.width, 28), hh = Math.max(r.height, 24);
+      bloomBtn.style.left = `${r.left - h.left + r.width / 2 - w / 2}px`;
+      bloomBtn.style.top = `${r.top - h.top + r.height / 2 - hh / 2}px`;
+      bloomBtn.style.width = `${w}px`; bloomBtn.style.height = `${hh}px`;
+    };
+    bloomBtn.hidden = false; place();
+    window.addEventListener('resize', place, { passive: true });
+    const setOpen = (open) => {
+      bloomNote.hidden = !open; bloomBtn.setAttribute('aria-expanded', String(open));
+      bloomHost.classList.toggle('egg-open', open);
+      if (open) blip(990, .09);
+    };
+    bloomBtn.addEventListener('click', () => setOpen(bloomNote.hidden));
+    bloomHost.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !bloomNote.hidden) { setOpen(false); bloomBtn.focus(); } });
+  }
+
+  // wave-mesh: nach dem 3. Tipp läuft eine Welle durchs Netz
+  const meshBtn = $('meshEgg'), meshHost = $('eggMesh'), meshMsg = $('meshMsg');
+  if (meshBtn && meshHost && meshMsg) {
+    const nodes = [...meshHost.querySelectorAll('.mesh-nodes circle')];
+    const MSG = '// angekommen: Ende-zu-Ende über WireGuard. Auch der Server kann nicht mitlesen.';
+    let taps = 0, busy = false;
+    meshBtn.hidden = false;
+    const nearest = (ev) => {
+      if (!ev || !ev.clientX) return nodes[taps % nodes.length];
+      let best = nodes[0], d = Infinity;
+      for (const n of nodes) { const r = n.getBoundingClientRect(); const dd = (r.left + r.width / 2 - ev.clientX) ** 2 + (r.top + r.height / 2 - ev.clientY) ** 2; if (dd < d) { d = dd; best = n; } }
+      return best;
+    };
+    const ping = (n) => { if (reduce.matches) return; n.classList.remove('ping'); void n.getBoundingClientRect(); n.classList.add('ping'); };
+    meshBtn.addEventListener('click', (ev) => {
+      if (busy) return;
+      taps += 1; blip(520 + taps * 120, .06, .04);
+      ping(nearest(ev));
+      if (taps < 3) return;
+      taps = 0; busy = true;
+      if (reduce.matches) { meshMsg.textContent = MSG; meshHost.classList.add('egg-done'); busy = false; return; }
+      meshHost.classList.add('egg-wave');
+      nodes.forEach((n, i) => setTimeout(() => ping(n), 180 + i * 220));
+      setTimeout(() => { meshMsg.textContent = MSG; meshHost.classList.add('egg-done'); }, 180 + nodes.length * 220);
+      setTimeout(() => { meshHost.classList.remove('egg-wave'); busy = false; }, 2400);
+    });
+  }
 })();

@@ -542,6 +542,34 @@ body::after {
   .form-foot .md-btn { width: 100%; }
 }
 
+
+/* ════ Easter Eggs ════ */
+.egg-hit { position: absolute; z-index: 3; border-radius: 6px; background: transparent; cursor: pointer; }
+.egg-hit:focus-visible { outline: 2px solid rgb(var(--tone)); outline-offset: 2px; }
+.egg-leaf { transition: stroke .25s ease, fill .25s ease; }
+.egg:has(#bloomEgg:hover) .egg-leaf, .egg-open .egg-leaf { stroke: rgb(var(--tone)); fill: rgba(var(--tone), .18); }
+.egg-note {
+  position: absolute; z-index: 2; right: 6%; bottom: 8%; max-width: 64%;
+  padding: 12px 14px; border-radius: 12px;
+  background: rgba(14,14,17,.94); border: 1px solid rgba(var(--tone), .45);
+  box-shadow: 0 20px 60px -20px rgba(var(--tone), .55);
+  font-family: var(--mono); font-size: .74rem; line-height: 1.55; color: var(--text-2);
+  animation: eggIn .35s ease-out both;
+}
+.egg-note .egg-h { color: rgb(var(--tone)); margin-bottom: 4px; }
+@keyframes eggIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.egg-hit--mesh { inset: 0; width: 100%; height: 100%; border-radius: 0; cursor: default; }
+.egg-hit--mesh:focus-visible { outline-offset: -4px; }
+.mesh-nodes circle { transform-box: fill-box; transform-origin: center; transition: stroke .3s ease; }
+.mesh-nodes circle.ping { animation: meshPing .7s ease-out; stroke: rgb(var(--tone)); }
+@keyframes meshPing { 0% { transform: scale(1); } 40% { transform: scale(1.35); } 100% { transform: scale(1); } }
+.egg-wave .mesh-links { stroke: rgb(var(--tone)); animation: meshFlow .8s linear infinite; }
+@keyframes meshFlow { to { stroke-dashoffset: -18; } }
+.egg-done .mesh-nodes circle { stroke: rgb(var(--tone)); }
+.egg-msg { position: absolute; z-index: 2; left: 6%; right: 6%; bottom: 5%; width: auto; padding: .45rem .75rem; border-radius: 8px; background: rgba(14,14,17,.94); border: 1px solid rgba(var(--tone), .4); text-align: center; font-family: var(--mono); font-size: .72rem; color: rgb(var(--tone)); pointer-events: none; }
+.egg-msg:empty { display: none; }
+.egg-done .egg-msg { animation: eggIn .4s ease-out both; }
+
 /* ════ REDUCED MOTION ════ */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
