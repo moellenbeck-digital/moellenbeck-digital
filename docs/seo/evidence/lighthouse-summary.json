@@ -1,0 +1,12 @@
+{
+  "url": "http://127.0.0.1:8897/hausverwaltung/ratgeber/schadensmeldungen/",
+  "fetchTime": "2026-11-25T21:57:56.464Z",
+  "formFactor": "mobile",
+  "scores": {
+    "performance": 1,
+    "accessibility": 1,
+    "best-practices": 0.96,
+    "seo": 0.66,
+    "agentic-browsing": 1
+  }
+}
