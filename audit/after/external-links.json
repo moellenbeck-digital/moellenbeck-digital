@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://anipal.io",
+    "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>",
+    "curl_status": "200",
+    "curl_exit": 0
+  },
+  {
+    "url": "https://bloommd.io",
+    "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>",
+    "curl_status": "200",
+    "curl_exit": 0
+  },
+  {
+    "url": "https://moellenbeck-digital.io/",
+    "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>",
+    "curl_status": "200",
+    "curl_exit": 0
+  },
+  {
+    "url": "https://moellenbeck-digital.io/#infrastruktur",
+    "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>",
+    "curl_status": "200",
+    "curl_exit": 0
+  },
+  {
+    "url": "https://moellenbeck-digital.io/#member",
+    "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>",
+    "curl_status": "200",
+    "curl_exit": 0
+  },
+  {
+    "url": "https://moellenbeck-digital.io/#plattform",
+    "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>",
+    "curl_status": "200",
+    "curl_exit": 0
+  },
+  {
+    "url": "https://moellenbeck-digital.io/datenschutz.html",
+    "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>",
+    "curl_status": "200",
+    "curl_exit": 0
+  },
+  {
+    "url": "https://moellenbeck-digital.io/impressum.html",
+    "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>",
+    "curl_status": "200",
+    "curl_exit": 0
+  },
+  {
+    "url": "https://wave-mesh.org/",
+    "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>",
+    "curl_status": "200",
+    "curl_exit": 0
+  }
+]

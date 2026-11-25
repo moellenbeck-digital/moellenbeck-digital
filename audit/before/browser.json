@@ -1,0 +1,110 @@
+[
+  {
+    "name": "home",
+    "width": 375,
+    "errors": [],
+    "overflow": false,
+    "main": 1,
+    "brokenImages": [],
+    "badAnchors": []
+  },
+  {
+    "name": "home",
+    "width": 768,
+    "errors": [],
+    "overflow": false,
+    "main": 1,
+    "brokenImages": [],
+    "badAnchors": []
+  },
+  {
+    "name": "home",
+    "width": 1440,
+    "errors": [],
+    "overflow": false,
+    "main": 1,
+    "brokenImages": [],
+    "badAnchors": []
+  },
+  {
+    "name": "hv",
+    "width": 375,
+    "errors": [],
+    "overflow": false,
+    "main": 1,
+    "brokenImages": [],
+    "badAnchors": []
+  },
+  {
+    "name": "hv",
+    "width": 768,
+    "errors": [],
+    "overflow": false,
+    "main": 1,
+    "brokenImages": [],
+    "badAnchors": []
+  },
+  {
+    "name": "hv",
+    "width": 1440,
+    "errors": [],
+    "overflow": false,
+    "main": 1,
+    "brokenImages": [],
+    "badAnchors": []
+  },
+  {
+    "name": "impressum",
+    "width": 375,
+    "errors": [],
+    "overflow": false,
+    "main": 0,
+    "brokenImages": [],
+    "badAnchors": []
+  },
+  {
+    "name": "impressum",
+    "width": 768,
+    "errors": [],
+    "overflow": false,
+    "main": 0,
+    "brokenImages": [],
+    "badAnchors": []
+  },
+  {
+    "name": "impressum",
+    "width": 1440,
+    "errors": [],
+    "overflow": false,
+    "main": 0,
+    "brokenImages": [],
+    "badAnchors": []
+  },
+  {
+    "name": "datenschutz",
+    "width": 375,
+    "errors": [],
+    "overflow": false,
+    "main": 0,
+    "brokenImages": [],
+    "badAnchors": []
+  },
+  {
+    "name": "datenschutz",
+    "width": 768,
+    "errors": [],
+    "overflow": false,
+    "main": 0,
+    "brokenImages": [],
+    "badAnchors": []
+  },
+  {
+    "name": "datenschutz",
+    "width": 1440,
+    "errors": [],
+    "overflow": false,
+    "main": 0,
+    "brokenImages": [],
+    "badAnchors": []
+  }
+]
