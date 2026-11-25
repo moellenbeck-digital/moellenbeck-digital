@@ -1,0 +1,50 @@
+[
+  {
+    "path": "/",
+    "violations": [],
+    "badLinks": [],
+    "failedRequests": []
+  },
+  {
+    "path": "/hausverwaltung/",
+    "violations": [],
+    "badLinks": [],
+    "failedRequests": []
+  },
+  {
+    "path": "/impressum.html",
+    "violations": [],
+    "badLinks": [],
+    "failedRequests": []
+  },
+  {
+    "path": "/datenschutz.html",
+    "violations": [],
+    "badLinks": [],
+    "failedRequests": []
+  },
+  {
+    "path": "/legal/",
+    "violations": [],
+    "badLinks": [],
+    "failedRequests": []
+  },
+  {
+    "path": "/hausverwaltung/ratgeber/schadensmeldungen/",
+    "violations": [],
+    "badLinks": [],
+    "failedRequests": []
+  },
+  {
+    "path": "/hausverwaltung/ratgeber/verwaltungssoftware/",
+    "violations": [],
+    "badLinks": [],
+    "failedRequests": []
+  },
+  {
+    "path": "/ratgeber/prozessautomatisierung/",
+    "violations": [],
+    "badLinks": [],
+    "failedRequests": []
+  }
+]

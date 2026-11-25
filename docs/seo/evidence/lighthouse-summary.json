@@ -1,0 +1,80 @@
+[
+  {
+    "url": "http://127.0.0.1:8897/hausverwaltung/ratgeber/schadensmeldungen/",
+    "fetchTime": "2026-11-25T23:01:42.948Z",
+    "lighthouseVersion": "13.6.0",
+    "formFactor": "mobile",
+    "scores": {
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 69,
+      "agentic-browsing": 100
+    },
+    "metrics": {
+      "first-contentful-paint": "1.1 s",
+      "largest-contentful-paint": "1.1 s",
+      "total-blocking-time": "0 ms",
+      "cumulative-layout-shift": "0",
+      "speed-index": "1.1 s"
+    },
+    "failedAudits": {
+      "seo": [
+        "is-crawlable"
+      ]
+    },
+    "runtimeError": null
+  },
+  {
+    "url": "http://127.0.0.1:8897/hausverwaltung/ratgeber/verwaltungssoftware/",
+    "fetchTime": "2026-11-25T23:01:52.878Z",
+    "lighthouseVersion": "13.6.0",
+    "formFactor": "mobile",
+    "scores": {
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 69,
+      "agentic-browsing": 100
+    },
+    "metrics": {
+      "first-contentful-paint": "1.1 s",
+      "largest-contentful-paint": "1.1 s",
+      "total-blocking-time": "0 ms",
+      "cumulative-layout-shift": "0",
+      "speed-index": "1.1 s"
+    },
+    "failedAudits": {
+      "seo": [
+        "is-crawlable"
+      ]
+    },
+    "runtimeError": null
+  },
+  {
+    "url": "http://127.0.0.1:8897/ratgeber/prozessautomatisierung/",
+    "fetchTime": "2026-11-25T23:02:02.797Z",
+    "lighthouseVersion": "13.6.0",
+    "formFactor": "mobile",
+    "scores": {
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 69,
+      "agentic-browsing": 100
+    },
+    "metrics": {
+      "first-contentful-paint": "1.1 s",
+      "largest-contentful-paint": "1.1 s",
+      "total-blocking-time": "0 ms",
+      "cumulative-layout-shift": "0",
+      "speed-index": "1.1 s"
+    },
+    "failedAudits": {
+      "seo": [
+        "is-crawlable"
+      ]
+    },
+    "runtimeError": null
+  }
+]

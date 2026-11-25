@@ -1,0 +1,37 @@
+[
+  {
+    "path": "/hausverwaltung/ratgeber/schadensmeldungen/",
+    "breadcrumb": [
+      "Startseite",
+      "Hausverwaltung",
+      "Schadensmeldungen mit KI vorbereiten"
+    ],
+    "breadcrumbEqual": true,
+    "currentOk": true,
+    "noDuplicate": true,
+    "noticeBeforeFirstClaim": true,
+    "noticeInDescription": true
+  },
+  {
+    "path": "/hausverwaltung/ratgeber/verwaltungssoftware/",
+    "breadcrumb": [
+      "Startseite",
+      "Hausverwaltung",
+      "KI als Ergänzung zur Verwaltungssoftware"
+    ],
+    "breadcrumbEqual": true,
+    "currentOk": true,
+    "noDuplicate": true,
+    "noticeBeforeFirstClaim": true
+  },
+  {
+    "path": "/ratgeber/prozessautomatisierung/",
+    "breadcrumb": [
+      "Startseite",
+      "Prozessautomatisierung mit menschlicher Freigabe"
+    ],
+    "breadcrumbEqual": true,
+    "currentOk": true,
+    "noDuplicate": true
+  }
+]
