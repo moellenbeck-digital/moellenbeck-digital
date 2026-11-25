@@ -433,7 +433,7 @@ Schreiben Sie uns an admin@moellenbeck-digital.io.
 
 Zuletzt aktualisiert:
 
-25. November 2026
+26. November 2026
 
 # Hausverwaltung
 Quelle: https://moellenbeck-digital.io/hausverwaltung/
@@ -690,4 +690,4 @@ Die Vorgangsakte enthält Freigaben und Versionen.
 
 Zuletzt aktualisiert:
 
-25. November 2026
+26. November 2026
