@@ -40,7 +40,9 @@ B: Titel +2, Bildmaßbeleg +2; weitere Überschriften/Alt-Punkte nicht neu pausc
 B +2 für reproduzierbare Generierung/Driftcheck; automatischer Hosting-Build fehlt weiterhin. C +2 H3-FAQ, +4 Git-Datum mit sichtbarer Parität. E +1 IndexNow-Vorbereitung, keine Einreichung. Sichtbarkeit nicht gemessen.
 
 ## Funktion und Checks
-`node scripts/check-form.cjs`: beide Routen, leere Eingaben abgefangen, gültige Werte als mailto-URI mit Empfänger/Betreff/Nachricht, ohne JS direkter E-Mail-Link und kein nativer POST. Kein Versand.
+`node scripts/check-form.cjs`: beide Routen, leere Eingaben abgefangen, gültige Werte als mailto-URI mit Empfänger/Betreff/Nachricht, ohne JS direkter E-Mail-Link. Submit ohne JS (Button und Enter): 0 Netzwerk-Requests, keine Navigation, Eingaben bleiben erhalten. Kein Versand.
+
+Der statische Server für den Repo-Root muss laufen (`python3 -m http.server 8876 --bind 127.0.0.1`). Konfiguration: `--base-url=URL` oder `--port=N` und `--chrome=PFAD`; alternativ `BASE_URL`, `PORT`, `CHROME_PATH`. Argumente gehen vor. Standard: `http://127.0.0.1:8876`; Google Chrome unter macOS, sonst das Playwright-Chromium.
 `python3 docs/seo-geo/check.py`: grün (fünf Seiten, Schema/FAQ-Parität, 84 Bot-Routen, Rechtstext-Bodies bytegleich).
 `node audit/check.cjs`: grün (axe und interne Links auf fünf Seiten).
 `python3 scripts/generate-llms.py --check` und `python3 scripts/update-dates.py --check`: grün.
