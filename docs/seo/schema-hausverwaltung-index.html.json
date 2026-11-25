@@ -1,0 +1,613 @@
+{
+  "isRendered": false,
+  "tripleGroups": [
+    {
+      "ownerSet": {},
+      "nodes": [
+        {
+          "types": [
+            {
+              "pred": "itemtype",
+              "value": "BreadcrumbList",
+              "errors": [],
+              "begin": 2268,
+              "end": 2284
+            }
+          ],
+          "typeGroup": "BreadcrumbList",
+          "idProperty": {
+            "pred": "urn:spore:url",
+            "value": "https://moellenbeck-digital.io/hausverwaltung/#breadcrumb",
+            "errors": [],
+            "begin": 2293,
+            "end": 2352
+          },
+          "errors": [],
+          "properties": [],
+          "nodeProperties": [
+            {
+              "pred": "itemListElement",
+              "target": {
+                "types": [
+                  {
+                    "pred": "itemtype",
+                    "value": "ListItem",
+                    "errors": [],
+                    "begin": 2384,
+                    "end": 2394
+                  }
+                ],
+                "typeGroup": "ListItem",
+                "errors": [],
+                "properties": [
+                  {
+                    "pred": "position",
+                    "value": "1",
+                    "errors": [],
+                    "begin": 2408,
+                    "end": 2409
+                  },
+                  {
+                    "pred": "name",
+                    "value": "Startseite",
+                    "errors": [],
+                    "begin": 2419,
+                    "end": 2431
+                  }
+                ],
+                "nodeProperties": [
+                  {
+                    "pred": "item",
+                    "target": {
+                      "types": [
+                        {
+                          "pred": "itemtype",
+                          "value": "Thing",
+                          "errors": [],
+                          "begin": 2441,
+                          "end": 2474
+                        }
+                      ],
+                      "typeGroup": "Thing",
+                      "idProperty": {
+                        "pred": "urn:spore:url",
+                        "value": "https://moellenbeck-digital.io/",
+                        "errors": [],
+                        "begin": 2441,
+                        "end": 2474
+                      },
+                      "errors": [],
+                      "properties": [],
+                      "nodeProperties": [],
+                      "numErrors": 0,
+                      "numWarnings": 0
+                    },
+                    "errors": [],
+                    "begin": 2441,
+                    "end": 2474
+                  }
+                ],
+                "numErrors": 0,
+                "numWarnings": 0
+              },
+              "errors": [],
+              "begin": 2374,
+              "end": 2475
+            },
+            {
+              "pred": "itemListElement",
+              "target": {
+                "types": [
+                  {
+                    "pred": "itemtype",
+                    "value": "ListItem",
+                    "errors": [],
+                    "begin": 2487,
+                    "end": 2497
+                  }
+                ],
+                "typeGroup": "ListItem",
+                "errors": [],
+                "properties": [
+                  {
+                    "pred": "position",
+                    "value": "2",
+                    "errors": [],
+                    "begin": 2511,
+                    "end": 2512
+                  },
+                  {
+                    "pred": "name",
+                    "value": "Hausverwaltung",
+                    "errors": [],
+                    "begin": 2522,
+                    "end": 2538
+                  }
+                ],
+                "nodeProperties": [
+                  {
+                    "pred": "item",
+                    "target": {
+                      "types": [
+                        {
+                          "pred": "itemtype",
+                          "value": "Thing",
+                          "errors": [],
+                          "begin": 2548,
+                          "end": 2596
+                        }
+                      ],
+                      "typeGroup": "Thing",
+                      "idProperty": {
+                        "pred": "urn:spore:url",
+                        "value": "https://moellenbeck-digital.io/hausverwaltung/",
+                        "errors": [],
+                        "begin": 2548,
+                        "end": 2596
+                      },
+                      "errors": [],
+                      "properties": [],
+                      "nodeProperties": [],
+                      "numErrors": 0,
+                      "numWarnings": 0
+                    },
+                    "errors": [],
+                    "begin": 2548,
+                    "end": 2596
+                  }
+                ],
+                "numErrors": 0,
+                "numWarnings": 0
+              },
+              "errors": [],
+              "begin": 2477,
+              "end": 2597
+            }
+          ],
+          "numErrors": 0,
+          "numWarnings": 0
+        }
+      ],
+      "numNodesWithError": 0,
+      "numNodesWithWarning": 0,
+      "numErrors": 0,
+      "numWarnings": 0,
+      "type": "BreadcrumbList"
+    },
+    {
+      "ownerSet": {},
+      "nodes": [
+        {
+          "types": [
+            {
+              "pred": "itemtype",
+              "value": "Service",
+              "errors": [],
+              "begin": 2611,
+              "end": 2620
+            }
+          ],
+          "typeGroup": "Service",
+          "idProperty": {
+            "pred": "urn:spore:url",
+            "value": "https://moellenbeck-digital.io/hausverwaltung/#service",
+            "errors": [],
+            "begin": 2629,
+            "end": 2685
+          },
+          "errors": [],
+          "properties": [
+            {
+              "pred": "name",
+              "value": "KI-Mitarbeiter f\u00fcr Hausverwaltungen",
+              "errors": [],
+              "begin": 2695,
+              "end": 2733
+            },
+            {
+              "pred": "url",
+              "value": "https://moellenbeck-digital.io/hausverwaltung/",
+              "errors": [],
+              "begin": 2802,
+              "end": 2850
+            }
+          ],
+          "nodeProperties": [
+            {
+              "pred": "provider",
+              "target": {
+                "types": [
+                  {
+                    "pred": "itemtype",
+                    "value": "Thing",
+                    "errors": [],
+                    "begin": 2747,
+                    "end": 2793
+                  }
+                ],
+                "typeGroup": "Thing",
+                "idProperty": {
+                  "pred": "urn:spore:url",
+                  "value": "https://moellenbeck-digital.io/#org",
+                  "errors": [],
+                  "begin": 2755,
+                  "end": 2792
+                },
+                "errors": [],
+                "properties": [],
+                "nodeProperties": [],
+                "numErrors": 0,
+                "numWarnings": 0
+              },
+              "errors": [],
+              "begin": 2747,
+              "end": 2793
+            }
+          ],
+          "numErrors": 0,
+          "numWarnings": 0
+        }
+      ],
+      "numNodesWithError": 0,
+      "numNodesWithWarning": 0,
+      "numErrors": 0,
+      "numWarnings": 0,
+      "type": "Service"
+    },
+    {
+      "ownerSet": {},
+      "nodes": [
+        {
+          "types": [
+            {
+              "pred": "itemtype",
+              "value": "FAQPage",
+              "errors": [],
+              "begin": 2863,
+              "end": 2872
+            }
+          ],
+          "typeGroup": "FAQPage",
+          "idProperty": {
+            "pred": "urn:spore:url",
+            "value": "https://moellenbeck-digital.io/hausverwaltung/#faq",
+            "errors": [],
+            "begin": 2881,
+            "end": 2933
+          },
+          "errors": [],
+          "properties": [],
+          "nodeProperties": [
+            {
+              "pred": "mainEntity",
+              "target": {
+                "types": [
+                  {
+                    "pred": "itemtype",
+                    "value": "Question",
+                    "errors": [],
+                    "begin": 2960,
+                    "end": 2970
+                  }
+                ],
+                "typeGroup": "Question",
+                "errors": [],
+                "properties": [
+                  {
+                    "pred": "name",
+                    "value": "Was macht der KI-Mitarbeiter nach dem Eingang?",
+                    "errors": [],
+                    "begin": 2980,
+                    "end": 3028
+                  }
+                ],
+                "nodeProperties": [
+                  {
+                    "pred": "acceptedAnswer",
+                    "target": {
+                      "types": [
+                        {
+                          "pred": "itemtype",
+                          "value": "Answer",
+                          "errors": [],
+                          "begin": 3058,
+                          "end": 3066
+                        }
+                      ],
+                      "typeGroup": "Answer",
+                      "errors": [],
+                      "properties": [
+                        {
+                          "pred": "text",
+                          "value": "Er liest die Meldung, ordnet sie dem Objekt zu und bereitet alle Nachrichten fertig vor \u2013 mit Quelle.",
+                          "errors": [],
+                          "begin": 3076,
+                          "end": 3181
+                        }
+                      ],
+                      "nodeProperties": [],
+                      "numErrors": 0,
+                      "numWarnings": 0
+                    },
+                    "errors": [],
+                    "begin": 3048,
+                    "end": 3182
+                  }
+                ],
+                "numErrors": 0,
+                "numWarnings": 0
+              },
+              "errors": [],
+              "begin": 2950,
+              "end": 3183
+            },
+            {
+              "pred": "mainEntity",
+              "target": {
+                "types": [
+                  {
+                    "pred": "itemtype",
+                    "value": "Question",
+                    "errors": [],
+                    "begin": 3195,
+                    "end": 3205
+                  }
+                ],
+                "typeGroup": "Question",
+                "errors": [],
+                "properties": [
+                  {
+                    "pred": "name",
+                    "value": "Wer gibt Nachrichten frei?",
+                    "errors": [],
+                    "begin": 3215,
+                    "end": 3243
+                  }
+                ],
+                "nodeProperties": [
+                  {
+                    "pred": "acceptedAnswer",
+                    "target": {
+                      "types": [
+                        {
+                          "pred": "itemtype",
+                          "value": "Answer",
+                          "errors": [],
+                          "begin": 3273,
+                          "end": 3281
+                        }
+                      ],
+                      "typeGroup": "Answer",
+                      "errors": [],
+                      "properties": [
+                        {
+                          "pred": "text",
+                          "value": "Ihre Mitarbeiterin entscheidet. Au\u00dfer der Standardantwort geht ohne Freigabe nichts raus.",
+                          "errors": [],
+                          "begin": 3291,
+                          "end": 3383
+                        }
+                      ],
+                      "nodeProperties": [],
+                      "numErrors": 0,
+                      "numWarnings": 0
+                    },
+                    "errors": [],
+                    "begin": 3263,
+                    "end": 3384
+                  }
+                ],
+                "numErrors": 0,
+                "numWarnings": 0
+              },
+              "errors": [],
+              "begin": 3185,
+              "end": 3385
+            },
+            {
+              "pred": "mainEntity",
+              "target": {
+                "types": [
+                  {
+                    "pred": "itemtype",
+                    "value": "Question",
+                    "errors": [],
+                    "begin": 3397,
+                    "end": 3407
+                  }
+                ],
+                "typeGroup": "Question",
+                "errors": [],
+                "properties": [
+                  {
+                    "pred": "name",
+                    "value": "Ersetzt das Angebot die Verwaltungssoftware?",
+                    "errors": [],
+                    "begin": 3417,
+                    "end": 3463
+                  }
+                ],
+                "nodeProperties": [
+                  {
+                    "pred": "acceptedAnswer",
+                    "target": {
+                      "types": [
+                        {
+                          "pred": "itemtype",
+                          "value": "Answer",
+                          "errors": [],
+                          "begin": 3493,
+                          "end": 3501
+                        }
+                      ],
+                      "typeGroup": "Answer",
+                      "errors": [],
+                      "properties": [
+                        {
+                          "pred": "text",
+                          "value": "Wir ersetzen Ihre Software nicht. Wir arbeiten davor, am Posteingang. Stammdaten kommen als Export.",
+                          "errors": [],
+                          "begin": 3511,
+                          "end": 3612
+                        }
+                      ],
+                      "nodeProperties": [],
+                      "numErrors": 0,
+                      "numWarnings": 0
+                    },
+                    "errors": [],
+                    "begin": 3483,
+                    "end": 3613
+                  }
+                ],
+                "numErrors": 0,
+                "numWarnings": 0
+              },
+              "errors": [],
+              "begin": 3387,
+              "end": 3614
+            },
+            {
+              "pred": "mainEntity",
+              "target": {
+                "types": [
+                  {
+                    "pred": "itemtype",
+                    "value": "Question",
+                    "errors": [],
+                    "begin": 3626,
+                    "end": 3636
+                  }
+                ],
+                "typeGroup": "Question",
+                "errors": [],
+                "properties": [
+                  {
+                    "pred": "name",
+                    "value": "Welche Daten nutzt der Pilot?",
+                    "errors": [],
+                    "begin": 3646,
+                    "end": 3677
+                  }
+                ],
+                "nodeProperties": [
+                  {
+                    "pred": "acceptedAnswer",
+                    "target": {
+                      "types": [
+                        {
+                          "pred": "itemtype",
+                          "value": "Answer",
+                          "errors": [],
+                          "begin": 3707,
+                          "end": 3715
+                        }
+                      ],
+                      "typeGroup": "Answer",
+                      "errors": [],
+                      "properties": [
+                        {
+                          "pred": "text",
+                          "value": "Der Pilot startet mit fiktiven Daten. Echte Daten verarbeiten wir erst mit einem Vertrag zur Auftragsverarbeitung (AVV).",
+                          "errors": [],
+                          "begin": 3725,
+                          "end": 3847
+                        }
+                      ],
+                      "nodeProperties": [],
+                      "numErrors": 0,
+                      "numWarnings": 0
+                    },
+                    "errors": [],
+                    "begin": 3697,
+                    "end": 3848
+                  }
+                ],
+                "numErrors": 0,
+                "numWarnings": 0
+              },
+              "errors": [],
+              "begin": 3616,
+              "end": 3849
+            },
+            {
+              "pred": "mainEntity",
+              "target": {
+                "types": [
+                  {
+                    "pred": "itemtype",
+                    "value": "Question",
+                    "errors": [],
+                    "begin": 3861,
+                    "end": 3871
+                  }
+                ],
+                "typeGroup": "Question",
+                "errors": [],
+                "properties": [
+                  {
+                    "pred": "name",
+                    "value": "Was enth\u00e4lt die Vorgangsakte?",
+                    "errors": [],
+                    "begin": 3881,
+                    "end": 3913
+                  }
+                ],
+                "nodeProperties": [
+                  {
+                    "pred": "acceptedAnswer",
+                    "target": {
+                      "types": [
+                        {
+                          "pred": "itemtype",
+                          "value": "Answer",
+                          "errors": [],
+                          "begin": 3943,
+                          "end": 3951
+                        }
+                      ],
+                      "typeGroup": "Answer",
+                      "errors": [],
+                      "properties": [
+                        {
+                          "pred": "text",
+                          "value": "Die Vorgangsakte enth\u00e4lt Freigaben und Versionen.",
+                          "errors": [],
+                          "begin": 3961,
+                          "end": 4013
+                        }
+                      ],
+                      "nodeProperties": [],
+                      "numErrors": 0,
+                      "numWarnings": 0
+                    },
+                    "errors": [],
+                    "begin": 3933,
+                    "end": 4014
+                  }
+                ],
+                "numErrors": 0,
+                "numWarnings": 0
+              },
+              "errors": [],
+              "begin": 3851,
+              "end": 4015
+            }
+          ],
+          "numErrors": 0,
+          "numWarnings": 0
+        }
+      ],
+      "numNodesWithError": 0,
+      "numNodesWithWarning": 0,
+      "numErrors": 0,
+      "numWarnings": 0,
+      "type": "FAQPage"
+    }
+  ],
+  "numObjects": 3,
+  "html": "<!DOCTYPE html>\n<html lang=\"de\">\n<head>\n  <script>document.documentElement.classList.add('js')</script>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <meta name=\"description\" content=\"KI-Mitarbeiter f\u00fcr Hausverwaltungen: Aus jeder Schadensmeldung ein fertiger, belegter Vorgang \u2013 Ihre Mitarbeiterin pr\u00fcft und gibt frei.\">\n  <meta name=\"theme-color\" content=\"#08080a\">\n  <meta property=\"og:type\" content=\"website\">\n  <meta property=\"og:url\" content=\"https://moellenbeck-digital.io/hausverwaltung/\">\n  <meta property=\"og:title\" content=\"KI-Mitarbeiter f\u00fcr Hausverwaltungen \u00b7 Moellenbeck-Digital\">\n  <meta property=\"og:description\" content=\"Software, Automatisierung und KI-Agenten \u2013 pragmatisch gebaut. Digital &amp; Remote.\">\n  <meta property=\"og:image\" content=\"https://moellenbeck-digital.io/assets/og-image.png\">\n  <meta property=\"og:image:width\" content=\"1200\">\n  <meta property=\"og:image:height\" content=\"630\">\n  <meta property=\"og:image:alt\" content=\"Moellenbeck-Digital \u2014 Software, Automatisierung und KI-Agenten.\">\n  <meta property=\"og:locale\" content=\"de_DE\">\n  <meta name=\"twitter:card\" content=\"summary_large_image\">\n  <meta name=\"twitter:title\" content=\"KI-Mitarbeiter f\u00fcr Hausverwaltungen \u00b7 Moellenbeck-Digital\">\n  <meta name=\"twitter:description\" content=\"Software, Automatisierung und KI-Agenten \u2013 pragmatisch gebaut.\">\n  <meta name=\"twitter:image\" content=\"https://moellenbeck-digital.io/assets/og-image.png\">\n  <title>KI-Mitarbeiter f\u00fcr Hausverwaltungen \u00b7 Moellenbeck-Digital</title>\n  <link rel=\"canonical\" href=\"https://moellenbeck-digital.io/hausverwaltung/\">\n  <link rel=\"icon\" href=\"assets/favicon.ico\" sizes=\"48x48\">\n  <link rel=\"icon\" href=\"assets/md_favicon.svg\" type=\"image/svg+xml\">\n  <link rel=\"icon\" href=\"assets/favicon-32x32.png\" sizes=\"32x32\" type=\"image/png\">\n  <link rel=\"apple-touch-icon\" href=\"assets/favicon-180x180.png\">\n  <link rel=\"preload\" href=\"assets/fonts/space-grotesk-var.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>\n  <link rel=\"preload\" href=\"assets/fonts/inter-var.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>\n  <link rel=\"stylesheet\" href=\"style.css\">\n<script type=\"application/ld+json\">{\"@context\": \"https://schema.org\", \"@graph\": [{\"@type\": \"BreadcrumbList\", \"@id\": \"https://moellenbeck-digital.io/hausverwaltung/#breadcrumb\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Startseite\", \"item\": \"https://moellenbeck-digital.io/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Hausverwaltung\", \"item\": \"https://moellenbeck-digital.io/hausverwaltung/\"}]}, {\"@type\": \"Service\", \"@id\": \"https://moellenbeck-digital.io/hausverwaltung/#service\", \"name\": \"KI-Mitarbeiter f\u00fcr Hausverwaltungen\", \"provider\": {\"@id\": \"https://moellenbeck-digital.io/#org\"}, \"url\": \"https://moellenbeck-digital.io/hausverwaltung/\"}, {\"@type\": \"FAQPage\", \"@id\": \"https://moellenbeck-digital.io/hausverwaltung/#faq\", \"mainEntity\": [{\"@type\": \"Question\", \"name\": \"Was macht der KI-Mitarbeiter nach dem Eingang?\", \"acceptedAnswer\": {\"@type\": \"Answer\", \"text\": \"Er liest die Meldung, ordnet sie dem Objekt zu und bereitet alle Nachrichten fertig vor \u2013 mit Quelle.\"}}, {\"@type\": \"Question\", \"name\": \"Wer gibt Nachrichten frei?\", \"acceptedAnswer\": {\"@type\": \"Answer\", \"text\": \"Ihre Mitarbeiterin entscheidet. Au\u00dfer der Standardantwort geht ohne Freigabe nichts raus.\"}}, {\"@type\": \"Question\", \"name\": \"Ersetzt das Angebot die Verwaltungssoftware?\", \"acceptedAnswer\": {\"@type\": \"Answer\", \"text\": \"Wir ersetzen Ihre Software nicht. Wir arbeiten davor, am Posteingang. Stammdaten kommen als Export.\"}}, {\"@type\": \"Question\", \"name\": \"Welche Daten nutzt der Pilot?\", \"acceptedAnswer\": {\"@type\": \"Answer\", \"text\": \"Der Pilot startet mit fiktiven Daten. Echte Daten verarbeiten wir erst mit einem Vertrag zur Auftragsverarbeitung (AVV).\"}}, {\"@type\": \"Question\", \"name\": \"Was enth\u00e4lt die Vorgangsakte?\", \"acceptedAnswer\": {\"@type\": \"Answer\", \"text\": \"Die Vorgangsakte enth\u00e4lt Freigaben und Versionen.\"}}]}]}</script>\n</head>\n<body>\n  <a class=\"skip-link\" href=\"#main\">Zum Inhalt springen</a>\n  <!-- \u2550\u2550 NAV: minimal, sticky, glasig \u2550\u2550 -->\n  <header class=\"site-nav\" id=\"siteNav\">\n    <div class=\"nav-inner\">\n      <a class=\"logo\" href=\"https://moellenbeck-digital.io/\" aria-label=\"Moellenbeck-Digital \u2013 Startseite\">\n        <img src=\"assets/md_variante1.svg\" alt=\"\" width=\"93\" height=\"28\">\n      </a>\n      <details class=\"nav-menu\" open>\n        <summary aria-label=\"Men\u00fc\"><span></span><span></span><span></span></summary>\n        <nav class=\"nav-links\" aria-label=\"Hauptnavigation\">\n          <a class=\"nav-back\" href=\"https://moellenbeck-digital.io/\">&lt;- Moellenbeck Digital</a>\n          <a href=\"#ablauf\">Ablauf</a>\n          <a href=\"#nutzen\">Nutzen</a>\n          <a href=\"#sicherheit\">Sicherheit</a>\n          <a href=\"#infrastruktur\">Infrastruktur</a>\n          <a href=\"#pilot\">Pilot</a>\n        </nav>\n      </details>\n      <div class=\"nav-actions\">\n        <button class=\"sound-toggle\" id=\"soundToggle\" type=\"button\"\n                aria-label=\"UI-Sounds einschalten\" aria-pressed=\"false\"\n                title=\"UI-Sounds (Standard: aus)\">\n          <svg class=\"sound-off\" width=\"14\" height=\"14\" viewBox=\"0 0 14 14\" fill=\"none\" aria-hidden=\"true\">\n            <path d=\"M2 5H4L7 2V12L4 9H2V5Z\" stroke=\"currentColor\" stroke-width=\"1.2\"/>\n            <path d=\"M10 4.5L12.5 9.5M12.5 4.5L10 9.5\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-linecap=\"round\"/>\n          </svg>\n          <svg class=\"sound-on\" width=\"14\" height=\"14\" viewBox=\"0 0 14 14\" fill=\"none\" aria-hidden=\"true\" hidden>\n            <path d=\"M2 5H4L7 2V12L4 9H2V5Z\" stroke=\"currentColor\" stroke-width=\"1.2\"/>\n            <path d=\"M9 4.5C9.8 5.3 10.5 6.1 10.5 7C10.5 7.9 9.8 8.7 9 9.5M11 2.5C12.5 3.8 13.5 5.3 13.5 7C13.5 8.7 12.5 10.2 11 11.5\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-linecap=\"round\"/>\n          </svg>\n        </button>\n        <a class=\"nav-cta\" href=\"#kontakt\" data-subject=\"HV-Pilot\" data-sound=\"click\">Probetag</a>\n      </div>\n    </div>\n  </header>\n    <main id=\"main\">\n    <!-- \u2550\u2550 HERO \u2550\u2550 -->\n    <section class=\"hero hv-hero\" id=\"hero\" aria-labelledby=\"heroTitle\">\n      <div class=\"hero-light\" aria-hidden=\"true\">\n        <span class=\"light light-orange\"></span>\n        <span class=\"light light-blue\"></span>\n        <span class=\"light light-violet\"></span>\n        <span class=\"hero-lines\"></span>\n      </div>\n      <div class=\"hero-inner\">\n        <div class=\"hero-copy\">\n          <p class=\"announce fadeup\" style=\"--d:.05s\"><span class=\"announce-tag\">Bald</span><span class=\"announce-text\">KI-Mitarbeiter f\u00fcr Hausverwaltungen \u00b7 Pilotphase startet bald</span></p>\n          <h1 id=\"heroTitle\" class=\"hero-title hv-title\">\n            <span class=\"line blurin\" style=\"--d:.15s\">Aus jeder Schadensmeldung</span>\n            <span class=\"line blurin\" style=\"--d:.28s\">ein fertiger, belegter Vorgang.</span>\n            <span class=\"line accent blurin\" style=\"--d:.41s\">Ihre Mitarbeiterin pr\u00fcft und gibt frei.</span>\n          </h1>\n          <p class=\"hero-sub fadeup\" style=\"--d:.6s\">Ein digitaler Backoffice-Kollege nach dem Eingang: Er liest die Meldung, ordnet sie dem Objekt zu und bereitet alle Nachrichten fertig vor \u2013 mit Quelle.</p>\n          <div class=\"hero-actions fadeup\" style=\"--d:.72s\">\n            <a href=\"#kontakt\" class=\"btn btn-primary\" data-subject=\"HV-Pilot\" data-sound=\"click\">Probetag anfragen</a>\n            <a href=\"#ablauf\" class=\"btn-text\" data-sound=\"click\">Beispiel ansehen</a>\n          </div>\n        </div>\n        <figure class=\"hv-video fadeup\" style=\"--d:.5s\">\n          <div class=\"hv-video-glow\" aria-hidden=\"true\"></div>\n          <video id=\"hvVideo\" controls muted loop playsinline preload=\"none\" poster=\"assets/img/hv-wasserschaden-poster.webp\"\n                 width=\"720\" height=\"720\" aria-describedby=\"hvVideoCap\">\n            <source src=\"assets/video/hv-wasserschaden-de.mp4\" type=\"video/mp4\">\n            <track kind=\"captions\" src=\"assets/video/hv-wasserschaden-de.vtt\" srclang=\"de\" label=\"Deutsch\">\n          </video>\n          <figcaption id=\"hvVideoCap\">// 20 Sekunden, ohne Ton. Fiktive Demodaten.</figcaption>\n        </figure>\n      </div>\n    </section>\n    <!-- \u2550\u2550 ABLAUF \u2550\u2550 -->\n    <section class=\"section\" id=\"ablauf\" aria-labelledby=\"ablaufTitle\">\n      <div class=\"section-light\" aria-hidden=\"true\"></div>\n      <div class=\"container\">\n        <header class=\"section-head reveal\">\n          <span class=\"marker\">// 01 \u00b7 Beispiel Wasserschaden</span>\n          <h2 id=\"ablaufTitle\">Vier Schritte.<br><span class=\"muted\">Ein Klick von Ihnen.</span></h2>\n        </header>\n        <ol class=\"hv-steps\">\n          <li class=\"hv-step reveal\" style=\"--tone:96,165,250\">\n            <img class=\"hv-bot\" src=\"assets/img/bots/bot-blue.webp\" alt=\"\" width=\"280\" height=\"320\" loading=\"lazy\" decoding=\"async\">\n            <span class=\"hv-num\">01 \u00b7 Eingang</span>\n            <h3>Die Meldung kommt an</h3>\n            <p>\u201eWasser tropft von der Decke, Whg. 3. OG.\u201c Objekt und Einheit sind erkannt, die Dringlichkeit eingesch\u00e4tzt. Der Mieter bekommt eine Standardantwort.</p>\n          </li>\n          <li class=\"hv-step reveal\" style=\"--tone:167,139,250\">\n            <img class=\"hv-bot\" src=\"assets/img/bots/bot-violet.webp\" alt=\"\" width=\"280\" height=\"320\" loading=\"lazy\" decoding=\"async\">\n            <span class=\"hv-num\">02 \u00b7 Ma\u00dfnahmenpaket</span>\n            <h3>Alle Nachrichten als Entwurf</h3>\n            <p>An Mieter, Handwerker, Eigent\u00fcmer, Beirat und f\u00fcr die Akte \u2013 jede Aussage mit Quelle.</p>\n          </li>\n          <li class=\"hv-step reveal\" style=\"--tone:251,146,60\">\n            <span class=\"hv-human\" aria-hidden=\"true\">M</span>\n            <span class=\"hv-num\">03 \u00b7 Freigabe</span>\n            <h3>Ihre Mitarbeiterin entscheidet</h3>\n            <p>Sie pr\u00fcft, \u00e4ndert bei Bedarf und klickt auf Freigabe. Au\u00dfer der Standardantwort geht ohne diesen Klick nichts raus.</p>\n          </li>\n          <li class=\"hv-step reveal\" style=\"--tone:52,211,153\">\n            <img class=\"hv-bot\" src=\"assets/img/bots/bot-green.webp\" alt=\"\" width=\"280\" height=\"320\" loading=\"lazy\" decoding=\"async\">\n            <span class=\"hv-num\">04 \u00b7 Akte</span>\n            <h3>Der Vorgang ist belegt</h3>\n            <p>Die Vorgangsakte enth\u00e4lt Freigaben und Versionen \u2013 vorlegbar f\u00fcr Beirat, Eigent\u00fcmer oder im Streitfall.</p>\n          </li>\n        </ol>\n      </div>\n    </section>\n    <!-- \u2550\u2550 NUTZEN \u2550\u2550 -->\n    <section class=\"section\" id=\"nutzen\" aria-labelledby=\"nutzenTitle\">\n      <div class=\"container\">\n        <header class=\"section-head reveal\">\n          <span class=\"marker\">// 02 \u00b7 F\u00fcr Ihre Verwaltung</span>\n          <h2 id=\"nutzenTitle\">Was es f\u00fcr Sie tut.</h2>\n        </header>\n        <ul class=\"hv-points\">\n          <li class=\"hv-point reveal\" style=\"--tone:96,165,250\"><span class=\"hv-num\">01</span><h3>Eingang sortiert</h3><p>Objekt, Einheit und Dringlichkeit sind erkannt, bevor jemand die Mail liest.</p></li>\n          <li class=\"hv-point reveal\" style=\"--tone:167,139,250\"><span class=\"hv-num\">02</span><h3>Alle Beteiligten vorbereitet</h3><p>Aus einer Meldung entstehen die Nachrichten an alle Beteiligten \u2013 jede Aussage mit Quelle.</p></li>\n          <li class=\"hv-point reveal\" style=\"--tone:244,114,182\"><span class=\"hv-num\">03</span><h3>Nichts rutscht durch</h3><p>Fristen und Notf\u00e4lle eskalieren, wenn niemand reagiert.</p></li>\n          <li class=\"hv-point reveal\" style=\"--tone:250,204,21\"><span class=\"hv-num\">04</span><h3>Vier-Augen-Prinzip</h3><p>Ab einer Betragsgrenze braucht es eine zweite Person.</p></li>\n          <li class=\"hv-point reveal\" style=\"--tone:52,211,153\"><span class=\"hv-num\">05</span><h3>Beleg auf Knopfdruck</h3><p>Jeder Vorgang l\u00e4sst sich als Akte mit Freigaben und Versionen vorlegen.</p></li>\n        </ul>\n      </div>\n    </section>\n    <!-- \u2550\u2550 ABGRENZUNG \u2550\u2550 -->\n    <section class=\"section\" id=\"abgrenzung\" aria-labelledby=\"abgrTitle\">\n      <div class=\"section-light\" aria-hidden=\"true\"></div>\n      <div class=\"container\">\n        <header class=\"section-head reveal\">\n          <span class=\"marker\">// 03 \u00b7 Einordnung</span>\n          <h2 id=\"abgrTitle\">Mehr als eine Antwort.<br><span class=\"muted\">Der ganze Vorgang.</span></h2>\n        </header>\n        <div class=\"hv-compare\">\n          <article class=\"hv-card reveal\" style=\"--tone:96,165,250\">\n            <span class=\"hv-num\">Chat-Assistenten</span>\n            <h3>ChatGPT &amp; Co.</h3>\n            <p>Ein Werkzeug f\u00fcr Einzelpersonen. F\u00fcr den Vorgang braucht es mehr: Ihre Stammdaten, einen Freigabeschritt und Eskalation bei Notf\u00e4llen.</p>\n          </article>\n          <article class=\"hv-card reveal\" style=\"--tone:167,139,250\">\n            <span class=\"hv-num\">Telefon-KI</span>\n            <h3>Nimmt auf \u2013 wir machen weiter</h3>\n            <p>Zust\u00e4ndigkeit, Handwerker, alle Beteiligten, Akte. Die Notiz der Telefon-KI kann ein Eingang f\u00fcr uns sein.</p>\n          </article>\n          <article class=\"hv-card reveal\" style=\"--tone:52,211,153\">\n            <span class=\"hv-num\">Verwaltungssoftware</span>\n            <h3>Bleibt, wie sie ist</h3>\n            <p>Wir ersetzen Ihre Software nicht. Wir arbeiten davor, am Posteingang. Stammdaten kommen als Export.</p>\n          </article>\n        </div>\n      </div>\n    </section>\n    <!-- \u2550\u2550 FLEXIBEL \u2550\u2550 -->\n    <section class=\"section\" id=\"flexibel\" aria-labelledby=\"flexTitle\">\n      <div class=\"container hv-split\">\n        <header class=\"section-head reveal\">\n          <span class=\"marker\">// 04 \u00b7 Flexibel je Betrieb</span>\n          <h2 id=\"flexTitle\">Jede Verwaltung<br><span class=\"muted\">ist anders.</span></h2>\n        </header>\n        <ul class=\"prompt-list hv-list reveal\">\n          <li>Zust\u00e4ndigkeiten je Objekt kommen aus Ihren Stammdaten.</li>\n          <li>Eigene Fakten wie Haupthahn oder Zugang merkt sich der Kollege \u2013 nur mit Ihrer Freigabe.</li>\n          <li>Die Betragsgrenze f\u00fcr die zweite Freigabe legen Sie selbst fest.</li>\n          <li>Einrichtung unter einem Tag: Postfach weiterleiten, Stammdaten als Datei, 15 Minuten Einweisung.</li>\n          <li>Eine Woche \u00dcbungsbetrieb mit fiktiven Eing\u00e4ngen vor dem Echtstart.</li>\n        </ul>\n      </div>\n    </section>\n    <!-- \u2550\u2550 SICHERHEIT \u2550\u2550 -->\n    <section class=\"section\" id=\"sicherheit\" aria-labelledby=\"sichTitle\">\n      <div class=\"container\">\n        <header class=\"section-head reveal\">\n          <span class=\"marker\">// 05 \u00b7 Sicherheit &amp; Datenschutz</span>\n          <h2 id=\"sichTitle\">Haftungsschutz im Code.<br><span class=\"muted\">Nicht im Versprechen.</span></h2>\n        </header>\n        <div class=\"hv-compare\">\n          <article class=\"hv-card reveal\" style=\"--tone:251,146,60\">\n            <span class=\"hv-num\">Freigabe</span>\n            <h3>Im Code erzwungen</h3>\n            <p>Die Freigabe ist an den Inhalt gebunden. Empf\u00e4nger kommen nur aus den Stammdaten. Keine Zahlungen und keine Rechtsauskunft durch die KI.</p>\n          </article>\n          <article class=\"hv-card reveal\" style=\"--tone:96,165,250\">\n            <span class=\"hv-num\">Daten</span>\n            <h3>Server in Deutschland</h3>\n            <p>Der Pilot startet mit fiktiven Daten. Echte Daten verarbeiten wir erst mit einem Vertrag zur Auftragsverarbeitung (AVV). Ihre Stammdaten exportieren Sie jederzeit.</p>\n          </article>\n          <article class=\"hv-card reveal\" style=\"--tone:52,211,153\">\n            <span class=\"hv-num\">Team</span>\n            <h3>Niemand wird \u00fcberwacht</h3>\n            <p>Der Wirkungsbericht z\u00e4hlt Vorg\u00e4nge, nicht Personen. Ihr Team entscheidet jede Nachricht selbst.</p>\n          </article>\n        </div>\n      </div>\n    </section>\n    <!-- \u2550\u2550 DARUNTER: AGENTEN-INFRASTRUKTUR \u2550\u2550 -->\n    <section class=\"section\" id=\"infrastruktur\" aria-labelledby=\"infraTitle\">\n      <div class=\"section-light\" aria-hidden=\"true\"></div>\n      <div class=\"container\">\n        <header class=\"section-head reveal\">\n          <span class=\"marker\">// 06 \u00b7 Darunter</span>\n          <h2 id=\"infraTitle\">Unsere Agenten-<br><span class=\"muted\">Infrastruktur.</span></h2>\n        </header>\n        <div class=\"hv-compare\">\n          <article class=\"hv-card reveal\" style=\"--tone:96,165,250\">\n            <span class=\"hv-num\">Organisation</span>\n            <h3>Teams mit klaren Rollen</h3>\n            <p>Ein Chief of Staff verteilt die Arbeit. Tester und Reviewer pr\u00fcfen unabh\u00e4ngig. Jede Freigabe eines Menschen wird protokolliert.</p>\n          </article>\n          <article class=\"hv-card reveal\" style=\"--tone:52,211,153\">\n            <span class=\"hv-num\">Sicherheit</span>\n            <h3>Kontrolle im System</h3>\n            <p>Jeder Agent hat einen festen Bereich. Zugangsdaten liegen in einem Passwort-Tresor. Eigene Server in Deutschland.</p>\n          </article>\n          <article class=\"hv-card reveal\" style=\"--tone:167,139,250\">\n            <span class=\"hv-num\">Individualisierung</span>\n            <h3>Konfiguration statt Umbau</h3>\n            <p>Was je Verwaltung anders ist, ist Konfiguration. Verbindungen k\u00f6nnen \u00fcber wave-mesh laufen: Ende-zu-Ende verschl\u00fcsselt \u00fcber WireGuard.</p>\n          </article>\n        </div>\n        <p class=\"hv-more reveal\"><a class=\"pcard-link\" href=\"https://moellenbeck-digital.io/#infrastruktur\">Mehr zur Infrastruktur</a></p>\n      </div>\n    </section>\n    <!-- \u2550\u2550 PILOT \u2550\u2550 -->\n    <section class=\"section\" id=\"pilot\" aria-labelledby=\"pilotTitle\">\n      <div class=\"container\">\n        <div class=\"hv-pilot reveal\">\n          <span class=\"marker\">// 07 \u00b7 Pilot</span>\n          <h2 id=\"pilotTitle\">Pilotphase startet bald.</h2>\n          <p>Wir zeigen Ihnen den Ablauf an einer Musterverwaltung mit fiktiven Daten. Danach testen Sie an einem Probetag.</p>\n          <a href=\"#kontakt\" class=\"btn btn-primary\" data-subject=\"HV-Pilot\" data-sound=\"click\">Probetag anfragen</a>\n        </div>\n      </div>\n    </section>\n    <!-- \u2550\u2550 KONTAKT: Formular, Versand per mailto \u2550\u2550 -->\n    <section class=\"contact\" id=\"kontakt\" aria-labelledby=\"contactTitle\">\n      <div class=\"contact-light\" aria-hidden=\"true\"></div>\n      <div class=\"container contact-grid\">\n        <div class=\"contact-intro reveal\">\n          <span class=\"marker\">// 08 \u00b7 Probetag</span>\n          <h2 id=\"contactTitle\">Probetag<br>anfragen.</h2>\n          <p><span class=\"refs-c\">//</span> Schreiben Sie uns. Beim Senden \u00f6ffnet sich Ihr E-Mail-Programm mit einer fertigen Nachricht an <a href=\"mailto:admin@moellenbeck-digital.io\">admin@moellenbeck-digital.io</a>. Diese Seite speichert nichts.</p>\n        </div>\n        <form class=\"contact-form reveal\" id=\"contactForm\" action=\"mailto:admin@moellenbeck-digital.io\" method=\"post\" enctype=\"text/plain\" novalidate aria-describedby=\"formHint\">\n          <div class=\"field\">\n            <label for=\"cfName\">Name</label>\n            <input id=\"cfName\" name=\"Name\" type=\"text\" autocomplete=\"name\" required aria-describedby=\"cfNameErr\">\n            <span class=\"field-err\" id=\"cfNameErr\" aria-live=\"polite\"></span>\n          </div>\n          <div class=\"field\">\n            <label for=\"cfMail\">E-Mail</label>\n            <input id=\"cfMail\" name=\"E-Mail\" type=\"email\" autocomplete=\"email\" inputmode=\"email\" required aria-describedby=\"cfMailErr\">\n            <span class=\"field-err\" id=\"cfMailErr\" aria-live=\"polite\"></span>\n          </div>\n          <div class=\"field field--full\">\n            <label for=\"cfSubject\">Betreff</label>\n            <span class=\"select-wrap\"><select id=\"cfSubject\" name=\"Betreff\" required aria-describedby=\"cfSubjectErr\">\n              <option value=\"\">Bitte w\u00e4hlen</option>\n              <option>Projektanfrage</option>\n              <option>HV-Pilot</option>\n              <option>KI-Mitarbeiter Warteliste</option>\n              <option>MD_Process</option>\n              <option>Agenten-Infrastruktur</option>\n              <option>Sonstiges</option>\n            </select></span>\n            <span class=\"field-err\" id=\"cfSubjectErr\" aria-live=\"polite\"></span>\n          </div>\n          <div class=\"field field--full\">\n            <label for=\"cfMsg\">Nachricht</label>\n            <textarea id=\"cfMsg\" name=\"Nachricht\" rows=\"5\" required minlength=\"10\" aria-describedby=\"cfMsgErr\"></textarea>\n            <span class=\"field-err\" id=\"cfMsgErr\" aria-live=\"polite\"></span>\n          </div>\n          <div class=\"form-foot field--full\">\n            <p class=\"form-hint\" id=\"formHint\">Alle Felder sind Pflicht. Hinweise zum Datenschutz: <a href=\"https://moellenbeck-digital.io/datenschutz.html\">Datenschutzerkl\u00e4rung</a>.</p>\n            <button class=\"md-btn\" type=\"submit\" data-sound=\"click\">Nachricht vorbereiten -&gt;</button>\n          </div>\n          <p class=\"form-status field--full\" id=\"formStatus\" role=\"status\" aria-live=\"polite\"></p>\n        </form>\n      </div>\n    </section>\n  <section class=\"section\" id=\"faq\" aria-labelledby=\"faq-title\"><div class=\"container\"><h2 id=\"faq-title\">H\u00e4ufige Fragen</h2><details><summary>Was macht der KI-Mitarbeiter nach dem Eingang?</summary><p>Er liest die Meldung, ordnet sie dem Objekt zu und bereitet alle Nachrichten fertig vor \u2013 mit Quelle.</p></details><details><summary>Wer gibt Nachrichten frei?</summary><p>Ihre Mitarbeiterin entscheidet. Au\u00dfer der Standardantwort geht ohne Freigabe nichts raus.</p></details><details><summary>Ersetzt das Angebot die Verwaltungssoftware?</summary><p>Wir ersetzen Ihre Software nicht. Wir arbeiten davor, am Posteingang. Stammdaten kommen als Export.</p></details><details><summary>Welche Daten nutzt der Pilot?</summary><p>Der Pilot startet mit fiktiven Daten. Echte Daten verarbeiten wir erst mit einem Vertrag zur Auftragsverarbeitung (AVV).</p></details><details><summary>Was enth\u00e4lt die Vorgangsakte?</summary><p>Die Vorgangsakte enth\u00e4lt Freigaben und Versionen.</p></details><p>Zuletzt aktualisiert: <time datetime=\"2026-11-25\">25. November 2026</time></p></div></section>\n</main>\n  <!-- \u2550\u2550 FOOTER: gro\u00df \u2550\u2550 -->\n  <footer class=\"site-footer\">\n    <div class=\"container footer-grid\">\n      <div class=\"footer-brand\">\n        <img src=\"assets/md_variante1.svg\" alt=\"Moellenbeck-Digital\" width=\"93\" height=\"28\" loading=\"lazy\">\n        <p>Software, Automatisierung und KI-Agenten. Digital &amp; Remote.</p>\n      </div>\n      <nav class=\"footer-col\" aria-label=\"Seite\">\n        <span class=\"footer-h\">Seite</span>\n        <a href=\"#ablauf\">Ablauf</a>\n        <a href=\"#nutzen\">Nutzen</a>\n        <a href=\"#sicherheit\">Sicherheit</a>\n        <a href=\"#kontakt\">Probetag</a>\n      </nav>\n      <nav class=\"footer-col\" aria-label=\"Moellenbeck Digital\">\n        <span class=\"footer-h\">Moellenbeck Digital</span>\n        <a href=\"https://moellenbeck-digital.io/\">Startseite</a>\n        <a href=\"https://moellenbeck-digital.io/#plattform\">Plattform</a>\n        <a href=\"https://moellenbeck-digital.io/#member\">Team</a>\n      </nav>\n      <nav class=\"footer-col\" aria-label=\"Rechtliches\">\n        <span class=\"footer-h\">Rechtliches</span>\n        <a href=\"https://moellenbeck-digital.io/impressum.html\">Impressum</a>\n        <a href=\"https://moellenbeck-digital.io/datenschutz.html\">Datenschutzerkl\u00e4rung</a>\n        <a href=\"mailto:admin@moellenbeck-digital.io\">Kontakt</a>\n      </nav>\n    </div>\n    <div class=\"footer-wordmark\" aria-hidden=\"true\"></div>\n    <div class=\"container footer-base\">\n      <span>\u00a9 2026 Moellenbeck-Digital UG (haftungsbeschr\u00e4nkt)</span>\n      <span>UI-Sounds: Standard aus</span>\n    </div>\n  </footer>\n  <script src=\"main.js\" defer></script>\n</body>\n</html>",
+  "errors": [],
+  "totalNumErrors": 0,
+  "totalNumWarnings": 0
+}

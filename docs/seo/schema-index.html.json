@@ -1,0 +1,921 @@
+{
+  "isRendered": false,
+  "tripleGroups": [
+    {
+      "ownerSet": {},
+      "nodes": [
+        {
+          "types": [
+            {
+              "pred": "itemtype",
+              "value": "BreadcrumbList",
+              "errors": [],
+              "begin": 2517,
+              "end": 2533
+            }
+          ],
+          "typeGroup": "BreadcrumbList",
+          "idProperty": {
+            "pred": "urn:spore:url",
+            "value": "https://moellenbeck-digital.io/#breadcrumb",
+            "errors": [],
+            "begin": 2542,
+            "end": 2586
+          },
+          "errors": [],
+          "properties": [],
+          "nodeProperties": [
+            {
+              "pred": "itemListElement",
+              "target": {
+                "types": [
+                  {
+                    "pred": "itemtype",
+                    "value": "ListItem",
+                    "errors": [],
+                    "begin": 2618,
+                    "end": 2628
+                  }
+                ],
+                "typeGroup": "ListItem",
+                "errors": [],
+                "properties": [
+                  {
+                    "pred": "position",
+                    "value": "1",
+                    "errors": [],
+                    "begin": 2642,
+                    "end": 2643
+                  },
+                  {
+                    "pred": "name",
+                    "value": "Startseite",
+                    "errors": [],
+                    "begin": 2653,
+                    "end": 2665
+                  }
+                ],
+                "nodeProperties": [
+                  {
+                    "pred": "item",
+                    "target": {
+                      "types": [
+                        {
+                          "pred": "itemtype",
+                          "value": "Thing",
+                          "errors": [],
+                          "begin": 2675,
+                          "end": 2708
+                        }
+                      ],
+                      "typeGroup": "Thing",
+                      "idProperty": {
+                        "pred": "urn:spore:url",
+                        "value": "https://moellenbeck-digital.io/",
+                        "errors": [],
+                        "begin": 2675,
+                        "end": 2708
+                      },
+                      "errors": [],
+                      "properties": [],
+                      "nodeProperties": [],
+                      "numErrors": 0,
+                      "numWarnings": 0
+                    },
+                    "errors": [],
+                    "begin": 2675,
+                    "end": 2708
+                  }
+                ],
+                "numErrors": 0,
+                "numWarnings": 0
+              },
+              "errors": [],
+              "begin": 2608,
+              "end": 2709
+            }
+          ],
+          "numErrors": 0,
+          "numWarnings": 0
+        }
+      ],
+      "numNodesWithError": 0,
+      "numNodesWithWarning": 0,
+      "numErrors": 0,
+      "numWarnings": 0,
+      "type": "BreadcrumbList"
+    },
+    {
+      "ownerSet": {},
+      "nodes": [
+        {
+          "types": [
+            {
+              "pred": "itemtype",
+              "value": "WebSite",
+              "errors": [],
+              "begin": 3290,
+              "end": 3299
+            }
+          ],
+          "typeGroup": "WebSite",
+          "idProperty": {
+            "pred": "urn:spore:url",
+            "value": "https://moellenbeck-digital.io/#website",
+            "errors": [],
+            "begin": 3308,
+            "end": 3349
+          },
+          "errors": [],
+          "properties": [
+            {
+              "pred": "url",
+              "value": "https://moellenbeck-digital.io/",
+              "errors": [],
+              "begin": 3358,
+              "end": 3391
+            },
+            {
+              "pred": "name",
+              "value": "Moellenbeck-Digital UG (haftungsbeschr\u00e4nkt)",
+              "errors": [],
+              "begin": 3401,
+              "end": 3447
+            },
+            {
+              "pred": "inLanguage",
+              "value": "de",
+              "errors": [],
+              "begin": 3524,
+              "end": 3528
+            }
+          ],
+          "nodeProperties": [
+            {
+              "pred": "publisher",
+              "target": {
+                "types": [
+                  {
+                    "pred": "itemtype",
+                    "value": "Organization",
+                    "errors": [],
+                    "begin": 2723,
+                    "end": 2737
+                  }
+                ],
+                "typeGroup": "Organization",
+                "idProperty": {
+                  "pred": "urn:spore:url",
+                  "value": "https://moellenbeck-digital.io/#org",
+                  "errors": [],
+                  "begin": 2746,
+                  "end": 2783
+                },
+                "errors": [],
+                "properties": [
+                  {
+                    "pred": "name",
+                    "value": "Moellenbeck-Digital UG (haftungsbeschr\u00e4nkt)",
+                    "errors": [],
+                    "begin": 2793,
+                    "end": 2839
+                  },
+                  {
+                    "pred": "legalName",
+                    "value": "Moellenbeck-Digital UG (haftungsbeschr\u00e4nkt)",
+                    "errors": [],
+                    "begin": 2854,
+                    "end": 2900
+                  },
+                  {
+                    "pred": "url",
+                    "value": "https://moellenbeck-digital.io/",
+                    "errors": [],
+                    "begin": 2909,
+                    "end": 2942
+                  },
+                  {
+                    "pred": "logo",
+                    "value": "https://moellenbeck-digital.io/assets/md_variante1.svg",
+                    "errors": [],
+                    "begin": 2952,
+                    "end": 3008
+                  }
+                ],
+                "nodeProperties": [
+                  {
+                    "pred": "address",
+                    "target": {
+                      "types": [
+                        {
+                          "pred": "itemtype",
+                          "value": "PostalAddress",
+                          "errors": [],
+                          "begin": 3031,
+                          "end": 3046
+                        }
+                      ],
+                      "typeGroup": "PostalAddress",
+                      "errors": [],
+                      "properties": [
+                        {
+                          "pred": "streetAddress",
+                          "value": "Luisenstra\u00dfe 59",
+                          "errors": [],
+                          "begin": 3065,
+                          "end": 3083
+                        },
+                        {
+                          "pred": "postalCode",
+                          "value": "45892",
+                          "errors": [],
+                          "begin": 3099,
+                          "end": 3106
+                        },
+                        {
+                          "pred": "addressLocality",
+                          "value": "Gelsenkirchen",
+                          "errors": [],
+                          "begin": 3127,
+                          "end": 3142
+                        }
+                      ],
+                      "nodeProperties": [
+                        {
+                          "pred": "addressCountry",
+                          "target": {
+                            "types": [
+                              {
+                                "pred": "itemtype",
+                                "value": "Country",
+                                "errors": [],
+                                "begin": 3162,
+                                "end": 3166
+                              }
+                            ],
+                            "typeGroup": "Country",
+                            "errors": [],
+                            "properties": [
+                              {
+                                "pred": "name",
+                                "value": "DE",
+                                "errors": [],
+                                "begin": 3162,
+                                "end": 3166
+                              }
+                            ],
+                            "nodeProperties": [],
+                            "numErrors": 0,
+                            "numWarnings": 0
+                          },
+                          "errors": [],
+                          "begin": 3162,
+                          "end": 3166
+                        }
+                      ],
+                      "numErrors": 0,
+                      "numWarnings": 0
+                    },
+                    "errors": [],
+                    "begin": 3021,
+                    "end": 3167
+                  },
+                  {
+                    "pred": "contactPoint",
+                    "target": {
+                      "types": [
+                        {
+                          "pred": "itemtype",
+                          "value": "ContactPoint",
+                          "errors": [],
+                          "begin": 3195,
+                          "end": 3209
+                        }
+                      ],
+                      "typeGroup": "ContactPoint",
+                      "errors": [],
+                      "properties": [
+                        {
+                          "pred": "email",
+                          "value": "admin@moellenbeck-digital.io",
+                          "errors": [],
+                          "begin": 3220,
+                          "end": 3250
+                        },
+                        {
+                          "pred": "contactType",
+                          "value": "Kontakt",
+                          "errors": [],
+                          "begin": 3267,
+                          "end": 3276
+                        }
+                      ],
+                      "nodeProperties": [],
+                      "numErrors": 0,
+                      "numWarnings": 0
+                    },
+                    "errors": [],
+                    "begin": 3185,
+                    "end": 3277
+                  }
+                ],
+                "numErrors": 0,
+                "numWarnings": 0
+              },
+              "errors": [],
+              "begin": 3462,
+              "end": 3508
+            }
+          ],
+          "numErrors": 0,
+          "numWarnings": 0
+        }
+      ],
+      "numNodesWithError": 0,
+      "numNodesWithWarning": 0,
+      "numErrors": 0,
+      "numWarnings": 0,
+      "type": "WebSite"
+    },
+    {
+      "ownerSet": {},
+      "nodes": [
+        {
+          "types": [
+            {
+              "pred": "itemtype",
+              "value": "Service",
+              "errors": [],
+              "begin": 3541,
+              "end": 3550
+            }
+          ],
+          "typeGroup": "Service",
+          "idProperty": {
+            "pred": "urn:spore:url",
+            "value": "https://moellenbeck-digital.io/#service",
+            "errors": [],
+            "begin": 3559,
+            "end": 3600
+          },
+          "errors": [],
+          "properties": [
+            {
+              "pred": "name",
+              "value": "Software, Automatisierung und KI-Agenten",
+              "errors": [],
+              "begin": 3610,
+              "end": 3652
+            },
+            {
+              "pred": "url",
+              "value": "https://moellenbeck-digital.io/",
+              "errors": [],
+              "begin": 3721,
+              "end": 3754
+            }
+          ],
+          "nodeProperties": [
+            {
+              "pred": "provider",
+              "target": {
+                "types": [
+                  {
+                    "pred": "itemtype",
+                    "value": "Organization",
+                    "errors": [],
+                    "begin": 2723,
+                    "end": 2737
+                  }
+                ],
+                "typeGroup": "Organization",
+                "idProperty": {
+                  "pred": "urn:spore:url",
+                  "value": "https://moellenbeck-digital.io/#org",
+                  "errors": [],
+                  "begin": 2746,
+                  "end": 2783
+                },
+                "errors": [],
+                "properties": [
+                  {
+                    "pred": "name",
+                    "value": "Moellenbeck-Digital UG (haftungsbeschr\u00e4nkt)",
+                    "errors": [],
+                    "begin": 2793,
+                    "end": 2839
+                  },
+                  {
+                    "pred": "legalName",
+                    "value": "Moellenbeck-Digital UG (haftungsbeschr\u00e4nkt)",
+                    "errors": [],
+                    "begin": 2854,
+                    "end": 2900
+                  },
+                  {
+                    "pred": "url",
+                    "value": "https://moellenbeck-digital.io/",
+                    "errors": [],
+                    "begin": 2909,
+                    "end": 2942
+                  },
+                  {
+                    "pred": "logo",
+                    "value": "https://moellenbeck-digital.io/assets/md_variante1.svg",
+                    "errors": [],
+                    "begin": 2952,
+                    "end": 3008
+                  }
+                ],
+                "nodeProperties": [
+                  {
+                    "pred": "address",
+                    "target": {
+                      "types": [
+                        {
+                          "pred": "itemtype",
+                          "value": "PostalAddress",
+                          "errors": [],
+                          "begin": 3031,
+                          "end": 3046
+                        }
+                      ],
+                      "typeGroup": "PostalAddress",
+                      "errors": [],
+                      "properties": [
+                        {
+                          "pred": "streetAddress",
+                          "value": "Luisenstra\u00dfe 59",
+                          "errors": [],
+                          "begin": 3065,
+                          "end": 3083
+                        },
+                        {
+                          "pred": "postalCode",
+                          "value": "45892",
+                          "errors": [],
+                          "begin": 3099,
+                          "end": 3106
+                        },
+                        {
+                          "pred": "addressLocality",
+                          "value": "Gelsenkirchen",
+                          "errors": [],
+                          "begin": 3127,
+                          "end": 3142
+                        }
+                      ],
+                      "nodeProperties": [
+                        {
+                          "pred": "addressCountry",
+                          "target": {
+                            "types": [
+                              {
+                                "pred": "itemtype",
+                                "value": "Country",
+                                "errors": [],
+                                "begin": 3162,
+                                "end": 3166
+                              }
+                            ],
+                            "typeGroup": "Country",
+                            "errors": [],
+                            "properties": [
+                              {
+                                "pred": "name",
+                                "value": "DE",
+                                "errors": [],
+                                "begin": 3162,
+                                "end": 3166
+                              }
+                            ],
+                            "nodeProperties": [],
+                            "numErrors": 0,
+                            "numWarnings": 0
+                          },
+                          "errors": [],
+                          "begin": 3162,
+                          "end": 3166
+                        }
+                      ],
+                      "numErrors": 0,
+                      "numWarnings": 0
+                    },
+                    "errors": [],
+                    "begin": 3021,
+                    "end": 3167
+                  },
+                  {
+                    "pred": "contactPoint",
+                    "target": {
+                      "types": [
+                        {
+                          "pred": "itemtype",
+                          "value": "ContactPoint",
+                          "errors": [],
+                          "begin": 3195,
+                          "end": 3209
+                        }
+                      ],
+                      "typeGroup": "ContactPoint",
+                      "errors": [],
+                      "properties": [
+                        {
+                          "pred": "email",
+                          "value": "admin@moellenbeck-digital.io",
+                          "errors": [],
+                          "begin": 3220,
+                          "end": 3250
+                        },
+                        {
+                          "pred": "contactType",
+                          "value": "Kontakt",
+                          "errors": [],
+                          "begin": 3267,
+                          "end": 3276
+                        }
+                      ],
+                      "nodeProperties": [],
+                      "numErrors": 0,
+                      "numWarnings": 0
+                    },
+                    "errors": [],
+                    "begin": 3185,
+                    "end": 3277
+                  }
+                ],
+                "numErrors": 0,
+                "numWarnings": 0
+              },
+              "errors": [],
+              "begin": 3666,
+              "end": 3712
+            }
+          ],
+          "numErrors": 0,
+          "numWarnings": 0
+        }
+      ],
+      "numNodesWithError": 0,
+      "numNodesWithWarning": 0,
+      "numErrors": 0,
+      "numWarnings": 0,
+      "type": "Service"
+    },
+    {
+      "ownerSet": {},
+      "nodes": [
+        {
+          "types": [
+            {
+              "pred": "itemtype",
+              "value": "FAQPage",
+              "errors": [],
+              "begin": 3767,
+              "end": 3776
+            }
+          ],
+          "typeGroup": "FAQPage",
+          "idProperty": {
+            "pred": "urn:spore:url",
+            "value": "https://moellenbeck-digital.io/#faq",
+            "errors": [],
+            "begin": 3785,
+            "end": 3822
+          },
+          "errors": [],
+          "properties": [],
+          "nodeProperties": [
+            {
+              "pred": "mainEntity",
+              "target": {
+                "types": [
+                  {
+                    "pred": "itemtype",
+                    "value": "Question",
+                    "errors": [],
+                    "begin": 3849,
+                    "end": 3859
+                  }
+                ],
+                "typeGroup": "Question",
+                "errors": [],
+                "properties": [
+                  {
+                    "pred": "name",
+                    "value": "Was baut Moellenbeck-Digital?",
+                    "errors": [],
+                    "begin": 3869,
+                    "end": 3900
+                  }
+                ],
+                "nodeProperties": [
+                  {
+                    "pred": "acceptedAnswer",
+                    "target": {
+                      "types": [
+                        {
+                          "pred": "itemtype",
+                          "value": "Answer",
+                          "errors": [],
+                          "begin": 3930,
+                          "end": 3938
+                        }
+                      ],
+                      "typeGroup": "Answer",
+                      "errors": [],
+                      "properties": [
+                        {
+                          "pred": "text",
+                          "value": "Wir bauen Software, Automatisierung und KI-Agenten.",
+                          "errors": [],
+                          "begin": 3948,
+                          "end": 4001
+                        }
+                      ],
+                      "nodeProperties": [],
+                      "numErrors": 0,
+                      "numWarnings": 0
+                    },
+                    "errors": [],
+                    "begin": 3920,
+                    "end": 4002
+                  }
+                ],
+                "numErrors": 0,
+                "numWarnings": 0
+              },
+              "errors": [],
+              "begin": 3839,
+              "end": 4003
+            },
+            {
+              "pred": "mainEntity",
+              "target": {
+                "types": [
+                  {
+                    "pred": "itemtype",
+                    "value": "Question",
+                    "errors": [],
+                    "begin": 4015,
+                    "end": 4025
+                  }
+                ],
+                "typeGroup": "Question",
+                "errors": [],
+                "properties": [
+                  {
+                    "pred": "name",
+                    "value": "Wer entscheidet \u00fcber die Arbeit der Agenten?",
+                    "errors": [],
+                    "begin": 4035,
+                    "end": 4082
+                  }
+                ],
+                "nodeProperties": [
+                  {
+                    "pred": "acceptedAnswer",
+                    "target": {
+                      "types": [
+                        {
+                          "pred": "itemtype",
+                          "value": "Answer",
+                          "errors": [],
+                          "begin": 4112,
+                          "end": 4120
+                        }
+                      ],
+                      "typeGroup": "Answer",
+                      "errors": [],
+                      "properties": [
+                        {
+                          "pred": "text",
+                          "value": "Unsere Agenten bereiten vor \u2013 entscheiden tut ein Mensch.",
+                          "errors": [],
+                          "begin": 4130,
+                          "end": 4191
+                        }
+                      ],
+                      "nodeProperties": [],
+                      "numErrors": 0,
+                      "numWarnings": 0
+                    },
+                    "errors": [],
+                    "begin": 4102,
+                    "end": 4192
+                  }
+                ],
+                "numErrors": 0,
+                "numWarnings": 0
+              },
+              "errors": [],
+              "begin": 4005,
+              "end": 4193
+            },
+            {
+              "pred": "mainEntity",
+              "target": {
+                "types": [
+                  {
+                    "pred": "itemtype",
+                    "value": "Question",
+                    "errors": [],
+                    "begin": 4205,
+                    "end": 4215
+                  }
+                ],
+                "typeGroup": "Question",
+                "errors": [],
+                "properties": [
+                  {
+                    "pred": "name",
+                    "value": "Was ist BloomMD?",
+                    "errors": [],
+                    "begin": 4225,
+                    "end": 4243
+                  }
+                ],
+                "nodeProperties": [
+                  {
+                    "pred": "acceptedAnswer",
+                    "target": {
+                      "types": [
+                        {
+                          "pred": "itemtype",
+                          "value": "Answer",
+                          "errors": [],
+                          "begin": 4273,
+                          "end": 4281
+                        }
+                      ],
+                      "typeGroup": "Answer",
+                      "errors": [],
+                      "properties": [
+                        {
+                          "pred": "text",
+                          "value": "Markdown-Notizen werden zu Mindmaps \u2013 eine Wissensbasis, die Menschen lesen und Agenten per MCP pflegen.",
+                          "errors": [],
+                          "begin": 4291,
+                          "end": 4399
+                        }
+                      ],
+                      "nodeProperties": [],
+                      "numErrors": 0,
+                      "numWarnings": 0
+                    },
+                    "errors": [],
+                    "begin": 4263,
+                    "end": 4400
+                  }
+                ],
+                "numErrors": 0,
+                "numWarnings": 0
+              },
+              "errors": [],
+              "begin": 4195,
+              "end": 4401
+            },
+            {
+              "pred": "mainEntity",
+              "target": {
+                "types": [
+                  {
+                    "pred": "itemtype",
+                    "value": "Question",
+                    "errors": [],
+                    "begin": 4413,
+                    "end": 4423
+                  }
+                ],
+                "typeGroup": "Question",
+                "errors": [],
+                "properties": [
+                  {
+                    "pred": "name",
+                    "value": "Was ist wave-mesh?",
+                    "errors": [],
+                    "begin": 4433,
+                    "end": 4453
+                  }
+                ],
+                "nodeProperties": [
+                  {
+                    "pred": "acceptedAnswer",
+                    "target": {
+                      "types": [
+                        {
+                          "pred": "itemtype",
+                          "value": "Answer",
+                          "errors": [],
+                          "begin": 4483,
+                          "end": 4491
+                        }
+                      ],
+                      "typeGroup": "Answer",
+                      "errors": [],
+                      "properties": [
+                        {
+                          "pred": "text",
+                          "value": "Verbindet Ger\u00e4te direkt \u00fcber WireGuard, auch hinter NAT \u2013 mit einem Koordinationsserver, den du selbst betreibst.",
+                          "errors": [],
+                          "begin": 4501,
+                          "end": 4620
+                        }
+                      ],
+                      "nodeProperties": [],
+                      "numErrors": 0,
+                      "numWarnings": 0
+                    },
+                    "errors": [],
+                    "begin": 4473,
+                    "end": 4621
+                  }
+                ],
+                "numErrors": 0,
+                "numWarnings": 0
+              },
+              "errors": [],
+              "begin": 4403,
+              "end": 4622
+            },
+            {
+              "pred": "mainEntity",
+              "target": {
+                "types": [
+                  {
+                    "pred": "itemtype",
+                    "value": "Question",
+                    "errors": [],
+                    "begin": 4634,
+                    "end": 4644
+                  }
+                ],
+                "typeGroup": "Question",
+                "errors": [],
+                "properties": [
+                  {
+                    "pred": "name",
+                    "value": "Wie erreiche ich Moellenbeck-Digital?",
+                    "errors": [],
+                    "begin": 4654,
+                    "end": 4693
+                  }
+                ],
+                "nodeProperties": [
+                  {
+                    "pred": "acceptedAnswer",
+                    "target": {
+                      "types": [
+                        {
+                          "pred": "itemtype",
+                          "value": "Answer",
+                          "errors": [],
+                          "begin": 4723,
+                          "end": 4731
+                        }
+                      ],
+                      "typeGroup": "Answer",
+                      "errors": [],
+                      "properties": [
+                        {
+                          "pred": "text",
+                          "value": "Schreiben Sie uns an admin@moellenbeck-digital.io.",
+                          "errors": [],
+                          "begin": 4741,
+                          "end": 4793
+                        }
+                      ],
+                      "nodeProperties": [],
+                      "numErrors": 0,
+                      "numWarnings": 0
+                    },
+                    "errors": [],
+                    "begin": 4713,
+                    "end": 4794
+                  }
+                ],
+                "numErrors": 0,
+                "numWarnings": 0
+              },
+              "errors": [],
+              "begin": 4624,
+              "end": 4795
+            }
+          ],
+          "numErrors": 0,
+          "numWarnings": 0
+        }
+      ],
+      "numNodesWithError": 0,
+      "numNodesWithWarning": 0,
+      "numErrors": 0,
+      "numWarnings": 0,
+      "type": "FAQPage"
+    }
+  ],
+  "numObjects": 4,
+  "html": "<!DOCTYPE html>\n<html lang=\"de\">\n<head>\n  <script>document.documentElement.classList.add('js')</script>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <meta name=\"description\" content=\"Moellenbeck-Digital UG \u2014 Software-Engineering, Automatisierung und KI-Agenten. Digital &amp; Remote.\">\n  <meta name=\"theme-color\" content=\"#08080a\">\n  <meta property=\"og:type\" content=\"website\">\n  <meta property=\"og:url\" content=\"https://moellenbeck-digital.io/\">\n  <meta property=\"og:title\" content=\"Moellenbeck-Digital UG (haftungsbeschr\u00e4nkt)\">\n  <meta property=\"og:description\" content=\"Software, Automatisierung und KI-Agenten \u2013 pragmatisch gebaut. Digital &amp; Remote.\">\n  <meta property=\"og:image\" content=\"https://moellenbeck-digital.io/assets/og-image.png\">\n  <meta property=\"og:image:width\" content=\"1200\">\n  <meta property=\"og:image:height\" content=\"630\">\n  <meta property=\"og:image:alt\" content=\"Moellenbeck-Digital \u2014 Software, Automatisierung und KI-Agenten.\">\n  <meta property=\"og:locale\" content=\"de_DE\">\n  <meta name=\"twitter:card\" content=\"summary_large_image\">\n  <meta name=\"twitter:title\" content=\"Moellenbeck-Digital UG (haftungsbeschr\u00e4nkt)\">\n  <meta name=\"twitter:description\" content=\"Software, Automatisierung und KI-Agenten \u2013 pragmatisch gebaut.\">\n  <meta name=\"twitter:image\" content=\"https://moellenbeck-digital.io/assets/og-image.png\">\n  <link rel=\"canonical\" href=\"https://moellenbeck-digital.io/\">\n  <title>Moellenbeck-Digital UG (haftungsbeschr\u00e4nkt)</title>\n  <link rel=\"icon\" href=\"assets/favicon.ico\" sizes=\"48x48\">\n  <link rel=\"icon\" href=\"assets/md_favicon.svg\" type=\"image/svg+xml\">\n  <link rel=\"icon\" href=\"assets/favicon-16x16.png\" sizes=\"16x16\" type=\"image/png\">\n  <link rel=\"icon\" href=\"assets/favicon-32x32.png\" sizes=\"32x32\" type=\"image/png\">\n  <link rel=\"icon\" href=\"assets/favicon-192x192.png\" sizes=\"192x192\" type=\"image/png\">\n  <link rel=\"icon\" href=\"assets/favicon-512x512.png\" sizes=\"512x512\" type=\"image/png\">\n  <link rel=\"apple-touch-icon\" href=\"assets/favicon-180x180.png\">\n  <link rel=\"preload\" as=\"image\" href=\"assets/img/roboter.webp\" type=\"image/webp\" fetchpriority=\"high\">\n  <link rel=\"preload\" href=\"assets/fonts/space-grotesk-var.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>\n  <link rel=\"preload\" href=\"assets/fonts/inter-var.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>\n  <link rel=\"stylesheet\" href=\"style.css\">\n<script type=\"application/ld+json\">{\"@context\": \"https://schema.org\", \"@graph\": [{\"@type\": \"BreadcrumbList\", \"@id\": \"https://moellenbeck-digital.io/#breadcrumb\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Startseite\", \"item\": \"https://moellenbeck-digital.io/\"}]}, {\"@type\": \"Organization\", \"@id\": \"https://moellenbeck-digital.io/#org\", \"name\": \"Moellenbeck-Digital UG (haftungsbeschr\u00e4nkt)\", \"legalName\": \"Moellenbeck-Digital UG (haftungsbeschr\u00e4nkt)\", \"url\": \"https://moellenbeck-digital.io/\", \"logo\": \"https://moellenbeck-digital.io/assets/md_variante1.svg\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Luisenstra\u00dfe 59\", \"postalCode\": \"45892\", \"addressLocality\": \"Gelsenkirchen\", \"addressCountry\": \"DE\"}, \"contactPoint\": {\"@type\": \"ContactPoint\", \"email\": \"admin@moellenbeck-digital.io\", \"contactType\": \"Kontakt\"}}, {\"@type\": \"WebSite\", \"@id\": \"https://moellenbeck-digital.io/#website\", \"url\": \"https://moellenbeck-digital.io/\", \"name\": \"Moellenbeck-Digital UG (haftungsbeschr\u00e4nkt)\", \"publisher\": {\"@id\": \"https://moellenbeck-digital.io/#org\"}, \"inLanguage\": \"de\"}, {\"@type\": \"Service\", \"@id\": \"https://moellenbeck-digital.io/#service\", \"name\": \"Software, Automatisierung und KI-Agenten\", \"provider\": {\"@id\": \"https://moellenbeck-digital.io/#org\"}, \"url\": \"https://moellenbeck-digital.io/\"}, {\"@type\": \"FAQPage\", \"@id\": \"https://moellenbeck-digital.io/#faq\", \"mainEntity\": [{\"@type\": \"Question\", \"name\": \"Was baut Moellenbeck-Digital?\", \"acceptedAnswer\": {\"@type\": \"Answer\", \"text\": \"Wir bauen Software, Automatisierung und KI-Agenten.\"}}, {\"@type\": \"Question\", \"name\": \"Wer entscheidet \u00fcber die Arbeit der Agenten?\", \"acceptedAnswer\": {\"@type\": \"Answer\", \"text\": \"Unsere Agenten bereiten vor \u2013 entscheiden tut ein Mensch.\"}}, {\"@type\": \"Question\", \"name\": \"Was ist BloomMD?\", \"acceptedAnswer\": {\"@type\": \"Answer\", \"text\": \"Markdown-Notizen werden zu Mindmaps \u2013 eine Wissensbasis, die Menschen lesen und Agenten per MCP pflegen.\"}}, {\"@type\": \"Question\", \"name\": \"Was ist wave-mesh?\", \"acceptedAnswer\": {\"@type\": \"Answer\", \"text\": \"Verbindet Ger\u00e4te direkt \u00fcber WireGuard, auch hinter NAT \u2013 mit einem Koordinationsserver, den du selbst betreibst.\"}}, {\"@type\": \"Question\", \"name\": \"Wie erreiche ich Moellenbeck-Digital?\", \"acceptedAnswer\": {\"@type\": \"Answer\", \"text\": \"Schreiben Sie uns an admin@moellenbeck-digital.io.\"}}]}]}</script>\n</head>\n<body>\n  <a class=\"skip-link\" href=\"#main\">Zum Inhalt springen</a>\n  <!-- \u2550\u2550 NAV: minimal, sticky, glasig \u2550\u2550 -->\n  <header class=\"site-nav\" id=\"siteNav\">\n    <div class=\"nav-inner\">\n      <a class=\"logo\" href=\"index.html\" aria-label=\"Moellenbeck-Digital \u2013 Startseite\">\n        <img src=\"assets/md_variante1.svg\" alt=\"\" width=\"93\" height=\"28\">\n      </a>\n      <details class=\"nav-menu\" open>\n        <summary aria-label=\"Men\u00fc\"><span></span><span></span><span></span></summary>\n        <nav class=\"nav-links\" aria-label=\"Hauptnavigation\">\n          <a href=\"#film\">Film</a>\n          <a href=\"#services\">F\u00e4higkeiten</a>\n          <a href=\"#plattform\">Plattform</a>\n          <a href=\"#member\">Team</a>\n        </nav>\n      </details>\n      <div class=\"nav-actions\">\n        <button class=\"sound-toggle\" id=\"soundToggle\" type=\"button\"\n                aria-label=\"UI-Sounds einschalten\" aria-pressed=\"false\"\n                title=\"UI-Sounds (Standard: aus)\">\n          <svg class=\"sound-off\" width=\"14\" height=\"14\" viewBox=\"0 0 14 14\" fill=\"none\" aria-hidden=\"true\">\n            <path d=\"M2 5H4L7 2V12L4 9H2V5Z\" stroke=\"currentColor\" stroke-width=\"1.2\"/>\n            <path d=\"M10 4.5L12.5 9.5M12.5 4.5L10 9.5\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-linecap=\"round\"/>\n          </svg>\n          <svg class=\"sound-on\" width=\"14\" height=\"14\" viewBox=\"0 0 14 14\" fill=\"none\" aria-hidden=\"true\" hidden>\n            <path d=\"M2 5H4L7 2V12L4 9H2V5Z\" stroke=\"currentColor\" stroke-width=\"1.2\"/>\n            <path d=\"M9 4.5C9.8 5.3 10.5 6.1 10.5 7C10.5 7.9 9.8 8.7 9 9.5M11 2.5C12.5 3.8 13.5 5.3 13.5 7C13.5 8.7 12.5 10.2 11 11.5\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-linecap=\"round\"/>\n          </svg>\n        </button>\n        <a class=\"nav-cta\" href=\"#kontakt\" data-sound=\"click\">Kontakt</a>\n      </div>\n    </div>\n  </header>\n  <main id=\"main\">\n    <!-- \u2550\u2550 HERO: kinematisch, Licht statt Karte \u2550\u2550 -->\n    <section class=\"hero\" id=\"hero\" aria-labelledby=\"heroTitle\">\n      <div class=\"hero-light\" aria-hidden=\"true\">\n        <span class=\"light light-orange\"></span>\n        <span class=\"light light-blue\"></span>\n        <span class=\"light light-violet\"></span>\n        <span class=\"hero-lines\"></span>\n      </div>\n      <div class=\"hero-inner\">\n        <div class=\"hero-copy\">\n          <a class=\"announce fadeup\" style=\"--d:.05s\" href=\"#film\" data-sound=\"click\">\n            <span class=\"announce-tag\">Neu</span>\n            <span class=\"announce-text\">Film: One team of humans and&nbsp;agents<span class=\"announce-arrow\" aria-hidden=\"true\">&nbsp;-&gt;</span></span>\n          </a>\n          <h1 id=\"heroTitle\" class=\"hero-title\">\n            <span class=\"line blurin\" style=\"--d:.15s\">Software.</span>\n            <span class=\"line blurin\" style=\"--d:.28s\">Automatisierung.</span>\n            <span class=\"line accent blurin\" style=\"--d:.41s\">KI-Agenten<span class=\"cursor\" aria-hidden=\"true\"></span></span>\n          </h1>\n          <p class=\"hero-sub fadeup\" style=\"--d:.6s\">\n            Wir bauen Software, Automatisierung und KI-Agenten. Unsere Agenten bereiten vor \u2013 entscheiden tut ein Mensch.\n          </p>\n          <div class=\"hero-actions fadeup\" style=\"--d:.72s\">\n            <a href=\"#kontakt\" class=\"btn btn-primary\" data-sound=\"click\">Kontakt aufnehmen</a>\n            <a href=\"#film\" class=\"btn-text\" data-sound=\"click\">Film ansehen</a>\n          </div>\n        </div>\n        <div class=\"hero-avatar\" aria-hidden=\"true\">\n          <div class=\"avatar-halo\"></div>\n          <div class=\"avatar-parallax\" id=\"avatarParallax\">\n            <picture>\n              <source srcset=\"assets/img/roboter.webp\" type=\"image/webp\">\n              <img src=\"assets/img/roboter.png\" alt=\"\" class=\"avatar-img\"\n                   width=\"760\" height=\"760\" fetchpriority=\"high\" decoding=\"async\">\n            </picture>\n          </div>\n          <div class=\"avatar-shadow\"></div>\n        </div>\n      </div>\n    </section>\n    <!-- \u2550\u2550 FILM: sticky B\u00fchne, w\u00e4chst beim Scrollen \u2550\u2550 -->\n    <section class=\"film\" id=\"film\" aria-labelledby=\"filmTitle\">\n      <div class=\"film-track\" id=\"filmTrack\">\n        <div class=\"film-sticky\">\n          <div class=\"film-head\" id=\"filmHead\">\n            <span class=\"marker\">SHW / 01 \u00b7 Film \u00b7 48 s</span>\n            <h2 id=\"filmTitle\" class=\"sr-only\">One team of humans and agents</h2>\n          </div>\n          <div class=\"film-stage\" id=\"filmStage\">\n            <div class=\"film-glow\" aria-hidden=\"true\"></div>\n            <div class=\"film-media\" id=\"filmMedia\">\n              <video id=\"filmVideo\" class=\"film-video\"\n                     muted loop playsinline preload=\"none\"\n                     poster=\"assets/img/v6-poster.jpg\"\n                     aria-label=\"One team of humans and agents \u2013 Vorschau ohne Ton\">\n                <source src=\"assets/video/v6-preview.mp4\" type=\"video/mp4\">\n              </video>\n            </div>\n            <div class=\"player\" id=\"player\" data-state=\"preview\">\n              <button class=\"glass-pill\" id=\"playPill\" type=\"button\" data-sound=\"click\">\n                <svg class=\"i-play\" width=\"11\" height=\"12\" viewBox=\"0 0 11 12\" aria-hidden=\"true\"><path d=\"M0 0L11 6L0 12Z\" fill=\"currentColor\"/></svg>\n                <svg class=\"i-pause\" width=\"11\" height=\"12\" viewBox=\"0 0 11 12\" aria-hidden=\"true\"><path d=\"M0 0H3.5V12H0ZM7.5 0H11V12H7.5Z\" fill=\"currentColor\"/></svg>\n                <span class=\"pill-label\" id=\"playLabel\">Mit Ton ansehen</span>\n              </button>\n              <button class=\"glass-pill glass-pill--icon\" id=\"mutePill\" type=\"button\" aria-label=\"Ton aus\" hidden>\n                <svg width=\"14\" height=\"14\" viewBox=\"0 0 14 14\" fill=\"none\" aria-hidden=\"true\"><path d=\"M2 5H4L7 2V12L4 9H2V5Z\" stroke=\"currentColor\" stroke-width=\"1.2\"/><path class=\"wave\" d=\"M9 4.5C9.8 5.3 10.5 6.1 10.5 7C10.5 7.9 9.8 8.7 9 9.5\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-linecap=\"round\"/></svg>\n              </button>\n              <span class=\"player-meta\" id=\"playerMeta\">EN \u00b7 48 s</span>\n            </div>\n            <div class=\"progress\" aria-hidden=\"true\"><span class=\"progress-bar\" id=\"progressBar\"></span></div>\n          </div>\n        </div>\n      </div>\n      <div class=\"container film-caption\">\n        <p class=\"lead reveal\">Wasserschaden, 7:12 Uhr. Sechs Stationen \u2013 von der Meldung bis zur Freigabe.</p>\n        <ol class=\"steps reveal\">\n          <li><span>01</span>Mail-Agent erkennt Dringlichkeit und meldet den Fall</li>\n          <li><span>02</span>Prozess-Agent arbeitet festgelegte Schritte ab</li>\n          <li><span>03</span>Entwurf mit Quellenangabe, Freigabe eingeholt</li>\n          <li><span>04</span>Keine Nachricht geht ohne Genehmigung raus</li>\n          <li><span>05</span>Ein Nein z\u00e4hlt \u2013 Lauf gestoppt, Regel verbessert</li>\n        </ol>\n      </div>\n    </section>\n    <!-- \u2550\u2550 F\u00c4HIGKEITEN \u2550\u2550 -->\n    <section class=\"section capabilities\" id=\"services\" aria-labelledby=\"capTitle\">\n      <div class=\"section-light\" aria-hidden=\"true\"></div>\n      <div class=\"container\">\n        <header class=\"section-head reveal\">\n          <span class=\"marker\">// 01 \u00b7 F\u00e4higkeiten</span>\n          <h2 id=\"capTitle\">Was wir bauen.</h2>\n        </header>\n        <div class=\"cap-grid\">\n          <article class=\"cap-tile reveal\" style=\"--tone:96,165,250\">\n            <img class=\"cap-bot\" src=\"assets/img/bots/bot-blue.webp\" alt=\"\" width=\"280\" height=\"320\" loading=\"lazy\" decoding=\"async\">\n            <span class=\"cap-num\">01</span>\n            <h3>KI-Agenten &amp; OpenClaw</h3>\n            <p>Assistenten und Agents, die Wissen und Werkzeuge verbinden.</p>\n            <ul class=\"tags\"><li>Claude</li><li>OpenClaw</li><li>MCP</li><li>RAG</li></ul>\n          </article>\n          <article class=\"cap-tile reveal\" style=\"--tone:167,139,250\">\n            <img class=\"cap-bot\" src=\"assets/img/bots/bot-violet.webp\" alt=\"\" width=\"280\" height=\"320\" loading=\"lazy\" decoding=\"async\">\n            <span class=\"cap-num\">02</span>\n            <h3>Prozess&shy;automatisierung</h3>\n            <p>Wiederkehrende Abl\u00e4ufe als BPMN-Workflows \u2013 mit Pr\u00fcfung und Freigabe.</p>\n            <ul class=\"tags\"><li>MD_Process</li><li>BPMN 2.0</li><li>APIs</li></ul>\n          </article>\n          <article class=\"cap-tile reveal\" style=\"--tone:244,114,182\">\n            <img class=\"cap-bot\" src=\"assets/img/bots/bot-pink.webp\" alt=\"\" width=\"280\" height=\"320\" loading=\"lazy\" decoding=\"async\">\n            <span class=\"cap-num\">03</span>\n            <h3>Web &amp; Apps</h3>\n            <p>Webapps, mobile Apps, interne Tools und APIs \u2013 bis ins Deployment.</p>\n            <ul class=\"tags\"><li>TypeScript</li><li>Next.js</li><li>iOS</li><li>Supabase</li></ul>\n          </article>\n          <article class=\"cap-tile reveal\" style=\"--tone:52,211,153\">\n            <img class=\"cap-bot\" src=\"assets/img/bots/bot-green.webp\" alt=\"\" width=\"280\" height=\"320\" loading=\"lazy\" decoding=\"async\">\n            <span class=\"cap-num\">04</span>\n            <h3>Plattform &amp; Infra</h3>\n            <p>Selbst gehostete Infrastruktur f\u00fcr Teams, die ihre Daten selbst kontrollieren.</p>\n            <ul class=\"tags\"><li>k3s</li><li>GitOps</li><li>WireGuard</li></ul>\n          </article>\n        </div>\n      </div>\n    </section>\n    <!-- \u2550\u2550 DIE PLATTFORM: eigene Produkte \u2550\u2550 -->\n    <section class=\"section platform\" id=\"plattform\" aria-labelledby=\"platTitle\">\n      <div class=\"section-light\" aria-hidden=\"true\"></div>\n      <div class=\"container\">\n        <header class=\"section-head reveal\">\n          <span class=\"marker\">// 02 \u00b7 Die Plattform</span>\n          <h2 id=\"platTitle\">Agents prepare.<br><span class=\"muted\">Humans decide.</span></h2>\n          <p class=\"section-lede\">Unsere Produkte teilen einen Kern: Agenten bereiten vor, ein Mensch gibt frei.</p>\n        </header>\n        <div class=\"bento\">\n          <!-- Anker: Agentische Infrastruktur (DESIGN.md-konform: 4px, ein Akzent, ASCII-Motive) -->\n          <article class=\"pcard pcard--anchor reveal\" style=\"--tone:251,146,60\">\n            <div class=\"pcard-body\">\n              <div class=\"pcard-meta\"><span class=\"pcard-num\">01</span><span class=\"status-dot\" aria-hidden=\"true\"></span><span>Kern \u00b7 in Betrieb</span></div>\n              <h3>Agentische Infrastruktur</h3>\n              <p>Agenten-Teams auf OpenClaw \u00fcbernehmen Eingang, Recherche und Entw\u00fcrfe. Nichts geht raus ohne Freigabe eines Menschen.</p>\n              <ul class=\"prompt-list\">\n                <li>Agenten-Teams mit klaren Rollen</li>\n                <li>Freigabeprinzip: ein Mensch entscheidet</li>\n                <li>Jeder Schritt protokolliert</li>\n              </ul>\n              <span class=\"pcard-links\"><a class=\"pcard-link\" href=\"#film\" data-sound=\"click\">Film ansehen</a><a class=\"pcard-link\" href=\"#infrastruktur\" data-sound=\"click\">Rollen und Sicherheit</a></span>\n            </div>\n            <div class=\"pcard-visual term\" aria-hidden=\"true\">\n              <div class=\"term-head\"><span>// lauf 07:12 \u00b7 wasserschaden</span></div>\n              <div class=\"term-row\"><span class=\"p\">&gt;</span><span class=\"who\" style=\"--a:96,165,250\">mail-agent</span><span class=\"what\">fall erkannt -&gt; \u00fcbergabe</span></div>\n              <div class=\"term-row\"><span class=\"p\">&gt;</span><span class=\"who\" style=\"--a:167,139,250\">prozess-agent</span><span class=\"what\">entwurf + 2 quellen</span></div>\n              <div class=\"term-row\"><span class=\"p\">&gt;</span><span class=\"who\" style=\"--a:250,204,21\">pr\u00fcf-agent</span><span class=\"what\">quellen best\u00e4tigt</span></div>\n              <div class=\"term-row term-wait\"><span class=\"p\">//</span><span class=\"who\">wartet auf</span><span class=\"what\">freigabe durch mensch</span></div>\n              <div class=\"term-gate\"><span>Versand gesperrt bis Freigabe</span><span class=\"term-btn\">Freigeben -&gt;</span></div>\n              <div class=\"term-cursor\"><span class=\"p\">&gt;</span><span class=\"cursor\"></span></div>\n            </div>\n          </article>\n          <!-- Infrastruktur im Detail: Organisation \u00b7 Sicherheit \u00b7 Individualisierung -->\n          <article class=\"pcard infra reveal\" id=\"infrastruktur\" style=\"--tone:251,146,60\" aria-labelledby=\"infraTitle\">\n            <div class=\"infra-head\">\n              <div class=\"pcard-meta\"><span class=\"pcard-num\">01</span><span class=\"status-dot\" aria-hidden=\"true\"></span><span>Kern im Detail \u00b7 auf OpenClaw gebaut</span></div>\n              <h3 id=\"infraTitle\">Eine Organisation aus Menschen und Agenten.</h3>\n            </div>\n            <div class=\"infra-cols\">\n              <section class=\"infra-col\" style=\"--tone:96,165,250\" aria-labelledby=\"infraOrg\">\n                <span class=\"infra-k\">a \u00b7 Organisation</span>\n                <h4 id=\"infraOrg\">Teams mit klaren Rollen</h4>\n                <div class=\"org\" aria-hidden=\"true\">\n                  <div class=\"org-row\"><span class=\"org-node org-human\"><span class=\"org-m\">M</span><span class=\"org-l\">Mensch<br>entscheidet</span></span></div>\n                  <div class=\"org-row\"><span class=\"org-node\" style=\"--t:251,146,60\"><img src=\"assets/img/bots/bot-orange.webp\" alt=\"\" width=\"280\" height=\"320\" loading=\"lazy\" decoding=\"async\"><span class=\"org-l\">Chief of Staff</span></span></div>\n                  <div class=\"org-row org-team\">\n                    <span class=\"org-node\" style=\"--t:96,165,250\"><img src=\"assets/img/bots/bot-blue.webp\" alt=\"\" width=\"280\" height=\"320\" loading=\"lazy\" decoding=\"async\"><span class=\"org-l\">Engineer</span></span>\n                    <span class=\"org-node\" style=\"--t:52,211,153\"><img src=\"assets/img/bots/bot-green.webp\" alt=\"\" width=\"280\" height=\"320\" loading=\"lazy\" decoding=\"async\"><span class=\"org-l\">Tester</span></span>\n                    <span class=\"org-node\" style=\"--t:167,139,250\"><img src=\"assets/img/bots/bot-violet.webp\" alt=\"\" width=\"280\" height=\"320\" loading=\"lazy\" decoding=\"async\"><span class=\"org-l\">Reviewer</span></span>\n                    <span class=\"org-node\" style=\"--t:244,114,182\"><img src=\"assets/img/bots/bot-pink.webp\" alt=\"\" width=\"280\" height=\"320\" loading=\"lazy\" decoding=\"async\"><span class=\"org-l\">Fach-<br>agenten</span></span>\n                  </div>\n                </div>\n                <ul class=\"prompt-list\">\n                  <li>Ein Chief of Staff verteilt die Arbeit an sein Team.</li>\n                  <li>Tester und Reviewer pr\u00fcfen unabh\u00e4ngig. Widersprechen sie sich, gilt das strengere Urteil.</li>\n                  <li>Jede Freigabe eines Menschen wird protokolliert.</li>\n                </ul>\n              </section>\n              <section class=\"infra-col\" style=\"--tone:52,211,153\" aria-labelledby=\"infraSec\">\n                <span class=\"infra-k\">b \u00b7 Sicherheit</span>\n                <h4 id=\"infraSec\">Kontrolle im System, nicht im Versprechen</h4>\n                <ul class=\"prompt-list\">\n                  <li>Ohne Freigabe eines Menschen geht nichts raus \u2013 im HV-Paket im Code erzwungen.</li>\n                  <li>Jede Freigabe ist belegt: wer, wann, welcher Vorgang.</li>\n                  <li>Jeder Agent hat einen festen Bereich. Wen er beauftragen darf, legt die Konfiguration fest.</li>\n                  <li>Wir pr\u00fcfen jede Regel: technisch durchgesetzt oder nur Text.</li>\n                  <li>Zugangsdaten liegen in einem Passwort-Tresor.</li>\n                  <li>Eigene Server in Deutschland.</li>\n                </ul>\n              </section>\n              <section class=\"infra-col\" style=\"--tone:167,139,250\" aria-labelledby=\"infraInd\">\n                <span class=\"infra-k\">c \u00b7 Individualisierung</span>\n                <h4 id=\"infraInd\">Passt sich dem Betrieb an</h4>\n                <ul class=\"prompt-list\">\n                  <li>Was je Kunde anders ist, ist Konfiguration \u2013 kein Umbau.</li>\n                  <li><span class=\"tag tag-goal\">Ziel</span> Eine eigene Agenten-Umgebung je Kunde, mit eigenen Regeln.</li>\n                  <li>Verbunden \u00fcber wave-mesh: Ende-zu-Ende \u00fcber WireGuard, auch hinter NAT. Auch der Server kann nicht mitlesen.</li>\n                  <li>So kann eine Umgebung auch Systeme im eigenen Netz erreichen \u2013 ohne Portfreigabe.</li>\n                </ul>\n              </section>\n            </div>\n          </article>\n          <article class=\"pcard reveal\" style=\"--tone:52,211,153\">\n            <div class=\"pcard-visual\" aria-hidden=\"true\">\n              <svg viewBox=\"0 0 320 170\" fill=\"none\">\n                <rect x=\"14\" y=\"12\" width=\"292\" height=\"34\" rx=\"4\" fill=\"#16161a\" stroke=\"#222228\"/>\n                <text x=\"26\" y=\"33\" fill=\"#e8e8ed\" font-family=\"DM Mono, ui-monospace, monospace\" font-size=\"9.5\"><tspan fill=\"currentColor\">&gt; </tspan>\u201eWenn eine Rechnung reinkommt, pr\u00fcft \u2026\u201c</text>\n                <path d=\"M160 48 V66\" stroke=\"#6b6b76\" stroke-width=\"1\" stroke-dasharray=\"3 4\"/>\n                <g stroke=\"#6b6b76\" stroke-width=\"1.2\"><path d=\"M40 110 H58\"/><path d=\"M124 110 H142\"/><path d=\"M178 110 H192 M178 110 V84 H192 M178 110 V136 H192\"/></g>\n                <circle cx=\"29\" cy=\"110\" r=\"10\" fill=\"#16161a\" stroke=\"#6b6b76\" stroke-width=\"1.2\"/>\n                <rect x=\"58\" y=\"93\" width=\"66\" height=\"34\" rx=\"4\" fill=\"#16161a\" stroke=\"#6b6b76\" stroke-width=\"1.2\"/>\n                <path d=\"M160 92 L178 110 L160 128 L142 110 Z\" fill=\"#16161a\" stroke=\"#6b6b76\" stroke-width=\"1.2\"/>\n                <rect x=\"192\" y=\"70\" width=\"112\" height=\"28\" rx=\"4\" fill=\"#16161a\" stroke=\"#222228\"/>\n                <rect x=\"192\" y=\"122\" width=\"112\" height=\"28\" rx=\"4\" fill=\"currentColor\" fill-opacity=\".12\" stroke=\"currentColor\"/>\n                <g font-family=\"DM Mono, ui-monospace, monospace\" font-size=\"9\" text-anchor=\"middle\"><text x=\"91\" y=\"113\" fill=\"#e8e8ed\">agent pr\u00fcft</text><text x=\"248\" y=\"88\" fill=\"#e8e8ed\">r\u00fcckfrage</text><text x=\"248\" y=\"140\" fill=\"currentColor\">mensch gibt frei</text></g>\n              </svg>\n            </div>\n            <div class=\"pcard-body\">\n              <div class=\"pcard-meta\"><span class=\"pcard-num\">02</span><span class=\"status-dot\" aria-hidden=\"true\"></span><span>Prozesse mit Agenten</span></div>\n              <h3>MD_Process</h3>\n              <p>Einen Ablauf in normaler Sprache beschreiben, statt ihn zu programmieren. Daraus entsteht ein Prozessmodell. Agenten arbeiten die Schritte ab, der Mensch entscheidet.</p>\n              <a class=\"pcard-link\" href=\"#kontakt\" data-subject=\"MD_Process\" data-sound=\"click\">Mehr erfahren</a>\n            </div>\n          </article>\n          <article class=\"pcard reveal\" style=\"--tone:96,165,250\">\n            <div class=\"pcard-visual\" aria-hidden=\"true\">\n              <div class=\"inbox\">\n                <div class=\"inbox-head\"><span>// posteingang hausverwaltung</span><span class=\"tag\">Bald</span></div>\n                <div class=\"inbox-row is-hot\"><span class=\"status-dot\"></span><span class=\"subj\">Wasser tropft von der Decke</span><span class=\"tag\">Notfall</span></div>\n                <div class=\"inbox-row\"><span class=\"status-dot is-off\"></span><span class=\"subj\">Frage zur Nebenkostenabrechnung</span><span class=\"mut\">entwurf</span></div>\n                <div class=\"inbox-row\"><span class=\"status-dot is-off\"></span><span class=\"subj\">Termin Heizungswartung</span><span class=\"mut\">entwurf</span></div>\n                <div class=\"inbox-foot\">&gt; Ma\u00dfnahmen vorbereitet \u00b7 wartet auf Freigabe</div>\n              </div>\n            </div>\n            <div class=\"pcard-body\">\n              <div class=\"pcard-meta\"><span class=\"pcard-num\">03</span><span class=\"status-dot is-off\" aria-hidden=\"true\"></span><span>Pilotphase startet bald</span></div>\n              <h3>KI-Agenten &amp; KI-Mitarbeiter</h3>\n              <p>KI-Mitarbeiter f\u00fcr feste Aufgaben. Beispiel Hausverwaltung: liest den Eingang, erkennt Notf\u00e4lle, bereitet Ma\u00dfnahmen mit Quellen vor. Raus geht nur, was ein Mensch freigibt.</p>\n              <span class=\"pcard-links\"><a class=\"pcard-link\" href=\"hausverwaltung/\" data-sound=\"click\">Mehr zur Hausverwaltung</a><a class=\"pcard-link\" href=\"#kontakt\" data-subject=\"KI-Mitarbeiter Warteliste\" data-sound=\"click\">Auf die Warteliste</a></span>\n            </div>\n          </article>\n          <article class=\"pcard reveal\" style=\"--tone:244,114,182\">\n            <div class=\"pcard-visual egg\" id=\"eggBloom\">\n              <svg viewBox=\"0 0 320 170\" fill=\"none\" aria-hidden=\"true\">\n                <g stroke=\"#6b6b76\" stroke-width=\"1.2\">\n                  <path d=\"M116 85 C150 85 150 36 184 36\"/><path d=\"M116 85 H184\"/><path d=\"M116 85 C150 85 150 134 184 134\"/>\n                  <path d=\"M248 36 C264 36 264 22 280 22\"/><path d=\"M248 36 C264 36 264 50 280 50\"/>\n                </g>\n                <rect x=\"20\" y=\"69\" width=\"96\" height=\"32\" rx=\"4\" fill=\"currentColor\" fill-opacity=\".12\" stroke=\"currentColor\"/>\n                <rect x=\"184\" y=\"22\" width=\"64\" height=\"28\" rx=\"4\" fill=\"#16161a\" stroke=\"#222228\"/>\n                <rect x=\"184\" y=\"71\" width=\"64\" height=\"28\" rx=\"4\" fill=\"#16161a\" stroke=\"#222228\"/>\n                <rect x=\"184\" y=\"120\" width=\"64\" height=\"28\" rx=\"4\" fill=\"#16161a\" stroke=\"#222228\"/>\n                <rect x=\"280\" y=\"15\" width=\"22\" height=\"14\" rx=\"2\" fill=\"#16161a\" stroke=\"#222228\"/><rect x=\"280\" y=\"43\" width=\"22\" height=\"14\" rx=\"2\" fill=\"#16161a\" stroke=\"#222228\" class=\"egg-leaf\" id=\"bloomLeaf\"/>\n                <g font-family=\"DM Mono, ui-monospace, monospace\" font-size=\"9.5\"><text x=\"32\" y=\"89\" fill=\"currentColor\"># notizen.md</text><text x=\"194\" y=\"40\" fill=\"#e8e8ed\">## ziel</text><text x=\"194\" y=\"89\" fill=\"#e8e8ed\">## plan</text><text x=\"194\" y=\"138\" fill=\"#e8e8ed\">## fragen</text></g>\n              </svg>\n              <button class=\"egg-hit\" id=\"bloomEgg\" type=\"button\" hidden aria-expanded=\"false\" aria-controls=\"bloomNote\" aria-label=\"Versteckter Knoten\"></button>\n              <div class=\"egg-note\" id=\"bloomNote\" hidden>\n                <p class=\"egg-h\"># fundst\u00fcck.md</p>\n                <p>Du hast den versteckten Knoten gefunden.</p>\n                <p>Jede Notiz ist ein Ast \u2013 auch diese.</p>\n              </div>\n            </div>\n            <div class=\"pcard-body\">\n              <div class=\"pcard-meta\"><span class=\"pcard-num\">04</span><span class=\"status-dot\" aria-hidden=\"true\"></span><span>Closed Beta</span></div>\n              <h3>BloomMD</h3>\n              <p>Markdown-Notizen werden zu Mindmaps \u2013 eine Wissensbasis, die Menschen lesen und Agenten per MCP pflegen.</p>\n              <a class=\"pcard-link\" href=\"https://bloommd.io\" target=\"_blank\" rel=\"noopener\">bloommd.io</a>\n            </div>\n          </article>\n          <article class=\"pcard reveal\" style=\"--tone:167,139,250\">\n            <div class=\"pcard-visual egg\" id=\"eggMesh\">\n              <svg viewBox=\"0 0 320 170\" fill=\"none\" aria-hidden=\"true\" class=\"mesh-svg\">\n                <g stroke=\"#6b6b76\" stroke-width=\"1.2\" stroke-dasharray=\"4 5\" class=\"mesh-links\">\n                  <path d=\"M60 46 L160 86 L260 42\"/><path d=\"M60 46 L80 134 L160 86 L240 134 L260 42\"/><path d=\"M80 134 L240 134\"/>\n                </g>\n                <g fill=\"#16161a\" stroke=\"#6b6b76\" stroke-width=\"1.2\" class=\"mesh-nodes\"><circle cx=\"60\" cy=\"46\" r=\"11\"/><circle cx=\"260\" cy=\"42\" r=\"11\"/><circle cx=\"80\" cy=\"134\" r=\"11\"/><circle cx=\"240\" cy=\"134\" r=\"11\"/></g>\n                <circle cx=\"160\" cy=\"86\" r=\"18\" fill=\"#141019\" stroke=\"currentColor\" stroke-width=\"1.2\"/>\n                <g font-family=\"DM Mono, ui-monospace, monospace\" font-size=\"9\" text-anchor=\"middle\"><text x=\"160\" y=\"89\" fill=\"currentColor\">wg</text><g fill=\"#6b6b76\"><text x=\"60\" y=\"22\">laptop</text><text x=\"260\" y=\"18\">nas</text><text x=\"80\" y=\"162\">server</text><text x=\"240\" y=\"162\">cluster</text></g></g>\n              </svg>\n              <button class=\"egg-hit egg-hit--mesh\" id=\"meshEgg\" type=\"button\" hidden aria-label=\"Mesh anpingen (dreimal ausl\u00f6sen)\" aria-describedby=\"meshMsg\"></button>\n              <p class=\"egg-msg\" id=\"meshMsg\" aria-live=\"polite\"></p>\n            </div>\n            <div class=\"pcard-body\">\n              <div class=\"pcard-meta\"><span class=\"pcard-num\">05</span><span class=\"status-dot\" aria-hidden=\"true\"></span><span>Fr\u00fche Entwicklung</span></div>\n              <h3>wave-mesh</h3>\n              <p>Verbindet Ger\u00e4te direkt \u00fcber WireGuard, auch hinter NAT \u2013 mit einem Koordinationsserver, den du selbst betreibst.</p>\n              <a class=\"pcard-link\" href=\"https://wave-mesh.org/\" target=\"_blank\" rel=\"noopener\">wave-mesh.org</a>\n            </div>\n          </article>\n        </div>\n        <p class=\"refs reveal\"><span class=\"refs-c\">//</span> Referenz: <a href=\"https://anipal.io\" target=\"_blank\" rel=\"noopener\">Anipal</a> \u2013 Tiergesundheit f\u00fcr Tierbesitzer und Praxen, geleitet von Max M\u00f6llenbeck.</p>\n      </div>\n    </section>\n    <!-- \u2550\u2550 TEAM \u2550\u2550 -->\n    <section class=\"section team\" id=\"member\" aria-labelledby=\"teamTitle\">\n      <div class=\"container\">\n        <header class=\"section-head reveal\">\n          <span class=\"marker\">// 03 \u00b7 Team</span>\n          <h2 id=\"teamTitle\">Ein kleines Team.<br><span class=\"muted\">Echte Produkte.</span></h2>\n        </header>\n        <div class=\"team-grid\">\n          <article class=\"person reveal\">\n            <span class=\"person-initials\" aria-hidden=\"true\">EM</span>\n            <span class=\"person-role\">CEO \u00b7 Organisation</span>\n            <h3>Emma M\u00f6llenbeck</h3>\n            <p>H\u00e4lt Menschen, Themen und Abl\u00e4ufe zusammen. K\u00fcmmert sich als CEO um Organisation und Administration. Fitnesstrainerin und Sportmanagement-Studentin.</p>\n          </article>\n          <article class=\"person reveal\">\n            <span class=\"person-initials\" aria-hidden=\"true\">MM</span>\n            <span class=\"person-role\">Tech Lead \u00b7 Software &amp; KI</span>\n            <h3>Martin M\u00f6llenbeck</h3>\n            <p>Entwickelt Software und macht komplexe Technik verst\u00e4ndlich. Fokus auf Automatisierung, KI und OpenClaw.</p>\n          </article>\n          <article class=\"person reveal\">\n            <span class=\"person-initials\" aria-hidden=\"true\">MX</span>\n            <span class=\"person-role\">Product Builder</span>\n            <h3>Max M\u00f6llenbeck</h3>\n            <p>Leitet anipal.io und bringt technische Ideen schnell in echte Produkte. TypeScript, iOS, React und Supabase \u2013 mit Fokus auf AI.</p>\n          </article>\n        </div>\n        <div class=\"agent-team reveal\">\n          <div class=\"agent-team-bots\" aria-hidden=\"true\">\n            <img src=\"assets/img/bots/bot-orange.webp\" alt=\"\" width=\"280\" height=\"320\" loading=\"lazy\" decoding=\"async\">\n            <img src=\"assets/img/bots/bot-blue.webp\" alt=\"\" width=\"280\" height=\"320\" loading=\"lazy\" decoding=\"async\">\n            <img src=\"assets/img/bots/bot-violet.webp\" alt=\"\" width=\"280\" height=\"320\" loading=\"lazy\" decoding=\"async\">\n            <img src=\"assets/img/bots/bot-yellow.webp\" alt=\"\" width=\"280\" height=\"320\" loading=\"lazy\" decoding=\"async\">\n            <img src=\"assets/img/bots/bot-green.webp\" alt=\"\" width=\"280\" height=\"320\" loading=\"lazy\" decoding=\"async\">\n          </div>\n          <p><strong>Plus ein Team aus KI-Agenten.</strong> Sie bauen, testen und pr\u00fcfen mit uns. Jede Freigabe trifft ein Mensch.</p>\n        </div>\n      </div>\n    </section>\n    <!-- \u2550\u2550 KONTAKT: Formular, Versand per mailto \u2550\u2550 -->\n    <section class=\"contact\" id=\"kontakt\" aria-labelledby=\"contactTitle\">\n      <div class=\"contact-light\" aria-hidden=\"true\"></div>\n      <div class=\"container contact-grid\">\n        <div class=\"contact-intro reveal\">\n          <span class=\"marker\">// 04 \u00b7 Kontakt</span>\n          <h2 id=\"contactTitle\">Idee, Problem<br>oder Projekt?</h2>\n          <p><span class=\"refs-c\">//</span> Schreiben Sie uns. Beim Senden \u00f6ffnet sich Ihr E-Mail-Programm mit einer fertigen Nachricht an <a href=\"mailto:admin@moellenbeck-digital.io\">admin@moellenbeck-digital.io</a>. Diese Seite speichert nichts.</p>\n        </div>\n        <form class=\"contact-form reveal\" id=\"contactForm\" action=\"mailto:admin@moellenbeck-digital.io\" method=\"post\" enctype=\"text/plain\" novalidate aria-describedby=\"formHint\">\n          <div class=\"field\">\n            <label for=\"cfName\">Name</label>\n            <input id=\"cfName\" name=\"Name\" type=\"text\" autocomplete=\"name\" required aria-describedby=\"cfNameErr\">\n            <span class=\"field-err\" id=\"cfNameErr\" aria-live=\"polite\"></span>\n          </div>\n          <div class=\"field\">\n            <label for=\"cfMail\">E-Mail</label>\n            <input id=\"cfMail\" name=\"E-Mail\" type=\"email\" autocomplete=\"email\" inputmode=\"email\" required aria-describedby=\"cfMailErr\">\n            <span class=\"field-err\" id=\"cfMailErr\" aria-live=\"polite\"></span>\n          </div>\n          <div class=\"field field--full\">\n            <label for=\"cfSubject\">Betreff</label>\n            <span class=\"select-wrap\"><select id=\"cfSubject\" name=\"Betreff\" required aria-describedby=\"cfSubjectErr\">\n              <option value=\"\">Bitte w\u00e4hlen</option>\n              <option>Projektanfrage</option>\n              <option>HV-Pilot</option>\n              <option>KI-Mitarbeiter Warteliste</option>\n              <option>MD_Process</option>\n              <option>Agenten-Infrastruktur</option>\n              <option>Sonstiges</option>\n            </select></span>\n            <span class=\"field-err\" id=\"cfSubjectErr\" aria-live=\"polite\"></span>\n          </div>\n          <div class=\"field field--full\">\n            <label for=\"cfMsg\">Nachricht</label>\n            <textarea id=\"cfMsg\" name=\"Nachricht\" rows=\"5\" required minlength=\"10\" aria-describedby=\"cfMsgErr\"></textarea>\n            <span class=\"field-err\" id=\"cfMsgErr\" aria-live=\"polite\"></span>\n          </div>\n          <div class=\"form-foot field--full\">\n            <p class=\"form-hint\" id=\"formHint\">Alle Felder sind Pflicht. Hinweise zum Datenschutz: <a href=\"datenschutz.html\">Datenschutzerkl\u00e4rung</a>.</p>\n            <button class=\"md-btn\" type=\"submit\" data-sound=\"click\">Nachricht vorbereiten -&gt;</button>\n          </div>\n          <p class=\"form-status field--full\" id=\"formStatus\" role=\"status\" aria-live=\"polite\"></p>\n        </form>\n      </div>\n    </section>\n  <section class=\"section\" id=\"faq\" aria-labelledby=\"faq-title\"><div class=\"container\"><h2 id=\"faq-title\">H\u00e4ufige Fragen</h2><details><summary>Was baut Moellenbeck-Digital?</summary><p>Wir bauen Software, Automatisierung und KI-Agenten.</p></details><details><summary>Wer entscheidet \u00fcber die Arbeit der Agenten?</summary><p>Unsere Agenten bereiten vor \u2013 entscheiden tut ein Mensch.</p></details><details><summary>Was ist BloomMD?</summary><p>Markdown-Notizen werden zu Mindmaps \u2013 eine Wissensbasis, die Menschen lesen und Agenten per MCP pflegen.</p></details><details><summary>Was ist wave-mesh?</summary><p>Verbindet Ger\u00e4te direkt \u00fcber WireGuard, auch hinter NAT \u2013 mit einem Koordinationsserver, den du selbst betreibst.</p></details><details><summary>Wie erreiche ich Moellenbeck-Digital?</summary><p>Schreiben Sie uns an admin@moellenbeck-digital.io.</p></details><p>Zuletzt aktualisiert: <time datetime=\"2026-11-25\">25. November 2026</time></p></div></section>\n</main>\n  <!-- \u2550\u2550 FOOTER: gro\u00df \u2550\u2550 -->\n  <footer class=\"site-footer\">\n    <div class=\"container footer-grid\">\n      <div class=\"footer-brand\">\n        <img src=\"assets/md_variante1.svg\" alt=\"Moellenbeck-Digital\" width=\"93\" height=\"28\" loading=\"lazy\">\n        <p>Software, Automatisierung und KI-Agenten. Digital &amp; Remote.</p>\n      </div>\n      <nav class=\"footer-col\" aria-label=\"Seite\">\n        <span class=\"footer-h\">Seite</span>\n        <a href=\"#film\">Film</a>\n        <a href=\"#services\">F\u00e4higkeiten</a>\n        <a href=\"#plattform\">Plattform</a>\n        <a href=\"#member\">Team</a>\n      </nav>\n      <nav class=\"footer-col\" aria-label=\"Projekte\">\n        <span class=\"footer-h\">Plattform</span>\n        <a href=\"https://bloommd.io\" target=\"_blank\" rel=\"noopener\">BloomMD</a>\n        <a href=\"https://wave-mesh.org/\" target=\"_blank\" rel=\"noopener\">wave-mesh</a>\n        <a href=\"hausverwaltung/\">Hausverwaltung</a>\n      </nav>\n      <nav class=\"footer-col\" aria-label=\"Rechtliches\">\n        <span class=\"footer-h\">Rechtliches</span>\n        <a href=\"impressum.html\">Impressum</a>\n        <a href=\"datenschutz.html\">Datenschutzerkl\u00e4rung</a>\n        <a href=\"mailto:admin@moellenbeck-digital.io\">Kontakt</a>\n      </nav>\n    </div>\n    <div class=\"footer-wordmark\" aria-hidden=\"true\"></div>\n    <div class=\"container footer-base\">\n      <span>\u00a9 2026 Moellenbeck-Digital UG (haftungsbeschr\u00e4nkt)</span>\n      <span>UI-Sounds: Standard aus</span>\n    </div>\n  </footer>\n  <script src=\"main.js\" defer></script>\n</body>\n</html>",
+  "errors": [],
+  "totalNumErrors": 0,
+  "totalNumWarnings": 0
+}

@@ -1,3 +1,13 @@
+# Aktualisierung 25.11.2026 · maßgeblicher Stand
+
+Die alte nicht normierte Tabelle unten ist historisch. Maßgeblich sind jetzt [SEO 44→67/100](../seo/score-2026-11-25.md) und [GEO 20→51/100](../geo/score-2026-11-25.md), jeweils A–E mit Abzügen.
+
+Geschlossen: externer Schema.org-Validator alle fünf Seiten 0 Fehler/0 Warnungen; Live-Redirects und echte 404 belegt; HV-Vorher aus PR5-Nachher-Artefakten 98 mobil/100 desktop zugeordnet. Details und Rohdaten in docs/seo. Kein neuer Deploy. Desktop nach PR6, vollständiger Linkchecker, Live-Bot/WAF, Konten, Inhaltsfreigaben und GEO-Sichtbarkeit bleiben offen. Keine Produktionsdateien in dieser Fortsetzung geändert. Tester/Reviewer durch dev-cos am End-SHA.
+
+---
+
+## Historischer Erstbericht (überholt, nicht aktuelle Abnahme)
+
 # SEO/GEO · 25.11.2026
 
 Skills: seo-geo und pr-test-merge. Basis 8f741d2. Stufe T, lokale Belege E; unabhängiges Review R und Host-Abnahme H offen. Kein Merge/Deploy.

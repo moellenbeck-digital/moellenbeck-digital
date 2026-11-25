@@ -1,0 +1,32 @@
+[
+  {
+    "url": "http://moellenbeck-digital.io/",
+    "result": "200 1 https://moellenbeck-digital.io/",
+    "error": ""
+  },
+  {
+    "url": "https://www.moellenbeck-digital.io/",
+    "result": "200 1 https://moellenbeck-digital.io/",
+    "error": ""
+  },
+  {
+    "url": "http://www.moellenbeck-digital.io/",
+    "result": "200 1 https://moellenbeck-digital.io/",
+    "error": ""
+  },
+  {
+    "url": "https://moellenbeck-digital.io/",
+    "result": "200 0 https://moellenbeck-digital.io/",
+    "error": ""
+  },
+  {
+    "url": "https://moellenbeck-digital.io/hausverwaltung/",
+    "result": "200 0 https://moellenbeck-digital.io/hausverwaltung/",
+    "error": ""
+  },
+  {
+    "url": "https://moellenbeck-digital.io/__seo_missing_20261125",
+    "result": "404 0 https://moellenbeck-digital.io/__seo_missing_20261125",
+    "error": ""
+  }
+]

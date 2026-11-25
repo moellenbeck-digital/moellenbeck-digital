@@ -1,0 +1,27 @@
+[
+  {
+    "file": "index.html",
+    "errors": 0,
+    "warnings": 0
+  },
+  {
+    "file": "hausverwaltung/index.html",
+    "errors": 0,
+    "warnings": 0
+  },
+  {
+    "file": "impressum.html",
+    "errors": 0,
+    "warnings": 0
+  },
+  {
+    "file": "datenschutz.html",
+    "errors": 0,
+    "warnings": 0
+  },
+  {
+    "file": "legal/index.html",
+    "errors": 0,
+    "warnings": 0
+  }
+]

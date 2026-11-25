@@ -1,0 +1,183 @@
+{
+  "isRendered": false,
+  "tripleGroups": [
+    {
+      "ownerSet": {},
+      "nodes": [
+        {
+          "types": [
+            {
+              "pred": "itemtype",
+              "value": "BreadcrumbList",
+              "errors": [],
+              "begin": 1221,
+              "end": 1237
+            }
+          ],
+          "typeGroup": "BreadcrumbList",
+          "idProperty": {
+            "pred": "urn:spore:url",
+            "value": "https://moellenbeck-digital.io/impressum.html#breadcrumb",
+            "errors": [],
+            "begin": 1246,
+            "end": 1304
+          },
+          "errors": [],
+          "properties": [],
+          "nodeProperties": [
+            {
+              "pred": "itemListElement",
+              "target": {
+                "types": [
+                  {
+                    "pred": "itemtype",
+                    "value": "ListItem",
+                    "errors": [],
+                    "begin": 1336,
+                    "end": 1346
+                  }
+                ],
+                "typeGroup": "ListItem",
+                "errors": [],
+                "properties": [
+                  {
+                    "pred": "position",
+                    "value": "1",
+                    "errors": [],
+                    "begin": 1360,
+                    "end": 1361
+                  },
+                  {
+                    "pred": "name",
+                    "value": "Startseite",
+                    "errors": [],
+                    "begin": 1371,
+                    "end": 1383
+                  }
+                ],
+                "nodeProperties": [
+                  {
+                    "pred": "item",
+                    "target": {
+                      "types": [
+                        {
+                          "pred": "itemtype",
+                          "value": "Thing",
+                          "errors": [],
+                          "begin": 1393,
+                          "end": 1426
+                        }
+                      ],
+                      "typeGroup": "Thing",
+                      "idProperty": {
+                        "pred": "urn:spore:url",
+                        "value": "https://moellenbeck-digital.io/",
+                        "errors": [],
+                        "begin": 1393,
+                        "end": 1426
+                      },
+                      "errors": [],
+                      "properties": [],
+                      "nodeProperties": [],
+                      "numErrors": 0,
+                      "numWarnings": 0
+                    },
+                    "errors": [],
+                    "begin": 1393,
+                    "end": 1426
+                  }
+                ],
+                "numErrors": 0,
+                "numWarnings": 0
+              },
+              "errors": [],
+              "begin": 1326,
+              "end": 1427
+            },
+            {
+              "pred": "itemListElement",
+              "target": {
+                "types": [
+                  {
+                    "pred": "itemtype",
+                    "value": "ListItem",
+                    "errors": [],
+                    "begin": 1439,
+                    "end": 1449
+                  }
+                ],
+                "typeGroup": "ListItem",
+                "errors": [],
+                "properties": [
+                  {
+                    "pred": "position",
+                    "value": "2",
+                    "errors": [],
+                    "begin": 1463,
+                    "end": 1464
+                  },
+                  {
+                    "pred": "name",
+                    "value": "Impressum",
+                    "errors": [],
+                    "begin": 1474,
+                    "end": 1485
+                  }
+                ],
+                "nodeProperties": [
+                  {
+                    "pred": "item",
+                    "target": {
+                      "types": [
+                        {
+                          "pred": "itemtype",
+                          "value": "Thing",
+                          "errors": [],
+                          "begin": 1495,
+                          "end": 1542
+                        }
+                      ],
+                      "typeGroup": "Thing",
+                      "idProperty": {
+                        "pred": "urn:spore:url",
+                        "value": "https://moellenbeck-digital.io/impressum.html",
+                        "errors": [],
+                        "begin": 1495,
+                        "end": 1542
+                      },
+                      "errors": [],
+                      "properties": [],
+                      "nodeProperties": [],
+                      "numErrors": 0,
+                      "numWarnings": 0
+                    },
+                    "errors": [],
+                    "begin": 1495,
+                    "end": 1542
+                  }
+                ],
+                "numErrors": 0,
+                "numWarnings": 0
+              },
+              "errors": [],
+              "begin": 1429,
+              "end": 1543
+            }
+          ],
+          "numErrors": 0,
+          "numWarnings": 0
+        }
+      ],
+      "numNodesWithError": 0,
+      "numNodesWithWarning": 0,
+      "numErrors": 0,
+      "numWarnings": 0,
+      "type": "BreadcrumbList"
+    }
+  ],
+  "numObjects": 1,
+  "html": "<!DOCTYPE html>\n<html lang=\"de\">\n<head>\n  <script>document.documentElement.classList.add('js')</script>\n  <meta name=\"theme-color\" content=\"#08080a\">\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <link rel=\"canonical\" href=\"https://moellenbeck-digital.io/impressum.html\">\n  <meta name=\"description\" content=\"Impressum der Moellenbeck-Digital UG (haftungsbeschr\u00e4nkt): Anbieter, Vertretung, Kontakt und Registereintrag.\">\n  <title>Impressum \u2013 Moellenbeck-Digital UG (haftungsbeschr\u00e4nkt)</title>\n  <link rel=\"icon\" href=\"assets/favicon.ico\" sizes=\"48x48\">\n  <link rel=\"icon\" href=\"assets/md_favicon.svg\" type=\"image/svg+xml\">\n  <link rel=\"icon\" href=\"assets/favicon-16x16.png\" sizes=\"16x16\" type=\"image/png\">\n  <link rel=\"icon\" href=\"assets/favicon-32x32.png\" sizes=\"32x32\" type=\"image/png\">\n  <link rel=\"icon\" href=\"assets/favicon-192x192.png\" sizes=\"192x192\" type=\"image/png\">\n  <link rel=\"icon\" href=\"assets/favicon-512x512.png\" sizes=\"512x512\" type=\"image/png\">\n  <link rel=\"apple-touch-icon\" href=\"assets/favicon-180x180.png\">\n  <link rel=\"stylesheet\" href=\"style.css\">\n<script type=\"application/ld+json\">{\"@context\": \"https://schema.org\", \"@graph\": [{\"@type\": \"BreadcrumbList\", \"@id\": \"https://moellenbeck-digital.io/impressum.html#breadcrumb\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Startseite\", \"item\": \"https://moellenbeck-digital.io/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Impressum\", \"item\": \"https://moellenbeck-digital.io/impressum.html\"}]}]}</script>\n</head>\n<body class=\"legal-document\">\n  <a class=\"skip-link\" href=\"#main\">Zum Inhalt springen</a>\n  <nav class=\"legal-nav\" aria-label=\"Rechtliche Informationen\">\n    <a class=\"logo\" href=\"index.html\"><img src=\"assets/md_variante1.svg\" alt=\"Moellenbeck-Digital\" height=\"28\"></a>\n    <div class=\"nav-links\">\n      <a href=\"impressum.html\">Impressum</a>\n      <a href=\"datenschutz.html\">Datenschutz</a>\n      <a href=\"legal/\">AGB</a>\n    </div>\n  </nav>\n  <main class=\"page-wrapper\" id=\"main\">\n    <a class=\"page-back\" href=\"index.html\">Zur\u00fcck</a>\n    <h1 class=\"page-title\">Impressum</h1>\n    <hr class=\"page-title-line\">\n    <div class=\"section\">\n      <h2>Angaben gem\u00e4\u00df \u00a7 5 DDG</h2>\n      <p>\n        Moellenbeck-Digital UG (haftungsbeschr\u00e4nkt)<br>\n        Luisenstra\u00dfe 59<br>\n        45892 Gelsenkirchen\n      </p>\n    </div>\n    <div class=\"section\">\n      <h2>Vertreten durch</h2>\n      <p>Gesch\u00e4ftsf\u00fchrerin: Emma M\u00f6llenbeck</p>\n    </div>\n    <div class=\"section\">\n      <h2>Kontakt</h2>\n      <p>E-Mail: <a href=\"mailto:admin@moellenbeck-digital.io\">admin@moellenbeck-digital.io</a></p>\n    </div>\n    <div class=\"section\">\n      <h2>Registereintrag</h2>\n      <p>\n        Registergericht: Amtsgericht Gelsenkirchen<br>\n        Registernummer: HRB 19765\n      </p>\n    </div>\n    <div class=\"section\">\n      <h2>Haftungsausschluss</h2>\n      <h3>Haftung f\u00fcr Inhalte</h3>\n      <p>\n        Die Inhalte dieser Seite wurden mit gr\u00f6\u00dfter Sorgfalt erstellt. F\u00fcr die Richtigkeit, Vollst\u00e4ndigkeit und Aktualit\u00e4t der Inhalte \u00fcbernehmen wir jedoch keine Gew\u00e4hr. Als Diensteanbieter sind wir gem\u00e4\u00df \u00a7 7 Abs. 1 DDG f\u00fcr eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach \u00a7\u00a7 8 bis 10 DDG sind wir als Diensteanbieter jedoch nicht verpflichtet, \u00fcbermittelte oder gespeicherte fremde Informationen zu \u00fcberwachen.\n      </p>\n      <h3>Haftung f\u00fcr Links</h3>\n      <p>\n        Unser Angebot enth\u00e4lt Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. F\u00fcr die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter verantwortlich.\n      </p>\n    </div>\n  </main>\n  <footer>\n    <a href=\"impressum.html\">Impressum</a>\n    <span class=\"separator\">/</span>\n    <a href=\"datenschutz.html\">Datenschutzerkl\u00e4rung</a>\n    <span class=\"separator\">/</span>\n    <a href=\"legal/\">AGB</a>\n  </footer>\n</body>\n</html>",
+  "errors": [],
+  "totalNumErrors": 0,
+  "totalNumWarnings": 0
+}
