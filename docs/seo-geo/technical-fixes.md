@@ -3,7 +3,7 @@
 Skills: seo, geo, pr-test-merge. Kein Merge/Deploy.
 
 ## Ursache
-Live-Lighthouse `live-home.json` an Basis 60e4209: is-on-https=0, URL `mailto:admin@moellenbeck-digital.io`, „Allowed with warning“. Zusätzlich inspector-issues=0 (Mixed content). Das Formular-action, nicht der normale E-Mail-Link, löst die Browserwarnung aus. Lokal über HTTP ist sie nicht reproduzierbar: Best Practices bereits vorher 100. Daher keine lokale 77→100-Verbesserung behaupten.
+Live-Lighthouse `live-home.json` an Basis 60e4209 ([Zusammenfassung](evidence/2811c29/summary.md)): is-on-https=0, URL `mailto:admin@moellenbeck-digital.io`, „Allowed with warning“. Zusätzlich inspector-issues=0 (Mixed content). Das Formular-action, nicht der normale E-Mail-Link, löst die Browserwarnung aus. Lokal über HTTP ist sie nicht reproduzierbar: Best Practices bereits vorher 100. Daher keine lokale 77→100-Verbesserung behaupten.
 
 Formular verwendet jetzt method=dialog: kein nativer Netzwerkversand; der bestehende submit-Handler validiert und öffnet unverändert das E-Mail-Programm. Ohne JS bleibt der direkte E-Mail-Link nutzbar, ein Hinweis ergänzt. Es werden keine Eingaben als URL-Query an den Webserver geschickt.
 
@@ -59,4 +59,6 @@ Zusätzlicher lokaler HTTPS-Test mit temporärem selbstsignierten Zertifikat und
 | privacy mobile | 100/100/100/100 | 100/100/100/100 |
 | privacy desktop | 100/100/100/100 | 100/100/100/100 |
 
-Belege: `evidence/60e4209ed90539fa4ed3a38345eb00738e63dda9/` und `evidence/2811c2912e730eafb590b759e85e0c194f6302e9/`. Implementierung am 2811c2912e730eafb590b759e85e0c194f6302e9 gemessen; abschließender Beleg-Commit ändert keine Produktionsdateien. HTTPS Zusatzmessungen Root und HV: BP jeweils 100, is-on-https und inspector-issues jeweils 1.
+Belege: [evidence/2811c29/summary.md](evidence/2811c29/summary.md) und `summary.json` (vorher 60e4209, nachher 2811c29, SHA-256 je Vollbericht). Die Vollberichte liegen außerhalb des Repos unter `~/Documents/max-os-knowledge/AgenticOS/Dokumente/Projekte/moellenbeck-digital/seo-evidence-2026-11-25/`. Implementierung am 2811c2912e730eafb590b759e85e0c194f6302e9 gemessen; spätere Commits ändern keine ausgelieferten HTML-, CSS- oder JS-Dateien. HTTPS Zusatzmessungen Root und HV: BP jeweils 100, is-on-https und inspector-issues jeweils 1.
+
+Neue Messläufe in ein Verzeichnis außerhalb des Repos schreiben: `bash scripts/lighthouse.sh <Verzeichnis>`. Nur die Zusammenfassung ins Repo übernehmen.
