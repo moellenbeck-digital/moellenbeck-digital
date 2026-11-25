@@ -15,3 +15,10 @@ Grundlage: hausverwaltung/index.html, FAQ. Die Zielgruppen-Abgrenzung ist neu un
 
 Alle drei Stellen sind im HTML mit „[VORSCHLAG – Max prüfen: …]“ markiert.
 Vor Veröffentlichung: Aussagen, Themenauswahl und Suchfragen prüfen; Platzhalter auflösen; Indexierung separat freigeben.
+
+## Offene Frage · Schreibweise des Namens
+[FRAGE – Max entscheiden: „Möllenbeck Digital“ oder „Moellenbeck-Digital“?]
+Befund: index.html, Rechtsseiten und llms.txt nutzen „Moellenbeck-Digital“.
+hausverwaltung/index.html und llms-full.txt nutzen zusätzlich „Moellenbeck Digital“.
+Der Entwurf /ratgeber/prozessautomatisierung/ nutzt im Text „Möllenbeck Digital“, im Footer (wie auf main) „Moellenbeck-Digital“.
+Nichts geändert.

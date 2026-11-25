@@ -1,0 +1,202 @@
+[
+  {
+    "path": "/hausverwaltung/ratgeber/schadensmeldungen/",
+    "width": 320,
+    "viewport": 320,
+    "textLeft": 24,
+    "textRight": 263,
+    "ok": true
+  },
+  {
+    "path": "/hausverwaltung/ratgeber/schadensmeldungen/",
+    "width": 360,
+    "viewport": 360,
+    "textLeft": 24,
+    "textRight": 334.3,
+    "ok": true
+  },
+  {
+    "path": "/hausverwaltung/ratgeber/schadensmeldungen/",
+    "width": 375,
+    "viewport": 375,
+    "textLeft": 24,
+    "textRight": 334.3,
+    "ok": true
+  },
+  {
+    "path": "/hausverwaltung/ratgeber/schadensmeldungen/",
+    "width": 390,
+    "viewport": 390,
+    "textLeft": 24,
+    "textRight": 357.7,
+    "ok": true
+  },
+  {
+    "path": "/hausverwaltung/ratgeber/schadensmeldungen/",
+    "width": 412,
+    "viewport": 412,
+    "textLeft": 24,
+    "textRight": 368.7,
+    "ok": true
+  },
+  {
+    "path": "/hausverwaltung/ratgeber/verwaltungssoftware/",
+    "width": 320,
+    "viewport": 320,
+    "textLeft": 24,
+    "textRight": 293.9,
+    "ok": true
+  },
+  {
+    "path": "/hausverwaltung/ratgeber/verwaltungssoftware/",
+    "width": 360,
+    "viewport": 360,
+    "textLeft": 24,
+    "textRight": 297,
+    "ok": true
+  },
+  {
+    "path": "/hausverwaltung/ratgeber/verwaltungssoftware/",
+    "width": 375,
+    "viewport": 375,
+    "textLeft": 24,
+    "textRight": 340.5,
+    "ok": true
+  },
+  {
+    "path": "/hausverwaltung/ratgeber/verwaltungssoftware/",
+    "width": 390,
+    "viewport": 390,
+    "textLeft": 24,
+    "textRight": 340.5,
+    "ok": true
+  },
+  {
+    "path": "/hausverwaltung/ratgeber/verwaltungssoftware/",
+    "width": 412,
+    "viewport": 412,
+    "textLeft": 24,
+    "textRight": 386.4,
+    "ok": true
+  },
+  {
+    "path": "/ratgeber/prozessautomatisierung/",
+    "width": 320,
+    "viewport": 320,
+    "textLeft": 24,
+    "textRight": 277.7,
+    "ok": true
+  },
+  {
+    "path": "/ratgeber/prozessautomatisierung/",
+    "width": 360,
+    "viewport": 360,
+    "textLeft": 24,
+    "textRight": 310.1,
+    "ok": true
+  },
+  {
+    "path": "/ratgeber/prozessautomatisierung/",
+    "width": 375,
+    "viewport": 375,
+    "textLeft": 24,
+    "textRight": 349.6,
+    "ok": true
+  },
+  {
+    "path": "/ratgeber/prozessautomatisierung/",
+    "width": 390,
+    "viewport": 390,
+    "textLeft": 24,
+    "textRight": 349.6,
+    "ok": true
+  },
+  {
+    "path": "/ratgeber/prozessautomatisierung/",
+    "width": 412,
+    "viewport": 412,
+    "textLeft": 24,
+    "textRight": 349.6,
+    "ok": true
+  },
+  {
+    "path": "/",
+    "width": 320,
+    "viewport": 320,
+    "textLeft": 20,
+    "textRight": 313,
+    "ok": true
+  },
+  {
+    "path": "/",
+    "width": 360,
+    "viewport": 360,
+    "textLeft": 20,
+    "textRight": 333.1,
+    "ok": true
+  },
+  {
+    "path": "/",
+    "width": 375,
+    "viewport": 375,
+    "textLeft": 20,
+    "textRight": 346.1,
+    "ok": true
+  },
+  {
+    "path": "/",
+    "width": 390,
+    "viewport": 390,
+    "textLeft": 20,
+    "textRight": 359.2,
+    "ok": true
+  },
+  {
+    "path": "/",
+    "width": 412,
+    "viewport": 412,
+    "textLeft": 20,
+    "textRight": 378.3,
+    "ok": true
+  },
+  {
+    "path": "/hausverwaltung/",
+    "width": 320,
+    "viewport": 320,
+    "textLeft": 20,
+    "textRight": 289.2,
+    "ok": true
+  },
+  {
+    "path": "/hausverwaltung/",
+    "width": 360,
+    "viewport": 360,
+    "textLeft": 20,
+    "textRight": 318.5,
+    "ok": true
+  },
+  {
+    "path": "/hausverwaltung/",
+    "width": 375,
+    "viewport": 375,
+    "textLeft": 20,
+    "textRight": 331,
+    "ok": true
+  },
+  {
+    "path": "/hausverwaltung/",
+    "width": 390,
+    "viewport": 390,
+    "textLeft": 20,
+    "textRight": 343.3,
+    "ok": true
+  },
+  {
+    "path": "/hausverwaltung/",
+    "width": 412,
+    "viewport": 412,
+    "textLeft": 20,
+    "textRight": 361.7,
+    "ok": true
+  }
+]
