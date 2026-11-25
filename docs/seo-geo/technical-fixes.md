@@ -8,9 +8,20 @@ Live-Lighthouse `live-home.json` an Basis 60e4209 ([Zusammenfassung](evidence/28
 Formular verwendet jetzt method=dialog: kein nativer Netzwerkversand; der bestehende submit-Handler validiert und öffnet unverändert das E-Mail-Programm. Ohne JS bleibt der direkte E-Mail-Link nutzbar, ein Hinweis ergänzt. Es werden keine Eingaben als URL-Query an den Webserver geschickt.
 
 ## Generierung
-`python3 scripts/update-dates.py` liest je Kernseite `git log -1 --format=%cs -- <Datei>`, setzt WebPage.dateModified und gleiches sichtbares Datum. Nach Content-Commit ausführen; `--check` prüft den gespeicherten Wert. Tagesgenauigkeit entspricht sichtbarem Datum.
+`python3 scripts/update-dates.py` liest je Kernseite `git log -1 --format=%cs -- <Datei>`, setzt WebPage.dateModified und gleiches sichtbares Datum. Tagesgenauigkeit entspricht sichtbarem Datum.
 
-`python3 scripts/generate-llms.py` erzeugt llms-full.txt aus demselben öffentlichen main-Text der beiden Kernseiten. `--check` erkennt Drift. Kein Build und keine `.github/workflows` im Repository vorhanden. Vor Veröffentlichung beide Generatoren und Checks ausführen. Nicht automatisch vom Hosting ausgeführt.
+`python3 scripts/generate-llms.py` erzeugt llms-full.txt aus demselben öffentlichen main-Text der beiden Kernseiten. `--check` erkennt Drift.
+
+Reihenfolge vor jeder Veröffentlichung, im Repo-Root:
+
+1. Content committen.
+2. Datum: `python3 scripts/update-dates.py`, Ergebnis am selben Tag committen.
+3. llms-full: `python3 scripts/generate-llms.py`, Ergebnis committen. Diese Datei enthält das sichtbare Datum.
+4. Checks: `python3 scripts/update-dates.py --check`, `python3 scripts/generate-llms.py --check`, `python3 docs/seo-geo/check.py`, `node audit/check.cjs`, `node scripts/check-form.cjs`.
+
+Schritt 2 braucht die volle Git-Historie. Bei einem shallow clone bricht das Skript mit Fehler ab; Abhilfe: `git fetch --unshallow`. Maßgeblich ist das Commit-Datum. Ein Squash-Merge oder Rebase an einem späteren Tag ändert es: Dann schlägt `--check` fehl und Schritt 2–4 sind zu wiederholen.
+
+Kein Build und keine `.github/workflows` im Repository vorhanden. Nicht automatisch vom Hosting ausgeführt.
 
 PNG-Maße durch `sips -g pixelWidth -g pixelHeight assets/og-image.png`: 1200×630. OG/Twitter verweisen auf dieses Bild. Datenschutztitel 32 Zeichen; Rechtstext-Body unverändert.
 
