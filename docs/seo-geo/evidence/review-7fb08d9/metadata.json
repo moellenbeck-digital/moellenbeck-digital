@@ -1,0 +1,37 @@
+[
+  {
+    "file": "index.html",
+    "title": "Moellenbeck-Digital UG (haftungsbeschr\u00e4nkt)",
+    "titleLength": 43,
+    "descriptionLength": 100,
+    "h1": 1
+  },
+  {
+    "file": "hausverwaltung/index.html",
+    "title": "KI-Mitarbeiter f\u00fcr Hausverwaltungen \u00b7 Moellenbeck-Digital",
+    "titleLength": 57,
+    "descriptionLength": 135,
+    "h1": 1
+  },
+  {
+    "file": "impressum.html",
+    "title": "Impressum \u2013 Moellenbeck-Digital UG (haftungsbeschr\u00e4nkt)",
+    "titleLength": 55,
+    "descriptionLength": 109,
+    "h1": 1
+  },
+  {
+    "file": "datenschutz.html",
+    "title": "Datenschutzerkl\u00e4rung \u2013 Moellenbeck-Digital UG (haftungsbeschr\u00e4nkt)",
+    "titleLength": 66,
+    "descriptionLength": 76,
+    "h1": 1
+  },
+  {
+    "file": "legal/index.html",
+    "title": "AGB &amp; Legal \u2013 Moellenbeck-Digital UG (haftungsbeschr\u00e4nkt)",
+    "titleLength": 61,
+    "descriptionLength": 87,
+    "h1": 1
+  }
+]

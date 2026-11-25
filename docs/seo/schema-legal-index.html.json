@@ -1,0 +1,183 @@
+{
+  "isRendered": false,
+  "tripleGroups": [
+    {
+      "ownerSet": {},
+      "nodes": [
+        {
+          "types": [
+            {
+              "pred": "itemtype",
+              "value": "BreadcrumbList",
+              "errors": [],
+              "begin": 2048,
+              "end": 2064
+            }
+          ],
+          "typeGroup": "BreadcrumbList",
+          "idProperty": {
+            "pred": "urn:spore:url",
+            "value": "https://moellenbeck-digital.io/legal/#breadcrumb",
+            "errors": [],
+            "begin": 2073,
+            "end": 2123
+          },
+          "errors": [],
+          "properties": [],
+          "nodeProperties": [
+            {
+              "pred": "itemListElement",
+              "target": {
+                "types": [
+                  {
+                    "pred": "itemtype",
+                    "value": "ListItem",
+                    "errors": [],
+                    "begin": 2155,
+                    "end": 2165
+                  }
+                ],
+                "typeGroup": "ListItem",
+                "errors": [],
+                "properties": [
+                  {
+                    "pred": "position",
+                    "value": "1",
+                    "errors": [],
+                    "begin": 2179,
+                    "end": 2180
+                  },
+                  {
+                    "pred": "name",
+                    "value": "Startseite",
+                    "errors": [],
+                    "begin": 2190,
+                    "end": 2202
+                  }
+                ],
+                "nodeProperties": [
+                  {
+                    "pred": "item",
+                    "target": {
+                      "types": [
+                        {
+                          "pred": "itemtype",
+                          "value": "Thing",
+                          "errors": [],
+                          "begin": 2212,
+                          "end": 2245
+                        }
+                      ],
+                      "typeGroup": "Thing",
+                      "idProperty": {
+                        "pred": "urn:spore:url",
+                        "value": "https://moellenbeck-digital.io/",
+                        "errors": [],
+                        "begin": 2212,
+                        "end": 2245
+                      },
+                      "errors": [],
+                      "properties": [],
+                      "nodeProperties": [],
+                      "numErrors": 0,
+                      "numWarnings": 0
+                    },
+                    "errors": [],
+                    "begin": 2212,
+                    "end": 2245
+                  }
+                ],
+                "numErrors": 0,
+                "numWarnings": 0
+              },
+              "errors": [],
+              "begin": 2145,
+              "end": 2246
+            },
+            {
+              "pred": "itemListElement",
+              "target": {
+                "types": [
+                  {
+                    "pred": "itemtype",
+                    "value": "ListItem",
+                    "errors": [],
+                    "begin": 2258,
+                    "end": 2268
+                  }
+                ],
+                "typeGroup": "ListItem",
+                "errors": [],
+                "properties": [
+                  {
+                    "pred": "position",
+                    "value": "2",
+                    "errors": [],
+                    "begin": 2282,
+                    "end": 2283
+                  },
+                  {
+                    "pred": "name",
+                    "value": "Legal Center",
+                    "errors": [],
+                    "begin": 2293,
+                    "end": 2307
+                  }
+                ],
+                "nodeProperties": [
+                  {
+                    "pred": "item",
+                    "target": {
+                      "types": [
+                        {
+                          "pred": "itemtype",
+                          "value": "Thing",
+                          "errors": [],
+                          "begin": 2317,
+                          "end": 2356
+                        }
+                      ],
+                      "typeGroup": "Thing",
+                      "idProperty": {
+                        "pred": "urn:spore:url",
+                        "value": "https://moellenbeck-digital.io/legal/",
+                        "errors": [],
+                        "begin": 2317,
+                        "end": 2356
+                      },
+                      "errors": [],
+                      "properties": [],
+                      "nodeProperties": [],
+                      "numErrors": 0,
+                      "numWarnings": 0
+                    },
+                    "errors": [],
+                    "begin": 2317,
+                    "end": 2356
+                  }
+                ],
+                "numErrors": 0,
+                "numWarnings": 0
+              },
+              "errors": [],
+              "begin": 2248,
+              "end": 2357
+            }
+          ],
+          "numErrors": 0,
+          "numWarnings": 0
+        }
+      ],
+      "numNodesWithError": 0,
+      "numNodesWithWarning": 0,
+      "numErrors": 0,
+      "numWarnings": 0,
+      "type": "BreadcrumbList"
+    }
+  ],
+  "numObjects": 1,
+  "html": "<!DOCTYPE html>\n<html lang=\"de\">\n<head>\n  <script>document.documentElement.classList.add('js')</script>\n  <meta name=\"theme-color\" content=\"#08080a\">\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <meta name=\"description\" content=\"AGB und produktspezifische Bedingungen der Moellenbeck-Digital UG (haftungsbeschr\u00e4nkt).\">\n  <meta property=\"og:type\" content=\"website\">\n  <meta property=\"og:url\" content=\"https://moellenbeck-digital.io/legal/\">\n  <meta property=\"og:title\" content=\"AGB &amp; Legal \u2013 Moellenbeck-Digital UG\">\n  <meta property=\"og:description\" content=\"Allgemeine und produktspezifische Vertragsbedingungen der Moellenbeck-Digital UG.\">\n  <meta property=\"og:image\" content=\"https://moellenbeck-digital.io/assets/og-image.png\">\n  <meta property=\"og:locale\" content=\"de_DE\">\n  <meta name=\"twitter:card\" content=\"summary_large_image\">\n  <meta name=\"twitter:title\" content=\"AGB &amp; Legal \u2013 Moellenbeck-Digital UG\">\n  <meta name=\"twitter:description\" content=\"Allgemeine und produktspezifische Vertragsbedingungen der Moellenbeck-Digital UG.\">\n  <meta name=\"twitter:image\" content=\"https://moellenbeck-digital.io/assets/og-image.png\">\n  <link rel=\"canonical\" href=\"https://moellenbeck-digital.io/legal/\">\n  <title>AGB &amp; Legal \u2013 Moellenbeck-Digital UG (haftungsbeschr\u00e4nkt)</title>\n  <link rel=\"icon\" href=\"../assets/favicon.ico\" sizes=\"48x48\">\n  <link rel=\"icon\" href=\"../assets/md_favicon.svg\" type=\"image/svg+xml\">\n  <link rel=\"icon\" href=\"../assets/favicon-16x16.png\" sizes=\"16x16\" type=\"image/png\">\n  <link rel=\"icon\" href=\"../assets/favicon-32x32.png\" sizes=\"32x32\" type=\"image/png\">\n  <link rel=\"icon\" href=\"../assets/favicon-192x192.png\" sizes=\"192x192\" type=\"image/png\">\n  <link rel=\"icon\" href=\"../assets/favicon-512x512.png\" sizes=\"512x512\" type=\"image/png\">\n  <link rel=\"apple-touch-icon\" href=\"../assets/favicon-180x180.png\">\n  <link rel=\"stylesheet\" href=\"../style.css\">\n<script type=\"application/ld+json\">{\"@context\": \"https://schema.org\", \"@graph\": [{\"@type\": \"BreadcrumbList\", \"@id\": \"https://moellenbeck-digital.io/legal/#breadcrumb\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Startseite\", \"item\": \"https://moellenbeck-digital.io/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Legal Center\", \"item\": \"https://moellenbeck-digital.io/legal/\"}]}]}</script>\n</head>\n<body class=\"legal-document\">\n  <a class=\"skip-link\" href=\"#main\">Zum Inhalt springen</a>\n  <nav class=\"legal-nav\" aria-label=\"Rechtliche Informationen\">\n    <a class=\"logo\" href=\"../index.html\"><img src=\"../assets/md_variante1.svg\" alt=\"Moellenbeck-Digital\" height=\"28\"></a>\n    <div class=\"nav-links\">\n      <a href=\"../impressum.html\">Impressum</a>\n      <a href=\"../datenschutz.html\">Datenschutz</a>\n      <a href=\"../legal/\">AGB</a>\n    </div>\n  </nav>\n  <main class=\"page-wrapper legal-page\" id=\"main\">\n    <a class=\"page-back\" href=\"../index.html\">Zur\u00fcck</a>\n    <p class=\"page-kicker\">Legal Center</p>\n    <h1 class=\"page-title\">AGB &amp; Vertragsbedingungen</h1>\n    <hr class=\"page-title-line\">\n    <section class=\"section legal-intro\">\n      <h2>Dokumenten\u00fcbersicht</h2>\n      <p>\n        Diese Seite b\u00fcndelt die allgemeinen Vertragsbedingungen der Moellenbeck-Digital UG (haftungsbeschr\u00e4nkt) und die erg\u00e4nzenden Bedingungen f\u00fcr einzelne Produkte. Ma\u00dfgeblich ist jeweils die Fassung, die im Angebot, Vertrag, Auftrag oder Bestellprozess ausdr\u00fccklich referenziert wird.\n      </p>\n      <p>\n        Diese \u00dcbersicht ersetzt nicht den Hinweis auf die jeweils anwendbaren Bedingungen beim Vertragsschluss. F\u00fcr Verbraucher bleiben zwingende gesetzliche Rechte, insbesondere gesetzliche M\u00e4ngelrechte und gesonderte Widerrufsbelehrungen, soweit anwendbar, unber\u00fchrt.\n      </p>\n      <p>\n        Bei Fragen zu Vertragsunterlagen oder produktspezifischen Regelungen erreichen Sie uns unter <a href=\"mailto:admin@moellenbeck-digital.io\">admin@moellenbeck-digital.io</a>.\n      </p>\n      <div class=\"legal-actions\" aria-label=\"Dokumentenaktionen\">\n        <button type=\"button\" data-open-all>Alle Bedingungen \u00f6ffnen</button>\n        <button type=\"button\" data-print>Alle \u00f6ffnen &amp; drucken</button>\n      </div>\n    </section>\n    <section class=\"legal-library\" aria-label=\"AGB-Dokumente\">\n      <div class=\"legal-library-group\">\n        <div class=\"legal-group-heading\">\n          <p>Unternehmen</p>\n          <h2>Allgemeine Bedingungen</h2>\n        </div>\n        <div class=\"legal-accordion-list\">\n          <details id=\"agb-unternehmen\" class=\"legal-accordion\">\n            <summary>\n              <span>\n                <strong>Allgemeine Gesch\u00e4ftsbedingungen</strong>\n                <small>Rahmenbedingungen f\u00fcr Angebote, Entwicklungsleistungen, Beratung und Projektarbeit.</small>\n              </span>\n              <span class=\"legal-date\">Stand: 22. Juli 2026</span>\n            </summary>\n            <div class=\"legal-accordion-body\">\n              <h3>1. Geltungsbereich</h3>\n              <p>\n                Diese Allgemeinen Gesch\u00e4ftsbedingungen gelten f\u00fcr Leistungen der Moellenbeck-Digital UG (haftungsbeschr\u00e4nkt), soweit nicht schriftlich etwas anderes vereinbart wurde. Individuelle Vereinbarungen, Leistungsbeschreibungen und produktspezifische Bedingungen gehen diesen Regelungen vor.\n              </p>\n              <h3>2. Leistungen und Vertragsschluss</h3>\n              <p>\n                Art, Umfang, Termine und Verg\u00fctung der Leistungen ergeben sich aus dem jeweiligen Angebot, Auftrag, Vertrag oder einer abgestimmten Leistungsbeschreibung. Ein Vertrag kommt zustande, wenn ein Angebot angenommen oder eine Leistung beauftragt wird.\n              </p>\n              <h3>3. Mitwirkung des Kunden</h3>\n              <p>\n                Der Kunde stellt die f\u00fcr die Leistungserbringung erforderlichen Informationen, Zug\u00e4nge, Freigaben und Ansprechpartner rechtzeitig bereit. Verz\u00f6gerungen, die aus fehlender oder versp\u00e4teter Mitwirkung entstehen, k\u00f6nnen vereinbarte Termine entsprechend verschieben.\n              </p>\n              <h3>4. Verg\u00fctung und Zahlung</h3>\n              <p>\n                Preise und Zahlungsbedingungen ergeben sich aus dem jeweiligen Angebot oder Vertrag. Soweit nicht anders vereinbart, sind Rechnungen innerhalb von 14 Tagen nach Zugang ohne Abzug zahlbar. Gesetzliche Umsatzsteuer wird, soweit anwendbar, zus\u00e4tzlich ausgewiesen.\n              </p>\n              <h3>5. Nutzungsrechte und Arbeitsergebnisse</h3>\n              <p>\n                Der Kunde erh\u00e4lt nach vollst\u00e4ndiger Zahlung die vereinbarten Nutzungsrechte an individuell erstellten Arbeitsergebnissen. Vorbestehende Werkzeuge, Bibliotheken, Konzepte, Templates, Know-how und allgemeine technische Bausteine der Moellenbeck-Digital UG bleiben Eigentum der Moellenbeck-Digital UG, sofern nicht ausdr\u00fccklich etwas anderes vereinbart wurde.\n              </p>\n              <h3>6. Vertraulichkeit und Datenschutz</h3>\n              <p>\n                Beide Parteien behandeln vertrauliche Informationen der jeweils anderen Partei vertraulich. Soweit personenbezogene Daten im Auftrag verarbeitet werden, schlie\u00dfen die Parteien eine gesonderte Vereinbarung zur Auftragsverarbeitung ab, sofern dies rechtlich erforderlich ist.\n              </p>\n              <h3>7. Haftung</h3>\n              <p>\n                Die Haftung richtet sich nach den gesetzlichen Vorschriften. Bei leicht fahrl\u00e4ssiger Verletzung wesentlicher Vertragspflichten ist die Haftung auf den vertragstypischen, vorhersehbaren Schaden begrenzt. Eine Haftungsbeschr\u00e4nkung gilt nicht bei Vorsatz, grober Fahrl\u00e4ssigkeit, Verletzung von Leben, K\u00f6rper oder Gesundheit, \u00fcbernommenen Garantien, Anspr\u00fcchen nach dem Produkthaftungsgesetz oder anderen zwingenden gesetzlichen Vorschriften.\n              </p>\n              <h3>8. Schlussbestimmungen</h3>\n              <p>\n                Es gilt deutsches Recht unter Ausschluss des UN-Kaufrechts, soweit zwingende Verbraucherschutzvorschriften nicht entgegenstehen. Individualvereinbarungen gehen diesen Bedingungen vor. Soweit einzelne Bestimmungen nicht Vertragsbestandteil geworden oder unwirksam sind, gelten die gesetzlichen Vorschriften; die Wirksamkeit des Vertrags im \u00dcbrigen bleibt unber\u00fchrt.\n              </p>\n            </div>\n          </details>\n        </div>\n      </div>\n      <div class=\"legal-library-group\">\n        <div class=\"legal-group-heading\">\n          <p>Produkte</p>\n          <h2>Produktspezifische Bedingungen</h2>\n        </div>\n        <div class=\"legal-accordion-list\">\n          <details id=\"processcube\" class=\"legal-accordion\">\n            <summary>\n              <span>\n                <strong>ProcessCube</strong>\n                <small>Nutzung, Betrieb, Integrationen und Bereitstellung von ProcessCube-bezogenen Leistungen.</small>\n              </span>\n              <span class=\"legal-date\">Stand: 22. Juli 2026</span>\n            </summary>\n            <div class=\"legal-accordion-body\">\n              <h3>1. Erg\u00e4nzende Geltung</h3>\n              <p>\n                Diese Bedingungen erg\u00e4nzen die Allgemeinen Gesch\u00e4ftsbedingungen f\u00fcr Leistungen, Zug\u00e4nge, Integrationen, Beratung und Betrieb rund um ProcessCube. Bei Widerspr\u00fcchen gehen individuell vereinbarte Leistungsbeschreibungen und Vertr\u00e4ge vor.\n              </p>\n              <h3>2. Nutzung und Zug\u00e4nge</h3>\n              <p>\n                Bereitgestellte Zug\u00e4nge sind personenbezogen oder organisationsbezogen nach Ma\u00dfgabe des jeweiligen Vertrags zu nutzen. Zugangsdaten sind vertraulich zu behandeln und vor unbefugtem Zugriff zu sch\u00fctzen.\n              </p>\n              <h3>3. Betrieb, Wartung und Verf\u00fcgbarkeit</h3>\n              <p>\n                Soweit ProcessCube als gehostete L\u00f6sung bereitgestellt wird, k\u00f6nnen Wartungsfenster, Updates oder technische Anpassungen erforderlich sein. Konkrete Service-Level, Reaktionszeiten und Betriebsmodelle gelten nur, wenn sie ausdr\u00fccklich vereinbart wurden.\n              </p>\n              <h3>4. Kundendaten und Integrationen</h3>\n              <p>\n                Der Kunde bleibt f\u00fcr die von ihm eingestellten Daten, Prozesse, Integrationen und angebundenen Systeme verantwortlich. Drittanbieter-Systeme, APIs und externe Dienste k\u00f6nnen eigenen Bedingungen und technischen Beschr\u00e4nkungen unterliegen.\n              </p>\n              <h3>5. Modellierung und Automatisierung</h3>\n              <p>\n                Automatisierte Prozesse sind vor produktiver Nutzung fachlich und technisch zu pr\u00fcfen. Der Kunde ist verantwortlich f\u00fcr Freigaben, Testdaten, fachliche Richtigkeit und die Einhaltung interner Vorgaben.\n              </p>\n              <h3>6. Export und Sicherung</h3>\n              <p>\n                Der Kunde ist verantwortlich, gesch\u00e4ftskritische Prozessmodelle, Konfigurationen und Ausf\u00fchrungsergebnisse entsprechend den eigenen gesetzlichen, vertraglichen und organisatorischen Aufbewahrungspflichten zu sichern, soweit keine abweichende Vereinbarung getroffen wurde.\n              </p>\n            </div>\n          </details>\n          <details id=\"anipal\" class=\"legal-accordion\">\n            <summary>\n              <span>\n                <strong>anipal.io</strong>\n                <small>Digitale Tiergesundheits- und Organisationsfunktionen rund um anipal.io.</small>\n              </span>\n              <span class=\"legal-date\">Stand: 22. Juli 2026</span>\n            </summary>\n            <div class=\"legal-accordion-body\">\n              <h3>1. Erg\u00e4nzende Geltung</h3>\n              <p>\n                Diese Bedingungen erg\u00e4nzen die Allgemeinen Gesch\u00e4ftsbedingungen f\u00fcr digitale Funktionen, Services und Plattformleistungen rund um anipal.io. Abweichende Regelungen in App-Stores, Bestellprozessen oder individuellen Vertr\u00e4gen gehen vor.\n              </p>\n              <h3>2. Digitale Organisation und Tiergesundheit</h3>\n              <p>\n                anipal.io unterst\u00fctzt bei der Organisation und Dokumentation tierbezogener Informationen. Erinnerungen, Auswertungen und Hinweise sind digitale Organisations- und Informationsfunktionen. Sie ersetzen keine tier\u00e4rztliche Untersuchung, Diagnose, Therapieempfehlung oder Behandlung. In dringenden F\u00e4llen ist unmittelbar eine Tierarztpraxis oder ein tier\u00e4rztlicher Notdienst zu kontaktieren.\n              </p>\n              <h3>3. Nutzerangaben und Inhalte</h3>\n              <p>\n                Nutzer sind f\u00fcr die Richtigkeit, Aktualit\u00e4t und Rechtm\u00e4\u00dfigkeit der von ihnen eingetragenen Angaben, Dokumente, Bilder und sonstigen Inhalte verantwortlich. App-Hinweise h\u00e4ngen von den bereitgestellten Informationen ab und k\u00f6nnen unvollst\u00e4ndig oder veraltet sein, wenn Angaben fehlen oder nicht aktualisiert werden.\n              </p>\n              <h3>4. Verf\u00fcgbarkeit und Weiterentwicklung</h3>\n              <p>\n                Funktionen k\u00f6nnen weiterentwickelt, angepasst oder erweitert werden. Einzelne Funktionen k\u00f6nnen abh\u00e4ngig vom jeweiligen Tarif, der Plattform, technischen Voraussetzungen oder angebundenen Partnern variieren.\n              </p>\n              <h3>5. Drittanbieter und Plattformen</h3>\n              <p>\n                Soweit anipal.io \u00fcber App-Stores, Zahlungsdienstleister oder integrierte Drittanbieter genutzt wird, k\u00f6nnen zus\u00e4tzlich deren Bedingungen gelten.\n              </p>\n            </div>\n          </details>\n        </div>\n      </div>\n    </section>\n  </main>\n  <footer>\n    <a href=\"../impressum.html\">Impressum</a>\n    <span class=\"separator\">/</span>\n    <a href=\"../datenschutz.html\">Datenschutzerkl\u00e4rung</a>\n    <span class=\"separator\">/</span>\n    <a href=\"../legal/\">AGB</a>\n  </footer>\n  <script>\n    const legalDetails = document.querySelectorAll('.legal-accordion');\n    const openAllButton = document.querySelector('[data-open-all]');\n    const printButton = document.querySelector('[data-print]');\n    openAllButton?.addEventListener('click', () => {\n      legalDetails.forEach((detail) => detail.setAttribute('open', ''));\n    });\n    printButton?.addEventListener('click', () => {\n      legalDetails.forEach((detail) => detail.setAttribute('open', ''));\n      window.print();\n    });\n    window.addEventListener('beforeprint', () => {\n      legalDetails.forEach((detail) => detail.setAttribute('open', ''));\n    });\n  </script>\n</body>\n</html>",
+  "errors": [],
+  "totalNumErrors": 0,
+  "totalNumWarnings": 0
+}
