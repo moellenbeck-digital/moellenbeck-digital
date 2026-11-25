@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <script>document.documentElement.classList.add('js')</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="KI-Mitarbeiter für Hausverwaltungen: Aus jeder Schadensmeldung ein fertiger, belegter Vorgang – Ihre Mitarbeiterin prüft und gibt frei.">
+  <meta name="theme-color" content="#08080a">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://moellenbeck-digital.io/hausverwaltung/">
+  <meta property="og:title" content="KI-Mitarbeiter für Hausverwaltungen · Moellenbeck-Digital">
+  <meta property="og:description" content="Software, Automatisierung und KI-Agenten – pragmatisch gebaut. Digital &amp; Remote.">
+  <meta property="og:image" content="https://moellenbeck-digital.io/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Moellenbeck-Digital — Software, Automatisierung und KI-Agenten.">
+  <meta property="og:locale" content="de_DE">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="KI-Mitarbeiter für Hausverwaltungen · Moellenbeck-Digital">
+  <meta name="twitter:description" content="Software, Automatisierung und KI-Agenten – pragmatisch gebaut.">
+  <meta name="twitter:image" content="https://moellenbeck-digital.io/assets/og-image.png">
+
+  <title>KI-Mitarbeiter für Hausverwaltungen · Moellenbeck-Digital</title>
+  <link rel="canonical" href="https://moellenbeck-digital.io/hausverwaltung/">
+  <link rel="icon" href="assets/favicon.ico" sizes="48x48">
+  <link rel="icon" href="assets/md_favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-32x32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/favicon-180x180.png">
+  <link rel="preload" href="assets/fonts/space-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <!-- ══ NAV: minimal, sticky, glasig ══ -->
+  <header class="site-nav" id="siteNav">
+    <div class="nav-inner">
+      <a class="logo" href="https://moellenbeck-digital.io/" aria-label="Moellenbeck-Digital – Startseite">
+        <img src="assets/md_variante1.svg" alt="" width="93" height="28">
+      </a>
+      <details class="nav-menu" open>
+        <summary aria-label="Menü"><span></span><span></span><span></span></summary>
+        <nav class="nav-links" aria-label="Hauptnavigation">
+          <a class="nav-back" href="https://moellenbeck-digital.io/">&lt;- Moellenbeck Digital</a>
+          <a href="#ablauf">Ablauf</a>
+          <a href="#nutzen">Nutzen</a>
+          <a href="#sicherheit">Sicherheit</a>
+          <a href="#infrastruktur">Infrastruktur</a>
+          <a href="#pilot">Pilot</a>
+        </nav>
+      </details>
+      <div class="nav-actions">
+        <button class="sound-toggle" id="soundToggle" type="button"
+                aria-label="UI-Sounds einschalten" aria-pressed="false"
+                title="UI-Sounds (Standard: aus)">
+          <svg class="sound-off" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M2 5H4L7 2V12L4 9H2V5Z" stroke="currentColor" stroke-width="1.2"/>
+            <path d="M10 4.5L12.5 9.5M12.5 4.5L10 9.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+          <svg class="sound-on" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" hidden>
+            <path d="M2 5H4L7 2V12L4 9H2V5Z" stroke="currentColor" stroke-width="1.2"/>
+            <path d="M9 4.5C9.8 5.3 10.5 6.1 10.5 7C10.5 7.9 9.8 8.7 9 9.5M11 2.5C12.5 3.8 13.5 5.3 13.5 7C13.5 8.7 12.5 10.2 11 11.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <a class="nav-cta" href="#kontakt" data-subject="HV-Pilot" data-sound="click">Probetag</a>
+      </div>
+    </div>
+  </header>
+
+    <main id="main">
+
+    <!-- ══ HERO ══ -->
+    <section class="hero hv-hero" id="hero" aria-labelledby="heroTitle">
+      <div class="hero-light" aria-hidden="true">
+        <span class="light light-orange"></span>
+        <span class="light light-blue"></span>
+        <span class="light light-violet"></span>
+        <span class="hero-lines"></span>
+      </div>
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="announce fadeup" style="--d:.05s"><span class="announce-tag">Bald</span><span class="announce-text">KI-Mitarbeiter für Hausverwaltungen · Pilotphase startet bald</span></p>
+          <h1 id="heroTitle" class="hero-title hv-title">
+            <span class="line blurin" style="--d:.15s">Aus jeder Schadensmeldung</span>
+            <span class="line blurin" style="--d:.28s">ein fertiger, belegter Vorgang.</span>
+            <span class="line accent blurin" style="--d:.41s">Ihre Mitarbeiterin prüft und gibt frei.</span>
+          </h1>
+          <p class="hero-sub fadeup" style="--d:.6s">Ein digitaler Backoffice-Kollege nach dem Eingang: Er liest die Meldung, ordnet sie dem Objekt zu und bereitet alle Nachrichten fertig vor – mit Quelle.</p>
+          <div class="hero-actions fadeup" style="--d:.72s">
+            <a href="#kontakt" class="btn btn-primary" data-subject="HV-Pilot" data-sound="click">Probetag anfragen</a>
+            <a href="#ablauf" class="btn-text" data-sound="click">Beispiel ansehen</a>
+          </div>
+        </div>
+        <figure class="hv-video fadeup" style="--d:.5s">
+          <div class="hv-video-glow" aria-hidden="true"></div>
+          <video id="hvVideo" controls muted loop playsinline preload="none" poster="assets/img/hv-wasserschaden-poster.webp"
+                 width="720" height="720" aria-describedby="hvVideoCap">
+            <source src="assets/video/hv-wasserschaden-de.mp4" type="video/mp4">
+            <track kind="captions" src="assets/video/hv-wasserschaden-de.vtt" srclang="de" label="Deutsch">
+          </video>
+          <figcaption id="hvVideoCap">// 20 Sekunden, ohne Ton. Fiktive Demodaten.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ══ ABLAUF ══ -->
+    <section class="section" id="ablauf" aria-labelledby="ablaufTitle">
+      <div class="section-light" aria-hidden="true"></div>
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="marker">// 01 · Beispiel Wasserschaden</span>
+          <h2 id="ablaufTitle">Vier Schritte.<br><span class="muted">Ein Klick von Ihnen.</span></h2>
+        </header>
+        <ol class="hv-steps">
+          <li class="hv-step reveal" style="--tone:96,165,250">
+            <img class="hv-bot" src="assets/img/bots/bot-blue.webp" alt="" width="280" height="320" loading="lazy" decoding="async">
+            <span class="hv-num">01 · Eingang</span>
+            <h3>Die Meldung kommt an</h3>
+            <p>„Wasser tropft von der Decke, Whg. 3. OG.“ Objekt und Einheit sind erkannt, die Dringlichkeit eingeschätzt. Der Mieter bekommt eine Standardantwort.</p>
+          </li>
+          <li class="hv-step reveal" style="--tone:167,139,250">
+            <img class="hv-bot" src="assets/img/bots/bot-violet.webp" alt="" width="280" height="320" loading="lazy" decoding="async">
+            <span class="hv-num">02 · Maßnahmenpaket</span>
+            <h3>Alle Nachrichten als Entwurf</h3>
+            <p>An Mieter, Handwerker, Eigentümer, Beirat und für die Akte – jede Aussage mit Quelle.</p>
+          </li>
+          <li class="hv-step reveal" style="--tone:251,146,60">
+            <span class="hv-human" aria-hidden="true">M</span>
+            <span class="hv-num">03 · Freigabe</span>
+            <h3>Ihre Mitarbeiterin entscheidet</h3>
+            <p>Sie prüft, ändert bei Bedarf und klickt auf Freigabe. Außer der Standardantwort geht ohne diesen Klick nichts raus.</p>
+          </li>
+          <li class="hv-step reveal" style="--tone:52,211,153">
+            <img class="hv-bot" src="assets/img/bots/bot-green.webp" alt="" width="280" height="320" loading="lazy" decoding="async">
+            <span class="hv-num">04 · Akte</span>
+            <h3>Der Vorgang ist belegt</h3>
+            <p>Die Vorgangsakte enthält Freigaben und Versionen – vorlegbar für Beirat, Eigentümer oder im Streitfall.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ══ NUTZEN ══ -->
+    <section class="section" id="nutzen" aria-labelledby="nutzenTitle">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="marker">// 02 · Für Ihre Verwaltung</span>
+          <h2 id="nutzenTitle">Was es für Sie tut.</h2>
+        </header>
+        <ul class="hv-points">
+          <li class="hv-point reveal" style="--tone:96,165,250"><span class="hv-num">01</span><h3>Eingang sortiert</h3><p>Objekt, Einheit und Dringlichkeit sind erkannt, bevor jemand die Mail liest.</p></li>
+          <li class="hv-point reveal" style="--tone:167,139,250"><span class="hv-num">02</span><h3>Alle Beteiligten vorbereitet</h3><p>Aus einer Meldung entstehen die Nachrichten an alle Beteiligten – jede Aussage mit Quelle.</p></li>
+          <li class="hv-point reveal" style="--tone:244,114,182"><span class="hv-num">03</span><h3>Nichts rutscht durch</h3><p>Fristen und Notfälle eskalieren, wenn niemand reagiert.</p></li>
+          <li class="hv-point reveal" style="--tone:250,204,21"><span class="hv-num">04</span><h3>Vier-Augen-Prinzip</h3><p>Ab einer Betragsgrenze braucht es eine zweite Person.</p></li>
+          <li class="hv-point reveal" style="--tone:52,211,153"><span class="hv-num">05</span><h3>Beleg auf Knopfdruck</h3><p>Jeder Vorgang lässt sich als Akte mit Freigaben und Versionen vorlegen.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ══ ABGRENZUNG ══ -->
+    <section class="section" id="abgrenzung" aria-labelledby="abgrTitle">
+      <div class="section-light" aria-hidden="true"></div>
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="marker">// 03 · Einordnung</span>
+          <h2 id="abgrTitle">Mehr als eine Antwort.<br><span class="muted">Der ganze Vorgang.</span></h2>
+        </header>
+        <div class="hv-compare">
+          <article class="hv-card reveal" style="--tone:96,165,250">
+            <span class="hv-num">Chat-Assistenten</span>
+            <h3>ChatGPT &amp; Co.</h3>
+            <p>Ein Werkzeug für Einzelpersonen. Für den Vorgang braucht es mehr: Ihre Stammdaten, einen Freigabeschritt und Eskalation bei Notfällen.</p>
+          </article>
+          <article class="hv-card reveal" style="--tone:167,139,250">
+            <span class="hv-num">Telefon-KI</span>
+            <h3>Nimmt auf – wir machen weiter</h3>
+            <p>Zuständigkeit, Handwerker, alle Beteiligten, Akte. Die Notiz der Telefon-KI kann ein Eingang für uns sein.</p>
+          </article>
+          <article class="hv-card reveal" style="--tone:52,211,153">
+            <span class="hv-num">Verwaltungssoftware</span>
+            <h3>Bleibt, wie sie ist</h3>
+            <p>Wir ersetzen Ihre Software nicht. Wir arbeiten davor, am Posteingang. Stammdaten kommen als Export.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ FLEXIBEL ══ -->
+    <section class="section" id="flexibel" aria-labelledby="flexTitle">
+      <div class="container hv-split">
+        <header class="section-head reveal">
+          <span class="marker">// 04 · Flexibel je Betrieb</span>
+          <h2 id="flexTitle">Jede Verwaltung<br><span class="muted">ist anders.</span></h2>
+        </header>
+        <ul class="prompt-list hv-list reveal">
+          <li>Zuständigkeiten je Objekt kommen aus Ihren Stammdaten.</li>
+          <li>Eigene Fakten wie Haupthahn oder Zugang merkt sich der Kollege – nur mit Ihrer Freigabe.</li>
+          <li>Die Betragsgrenze für die zweite Freigabe legen Sie selbst fest.</li>
+          <li>Einrichtung unter einem Tag: Postfach weiterleiten, Stammdaten als Datei, 15 Minuten Einweisung.</li>
+          <li>Eine Woche Übungsbetrieb mit fiktiven Eingängen vor dem Echtstart.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ══ SICHERHEIT ══ -->
+    <section class="section" id="sicherheit" aria-labelledby="sichTitle">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="marker">// 05 · Sicherheit &amp; Datenschutz</span>
+          <h2 id="sichTitle">Haftungsschutz im Code.<br><span class="muted">Nicht im Versprechen.</span></h2>
+        </header>
+        <div class="hv-compare">
+          <article class="hv-card reveal" style="--tone:251,146,60">
+            <span class="hv-num">Freigabe</span>
+            <h3>Im Code erzwungen</h3>
+            <p>Die Freigabe ist an den Inhalt gebunden. Empfänger kommen nur aus den Stammdaten. Keine Zahlungen und keine Rechtsauskunft durch die KI.</p>
+          </article>
+          <article class="hv-card reveal" style="--tone:96,165,250">
+            <span class="hv-num">Daten</span>
+            <h3>Server in Deutschland</h3>
+            <p>Der Pilot startet mit fiktiven Daten. Echte Daten verarbeiten wir erst mit einem Vertrag zur Auftragsverarbeitung (AVV). Ihre Stammdaten exportieren Sie jederzeit.</p>
+          </article>
+          <article class="hv-card reveal" style="--tone:52,211,153">
+            <span class="hv-num">Team</span>
+            <h3>Niemand wird überwacht</h3>
+            <p>Der Wirkungsbericht zählt Vorgänge, nicht Personen. Ihr Team entscheidet jede Nachricht selbst.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ DARUNTER: AGENTEN-INFRASTRUKTUR ══ -->
+    <section class="section" id="infrastruktur" aria-labelledby="infraTitle">
+      <div class="section-light" aria-hidden="true"></div>
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="marker">// 06 · Darunter</span>
+          <h2 id="infraTitle">Unsere Agenten-<br><span class="muted">Infrastruktur.</span></h2>
+        </header>
+        <div class="hv-compare">
+          <article class="hv-card reveal" style="--tone:96,165,250">
+            <span class="hv-num">Organisation</span>
+            <h3>Teams mit klaren Rollen</h3>
+            <p>Ein Chief of Staff verteilt die Arbeit. Tester und Reviewer prüfen unabhängig. Jede Freigabe eines Menschen wird protokolliert.</p>
+          </article>
+          <article class="hv-card reveal" style="--tone:52,211,153">
+            <span class="hv-num">Sicherheit</span>
+            <h3>Kontrolle im System</h3>
+            <p>Jeder Agent hat einen festen Bereich. Zugangsdaten liegen in einem Passwort-Tresor. Eigene Server in Deutschland.</p>
+          </article>
+          <article class="hv-card reveal" style="--tone:167,139,250">
+            <span class="hv-num">Individualisierung</span>
+            <h3>Konfiguration statt Umbau</h3>
+            <p>Was je Verwaltung anders ist, ist Konfiguration. Verbindungen können über wave-mesh laufen: Ende-zu-Ende verschlüsselt über WireGuard.</p>
+          </article>
+        </div>
+        <p class="hv-more reveal"><a class="pcard-link" href="https://moellenbeck-digital.io/#infrastruktur">Mehr zur Infrastruktur</a></p>
+      </div>
+    </section>
+
+    <!-- ══ PILOT ══ -->
+    <section class="section" id="pilot" aria-labelledby="pilotTitle">
+      <div class="container">
+        <div class="hv-pilot reveal">
+          <span class="marker">// 07 · Pilot</span>
+          <h2 id="pilotTitle">Pilotphase startet bald.</h2>
+          <p>Wir zeigen Ihnen den Ablauf an einer Musterverwaltung mit fiktiven Daten. Danach testen Sie an einem Probetag.</p>
+          <a href="#kontakt" class="btn btn-primary" data-subject="HV-Pilot" data-sound="click">Probetag anfragen</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ KONTAKT: Formular, Versand per mailto ══ -->
+    <section class="contact" id="kontakt" aria-labelledby="contactTitle">
+      <div class="contact-light" aria-hidden="true"></div>
+      <div class="container contact-grid">
+        <div class="contact-intro reveal">
+          <span class="marker">// 08 · Probetag</span>
+          <h2 id="contactTitle">Probetag<br>anfragen.</h2>
+          <p><span class="refs-c">//</span> Schreiben Sie uns. Beim Senden öffnet sich Ihr E-Mail-Programm mit einer fertigen Nachricht an <a href="mailto:admin@moellenbeck-digital.io">admin@moellenbeck-digital.io</a>. Diese Seite speichert nichts.</p>
+        </div>
+        <form class="contact-form reveal" id="contactForm" action="mailto:admin@moellenbeck-digital.io" method="post" enctype="text/plain" novalidate aria-describedby="formHint">
+          <div class="field">
+            <label for="cfName">Name</label>
+            <input id="cfName" name="Name" type="text" autocomplete="name" required aria-describedby="cfNameErr">
+            <span class="field-err" id="cfNameErr" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="cfMail">E-Mail</label>
+            <input id="cfMail" name="E-Mail" type="email" autocomplete="email" inputmode="email" required aria-describedby="cfMailErr">
+            <span class="field-err" id="cfMailErr" aria-live="polite"></span>
+          </div>
+          <div class="field field--full">
+            <label for="cfSubject">Betreff</label>
+            <span class="select-wrap"><select id="cfSubject" name="Betreff" required aria-describedby="cfSubjectErr">
+              <option value="">Bitte wählen</option>
+              <option>Projektanfrage</option>
+              <option>HV-Pilot</option>
+              <option>KI-Mitarbeiter Warteliste</option>
+              <option>MD_Process</option>
+              <option>Agenten-Infrastruktur</option>
+              <option>Sonstiges</option>
+            </select></span>
+            <span class="field-err" id="cfSubjectErr" aria-live="polite"></span>
+          </div>
+          <div class="field field--full">
+            <label for="cfMsg">Nachricht</label>
+            <textarea id="cfMsg" name="Nachricht" rows="5" required minlength="10" aria-describedby="cfMsgErr"></textarea>
+            <span class="field-err" id="cfMsgErr" aria-live="polite"></span>
+          </div>
+          <div class="form-foot field--full">
+            <p class="form-hint" id="formHint">Alle Felder sind Pflicht. Hinweise zum Datenschutz: <a href="https://moellenbeck-digital.io/datenschutz.html">Datenschutzerklärung</a>.</p>
+            <button class="md-btn" type="submit" data-sound="click">Nachricht vorbereiten -&gt;</button>
+          </div>
+          <p class="form-status field--full" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══ FOOTER: groß ══ -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="assets/md_variante1.svg" alt="Moellenbeck-Digital" width="93" height="28" loading="lazy">
+        <p>Software, Automatisierung und KI-Agenten. Digital &amp; Remote.</p>
+      </div>
+      <nav class="footer-col" aria-label="Seite">
+        <span class="footer-h">Seite</span>
+        <a href="#ablauf">Ablauf</a>
+        <a href="#nutzen">Nutzen</a>
+        <a href="#sicherheit">Sicherheit</a>
+        <a href="#kontakt">Probetag</a>
+      </nav>
+      <nav class="footer-col" aria-label="Moellenbeck Digital">
+        <span class="footer-h">Moellenbeck Digital</span>
+        <a href="https://moellenbeck-digital.io/">Startseite</a>
+        <a href="https://moellenbeck-digital.io/#plattform">Plattform</a>
+        <a href="https://moellenbeck-digital.io/#member">Team</a>
+      </nav>
+      <nav class="footer-col" aria-label="Rechtliches">
+        <span class="footer-h">Rechtliches</span>
+        <a href="https://moellenbeck-digital.io/impressum.html">Impressum</a>
+        <a href="https://moellenbeck-digital.io/datenschutz.html">Datenschutzerklärung</a>
+        <a href="mailto:admin@moellenbeck-digital.io">Kontakt</a>
+      </nav>
+    </div>
+    <div class="footer-wordmark" aria-hidden="true"></div>
+    <div class="container footer-base">
+      <span>© 2026 Moellenbeck-Digital UG (haftungsbeschränkt)</span>
+      <span>UI-Sounds: Standard aus</span>
+    </div>
+  </footer>
+
+  <script src="main.js" defer></script>
+</body>
+</html>
