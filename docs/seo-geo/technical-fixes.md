@@ -44,7 +44,7 @@ B +2 für reproduzierbare Generierung/Driftcheck; automatischer Hosting-Build fe
 `python3 docs/seo-geo/check.py`: grün (fünf Seiten, Schema/FAQ-Parität, 84 Bot-Routen, Rechtstext-Bodies bytegleich).
 `node audit/check.cjs`: grün (axe und interne Links auf fünf Seiten).
 `python3 scripts/generate-llms.py --check` und `python3 scripts/update-dates.py --check`: grün.
-IndexNow mit synthetischem Testwert in temporärem Verzeichnis geprüft: exakter Dateiinhalt; leere, kurze und Pfad-Traversal-Werte abgewiesen. Keine Einreichung.
+IndexNow mit synthetischem Testwert in temporärer Repo-Kopie geprüft: Datei nur unter `.deploy/`, exakter Inhalt; leere, kurze und Pfad-Traversal-Werte abgewiesen. Keine Einreichung. Veröffentlichung: [indexnow.md](../seo/indexnow.md).
 
 Zusätzlicher lokaler HTTPS-Test mit temporärem selbstsignierten Zertifikat und Chrome `--ignore-certificate-errors` prüft die Mixed-Content-Situation; keine Aussage über öffentliche Zertifikate. Live vorher Best Practices 77, lokal HTTPS nachher 100. Live nachher bleibt bis Deploy ungeprüft.
 
