@@ -38,3 +38,25 @@ B: Titel +2, Bildmaßbeleg +2; weitere Überschriften/Alt-Punkte nicht neu pausc
 | Gesamt |45|54|
 
 B +2 für reproduzierbare Generierung/Driftcheck; automatischer Hosting-Build fehlt weiterhin. C +2 H3-FAQ, +4 Git-Datum mit sichtbarer Parität. E +1 IndexNow-Vorbereitung, keine Einreichung. Sichtbarkeit nicht gemessen.
+
+## Funktion und Checks
+`node scripts/check-form.cjs`: beide Routen, leere Eingaben abgefangen, gültige Werte als mailto-URI mit Empfänger/Betreff/Nachricht, ohne JS direkter E-Mail-Link und kein nativer POST. Kein Versand.
+`python3 docs/seo-geo/check.py`: grün (fünf Seiten, Schema/FAQ-Parität, 84 Bot-Routen, Rechtstext-Bodies bytegleich).
+`node audit/check.cjs`: grün (axe und interne Links auf fünf Seiten).
+`python3 scripts/generate-llms.py --check` und `python3 scripts/update-dates.py --check`: grün.
+IndexNow mit synthetischem Testwert in temporärem Verzeichnis geprüft: exakter Dateiinhalt; leere, kurze und Pfad-Traversal-Werte abgewiesen. Keine Einreichung.
+
+Zusätzlicher lokaler HTTPS-Test mit temporärem selbstsignierten Zertifikat und Chrome `--ignore-certificate-errors` prüft die Mixed-Content-Situation; keine Aussage über öffentliche Zertifikate. Live vorher Best Practices 77, lokal HTTPS nachher 100. Live nachher bleibt bis Deploy ungeprüft.
+
+## Lighthouse lokal (P/A/BP/SEO)
+
+| Seite / Modus | Vorher | Nachher |
+|---|---|---|
+| home mobile | 97/100/100/100 | 97/100/100/100 |
+| home desktop | 100/100/100/100 | 100/100/100/100 |
+| hv mobile | 99/100/100/100 | 98/100/100/100 |
+| hv desktop | 100/100/100/100 | 100/100/100/100 |
+| privacy mobile | 100/100/100/100 | 100/100/100/100 |
+| privacy desktop | 100/100/100/100 | 100/100/100/100 |
+
+Belege: `evidence/60e4209ed90539fa4ed3a38345eb00738e63dda9/` und `evidence/2811c2912e730eafb590b759e85e0c194f6302e9/`. Implementierung am 2811c2912e730eafb590b759e85e0c194f6302e9 gemessen; abschließender Beleg-Commit ändert keine Produktionsdateien. HTTPS Zusatzmessungen Root und HV: BP jeweils 100, is-on-https und inspector-issues jeweils 1.
