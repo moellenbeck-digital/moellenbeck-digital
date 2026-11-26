@@ -18,15 +18,18 @@
 
   let styles;
   const loadStyles = () => {
-    styles = styles || new Promise((resolve) => {
+    styles = styles || new Promise((resolve, reject) => {
       const link = document.createElement('link');
       link.rel = 'stylesheet';
       link.href = href;
       link.addEventListener('load', resolve);
+      link.addEventListener('error', reject);
       document.head.append(link);
     });
     return styles;
   };
+  /* Ohne Stylesheet wäre die Szene Bruchwerk: ausblenden, nichts zerlegen */
+  const unstyled = () => scenes.forEach((n) => { n.hidden = true; });
 
   const el = (cls, ...children) => {
     const node = document.createElement(cls === 'i' ? 'i' : 'span');
@@ -57,6 +60,8 @@
     },
   };
 
+  const SCREEN = '#030305'; /* Bildschirmfarbe im Avatar-Foto, kein Design-Token */
+
   /* Ein Teil des Bildes als Canvas, in Prozent der Bildfläche platziert. "wipe" übermalt Augen/Mund. */
   function cut(img, W, H, poly, wipe, pad) {
     const xs = poly.map((p) => p[0]);
@@ -74,7 +79,7 @@
     c.clip();
     c.drawImage(img, -x, -y, W, H);
     if (wipe) {
-      c.fillStyle = c.shadowColor = '#030305'; /* Farbe des Bildschirms */
+      c.fillStyle = c.shadowColor = SCREEN;
       c.shadowBlur = pad;
       for (const [ex, ey, ew, eh] of wipe) {
         c.beginPath();
@@ -158,14 +163,24 @@
     return { host, node, tilt, headLook, gazeLook };
   }
 
-  /* ── Blick folgt dem Zeiger (nur feiner Zeiger): gedämpfte Feder, läuft nur bis zur Ruhe ── */
+  /* ── Blick folgt dem Zeiger (nur feiner Zeiger): gedämpfte Feder, läuft nur bis zur Ruhe.
+     Feste 60-Hz-Schritte, damit sie auf 120-Hz-Displays nicht doppelt so schnell läuft;
+     zwischen zwei Schritten wird interpoliert. ── */
+  const STEP = 1000 / 60;
   const lookers = [];
   let pointer = null;
   let ticking = false;
+  let last = 0;
+  let lag = 0;
   const clamp = (v) => Math.max(-1, Math.min(1, v));
-  function lookFrame() {
+  function lookFrame(now) {
     ticking = false;
-    if (reduce.matches || root.classList.contains('md-still') || document.hidden) return;
+    if (reduce.matches || root.classList.contains('md-still') || document.hidden) { last = 0; return; }
+    lag += last ? Math.min(now - last, 50) : STEP;
+    last = now;
+    const steps60 = Math.floor((lag + 0.5) / STEP);
+    lag = Math.max(0, lag - steps60 * STEP);
+    const blend = Math.min(1, lag / STEP);
     const active = lookers.filter((r) => !r.host.closest('.md-off'));
     const rects = active.map((r) => r.node.getBoundingClientRect());
     let moving = false;
@@ -174,19 +189,75 @@
       const goal = pointer
         ? [clamp((pointer[0] - b.left - b.width / 2) / (window.innerWidth * 0.35)), clamp((pointer[1] - b.top - b.height * 0.35) / (window.innerHeight * 0.45))]
         : [0, 0];
-      for (let a = 0; a < 2; a += 1) {
-        r.v[a] = r.v[a] * 0.74 + (goal[a] - r.p[a]) * 0.06;
-        r.p[a] += r.v[a];
-        if (Math.abs(r.v[a]) > 0.001 || Math.abs(goal[a] - r.p[a]) > 0.002) moving = true;
+      for (let n = 0; n < steps60; n += 1) {
+        for (let a = 0; a < 2; a += 1) {
+          r.q[a] = r.p[a];
+          r.v[a] = r.v[a] * 0.74 + (goal[a] - r.p[a]) * 0.06;
+          r.p[a] += r.v[a];
+        }
       }
-      const [x, y] = r.p;
+      if ([0, 1].some((a) => Math.abs(r.v[a]) > 0.001 || Math.abs(goal[a] - r.p[a]) > 0.002)) moving = true;
+      const [x, y] = [0, 1].map((a) => r.q[a] + (r.p[a] - r.q[a]) * blend);
       r.tilt.style.transform = `perspective(900px) translate3d(${(x * 2.4).toFixed(2)}%, ${(y * 1.4).toFixed(2)}%, 0) rotateX(${(y * -9).toFixed(2)}deg) rotateY(${(x * 16).toFixed(2)}deg)`;
       r.headLook.style.transform = `translate3d(${(x * 1.6).toFixed(2)}%, ${(y * 1.5).toFixed(2)}%, 0) rotate(${(x * 6).toFixed(2)}deg)`;
       r.gazeLook.style.transform = `translate3d(${(x * 2).toFixed(2)}%, ${(y * 1.7).toFixed(2)}%, 0)`;
     });
     if (moving) kick();
+    else { last = 0; lag = 0; }
   }
   function kick() { if (!ticking) { ticking = true; requestAnimationFrame(lookFrame); } }
+  const follow = (r) => lookers.push({ ...r, p: [0, 0], q: [0, 0], v: [0, 0] });
+
+  /* ── Pause (WCAG 2.2.2): ein Zustand für die ganze Seite, jeder Knopf schaltet ihn.
+     main.js liest html.md-still und hält dann auch den Hero-Parallax an. ── */
+  const still = () => root.classList.contains('md-still');
+  const toggles = [];
+  const waiting = new Set(); /* Szenen, die erst nach "Weiter" loslaufen */
+  const label = (button) => {
+    button.textContent = still() ? 'Weiter' : 'Pause';
+    button.setAttribute('aria-label', still() ? 'Weiter: Animationen fortsetzen' : 'Pause: Animationen anhalten');
+  };
+  function setStill(on, from) {
+    root.classList.toggle('md-still', on);
+    toggles.forEach(label);
+    if (on) {
+      /* Szenen außerhalb des Bildes zeigen das Endbild statt eines eingefrorenen Zwischenstands.
+         Die Szene, deren eigener Knopf gedrückt wurde, bleibt immer im aktuellen Bild stehen. */
+      document.querySelectorAll('.agx.is-armed.md-off').forEach((n) => {
+        if (n.contains(from)) return;
+        n.classList.remove('is-armed');
+        waiting.add(n);
+      });
+      return;
+    }
+    waiting.forEach((n) => n.classList.add('is-armed'));
+    waiting.clear();
+    kick();
+  }
+  function addToggle(parent, extra) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = extra ? `md-toggle ${extra}` : 'md-toggle';
+    button.addEventListener('click', () => setStill(!still(), button));
+    label(button);
+    toggles.push(button);
+    parent.append(button);
+  }
+
+  /* Alle Knöpfe entstehen gemeinsam mit dem ersten Avatar: wer mitten auf der Seite einsteigt,
+     findet die Pause schon vor. */
+  let controls = false;
+  function addControls() {
+    if (controls) return;
+    controls = true;
+    if (hero) {
+      /* Der Knopf liegt im Avatar-Feld: aria-hidden wandert vom Feld auf die Dekoration */
+      [...hero.children].forEach((n) => n.setAttribute('aria-hidden', 'true'));
+      hero.removeAttribute('aria-hidden');
+      addToggle(hero, 'md-toggle--hero');
+    }
+    scenes.forEach((n) => addToggle(n.querySelector('.agx-top')));
+  }
 
   /* ── Sichtbarkeit: außerhalb des Viewports und bei verstecktem Tab steht alles ── */
   let watcher;
@@ -204,18 +275,19 @@
     const io = new IntersectionObserver((entries) => {
       if (!entries.some((e) => e.isIntersecting)) return;
       io.disconnect();
-      loadStyles().then(() => { if (!reduce.matches) fn(); });
+      loadStyles().then(() => { if (!reduce.matches) { addControls(); fn(); } }, unstyled);
     }, { rootMargin: '900px 0px' });
     io.observe(node);
   };
 
-  /* Winken: beim ersten Sichtkontakt, danach bei Hover oder Tipp */
+  /* Winken: beim ersten Sichtkontakt, danach bei Hover oder Tipp. Endet mit der Animation
+     (nicht per Timer), damit die Pause auch ein laufendes Winken hält. */
   function wave(host) {
-    if (host.classList.contains('md-wave')) return;
+    if (still() || host.classList.contains('md-wave')) return;
     host.classList.add('md-wave');
-    setTimeout(() => host.classList.remove('md-wave'), 1900);
   }
   function waveOnTouch(host, target = host) {
+    host.addEventListener('animationend', (e) => { if (e.animationName === 'md-hop' && e.target.classList.contains('md-rig')) host.classList.remove('md-wave'); });
     target.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') wave(host); });
     target.addEventListener('pointerdown', () => wave(host));
   }
@@ -242,8 +314,8 @@
     rig(hero, img).then((r) => {
       if (!r || reduce.matches) return;
       watch(hero);
-      if (fine.matches) lookers.push({ ...r, p: [0, 0], v: [0, 0] });
-      waveOnTouch(hero);
+      if (fine.matches) follow(r);
+      waveOnTouch(hero, hero.querySelector('.avatar-parallax') || hero);
       setTimeout(() => wave(hero), 900);
     });
   }
@@ -255,48 +327,24 @@
     rig(figure, figure.querySelector('img')).then((r) => {
       if (reduce.matches) return;
       watch(host);
-      if (r && fine.matches) lookers.push({ ...r, p: [0, 0], v: [0, 0] });
-      waveOnTouch(host, host.querySelector('.md-say') ? host : figure);
+      if (r && fine.matches) follow(r);
+      waveOnTouch(host, bubble ? host : figure);
       once(host, 0.6, () => { host.classList.add('md-greet'); wave(host); });
     });
   }
 
-  /* Szene: Schleife mit Pause-Knopf (WCAG 2.2.2); der Knopf hält jede Avatar-Bewegung an */
+  /* Szene: 14-s-Schleife mit Pause-Knopf */
   function setupScene(scene) {
     const figure = scene.querySelector('.agx-bot .md-figure');
     const stage = scene.querySelector('.agx-fig');
     rig(figure, figure.querySelector('img')).then(() => {
       if (reduce.matches) return;
       const token = el('agx-token', el('i'), el('i'), el('i'));
-      const sparks = el('agx-sparks', ...Array.from({ length: 8 }, (_, n) => {
-        const s = el('i');
-        s.style.setProperty('--a', `${n * 45 + 12}deg`);
-        s.style.animationDelay = `${(n % 4) * -0.23 - (n % 2) * 0.11}s`;
-        return s;
-      }));
-      const burst = el('agx-burst', ...Array.from({ length: 8 }, (_, n) => {
-        const s = el('i');
-        s.style.setProperty('--a', `${n * 45}deg`);
-        return s;
-      }));
-      [token, sparks].forEach((n) => n.setAttribute('aria-hidden', 'true'));
-      stage.append(sparks, token);
-      scene.querySelector('.agx-ok .agx-box').append(burst);
-
-      const button = document.createElement('button');
-      button.type = 'button';
-      button.className = 'agx-toggle';
-      let paused = false;
-      const render = () => {
-        root.classList.toggle('md-still', paused);
-        button.textContent = paused ? 'Weiter' : 'Pause';
-        button.setAttribute('aria-label', paused ? 'Weiter: Animationen fortsetzen' : 'Pause: Animationen anhalten');
-      };
-      button.addEventListener('click', () => { paused = !paused; render(); if (!paused) kick(); });
-      scene.querySelector('.agx-top').append(button);
-      render();
+      token.setAttribute('aria-hidden', 'true');
+      stage.append(token);
       watch(scene);
-      scene.classList.add('is-armed');
+      if (still()) waiting.add(scene);
+      else scene.classList.add('is-armed');
     });
   }
 
@@ -326,7 +374,14 @@
       /* Zurück zum statischen Endbild */
       watcher.disconnect();
       lookers.length = 0;
-      document.querySelectorAll('.md-rig, .agx-toggle, .agx-token, .agx-sparks, .agx-burst, .md-dots').forEach((n) => n.remove());
+      toggles.length = 0;
+      controls = false;
+      waiting.clear();
+      document.querySelectorAll('.md-rig, .md-toggle, .agx-token, .md-dots').forEach((n) => n.remove());
+      if (hero) {
+        [...hero.children].forEach((n) => n.removeAttribute('aria-hidden'));
+        hero.setAttribute('aria-hidden', 'true');
+      }
       document.querySelectorAll('.md-alive, .md-off, .md-greet, .md-wave, .md-hop, .is-armed, .is-split').forEach((n) => {
         if (n.classList.contains('is-split')) n.replaceChildren();
         n.classList.remove('md-alive', 'md-off', 'md-greet', 'md-wave', 'md-hop', 'is-armed', 'is-split');
@@ -335,7 +390,7 @@
     });
   }
 
-  if (!('IntersectionObserver' in window)) { loadStyles(); return; }
+  if (!('IntersectionObserver' in window)) { loadStyles().catch(unstyled); return; }
 
   const idle = () => (window.requestIdleCallback ? requestIdleCallback(start, { timeout: 1200 }) : setTimeout(start, 200));
   if (document.readyState === 'complete') idle();
