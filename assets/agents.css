@@ -224,6 +224,7 @@
 .agx-states { display: grid; }
 .agx-state { grid-area: 1 / 1; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 4px; opacity: 0; }
 .agx-state--wait, .agx-state--done { gap: 8px; }
+.agx-state--new { justify-content: flex-start; } /* Chip direkt unter dem Titel, wie die erste Checklistenzeile */
 .agx-state--done { opacity: 1; }
 .agx-chip { padding: .15rem .5rem; border: 1px solid rgba(251,146,60,.3); border-radius: 6px; background: var(--accent-dim); color: var(--accent); font-family: var(--mono); font-size: .66rem; letter-spacing: .08em; text-transform: uppercase; }
 .agx-step { display: flex; align-items: flex-start; gap: 8px; color: var(--text-2); font-size: .76rem; line-height: 1.3; }
