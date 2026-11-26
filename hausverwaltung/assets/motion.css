@@ -1,14 +1,17 @@
-/* Agentische Mikro-Szenen. assets/motion.js lädt diese Datei bei Bedarf (nach "load") und erzeugt alle Elemente selbst;
-   ohne JS existiert nichts davon. Grundzustand = Endzustand. .mx-arm blendet den Aufbau (.mx-b) aus,
-   .mx-play spielt Aufbau und Handlung (.mx-a), .mx-replay nur die Handlung. Handlungen beginnen und enden
-   in Ruhe, darum springt beim Hover nichts. Bewegt wird transform/opacity; nur .mx-b-draw zeichnet
-   dekorative SVG-Linien per stroke-dashoffset. Figuren überschwingen höchstens 1.08. */
+/* Mikro-Szenen. assets/motion.js lädt diese Datei bei Bedarf (nach "load") und erzeugt die Dekoration selbst;
+   ohne JS existiert nichts davon. Grundzustand = Endbild. .mx-arm hält den Aufbau (.mx-b) zurück,
+   .mx-play spielt Aufbau und Handlung (.mx-a) genau einmal. Handlungen beginnen und enden in Ruhe.
+   Animiert werden nur transform und opacity. Seitentext wird nie ausgeblendet: Formen aus dem HTML
+   werden höchstens gedimmt (.mx-b-art), Marken nur verschoben (.mx-b-nudge). Skalierung höchstens 1.08.
+   Regeln und Ausnahmen: DESIGN.md §10. */
 
-.mx, html .mx-pal, .mx-say-wrap { --mx-spring: cubic-bezier(0.34, 1.25, 0.64, 1); --mx-out: cubic-bezier(0.23, 1, 0.32, 1); --mx-move: cubic-bezier(0.77, 0, 0.175, 1); }
+.mx {
+  --mx-spring: cubic-bezier(0.34, 1.25, 0.64, 1); --mx-out: cubic-bezier(0.23, 1, 0.32, 1); --mx-move: cubic-bezier(0.77, 0, 0.175, 1);
+  --ok: #34d399; --ok-ink: #052e1c; --human-mid: #fdba74; --doc-bg: #241a12;
+}
 
 /* ════ Anker für absolut gesetzte Dekoration (ändert kein Layout) ════ */
-.org.mx, .org.mx .org-node, .term-row, .term-btn, .film-caption .steps li, #faq .container { position: relative; }
-.mx .inbox-row { position: relative; z-index: 1; }
+.org.mx, .org.mx .org-node, .mx .term-btn { position: relative; }
 
 /* ════ SVG-Zeichensatz, Farbe = --tone der Karte ════ */
 .mx-panel, .mx-glyph { position: absolute; overflow: visible; pointer-events: none; }
@@ -19,6 +22,7 @@
 .mx-line { fill: none; stroke: rgba(var(--tone), .55); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
 .mx-line--soft { stroke: rgba(var(--tone), .35); }
 .mx-line--tone { stroke: rgb(var(--tone)); stroke-width: 1.6; }
+.mx-line--lit { stroke: rgb(var(--tone)); stroke-width: 1.8; opacity: 0; }
 .mx-ink { fill: none; stroke: var(--text-2); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 .mx-ink--tone { stroke: rgb(var(--tone)); }
 .mx-fill { fill: rgb(var(--tone)); }
@@ -26,178 +30,97 @@
 .mx-dim { fill: var(--line-2); }
 .mx-bar { fill: rgba(var(--tone), .18); stroke: rgba(var(--tone), .35); }
 .mx-hub { fill: rgba(var(--tone), .14); stroke: rgb(var(--tone)); stroke-width: 1.4; }
-.mx-text { fill: var(--text-2); font-family: var(--mono); font-size: 11px; letter-spacing: .01em; }
-.mx-text--button { fill: var(--bg); font-size: 12px; font-weight: 500; }
-.mx-small .mx-text { display: none; }
-.mx-button { fill: var(--accent); }
+.mx-text { fill: var(--text-2); font-family: var(--mono); font-size: var(--fs, 11.2px); letter-spacing: 0; }
 .mx-chip { fill: rgba(var(--tone), .12); stroke: rgba(var(--tone), .45); }
+.mx-chip--outline { fill: none; stroke: rgba(var(--tone), .35); stroke-width: 1; }
 .mx-tick { fill: none; stroke: rgb(var(--tone)); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
 .mx-tick--ink { stroke: var(--bg); }
-.mx-tick--ok { stroke: var(--ok-ink, #052e1c); }
+.mx-tick--ok { stroke: var(--ok-ink); }
 .mx-badge { fill: rgb(var(--tone)); }
-.mx-ok { fill: var(--ok, #34d399); }
-.mx-ring { fill: none; stroke: rgb(var(--tone)); stroke-width: 1.5; opacity: 0; }
-.mx-ring--ok { stroke: var(--ok, #34d399); }
+.mx-ok { fill: var(--ok); }
+.mx-ring { fill: none; stroke: rgb(var(--tone)); stroke-width: 2; opacity: 0; }
+.mx-ring--ok { stroke: var(--ok); }
 .mx-token { fill: rgb(var(--tone)); opacity: 0; }
-.mx-node { fill: none; stroke: rgb(var(--tone)); stroke-width: 1.4; }
+.mx-node { fill: none; stroke: rgb(var(--tone)); stroke-width: 2; opacity: 0; }
 .mx-shackle { fill: none; stroke: rgb(var(--tone)); stroke-width: 3; stroke-linecap: round; }
-.mx-cursor { fill: var(--text); stroke: var(--bg); stroke-width: 1.2; stroke-linejoin: round; }
-.mx-cover { fill: var(--bg-card); transform: scaleX(0); }
-.mx-glowbox { fill: none; stroke: rgb(var(--tone)); stroke-width: 2.5; opacity: 0; }
-svg .mx-b, svg .mx-a, .mx-cover { transform-box: fill-box; transform-origin: 50% 50%; }
-.pcard svg .mx-cover { transform-origin: 100% 50%; }
+svg .mx-b, svg .mx-a { transform-box: fill-box; transform-origin: 50% 50%; }
 
-/* ════ HTML-Teile ════ */
-.mx-bot, .mx-member img, .mx-helper img, .mx-hint-bot img, .mx-from img { display: block; width: 100%; height: auto; -webkit-mask-image: radial-gradient(closest-side, #000 50%, transparent 92%); mask-image: radial-gradient(closest-side, #000 50%, transparent 92%); }
-.mx-human { display: block; border-radius: 47% 53% 50% 50% / 55% 55% 45% 45%; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cg fill='%233a1c08'%3E%3Ccircle cx='17' cy='21' r='2.9'/%3E%3Ccircle cx='31' cy='21' r='2.9'/%3E%3C/g%3E%3Cpath d='M15.5 28.5Q24 37.5 32.5 28.5' fill='none' stroke='%233a1c08' stroke-width='3' stroke-linecap='round'/%3E%3Cg fill='%23ea580c' opacity='.38'%3E%3Cellipse cx='11.5' cy='28' rx='3.6' ry='2.4'/%3E%3Cellipse cx='36.5' cy='28' rx='3.6' ry='2.4'/%3E%3C/g%3E%3C/svg%3E") center / 100% 100% no-repeat, radial-gradient(circle at 36% 28%, var(--human-hi, #ffedd5), var(--human-mid, #fdba74) 58%, var(--accent)); box-shadow: 0 0 0 4px rgba(251,146,60,.16), 0 0 22px rgba(251,146,60,.32); }
-.mx-check { position: absolute; display: block; width: 15px; height: 15px; }
-.mx-check-in, .mx-check-dot { display: block; width: 100%; height: 100%; }
-.mx-check-dot { position: relative; border-radius: 50%; background: rgb(var(--t, var(--tone))); }
-.mx-check-dot::after { content: ''; position: absolute; left: 27%; top: 28%; width: 44%; height: 24%; border: solid var(--bg); border-width: 0 0 2px 2px; transform: rotate(-45deg); }
+/* Terminal: ein Hinweisring um die Freigabe */
 .mx-halo { position: absolute; display: block; inset: -5px; border: 2px solid var(--accent); border-radius: 12px; opacity: 0; pointer-events: none; }
 
-/* Terminal: Bot-Team in der Kopfzeile, Lichtstreifen je Zeile */
-.mx-team { position: absolute; z-index: 2; display: flex; align-items: center; gap: 2px; translate: 0 -50%; pointer-events: none; }
-.mx-member { display: block; width: var(--size, 34px); }
-.mx-member--human { width: calc(var(--size, 34px) * .66); margin-left: calc(var(--size, 34px) * .24); margin-right: 4px; }
-.mx-member--human .mx-human { width: 100%; aspect-ratio: 1; box-shadow: 0 0 0 3px rgba(251,146,60,.16); }
-.mx-sweep { position: absolute; z-index: -1; display: block; inset: 2px -8px; border-radius: 6px; background: rgb(var(--c)); opacity: 0; transform-origin: 0 50%; pointer-events: none; }
+/* Organisation: Aufgaben-Punkte und zwei neutrale Prüfhaken */
+.mx-pip { position: absolute; z-index: 2; left: 0; top: 0; display: block; width: 7px; height: 7px; margin: -3.5px 0 0 -3.5px; border-radius: 50%; background: rgb(var(--c)); opacity: 0; pointer-events: none; }
+.mx-check { position: absolute; top: 2px; left: calc(50% + 15px); display: block; width: 15px; height: 15px; pointer-events: none; }
+.mx-seal { display: block; width: 100%; height: 100%; }
+.mx-seal-neutral { fill: var(--text); }
 
-/* Organisation: Aufgaben-Punkte und Prüfhaken */
-.mx-pip { position: absolute; z-index: 2; left: 0; top: 0; display: block; width: 7px; height: 7px; margin: -3.5px 0 0 -3.5px; border-radius: 50%; background: rgb(var(--c)); box-shadow: 0 0 10px rgb(var(--c)); opacity: 0; pointer-events: none; }
-.org-node > .mx-check { top: 2px; left: calc(50% + 15px); }
-.org-node .mx-check-dot { background: var(--text); } /* Prüfen ist noch keine Freigabe: neutral, nicht grün */
+/* HV-Ablauf: Bild neben der Figur der Karte */
+.mx-panel--step { left: 122px; top: 20px; height: 96px; }
 
-/* Posteingang: Lesestreifen hinter dem Text, Bot in der Kopfzeile */
-.mx-scan { position: absolute; z-index: 0; left: 3px; right: 3px; display: block; border-radius: 6px; background: rgba(var(--tone), .2); opacity: 0; pointer-events: none; }
-.mx-seat { position: absolute; z-index: 2; display: block; width: 40px; translate: -50% -50%; pointer-events: none; }
-
-/* Film-Stationen: Linie zeichnet die Reihenfolge nach */
-.mx-rule { position: absolute; display: block; left: 0; right: 0; top: -1px; height: 1px; background: var(--accent); opacity: 0; transform-origin: 0 50%; pointer-events: none; }
-
-/* HV-Ablauf: Bild neben dem Bot, Linie oben */
-.mx-panel--step { left: 124px; top: 22px; width: calc(100% - 138px); max-width: 220px; height: 96px; }
-.mx-panel--step .mx-text { font-size: 10.5px; letter-spacing: 0; }
-.mx-panel--step .mx-text--button { font-size: 12.5px; }
-.mx-track { position: absolute; display: block; top: 0; left: 8%; right: 8%; height: 2px; background: linear-gradient(90deg, rgba(var(--tone), 0), rgb(var(--tone)) 30%, rgb(var(--tone)) 70%, rgba(var(--tone), 0)); transform-origin: 0 50%; pointer-events: none; }
-
-/* HV-Vorteile: ein kleiner Agent oben rechts, Zeichen neben der Nummer */
+/* HV-Vorteile: ein Zeichen neben der Nummer */
 .mx-glyph { width: 26px; height: 24px; translate: 0 -50%; }
-.mx-helper { position: absolute; top: 2px; right: 3px; display: block; width: 56px; pointer-events: none; }
-.mx-helper-in { display: block; }
 
-/* Sprechblase mit einem Satz der Seite */
-.mx-say-wrap { display: block; }
-.mx-say { position: relative; display: block; padding: 9px 12px; border: 1px solid rgba(251,146,60,.3); border-radius: 12px; background: var(--bg-elevated); color: var(--text); font-family: var(--mono); font-size: .76rem; line-height: 1.5; text-wrap: balance; }
-.mx-say::after { content: ''; position: absolute; width: 8px; height: 8px; background: var(--bg-elevated); border: solid rgba(251,146,60,.3); }
-.mx-word { display: inline-block; }
-.mx-word::before { content: attr(data-t); }
-.mx-hint { position: absolute; display: flex; align-items: center; gap: 12px; max-width: calc(100% - 40px); translate: 0 -50%; pointer-events: none; }
-.mx-hint-bot { display: block; flex: none; width: 60px; }
-.mx-hint .mx-say::after { left: -5px; top: 50%; margin-top: -4px; border-width: 0 0 1px 1px; transform: rotate(45deg); }
+/* HV-Abschluss: Dokument mit Freigabe-Haken */
+.mx-approve { position: absolute; display: block; pointer-events: none; }
+.mx-doc { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; width: 100%; height: 100%; border: 1px solid var(--accent); border-radius: 5px; background: var(--doc-bg); }
+.mx-doc-line { display: block; width: 28px; height: 3px; border-radius: 1px; background: var(--human-mid); }
+.mx-doc-line:last-of-type { width: 18px; margin-right: 10px; }
+.mx-doc-seal, .mx-halo--ok { position: absolute; right: -10px; bottom: -10px; width: 26px; height: 26px; }
+.mx-doc-seal, .mx-doc-seal-in { display: block; }
+.mx-doc-seal-in { width: 100%; height: 100%; }
+.mx-halo--ok { inset: auto -14px -14px auto; width: 34px; height: 34px; border-color: var(--ok); border-radius: 50%; }
+.mx-approve--small .mx-doc { gap: 4px; }
+.mx-approve--small .mx-doc-line { width: 14px; height: 2px; }
+.mx-approve--small .mx-doc-line:last-of-type { width: 9px; margin-right: 5px; }
+.mx-approve--small .mx-doc-seal { right: -6px; bottom: -6px; width: 16px; height: 16px; }
+.mx-approve--small .mx-halo--ok { right: -9px; bottom: -9px; width: 22px; height: 22px; }
 
-/* HV-Abschluss: Entwurf geht zur Mitarbeiterin, Freigabe */
-.mx-approve { position: absolute; display: block; inset: 0; pointer-events: none; }
-.mx-from, .mx-to { position: absolute; display: block; }
-.mx-to-in, .mx-to .mx-human { display: block; width: 100%; height: 100%; }
-.mx-to .mx-check { right: -6px; bottom: -5px; width: 22px; height: 22px; }
-.mx-to .mx-check-dot { background: var(--ok, #34d399); box-shadow: 0 0 14px rgba(52,211,153,.55); }
-.mx-to .mx-check-dot::after { border-color: var(--ok-ink, #052e1c); border-width: 0 0 2.5px 2.5px; }
-.mx-halo--ok { inset: -9px; border-color: var(--ok, #34d399); border-radius: 50%; }
-.mx-doc { position: absolute; left: 0; top: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; width: 24px; height: 30px; border: 1px solid var(--accent); border-radius: 5px; background: var(--doc-bg, #241a12); box-shadow: 0 6px 16px -6px rgba(251,146,60,.8); opacity: 0; }
-.mx-doc-line { display: block; width: 14px; height: 2px; border-radius: 1px; background: var(--human-mid, #fdba74); }
-.mx-doc-line:last-child { width: 9px; margin-right: 5px; }
-.mx-approve .mx-say-wrap { position: absolute; translate: -50% 0; text-align: center; }
-.mx-approve .mx-say::after { left: 50%; top: -5px; margin-left: -4px; border-width: 1px 0 0 1px; transform: rotate(45deg); }
-.mx-approve--strip .mx-say-wrap { display: none; }
-.mx-approve--strip .mx-doc { width: 18px; height: 22px; gap: 3px; }
-.mx-approve--strip .mx-doc-line { width: 10px; }
-.mx-approve--strip .mx-to .mx-check { width: 15px; height: 15px; right: -6px; bottom: -4px; }
-.mx-approve--strip .mx-halo--ok { inset: -5px; }
+/* Begleiter: nur der Kopf, unten bündig mit der Kartenkante abgeschnitten */
+.mx-peek { z-index: 2; display: block; overflow: hidden; }
+.mx-peek img { display: block; width: 100%; height: auto; }
+@media (max-width: 1023px) { .mx-peek { display: none !important; } }
 
-/* Begleiter */
-.mx-pal { z-index: 1; display: block; }
-.mx-pal::before { content: ''; position: absolute; inset: -22%; border-radius: 50%; background: radial-gradient(closest-side, rgba(251,146,60,.22), rgba(251,146,60,0)); }
-.mx-pal-in, .mx-pal-look { position: relative; display: block; }
-.mx-pal-look { transform-origin: 50% 92%; }
-.mx-pal img { display: block; width: 100%; height: auto; filter: drop-shadow(0 10px 20px rgba(0,0,0,.55)); }
-@media (max-width: 760px) { .mx-pal { display: none !important; } }
+/* ════ Aufbau: vor dem Lauf zurückgehalten ════ */
+.mx-arm .mx-b:not(.mx-b-art, .mx-b-nudge, .mx-b-peek) { opacity: 0; }
+.mx-arm .mx-b-art { opacity: .25; }
+.mx-arm .mx-b-nudge { transform: translateY(6px) scale(.92); }
+.mx-arm .mx-b-peek { transform: translateY(100%); }
 
-/* ════ Hover-Tiefe (nur feiner Zeiger, JS setzt translate) ════ */
-.mx-glow { position: absolute; z-index: -1; left: -170px; top: -170px; display: block; width: 340px; height: 340px; border-radius: 50%; background: radial-gradient(closest-side, rgba(var(--tone), .14), rgba(var(--tone), 0)); opacity: 0; transition: opacity .35s ease; pointer-events: none; }
-.pcard > .mx-glow { z-index: 0; }
-.mx-hover > .mx-glow { opacity: 1; }
-.mx-depth { transition: translate .5s cubic-bezier(0.23, 1, 0.32, 1); }
-.cap-tile .cap-bot.mx-depth { transition: transform .6s cubic-bezier(0.22, 1, 0.36, 1), translate .5s cubic-bezier(0.23, 1, 0.32, 1); }
-.hv-step .hv-bot.mx-depth { transition: transform .5s cubic-bezier(0.34, 1.25, 0.64, 1), translate .5s cubic-bezier(0.23, 1, 0.32, 1); }
-
-/* ════ Aufbau: vor dem ersten Lauf unsichtbar ════ */
-.mx-arm .mx-b:not(.mx-b-cover), .mx-arm .mx-progress { opacity: 0; }
-.mx-arm .mx-b-cover { transform: scaleX(1); }
-
-.mx-play .mx-b-in { animation: mx-in .55s var(--mx-out) both; }
-.mx-play .mx-b-rise { animation: mx-rise .65s var(--mx-spring) both; }
 .mx-play .mx-b-slide { animation: mx-slide .55s var(--mx-out) both; }
-.mx-play .mx-b-enter { animation: mx-enter .6s var(--mx-spring) both; }
-.mx-play .mx-b-pop { animation: mx-pop .55s var(--mx-spring) both; }
-.mx-play .mx-b-fade { animation: mx-fade .4s ease-out both; }
-.mx-play .mx-b-num { animation: mx-num .6s var(--mx-out) both; }
-.mx-play .mx-b-draw { stroke-dasharray: 1 1; animation: mx-draw .6s var(--mx-move) both; }
+.mx-play .mx-b-enter { animation: mx-enter .6s var(--mx-out) both; }
+.mx-play .mx-b-pop { animation: mx-pop .5s var(--mx-spring) both; }
+.mx-play .mx-b-fade { animation: mx-fade .45s ease-out both; }
 .mx-play .mx-b-grow { transform-origin: 0 50%; animation: mx-grow .75s var(--mx-move) both; }
-.mx-play .mx-b-cover { animation: mx-cover 1s steps(24, end) both; }
-.mx-play .mx-b-fan { animation: mx-fan .65s var(--mx-spring) both; }
+.mx-play .mx-b-fan { animation: mx-fan .6s var(--mx-out) both; }
 .mx-play .mx-b-shackle { animation: mx-shackle .85s var(--mx-move) both; }
-.mx-play .mx-b-pointer { animation: mx-pointer .6s var(--mx-out) both; }
-.mx-play .mx-b-peek { animation: mx-peek .85s var(--mx-spring) both; }
-.mx-play .mx-b-bubble { animation: mx-bubble .5s var(--mx-spring) both; }
-.mx-play .mx-b { animation-delay: calc(var(--s, 0s) + var(--d, 0s)); }
+.mx-play .mx-b-art { animation: mx-art .5s ease-out both; }
+.mx-play .mx-b-nudge { animation: mx-nudge .5s var(--mx-spring) both; }
+.mx-play .mx-b-peek { animation: mx-peek .9s var(--mx-out) both; }
+.mx-play .mx-b, .mx-play.mx-peek .mx-b { animation-delay: calc(var(--s, 0s) + var(--d, 0s)); }
 
 /* ════ Handlung: Ruhe -> Ruhe ════ */
-:is(.mx-play, .mx-replay) .mx-a-travel { animation: mx-travel 1.15s linear both; }
-:is(.mx-play, .mx-replay) .mx-a-fly { animation: mx-fly 1.45s linear both; }
-:is(.mx-play, .mx-replay) .mx-a-ring { animation: mx-ring .85s var(--mx-out) both; }
-:is(.mx-play, .mx-replay) .mx-a-halo { animation: mx-halo 1s var(--mx-out) both; }
-:is(.mx-play, .mx-replay) .mx-a-bump { animation: mx-bump .55s var(--mx-move) both; }
-:is(.mx-play, .mx-replay) .mx-a-hop { transform-origin: 50% 90%; animation: mx-hop .85s linear both; }
-:is(.mx-play, .mx-replay) .mx-a-svghop { transform-origin: 50% 90%; animation: mx-hop .85s linear both; }
-:is(.mx-play, .mx-replay) .mx-a-reach { animation: mx-reach 1.5s var(--mx-move) both; }
-:is(.mx-play, .mx-replay) .mx-a-sweep { animation: mx-sweep .95s var(--mx-out) both; }
-:is(.mx-play, .mx-replay) .mx-a-nod { animation: mx-nod .9s var(--mx-move) both; }
-:is(.mx-play, .mx-replay) .mx-a-lift { animation: mx-lift .5s var(--mx-move) both; }
-:is(.mx-play, .mx-replay) .mx-a-blink { animation: mx-blink .7s ease-in-out both; }
-:is(.mx-play, .mx-replay) .mx-a-latch { animation: mx-latch .7s var(--mx-move) both; }
-:is(.mx-play, .mx-replay) .mx-a-scan { animation: mx-scan 1.5s var(--mx-move) both; }
-:is(.mx-play, .mx-replay) .mx-a-read { animation: mx-read 1.6s var(--mx-move) both; }
-:is(.mx-play, .mx-replay) .mx-a-flash { animation: mx-flash .75s ease-in-out both; }
-:is(.mx-play, .mx-replay) .mx-a-bell { transform-origin: 50% 8%; animation: mx-bell .95s ease-in-out both; }
-:is(.mx-play, .mx-replay) .mx-a-press { animation: mx-press .55s var(--mx-move) both; }
-:is(.mx-play, .mx-replay) .mx-a-click { animation: mx-click .55s var(--mx-move) both; }
-:is(.mx-play, .mx-replay) .mx-a-rule { animation: mx-rule 1s var(--mx-out) both; }
-:is(.mx-play, .mx-replay) .mx-a-look { animation: mx-look 2.1s var(--mx-move) both; }
-.mx-play .mx-a-refill { transform-origin: 0 50%; animation: mx-grow .9s var(--mx-move) both; }
-.mx-replay .mx-a-refill { transform-origin: 0 50%; animation: mx-refill 1.1s var(--mx-move) both; }
-.mx-play .mx-a-latch { animation: none; } /* beim ersten Lauf schließt der Aufbau das Schloss */
+.mx-play .mx-a-travel { animation: mx-travel 1.15s linear both; }
+.mx-play .mx-a-ring { animation: mx-ring .85s var(--mx-out) both; }
+.mx-play .mx-a-halo { animation: mx-halo 1s var(--mx-out) both; }
+.mx-play .mx-a-bump { animation: mx-bump .55s var(--mx-move) both; }
+.mx-play .mx-a-lift { animation: mx-lift .5s var(--mx-move) both; }
+.mx-play .mx-a-blink { animation: mx-blink .7s ease-in-out both; }
+.mx-play .mx-a-glow { animation: mx-glow 1.4s ease-in-out both; }
 .mx-play .mx-a { animation-delay: calc(var(--s, 0s) + var(--a, 0s)); }
-.mx-replay .mx-a { animation-delay: calc(var(--a, 0s) - var(--skip, 0s)); }
 
-/* Schon sichtbar, als die Szene gebaut wurde: neue Teile sanft einblenden */
-.mx-fresh :is(.mx-panel, .mx-glyph, .mx-helper, .mx-team, .mx-seat, .mx-track), .mx-fresh.mx-hint, .mx-fresh .mx-approve, .mx-fresh.mx-pal { animation: mx-fade .5s ease-out both; }
+/* Schon sichtbar, als die Szene gebaut wurde: neue Dekoration sanft einblenden */
+.mx-fresh :is(.mx-panel, .mx-glyph, .mx-check, .mx-approve), .mx-fresh.mx-peek { animation: mx-fade .5s ease-out both; }
 
-@keyframes mx-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
-@keyframes mx-rise { from { opacity: 0; transform: translateY(10px) scale(.94); } to { opacity: 1; transform: none; } }
 @keyframes mx-slide { from { opacity: 0; transform: translateX(-8px); } to { opacity: 1; transform: none; } }
 @keyframes mx-enter { from { opacity: 0; transform: translateX(-14px); } to { opacity: 1; transform: none; } }
-@keyframes mx-pop { from { opacity: 0; transform: scale(.8); } to { opacity: 1; transform: none; } }
+@keyframes mx-pop { from { opacity: 0; transform: scale(.85); } to { opacity: 1; transform: none; } }
 @keyframes mx-fade { from { opacity: 0; } to { opacity: 1; } }
-@keyframes mx-num { from { opacity: 0; transform: translateY(.7em); } to { opacity: 1; transform: none; } }
-@keyframes mx-draw { 0% { opacity: 0; stroke-dashoffset: 1; } 6% { opacity: 1; } 100% { opacity: 1; stroke-dashoffset: 0; } }
 @keyframes mx-grow { from { opacity: 1; transform: scaleX(0); } to { opacity: 1; transform: scaleX(1); } }
-@keyframes mx-cover { from { transform: scaleX(1); } to { transform: scaleX(0); } }
 @keyframes mx-fan { from { opacity: 0; transform: translateX(var(--fx, 0px)); } to { opacity: 1; transform: none; } }
 @keyframes mx-shackle { 0% { opacity: 0; transform: translateY(-9px); } 25% { opacity: 1; } 55% { transform: translateY(-9px); } 85% { transform: translateY(1px); } 100% { opacity: 1; transform: none; } }
-@keyframes mx-pointer { from { opacity: 0; transform: translate(16px, 14px); } to { opacity: 1; transform: none; } }
-@keyframes mx-peek { from { opacity: 0; transform: translateX(44px) rotate(10deg); } to { opacity: 1; transform: none; } }
-@keyframes mx-bubble { from { opacity: 0; transform: translateY(6px) scale(.94); } to { opacity: 1; transform: none; } }
+@keyframes mx-art { from { opacity: .25; } to { opacity: 1; } }
+@keyframes mx-nudge { from { transform: translateY(6px) scale(.92); } to { transform: none; } }
+@keyframes mx-peek { from { transform: translateY(100%); } to { transform: none; } }
 
 @keyframes mx-travel {
   0% { opacity: 0; transform: translate(var(--x0), var(--y0)); }
@@ -210,67 +133,24 @@ svg .mx-b, svg .mx-a, .mx-cover { transform-box: fill-box; transform-origin: 50%
   90% { opacity: 1; }
   100% { opacity: 0; transform: translate(var(--x6), var(--y6)); }
 }
-@keyframes mx-fly {
-  0% { opacity: 0; transform: translate(var(--x0), var(--y0)) scale(.7); animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1); }
-  10% { opacity: 1; }
-  18% { transform: translate(var(--x1), var(--y1)) scale(1); }
-  32% { transform: translate(var(--x2), var(--y2)) scale(1); }
-  48% { transform: translate(var(--x3), var(--y3)) scale(1); }
-  64% { transform: translate(var(--x4), var(--y4)) scale(1); }
-  78% { transform: translate(var(--x5), var(--y5)) scale(1); animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1); }
-  88% { opacity: 1; transform: translate(var(--x6), var(--y6)) scale(.9); }
-  100% { opacity: 0; transform: translate(var(--x6), var(--y6)) scale(.6); }
-}
-@keyframes mx-ring { 0% { opacity: 0; transform: scale(1); } 25% { opacity: .85; } 100% { opacity: 0; transform: scale(1.4); } }
-@keyframes mx-halo { 0% { opacity: 0; transform: scale(.94); } 30% { opacity: .9; } 100% { opacity: 0; transform: scale(1.14); } }
+@keyframes mx-ring { 0% { opacity: 0; transform: scale(1); } 30% { opacity: .85; } 100% { opacity: 0; transform: scale(1.08); } }
+@keyframes mx-halo { 0% { opacity: 0; transform: scale(.96); } 35% { opacity: .9; } 100% { opacity: 0; transform: scale(1.08); } }
 @keyframes mx-bump { 0%, 100% { transform: scale(1); } 45% { transform: scale(1.08); } }
-@keyframes mx-hop {
-  0% { transform: translateY(0) rotate(0deg) scale(1); animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1); }
-  32% { transform: translateY(-5px) rotate(-6deg) scale(1.03); animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1); }
-  60% { transform: translateY(1px) rotate(2deg) scale(1.03, .97); animation-timing-function: cubic-bezier(0.34, 1.25, 0.64, 1); }
-  100% { transform: translateY(0) rotate(0deg) scale(1); }
-}
-/* Fähigkeiten-Bot: neigt sich zur Aktion links, nickt, richtet sich auf. Eigene Eigenschaften,
-   damit der vorhandene Hover (transform) weiter gilt. */
-@keyframes mx-reach {
-  0%, 100% { translate: 0 0; rotate: 0deg; scale: 1; }
-  28% { translate: -6px 2px; rotate: -7deg; scale: 1.03; }
-  50% { translate: -5px -5px; rotate: -3deg; scale: 1.03; }
-  72% { translate: -3px 3px; rotate: -5deg; scale: 1.02; }
-}
-@keyframes mx-sweep { 0% { opacity: 0; transform: scaleX(0); } 25% { opacity: .16; } 65% { opacity: .12; transform: scaleX(1); } 100% { opacity: 0; transform: scaleX(1); } }
-@keyframes mx-rule { 0% { opacity: 0; transform: scaleX(0); } 20% { opacity: 1; } 65% { opacity: .75; transform: scaleX(1); } 100% { opacity: 0; transform: scaleX(1); } }
-@keyframes mx-nod { 0%, 100% { transform: translateY(0) rotate(0deg) scale(1); } 28% { transform: translateY(4px) rotate(7deg) scale(1.03); } 52% { transform: translateY(0) rotate(0deg) scale(1.05); } 74% { transform: translateY(3px) rotate(3deg) scale(1.02); } }
 @keyframes mx-lift { 0%, 100% { transform: translateY(0); } 45% { transform: translateY(-2.5px); } }
 @keyframes mx-blink { 0%, 40%, 80%, 100% { opacity: 1; } 20%, 60% { opacity: .15; } }
-@keyframes mx-latch { 0%, 100% { transform: translateY(0); } 35% { transform: translateY(-8px); } 55% { transform: translateY(-8px); } 82% { transform: translateY(1px); } }
-@keyframes mx-scan { 0% { opacity: 0; transform: translateY(0); } 14% { opacity: 1; } 84% { opacity: 1; } 100% { opacity: 0; transform: translateY(var(--travel, 0px)); } }
-@keyframes mx-read { 0%, 100% { transform: translateY(0) rotate(0deg); } 22% { transform: translateY(1px) rotate(-9deg); } 52% { transform: translateY(2px) rotate(9deg); } 76% { transform: translateY(-3px) rotate(-2deg) scale(1.06); } }
-@keyframes mx-flash { 0%, 100% { opacity: 0; } 22% { opacity: 1; } 46% { opacity: .15; } 68% { opacity: .85; } }
-@keyframes mx-bell { 0%, 100% { transform: rotate(0deg); } 16% { transform: rotate(-16deg); } 34% { transform: rotate(13deg); } 52% { transform: rotate(-9deg); } 70% { transform: rotate(5deg); } 86% { transform: rotate(-2deg); } }
-@keyframes mx-press { 0%, 100% { transform: scale(1); } 40% { transform: scale(.93); } 74% { transform: scale(1.03); } }
-@keyframes mx-click { 0%, 100% { transform: translate(0, 0) scale(1); } 40% { transform: translate(-4px, -4px) scale(.9); } }
-@keyframes mx-refill { 0% { opacity: 1; transform: scaleX(1); } 10% { opacity: 0; transform: scaleX(1); } 11% { opacity: 0; transform: scaleX(0); } 18% { opacity: 1; transform: scaleX(0); } 100% { opacity: 1; transform: scaleX(1); } }
-@keyframes mx-look {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  18%, 38% { transform: translate(-6px, 0) rotate(-11deg); }
-  52% { transform: translate(-4px, 6px) rotate(-6deg) scale(1.03, .97); }
-  66% { transform: translate(-2px, -6px) rotate(3deg) scale(1.02); }
-  82% { transform: translate(0, 1px) rotate(-1deg); }
-}
+@keyframes mx-glow { 0%, 100% { opacity: 0; } 35%, 65% { opacity: 1; } }
 
-/* HV-Schritte: der vorhandene Bot-Hüpfer (agents.css) folgt derselben Reihenfolge */
-.hv-step.mx-play.md-hop .hv-bot { animation-delay: calc(var(--s, 0s) + .35s); }
-.hv-step.mx-play.md-hop .hv-human { animation-delay: calc(var(--s, 0s) + .5s); }
-
-/* ════ Anhalten: außerhalb des Viewports, versteckter Tab, seitenweite Pause ════ */
-.mx-off:is(.mx-play, .mx-replay) *, .mx-off:is(.mx-play, .mx-replay, .mx-fresh),
-html.mx-hidden :is(.mx-play, .mx-replay, .mx-fresh) *, html.mx-hidden :is(.mx-play, .mx-replay, .mx-fresh),
-html.md-still :is(.mx-play, .mx-replay, .mx-fresh) *, html.md-still :is(.mx-play, .mx-replay, .mx-fresh) { animation-play-state: paused !important; }
-html.md-still :is(.mx-depth, .mx-glow) { transition: none !important; }
-html.md-still .mx-glow { opacity: 0; }
+/* ════ Anhalten: außerhalb des Viewports und bei verstecktem Tab. Die seitenweite Pause braucht keine Regel:
+   motion.js nimmt dann alle Laufklassen weg, damit steht überall das Endbild. ════ */
+.mx-off:is(.mx-play, .mx-fresh), .mx-off:is(.mx-play, .mx-fresh) *,
+html.mx-hidden :is(.mx-play, .mx-fresh), html.mx-hidden :is(.mx-play, .mx-fresh) * { animation-play-state: paused !important; }
 
 @media (prefers-reduced-motion: reduce) {
   .mx, .mx *, .mx *::before, .mx *::after { animation: none !important; transition: none !important; }
-  .mx-glow { display: none; }
+}
+
+/* Druck: immer das Endbild, auch bei Szenen, die noch nicht liefen */
+@media print {
+  .mx, .mx * { animation: none !important; }
+  .mx-arm .mx-b { opacity: 1 !important; transform: none !important; }
 }

@@ -245,7 +245,8 @@ als Utility-Klassen oder Komponenten nachbauen.
 
 Gilt **nur** für den MD-Avatar, die Szene „Eingang → Agent → Freigabe“, das
 Bot-Team, die HV-Ablaufschritte und den Mensch-Knoten (`assets/agents.css`,
-`assets/agents.js`). Alle anderen Komponenten folgen §1–§9.
+`assets/agents.js`) sowie für die Mikro-Szenen am Ende dieses Abschnitts.
+Alle anderen Komponenten folgen §1–§9.
 
 | Thema | Ausnahme | Grenze |
 |---|---|---|
@@ -262,3 +263,41 @@ Pflicht für jede Ausnahme:
 - Außerhalb des Viewports und bei verstecktem Tab steht alles.
 - `prefers-reduced-motion: reduce` und ohne JavaScript: statisches Endbild.
 - Bewegte Elemente verdecken weder Text noch Personen.
+
+### Mikro-Szenen (`assets/motion.css`, `assets/motion.js`)
+
+Maßstab: lieber wenig und hochwertig. Eine neue Szene braucht einen Eintrag
+in dieser Tabelle; was hier nicht steht, wird nicht bewegt.
+
+| Ort | Szene (einmal beim ersten Sichtkontakt) |
+|---|---|
+| Fähigkeiten | je Kachel ein Linien-Diagramm: Verbinden, BPMN mit Freigabe, Oberfläche bis Deployment, Server mit Schloss |
+| Terminal | ein Hinweisring um „Freigeben“ |
+| Organisation | Aufgaben-Punkte zum Team, zwei neutrale Prüfhaken (Tester, Reviewer) |
+| MD_Process | Prozessmodell baut sich auf, ein Lauf bis „mensch gibt frei“ |
+| KI-Mitarbeiter | die Marken im Posteingang setzen sich nacheinander |
+| BloomMD | Knoten wachsen (der versteckte Knoten bleibt unberührt) |
+| wave-mesh | die direkten Verbindungen leuchten einmal auf; nichts läuft über den Koordinationsserver |
+| HV Ablauf | je Schritt ein Bild: Eingang, Entwürfe mit Quelle, Freigabe, Akte |
+| HV Vorteile | ein Linien-Zeichen neben der Nummer, blendet einmal ein |
+| HV Pilot | ein Dokument, dann der Haken der Freigabe |
+| Je Seite | höchstens ein Begleiter, nur ab 1024 px: der Avatar-Kopf lugt neben der Überschrift über eine Kartenkante (Startseite „Plattform“, HV „Sicherheit“) |
+
+Grenzen:
+
+- Seitentext wird nie ausgeblendet. Nur Dekoration (per Skript erzeugt,
+  `aria-hidden`) startet unsichtbar. Formen aus dem HTML werden höchstens
+  gedimmt, Marken nur verschoben (höchstens 6 px, volle Deckkraft).
+- Nur `transform` und `opacity`; keine Linien-Zeichnung per
+  `stroke-dashoffset`, keine Rotationen, keine Skalierung über 1.08.
+- Jede Szene läuft einmal und dauert unter 5 s. Keine Schleife, kein
+  Hover-Replay, keine Parallaxe, kein Zeigerlicht.
+- Pause hält nicht mitten im Bild an: Sie setzt alle Szenen sofort auf das
+  Endbild. Das gilt auch für „Bewegung reduzieren“ und den Druck.
+- Szenentext ist gerendert mindestens 11 px groß. Reicht der Platz nicht,
+  entfällt das ganze Bild (bei den Fähigkeiten: alle vier).
+- Keine Elemente, die wie ein Knopf aussehen: „Freigabe“ ist eine
+  Umriss-Marke ohne Fläche und ohne Mauszeiger.
+- Linien-Zeichen sind hier erlaubt (Ausnahme zu „ASCII statt Icons“).
+  Radien wie oben, in SVG-Diagrammen höchstens 9. Tokens `--ok`, `--ok-ink`,
+  `--human-mid`, `--doc-bg` gelten auch an `.mx`.

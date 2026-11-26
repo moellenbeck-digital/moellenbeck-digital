@@ -47,17 +47,10 @@
   });
   document.querySelectorAll('[data-sound="click"]').forEach((el) => el.addEventListener('click', () => blip()));
 
-  /* ── Reveal: Fade-up + Blur-in; gemeinsam Sichtbares folgt leicht versetzt ── */
-  document.querySelectorAll('#faq .faq-item, .footer-grid > *').forEach((el) => el.classList.add('reveal'));
+  /* ── Reveal: Fade-up + Blur-in ── */
   if ('IntersectionObserver' in window && !reduce.matches) {
     const io = new IntersectionObserver((entries) => {
-      let n = 0;
-      for (const { target: el, isIntersecting } of entries) {
-        if (!isIntersecting) continue;
-        const d = document.documentElement.matches('.md-still') ? 0 : Math.min(n++, 5) * 70;
-        if (d) { el.style.transitionDelay = `${d}ms`; setTimeout(() => { el.style.transitionDelay = ''; }, d + 700); }
-        el.classList.add('is-in'); io.unobserve(el);
-      }
+      for (const e of entries) if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
     }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
     document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
   } else {
@@ -311,5 +304,4 @@
     wake.forEach((type) => addEventListener(type, go, { passive: true }));
     timer = setTimeout(go, scrollY ? 0 : 5000);
   }, { once: true });
-
 })();

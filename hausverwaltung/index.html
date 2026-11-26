@@ -118,25 +118,25 @@
           <h2 id="ablaufTitle">Vier Schritte.<br><span class="muted">Ein Klick von Ihnen.</span></h2>
         </header>
         <ol class="hv-steps">
-          <li class="hv-step reveal" style="--tone:96,165,250">
+          <li class="hv-step reveal" style="--tone:96,165,250" data-mx="intake">
             <img class="hv-bot" src="assets/img/bots/bot-blue.webp" alt="" width="280" height="320" loading="lazy" decoding="async">
             <span class="hv-num">01 · Eingang</span>
             <h3>Die Meldung kommt an</h3>
             <p>„Wasser tropft von der Decke, Whg. 3. OG.“ Objekt und Einheit sind erkannt, die Dringlichkeit eingeschätzt. Der Mieter bekommt eine Standardantwort.</p>
           </li>
-          <li class="hv-step reveal" style="--tone:167,139,250">
+          <li class="hv-step reveal" style="--tone:167,139,250" data-mx="drafts">
             <img class="hv-bot" src="assets/img/bots/bot-violet.webp" alt="" width="280" height="320" loading="lazy" decoding="async">
             <span class="hv-num">02 · Maßnahmenpaket</span>
             <h3>Alle Nachrichten als Entwurf</h3>
             <p>An Mieter, Handwerker, Eigentümer, Beirat und für die Akte – jede Aussage mit Quelle.</p>
           </li>
-          <li class="hv-step reveal" style="--tone:251,146,60">
+          <li class="hv-step reveal" style="--tone:251,146,60" data-mx="approve">
             <span class="hv-human" aria-hidden="true">M</span>
             <span class="hv-num">03 · Freigabe</span>
             <h3>Ihre Mitarbeiterin entscheidet</h3>
             <p>Sie prüft, ändert bei Bedarf und klickt auf Freigabe. Außer der Standardantwort geht ohne diesen Klick nichts raus.</p>
           </li>
-          <li class="hv-step reveal" style="--tone:52,211,153">
+          <li class="hv-step reveal" style="--tone:52,211,153" data-mx="record">
             <img class="hv-bot" src="assets/img/bots/bot-green.webp" alt="" width="280" height="320" loading="lazy" decoding="async">
             <span class="hv-num">04 · Akte</span>
             <h3>Der Vorgang ist belegt</h3>
@@ -172,11 +172,11 @@
           <h2 id="nutzenTitle">Was es für Sie tut.</h2>
         </header>
         <ul class="hv-points">
-          <li class="hv-point reveal" style="--tone:96,165,250"><span class="hv-num">01</span><h3>Eingang sortiert</h3><p>Objekt, Einheit und Dringlichkeit sind erkannt, bevor jemand die Mail liest.</p></li>
-          <li class="hv-point reveal" style="--tone:167,139,250"><span class="hv-num">02</span><h3>Alle Beteiligten vorbereitet</h3><p>Aus einer Meldung entstehen die Nachrichten an alle Beteiligten – jede Aussage mit Quelle.</p></li>
-          <li class="hv-point reveal" style="--tone:244,114,182"><span class="hv-num">03</span><h3>Nichts rutscht durch</h3><p>Fristen und Notfälle eskalieren, wenn niemand reagiert.</p></li>
-          <li class="hv-point reveal" style="--tone:250,204,21"><span class="hv-num">04</span><h3>Vier-Augen-Prinzip</h3><p>Ab einer Betragsgrenze braucht es eine zweite Person.</p></li>
-          <li class="hv-point reveal" style="--tone:52,211,153"><span class="hv-num">05</span><h3>Beleg auf Knopfdruck</h3><p>Jeder Vorgang lässt sich als Akte mit Freigaben und Versionen vorlegen.</p></li>
+          <li class="hv-point reveal" style="--tone:96,165,250" data-mx="sorted"><span class="hv-num">01</span><h3>Eingang sortiert</h3><p>Objekt, Einheit und Dringlichkeit sind erkannt, bevor jemand die Mail liest.</p></li>
+          <li class="hv-point reveal" style="--tone:167,139,250" data-mx="everyone"><span class="hv-num">02</span><h3>Alle Beteiligten vorbereitet</h3><p>Aus einer Meldung entstehen die Nachrichten an alle Beteiligten – jede Aussage mit Quelle.</p></li>
+          <li class="hv-point reveal" style="--tone:244,114,182" data-mx="alarm"><span class="hv-num">03</span><h3>Nichts rutscht durch</h3><p>Fristen und Notfälle eskalieren, wenn niemand reagiert.</p></li>
+          <li class="hv-point reveal" style="--tone:250,204,21" data-mx="four"><span class="hv-num">04</span><h3>Vier-Augen-Prinzip</h3><p>Ab einer Betragsgrenze braucht es eine zweite Person.</p></li>
+          <li class="hv-point reveal" style="--tone:52,211,153" data-mx="proof"><span class="hv-num">05</span><h3>Beleg auf Knopfdruck</h3><p>Jeder Vorgang lässt sich als Akte mit Freigaben und Versionen vorlegen.</p></li>
         </ul>
       </div>
     </section>
@@ -402,7 +402,7 @@
 
   <script src="main.js" defer></script>
   <!-- Avatar-Bewegung: erst nach load und kurzer Ruhe holen, damit nichts mit dem ersten Bildaufbau konkurriert -->
-  <script>addEventListener('load',()=>setTimeout(()=>{const s=document.createElement('script');s.src='assets/agents.js';s.onerror=()=>document.querySelectorAll('.agx').forEach(n=>n.hidden=true);document.body.append(s)},1000))</script>
+  <script>addEventListener('load',()=>setTimeout(()=>{const s=document.createElement('script');s.src='assets/agents.js';s.onerror=()=>{const l=Object.assign(document.createElement('link'),{rel:'stylesheet',href:'assets/agents.css'});l.onerror=()=>document.querySelectorAll('.agx').forEach(n=>{if(n.getBoundingClientRect().top>=innerHeight)n.hidden=true});document.head.append(l)};document.body.append(s)},1000))</script>
   <noscript><link rel="stylesheet" href="assets/agents.css"></noscript>
 </body>
 </html>

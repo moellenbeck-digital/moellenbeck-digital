@@ -453,10 +453,11 @@
   66%, 100% { transform: translate(calc(200% + 2 * var(--gap) - 46px), 9px) scale(.7); opacity: 0; }
 }
 
-@keyframes agx-new { 0%, 25.5% { opacity: 1; } 27%, 100% { opacity: 0; } }
-@keyframes agx-work { 0%, 26% { opacity: 0; } 28%, 52.5% { opacity: 1; } 54%, 100% { opacity: 0; } }
-@keyframes agx-wait { 0%, 53.5% { opacity: 0; } 55.5%, 71.8% { opacity: 1; } 72.8%, 100% { opacity: 0; } }
-@keyframes agx-done { 0%, 72.4% { opacity: 0; } 73.2%, 100% { opacity: 1; } }
+/* Zustandswechsel: erst aus, dann ein, nie zwei Texte übereinander */
+@keyframes agx-new { 0%, 25.2% { opacity: 1; } 26.4%, 100% { opacity: 0; } }
+@keyframes agx-work { 0%, 26.4% { opacity: 0; } 28%, 52.6% { opacity: 1; } 53.9%, 100% { opacity: 0; } }
+@keyframes agx-wait { 0%, 53.9% { opacity: 0; } 55.5%, 71.4% { opacity: 1; } 72.6%, 100% { opacity: 0; } }
+@keyframes agx-done { 0%, 72.6% { opacity: 0; } 73.5%, 100% { opacity: 1; } }
 @keyframes agx-s1 { 0%, 31% { opacity: .8; transform: translateX(0); } 32.5% { opacity: 1; transform: translateX(3px); } 34.5%, 100% { opacity: 1; transform: translateX(0); } }
 @keyframes agx-s2 { 0%, 37% { opacity: .8; transform: translateX(0); } 38.5% { opacity: 1; transform: translateX(3px); } 40.5%, 100% { opacity: 1; transform: translateX(0); } }
 @keyframes agx-s3 { 0%, 43% { opacity: .8; transform: translateX(0); } 44.5% { opacity: 1; transform: translateX(3px); } 46.5%, 100% { opacity: 1; transform: translateX(0); } }
@@ -502,4 +503,12 @@ html.md-still .agent-team .agent-team-bots > img:hover, html.md-still .hv-step:h
   .agx *, .agx *::before, .agx *::after, .md-figure, .md-figure *, .md-figure::before, .md-say, .md-say *, .agent-team-bots img, .hv-step .hv-bot, .hv-step .hv-human { animation: none !important; transition: none !important; }
   .hv-step:hover .hv-bot, .hv-step:hover .hv-human, .agent-team .agent-team-bots > img:hover { transform: none; }
   .md-toggle { display: none; }
+}
+
+/* Druck: immer das Endbild */
+@media print {
+  .agx *, .agx *::before, .agx *::after, .md-say, .md-say *, .agent-team-bots > img, .hv-step .hv-bot, .hv-step .hv-human { animation: none !important; transition: none !important; }
+  .md-say.is-split { opacity: 1; transform: none; }
+  .md-ch { opacity: 1; }
+  .md-dots, .md-toggle { display: none !important; }
 }

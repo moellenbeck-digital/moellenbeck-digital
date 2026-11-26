@@ -647,3 +647,6 @@ h2[id], h3[id] { scroll-margin-top: 6rem; }
 }
 /* E-mail addresses: no inserted hyphen (admin@moellen-/beck…), break only where needed */
 a[href^="mailto:"] { hyphens: manual; -webkit-hyphens: manual; overflow-wrap: anywhere; }
+
+/* Druck: alles sichtbar, auch was noch nicht ins Bild gescrollt wurde */
+@media print { .js .fadeup, .js .blurin, .js .reveal { opacity: 1 !important; transform: none !important; filter: none !important; animation: none !important; transition: none !important; } }

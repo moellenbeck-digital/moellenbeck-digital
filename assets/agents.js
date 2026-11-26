@@ -29,8 +29,9 @@
     });
     return styles;
   };
-  /* Ohne Stylesheet wäre die Szene Bruchwerk: ausblenden, nichts zerlegen */
-  const unstyled = () => scenes.forEach((n) => { n.hidden = true; });
+  /* Ohne Stylesheet wäre die Szene Bruchwerk: nichts zerlegen. Ausgeblendet wird nur, was noch unter dem
+     Bild liegt; was man sieht oder schon passiert hat, behält seinen Platz (kein Sprung). */
+  const unstyled = () => scenes.forEach((n) => { if (n.getBoundingClientRect().top >= window.innerHeight) n.hidden = true; });
 
   const el = (cls, ...children) => {
     const node = document.createElement(cls === 'i' ? 'i' : 'span');
@@ -243,6 +244,32 @@
     label(button);
     toggles.push(button);
     parent.append(button);
+    return button;
+  }
+
+  /* Schmal steht das Avatar-Feld über dem Text (style.css, order: -1). Dort liegt der Knopf im Quelltext
+     vor den Hero-Links, damit die Tab-Reihenfolge dem Bild folgt; die Lage am Avatar bleibt gleich. */
+  function orderHeroToggle(button) {
+    const narrow = window.matchMedia('(max-width: 960px)');
+    const place = () => {
+      if (!button.isConnected) return;
+      if (!narrow.matches) {
+        if (button.parentElement !== hero) { hero.append(button); button.removeAttribute('style'); }
+        return;
+      }
+      const inner = hero.parentElement;
+      if (button.parentElement !== inner) inner.prepend(button);
+      const field = hero.getBoundingClientRect();
+      const frame = (button.offsetParent || root).getBoundingClientRect();
+      Object.assign(button.style, {
+        right: 'auto', bottom: 'auto',
+        left: `${field.right - frame.left - field.width * 0.04 - button.offsetWidth}px`,
+        top: `${field.bottom - frame.top - field.height * 0.03 - button.offsetHeight}px`,
+      });
+    };
+    place();
+    window.addEventListener('resize', place, { passive: true });
+    if ('ResizeObserver' in window) new ResizeObserver(place).observe(hero.parentElement);
   }
 
   /* Alle Knöpfe entstehen gemeinsam mit dem ersten Avatar: wer mitten auf der Seite einsteigt,
@@ -255,7 +282,7 @@
       /* Der Knopf liegt im Avatar-Feld: aria-hidden wandert vom Feld auf die Dekoration */
       [...hero.children].forEach((n) => n.setAttribute('aria-hidden', 'true'));
       hero.removeAttribute('aria-hidden');
-      addToggle(hero, 'md-toggle--hero');
+      orderHeroToggle(addToggle(hero, 'md-toggle--hero'));
     }
     scenes.forEach((n) => addToggle(n.querySelector('.agx-top')));
   }
