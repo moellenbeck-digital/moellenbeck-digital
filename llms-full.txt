@@ -794,6 +794,10 @@ Ein Tipp der Sachbearbeiterin. Dann geht alles raus. Freigegeben und protokollie
 
 Häufige Fragen
 
+Was ist der KI-Mitarbeiter für Hausverwaltungen?
+
+Der KI-Mitarbeiter für Hausverwaltungen ist ein digitaler Backoffice-Kollege nach dem Eingang. Pilotphase startet bald.
+
 Was macht der KI-Mitarbeiter nach dem Eingang?
 
 Er liest die Meldung, ordnet sie dem Objekt zu und bereitet alle Nachrichten fertig vor – mit Quelle.
