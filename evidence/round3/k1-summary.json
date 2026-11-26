@@ -1,0 +1,99 @@
+{
+ "commit_base": "5112a8d",
+ "lighthouse": "13.6.0 mobile default, local python http.server, 3 runs, median",
+ "pages": {
+  "home": {
+   "performance": [
+    98,
+    97,
+    97
+   ],
+   "lcp_ms_median": 2480,
+   "tbt_ms_median": 0,
+   "cls_max": 0,
+   "seo": [
+    100,
+    100,
+    100
+   ],
+   "best_practices": [
+    100,
+    100,
+    100
+   ],
+   "accessibility": [
+    100,
+    100,
+    100
+   ]
+  },
+  "hv": {
+   "performance": [
+    98,
+    98,
+    98
+   ],
+   "lcp_ms_median": 2253,
+   "tbt_ms_median": 0,
+   "cls_max": 0,
+   "seo": [
+    100,
+    100,
+    100
+   ],
+   "best_practices": [
+    100,
+    100,
+    100
+   ],
+   "accessibility": [
+    100,
+    100,
+    100
+   ]
+  }
+ },
+ "mobile_tables": {
+  "script": "node audit/mobile-tables.cjs 8765",
+  "widths": [
+   320,
+   344,
+   360,
+   375,
+   390,
+   412
+  ],
+  "after": "18/18 ok, 0 clipped cells",
+  "at_5112a8d": "4 FAIL: start table 1 at 320/344/360/375 px, right edge 379.9 px, 6 clipped cells"
+ },
+ "anchors_375px": {
+  "after": {
+   "/hausverwaltung/#transkript": "heading top 200 px, header bottom 80 px",
+   "/#produkte-status": "heading top 96 px, header bottom 80 px"
+  },
+  "at_5112a8d": {
+   "/hausverwaltung/#transkript": "heading top 0 px (under navigation)",
+   "/#produkte-status": "heading top 0 px (under navigation)"
+  }
+ },
+ "html_validate_9_7_2_recommended": {
+  "ed01514": {
+   "index.html": 28,
+   "hausverwaltung/index.html": 25
+  },
+  "after": {
+   "index.html": 28,
+   "hausverwaltung/index.html": 25
+  },
+  "rules": "no-inline-style, 1x aria-label-misuse (pre-existing)"
+ },
+ "jsonld": {
+  "dangling_id_refs": {
+   "index.html": 0,
+   "hausverwaltung/index.html": 0
+  },
+  "at_5112a8d_hv": "isPartOf #website unresolved",
+  "org_description_eq_footer_eq_llms_blockquote": true,
+  "person_url": "removed"
+ }
+}
