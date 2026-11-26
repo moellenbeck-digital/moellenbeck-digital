@@ -9,6 +9,8 @@ Darum gibt es hier **eigene Kopien** statt Verweisen auf die Startseite:
 | `main.js` | `/main.js` + Block „Unterseite Hausverwaltung“ (Video) | HV-Block behalten, Rest nachziehen |
 | `assets/fonts/*` | `/assets/fonts/*` (inkl. OFL-Lizenztexte) | 1:1 kopieren |
 | `assets/img/bots/*`, Logo, Favicons | `/assets/…` | 1:1 kopieren |
+| `assets/agents.css`, `assets/agents.js` | `/assets/agents.css`, `/assets/agents.js` | 1:1 kopieren |
+| `assets/img/avatar-200.webp` | `/assets/img/avatar-200.webp` | 1:1 kopieren |
 
 Regeln:
 - Nur relative Pfade innerhalb des Ordners. Links auf Startseite, Impressum, Datenschutz als absolute URL `https://moellenbeck-digital.io/…`.
