@@ -1,0 +1,179 @@
+{
+ "tool": "lighthouse 13.6.0 CLI, mobile (default), simulated throttling, Chrome headless=new, 3 runs per page, local python http.server of build-pages.py output",
+ "before_origin-main_c082224": {
+  "home": {
+   "performance": [
+    97,
+    97,
+    97
+   ],
+   "accessibility": [
+    100,
+    100,
+    100
+   ],
+   "best_practices": [
+    100,
+    100,
+    100
+   ],
+   "seo": [
+    100,
+    100,
+    100
+   ],
+   "lcp_ms": [
+    2477.4,
+    2478.5,
+    2479.2
+   ],
+   "cls": [
+    0,
+    0,
+    0
+   ],
+   "tbt_ms": [
+    0,
+    0,
+    12
+   ],
+   "url": "http://127.0.0.1:8891/",
+   "lighthouse": "13.6.0",
+   "median_performance": 97,
+   "median_lcp_ms": 2478.5
+  },
+  "hv": {
+   "performance": [
+    98,
+    98,
+    98
+   ],
+   "accessibility": [
+    100,
+    100,
+    100
+   ],
+   "best_practices": [
+    100,
+    100,
+    100
+   ],
+   "seo": [
+    100,
+    100,
+    100
+   ],
+   "lcp_ms": [
+    2255.6,
+    2253.4,
+    2253.9
+   ],
+   "cls": [
+    0,
+    0,
+    0
+   ],
+   "tbt_ms": [
+    0,
+    0,
+    0
+   ],
+   "url": "http://127.0.0.1:8891/hausverwaltung/",
+   "lighthouse": "13.6.0",
+   "median_performance": 98,
+   "median_lcp_ms": 2253.9
+  }
+ },
+ "after_fix-seo-geo-round5-levers": {
+  "home": {
+   "performance": [
+    98,
+    97,
+    97
+   ],
+   "accessibility": [
+    100,
+    100,
+    100
+   ],
+   "best_practices": [
+    100,
+    100,
+    100
+   ],
+   "seo": [
+    100,
+    100,
+    100
+   ],
+   "lcp_ms": [
+    2477.2,
+    2478.5,
+    2477.7
+   ],
+   "cls": [
+    0,
+    0,
+    0
+   ],
+   "tbt_ms": [
+    35,
+    0,
+    0
+   ],
+   "url": "http://127.0.0.1:8892/",
+   "lighthouse": "13.6.0",
+   "median_performance": 97,
+   "median_lcp_ms": 2477.7
+  },
+  "hv": {
+   "performance": [
+    98,
+    98,
+    98
+   ],
+   "accessibility": [
+    100,
+    100,
+    100
+   ],
+   "best_practices": [
+    100,
+    100,
+    100
+   ],
+   "seo": [
+    100,
+    100,
+    100
+   ],
+   "lcp_ms": [
+    2253.1,
+    2254.1,
+    2328.0
+   ],
+   "cls": [
+    0,
+    0,
+    0
+   ],
+   "tbt_ms": [
+    0,
+    0,
+    0
+   ],
+   "url": "http://127.0.0.1:8892/hausverwaltung/",
+   "lighthouse": "13.6.0",
+   "median_performance": 98,
+   "median_lcp_ms": 2254.1
+  }
+ },
+ "poster_transfer_bytes": {
+  "before_v6-poster.jpg": 43854,
+  "after_v6-poster.webp": 22077
+ },
+ "total_byte_weight_home_run1": {
+  "before": 271326,
+  "after": 249550
+ }
+}

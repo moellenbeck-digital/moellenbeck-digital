@@ -18,6 +18,7 @@ impressum.html
 datenschutz.html
 legal/index.html
 hausverwaltung/index.html
+404.html
 
 # Code and styles of the pages
 main.js
