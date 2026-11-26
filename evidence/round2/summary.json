@@ -1,0 +1,30 @@
+{
+  "hv-mobile": {
+    "time": "2026-11-26T06:19:18.770Z",
+    "scores": {
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "metrics": {
+      "largest-contentful-paint": 1678.347,
+      "cumulative-layout-shift": 0,
+      "total-blocking-time": 4
+    }
+  },
+  "home-mobile": {
+    "time": "2026-11-26T06:19:05.237Z",
+    "scores": {
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "metrics": {
+      "largest-contentful-paint": 1719.682,
+      "cumulative-layout-shift": 0,
+      "total-blocking-time": 15.5
+    }
+  }
+}

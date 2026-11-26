@@ -1,0 +1,13 @@
+# Moellenbeck-Digital
+
+> Software, Automatisierung und KI-Agenten. Digital & Remote.
+
+## Seiten
+- [Startseite](https://moellenbeck-digital.io/): Startseite von Moellenbeck-Digital.
+- [Hausverwaltung](https://moellenbeck-digital.io/hausverwaltung/): Hausverwaltung von Moellenbeck-Digital.
+- [Impressum](https://moellenbeck-digital.io/impressum.html): Impressum von Moellenbeck-Digital.
+- [Datenschutzerklärung](https://moellenbeck-digital.io/datenschutz.html): Datenschutzerklärung von Moellenbeck-Digital.
+- [Legal Center](https://moellenbeck-digital.io/legal/): Legal Center von Moellenbeck-Digital.
+
+## Volltext
+- [Kernseiten](https://moellenbeck-digital.io/llms-full.txt): Text der Startseite und Hausverwaltungsseite.

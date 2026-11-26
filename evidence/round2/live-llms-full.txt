@@ -1,0 +1,693 @@
+# Startseite
+Quelle: https://moellenbeck-digital.io/
+
+Neu
+
+Film: One team of humans and agents
+
+->
+
+Software.
+
+Automatisierung.
+
+KI-Agenten
+
+Wir bauen Software, Automatisierung und KI-Agenten. Unsere Agenten bereiten vor – entscheiden tut ein Mensch.
+
+Kontakt aufnehmen
+
+Film ansehen
+
+SHW / 01 · Film · 48 s
+
+One team of humans and agents
+
+Mit Ton ansehen
+
+EN · 48 s
+
+Wasserschaden, 7:12 Uhr. Sechs Stationen – von der Meldung bis zur Freigabe.
+
+01
+
+Mail-Agent erkennt Dringlichkeit und meldet den Fall
+
+02
+
+Prozess-Agent arbeitet festgelegte Schritte ab
+
+03
+
+Entwurf mit Quellenangabe, Freigabe eingeholt
+
+04
+
+Keine Nachricht geht ohne Genehmigung raus
+
+05
+
+Ein Nein zählt – Lauf gestoppt, Regel verbessert
+
+// 01 · Fähigkeiten
+
+Was wir bauen.
+
+01
+
+KI-Agenten & OpenClaw
+
+Assistenten und Agents, die Wissen und Werkzeuge verbinden.
+
+Claude
+
+OpenClaw
+
+MCP
+
+RAG
+
+02
+
+Prozess­automatisierung
+
+Wiederkehrende Abläufe als BPMN-Workflows – mit Prüfung und Freigabe.
+
+MD_Process
+
+BPMN 2.0
+
+APIs
+
+03
+
+Web & Apps
+
+Webapps, mobile Apps, interne Tools und APIs – bis ins Deployment.
+
+TypeScript
+
+Next.js
+
+iOS
+
+Supabase
+
+04
+
+Plattform & Infra
+
+Selbst gehostete Infrastruktur für Teams, die ihre Daten selbst kontrollieren.
+
+k3s
+
+GitOps
+
+WireGuard
+
+// 02 · Die Plattform
+
+Agents prepare.
+
+Humans decide.
+
+Unsere Produkte teilen einen Kern: Agenten bereiten vor, ein Mensch gibt frei.
+
+01
+
+Kern · in Betrieb
+
+Agentische Infrastruktur
+
+Agenten-Teams auf OpenClaw übernehmen Eingang, Recherche und Entwürfe. Nichts geht raus ohne Freigabe eines Menschen.
+
+Agenten-Teams mit klaren Rollen
+
+Freigabeprinzip: ein Mensch entscheidet
+
+Jeder Schritt protokolliert
+
+Film ansehen
+
+Rollen und Sicherheit
+
+// lauf 07:12 · wasserschaden
+
+>
+
+mail-agent
+
+fall erkannt -> übergabe
+
+>
+
+prozess-agent
+
+entwurf + 2 quellen
+
+>
+
+prüf-agent
+
+quellen bestätigt
+
+//
+
+wartet auf
+
+freigabe durch mensch
+
+Versand gesperrt bis Freigabe
+
+Freigeben ->
+
+>
+
+01
+
+Kern im Detail · auf OpenClaw gebaut
+
+Eine Organisation aus Menschen und Agenten.
+
+a · Organisation
+
+Teams mit klaren Rollen
+
+M
+
+Mensch
+
+entscheidet
+
+Chief of Staff
+
+Engineer
+
+Tester
+
+Reviewer
+
+Fach-
+
+agenten
+
+Ein Chief of Staff verteilt die Arbeit an sein Team.
+
+Tester und Reviewer prüfen unabhängig. Widersprechen sie sich, gilt das strengere Urteil.
+
+Jede Freigabe eines Menschen wird protokolliert.
+
+b · Sicherheit
+
+Kontrolle im System, nicht im Versprechen
+
+Ohne Freigabe eines Menschen geht nichts raus – im HV-Paket im Code erzwungen.
+
+Jede Freigabe ist belegt: wer, wann, welcher Vorgang.
+
+Jeder Agent hat einen festen Bereich. Wen er beauftragen darf, legt die Konfiguration fest.
+
+Wir prüfen jede Regel: technisch durchgesetzt oder nur Text.
+
+Zugangsdaten liegen in einem Passwort-Tresor.
+
+Eigene Server in Deutschland.
+
+c · Individualisierung
+
+Passt sich dem Betrieb an
+
+Was je Kunde anders ist, ist Konfiguration – kein Umbau.
+
+Ziel
+
+Eine eigene Agenten-Umgebung je Kunde, mit eigenen Regeln.
+
+Verbunden über wave-mesh: Ende-zu-Ende über WireGuard, auch hinter NAT. Auch der Server kann nicht mitlesen.
+
+So kann eine Umgebung auch Systeme im eigenen Netz erreichen – ohne Portfreigabe.
+
+>
+
+„Wenn eine Rechnung reinkommt, prüft …“
+
+agent prüft
+
+rückfrage
+
+mensch gibt frei
+
+02
+
+Prozesse mit Agenten
+
+MD_Process
+
+Einen Ablauf in normaler Sprache beschreiben, statt ihn zu programmieren. Daraus entsteht ein Prozessmodell. Agenten arbeiten die Schritte ab, der Mensch entscheidet.
+
+Mehr erfahren
+
+// posteingang hausverwaltung
+
+Bald
+
+Wasser tropft von der Decke
+
+Notfall
+
+Frage zur Nebenkostenabrechnung
+
+entwurf
+
+Termin Heizungswartung
+
+entwurf
+
+> Maßnahmen vorbereitet · wartet auf Freigabe
+
+03
+
+Pilotphase startet bald
+
+KI-Agenten & KI-Mitarbeiter
+
+KI-Mitarbeiter für feste Aufgaben. Beispiel Hausverwaltung: liest den Eingang, erkennt Notfälle, bereitet Maßnahmen mit Quellen vor. Raus geht nur, was ein Mensch freigibt.
+
+Mehr zur Hausverwaltung
+
+Auf die Warteliste
+
+# notizen.md
+
+## ziel
+
+## plan
+
+## fragen
+
+# fundstück.md
+
+Du hast den versteckten Knoten gefunden.
+
+Jede Notiz ist ein Ast – auch diese.
+
+04
+
+Closed Beta
+
+BloomMD
+
+Markdown-Notizen werden zu Mindmaps – eine Wissensbasis, die Menschen lesen und Agenten per MCP pflegen.
+
+bloommd.io
+
+wg
+
+laptop
+
+nas
+
+server
+
+cluster
+
+05
+
+Frühe Entwicklung
+
+wave-mesh
+
+Verbindet Geräte direkt über WireGuard, auch hinter NAT – mit einem Koordinationsserver, den du selbst betreibst.
+
+wave-mesh.org
+
+//
+
+Referenz:
+
+Anipal
+
+– Tiergesundheit für Tierbesitzer und Praxen, geleitet von Max Möllenbeck.
+
+// 03 · Team
+
+Ein kleines Team.
+
+Echte Produkte.
+
+EM
+
+CEO · Organisation
+
+Emma Möllenbeck
+
+Hält Menschen, Themen und Abläufe zusammen. Kümmert sich als CEO um Organisation und Administration. Fitnesstrainerin und Sportmanagement-Studentin.
+
+MM
+
+Tech Lead · Software & KI
+
+Martin Möllenbeck
+
+Entwickelt Software und macht komplexe Technik verständlich. Fokus auf Automatisierung, KI und OpenClaw.
+
+MX
+
+Product Builder
+
+Max Möllenbeck
+
+Leitet anipal.io und bringt technische Ideen schnell in echte Produkte. TypeScript, iOS, React und Supabase – mit Fokus auf AI.
+
+Plus ein Team aus KI-Agenten.
+
+Sie bauen, testen und prüfen mit uns. Jede Freigabe trifft ein Mensch.
+
+// 04 · Kontakt
+
+Idee, Problem
+
+oder Projekt?
+
+//
+
+Schreiben Sie uns. Beim Senden öffnet sich Ihr E-Mail-Programm mit einer fertigen Nachricht an
+
+admin@moellenbeck-digital.io
+
+. Diese Seite speichert nichts.
+
+Bitte nutzen Sie ohne JavaScript den E-Mail-Link oben.
+
+Name
+
+E-Mail
+
+Betreff
+
+Bitte wählen
+
+Projektanfrage
+
+HV-Pilot
+
+KI-Mitarbeiter Warteliste
+
+MD_Process
+
+Agenten-Infrastruktur
+
+Sonstiges
+
+Nachricht
+
+Alle Felder sind Pflicht. Hinweise zum Datenschutz:
+
+Datenschutzerklärung
+
+.
+
+Nachricht vorbereiten ->
+
+Häufige Fragen
+
+Was baut Moellenbeck-Digital?
+
+Wir bauen Software, Automatisierung und KI-Agenten.
+
+Wer entscheidet über die Arbeit der Agenten?
+
+Unsere Agenten bereiten vor – entscheiden tut ein Mensch.
+
+Was ist BloomMD?
+
+Markdown-Notizen werden zu Mindmaps – eine Wissensbasis, die Menschen lesen und Agenten per MCP pflegen.
+
+Was ist wave-mesh?
+
+Verbindet Geräte direkt über WireGuard, auch hinter NAT – mit einem Koordinationsserver, den du selbst betreibst.
+
+Wie erreiche ich Moellenbeck-Digital?
+
+Schreiben Sie uns an admin@moellenbeck-digital.io.
+
+Zuletzt aktualisiert:
+
+26. November 2026
+
+# Hausverwaltung
+Quelle: https://moellenbeck-digital.io/hausverwaltung/
+
+Bald
+
+KI-Mitarbeiter für Hausverwaltungen · Pilotphase startet bald
+
+Aus jeder Schadensmeldung
+
+ein fertiger, belegter Vorgang.
+
+Ihre Mitarbeiterin prüft und gibt frei.
+
+Ein digitaler Backoffice-Kollege nach dem Eingang: Er liest die Meldung, ordnet sie dem Objekt zu und bereitet alle Nachrichten fertig vor – mit Quelle.
+
+Probetag anfragen
+
+Beispiel ansehen
+
+// 20 Sekunden, ohne Ton. Fiktive Demodaten.
+
+// 01 · Beispiel Wasserschaden
+
+Vier Schritte.
+
+Ein Klick von Ihnen.
+
+01 · Eingang
+
+Die Meldung kommt an
+
+„Wasser tropft von der Decke, Whg. 3. OG.“ Objekt und Einheit sind erkannt, die Dringlichkeit eingeschätzt. Der Mieter bekommt eine Standardantwort.
+
+02 · Maßnahmenpaket
+
+Alle Nachrichten als Entwurf
+
+An Mieter, Handwerker, Eigentümer, Beirat und für die Akte – jede Aussage mit Quelle.
+
+M
+
+03 · Freigabe
+
+Ihre Mitarbeiterin entscheidet
+
+Sie prüft, ändert bei Bedarf und klickt auf Freigabe. Außer der Standardantwort geht ohne diesen Klick nichts raus.
+
+04 · Akte
+
+Der Vorgang ist belegt
+
+Die Vorgangsakte enthält Freigaben und Versionen – vorlegbar für Beirat, Eigentümer oder im Streitfall.
+
+// 02 · Für Ihre Verwaltung
+
+Was es für Sie tut.
+
+01
+
+Eingang sortiert
+
+Objekt, Einheit und Dringlichkeit sind erkannt, bevor jemand die Mail liest.
+
+02
+
+Alle Beteiligten vorbereitet
+
+Aus einer Meldung entstehen die Nachrichten an alle Beteiligten – jede Aussage mit Quelle.
+
+03
+
+Nichts rutscht durch
+
+Fristen und Notfälle eskalieren, wenn niemand reagiert.
+
+04
+
+Vier-Augen-Prinzip
+
+Ab einer Betragsgrenze braucht es eine zweite Person.
+
+05
+
+Beleg auf Knopfdruck
+
+Jeder Vorgang lässt sich als Akte mit Freigaben und Versionen vorlegen.
+
+// 03 · Einordnung
+
+Mehr als eine Antwort.
+
+Der ganze Vorgang.
+
+Chat-Assistenten
+
+ChatGPT & Co.
+
+Ein Werkzeug für Einzelpersonen. Für den Vorgang braucht es mehr: Ihre Stammdaten, einen Freigabeschritt und Eskalation bei Notfällen.
+
+Telefon-KI
+
+Nimmt auf – wir machen weiter
+
+Zuständigkeit, Handwerker, alle Beteiligten, Akte. Die Notiz der Telefon-KI kann ein Eingang für uns sein.
+
+Verwaltungssoftware
+
+Bleibt, wie sie ist
+
+Wir ersetzen Ihre Software nicht. Wir arbeiten davor, am Posteingang. Stammdaten kommen als Export.
+
+// 04 · Flexibel je Betrieb
+
+Jede Verwaltung
+
+ist anders.
+
+Zuständigkeiten je Objekt kommen aus Ihren Stammdaten.
+
+Eigene Fakten wie Haupthahn oder Zugang merkt sich der Kollege – nur mit Ihrer Freigabe.
+
+Die Betragsgrenze für die zweite Freigabe legen Sie selbst fest.
+
+Einrichtung unter einem Tag: Postfach weiterleiten, Stammdaten als Datei, 15 Minuten Einweisung.
+
+Eine Woche Übungsbetrieb mit fiktiven Eingängen vor dem Echtstart.
+
+// 05 · Sicherheit & Datenschutz
+
+Haftungsschutz im Code.
+
+Nicht im Versprechen.
+
+Freigabe
+
+Im Code erzwungen
+
+Die Freigabe ist an den Inhalt gebunden. Empfänger kommen nur aus den Stammdaten. Keine Zahlungen und keine Rechtsauskunft durch die KI.
+
+Daten
+
+Server in Deutschland
+
+Der Pilot startet mit fiktiven Daten. Echte Daten verarbeiten wir erst mit einem Vertrag zur Auftragsverarbeitung (AVV). Ihre Stammdaten exportieren Sie jederzeit.
+
+Team
+
+Niemand wird überwacht
+
+Der Wirkungsbericht zählt Vorgänge, nicht Personen. Ihr Team entscheidet jede Nachricht selbst.
+
+// 06 · Darunter
+
+Unsere Agenten-
+
+Infrastruktur.
+
+Organisation
+
+Teams mit klaren Rollen
+
+Ein Chief of Staff verteilt die Arbeit. Tester und Reviewer prüfen unabhängig. Jede Freigabe eines Menschen wird protokolliert.
+
+Sicherheit
+
+Kontrolle im System
+
+Jeder Agent hat einen festen Bereich. Zugangsdaten liegen in einem Passwort-Tresor. Eigene Server in Deutschland.
+
+Individualisierung
+
+Konfiguration statt Umbau
+
+Was je Verwaltung anders ist, ist Konfiguration. Verbindungen können über wave-mesh laufen: Ende-zu-Ende verschlüsselt über WireGuard.
+
+Mehr zur Infrastruktur
+
+// 07 · Pilot
+
+Pilotphase startet bald.
+
+Wir zeigen Ihnen den Ablauf an einer Musterverwaltung mit fiktiven Daten. Danach testen Sie an einem Probetag.
+
+Probetag anfragen
+
+// 08 · Probetag
+
+Probetag
+
+anfragen.
+
+//
+
+Schreiben Sie uns. Beim Senden öffnet sich Ihr E-Mail-Programm mit einer fertigen Nachricht an
+
+admin@moellenbeck-digital.io
+
+. Diese Seite speichert nichts.
+
+Bitte nutzen Sie ohne JavaScript den E-Mail-Link oben.
+
+Name
+
+E-Mail
+
+Betreff
+
+Bitte wählen
+
+Projektanfrage
+
+HV-Pilot
+
+KI-Mitarbeiter Warteliste
+
+MD_Process
+
+Agenten-Infrastruktur
+
+Sonstiges
+
+Nachricht
+
+Alle Felder sind Pflicht. Hinweise zum Datenschutz:
+
+Datenschutzerklärung
+
+.
+
+Nachricht vorbereiten ->
+
+Häufige Fragen
+
+Was macht der KI-Mitarbeiter nach dem Eingang?
+
+Er liest die Meldung, ordnet sie dem Objekt zu und bereitet alle Nachrichten fertig vor – mit Quelle.
+
+Wer gibt Nachrichten frei?
+
+Ihre Mitarbeiterin entscheidet. Außer der Standardantwort geht ohne Freigabe nichts raus.
+
+Ersetzt das Angebot die Verwaltungssoftware?
+
+Wir ersetzen Ihre Software nicht. Wir arbeiten davor, am Posteingang. Stammdaten kommen als Export.
+
+Welche Daten nutzt der Pilot?
+
+Der Pilot startet mit fiktiven Daten. Echte Daten verarbeiten wir erst mit einem Vertrag zur Auftragsverarbeitung (AVV).
+
+Was enthält die Vorgangsakte?
+
+Die Vorgangsakte enthält Freigaben und Versionen.
+
+Zuletzt aktualisiert:
+
+26. November 2026

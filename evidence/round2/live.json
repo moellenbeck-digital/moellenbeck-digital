@@ -1,0 +1,150 @@
+{
+  "routes": [
+    {
+      "path": "/",
+      "matches_main": true
+    },
+    {
+      "path": "/hausverwaltung/",
+      "matches_main": true
+    },
+    {
+      "path": "/robots.txt",
+      "matches_main": true
+    },
+    {
+      "path": "/llms.txt",
+      "matches_main": true
+    },
+    {
+      "path": "/llms-full.txt",
+      "matches_main": true
+    },
+    {
+      "path": "/sitemap.xml",
+      "matches_main": true
+    }
+  ],
+  "bots": [
+    {
+      "bot": "GPTBot",
+      "path": "/",
+      "status": "200"
+    },
+    {
+      "bot": "GPTBot",
+      "path": "/hausverwaltung/",
+      "status": "200"
+    },
+    {
+      "bot": "OAI-SearchBot",
+      "path": "/",
+      "status": "200"
+    },
+    {
+      "bot": "OAI-SearchBot",
+      "path": "/hausverwaltung/",
+      "status": "200"
+    },
+    {
+      "bot": "ChatGPT-User",
+      "path": "/",
+      "status": "200"
+    },
+    {
+      "bot": "ChatGPT-User",
+      "path": "/hausverwaltung/",
+      "status": "200"
+    },
+    {
+      "bot": "ClaudeBot",
+      "path": "/",
+      "status": "200"
+    },
+    {
+      "bot": "ClaudeBot",
+      "path": "/hausverwaltung/",
+      "status": "200"
+    },
+    {
+      "bot": "Claude-SearchBot",
+      "path": "/",
+      "status": "200"
+    },
+    {
+      "bot": "Claude-SearchBot",
+      "path": "/hausverwaltung/",
+      "status": "200"
+    },
+    {
+      "bot": "Claude-User",
+      "path": "/",
+      "status": "200"
+    },
+    {
+      "bot": "Claude-User",
+      "path": "/hausverwaltung/",
+      "status": "200"
+    },
+    {
+      "bot": "PerplexityBot",
+      "path": "/",
+      "status": "200"
+    },
+    {
+      "bot": "PerplexityBot",
+      "path": "/hausverwaltung/",
+      "status": "200"
+    },
+    {
+      "bot": "Perplexity-User",
+      "path": "/",
+      "status": "200"
+    },
+    {
+      "bot": "Perplexity-User",
+      "path": "/hausverwaltung/",
+      "status": "200"
+    },
+    {
+      "bot": "Google-Extended",
+      "path": "/",
+      "status": "200"
+    },
+    {
+      "bot": "Google-Extended",
+      "path": "/hausverwaltung/",
+      "status": "200"
+    },
+    {
+      "bot": "Applebot-Extended",
+      "path": "/",
+      "status": "200"
+    },
+    {
+      "bot": "Applebot-Extended",
+      "path": "/hausverwaltung/",
+      "status": "200"
+    },
+    {
+      "bot": "Bingbot",
+      "path": "/",
+      "status": "200"
+    },
+    {
+      "bot": "Bingbot",
+      "path": "/hausverwaltung/",
+      "status": "200"
+    },
+    {
+      "bot": "CCBot",
+      "path": "/",
+      "status": "200"
+    },
+    {
+      "bot": "CCBot",
+      "path": "/hausverwaltung/",
+      "status": "200"
+    }
+  ]
+}
