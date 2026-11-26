@@ -172,7 +172,7 @@
       stage.style.setProperty('--p', e.toFixed(4));
       if (head) head.style.opacity = String(Math.max(0, 1 - e * 1.6));
     }
-    if (avatar) {
+    if (avatar && !document.documentElement.classList.contains('md-still')) {
       const y = window.scrollY;
       if (y < vh * 1.2) avatar.style.transform = `translate3d(0, ${(y * -0.12).toFixed(1)}px, 0)`;
     }
@@ -188,12 +188,13 @@
   if (hero && avatar && !reduce.matches && window.matchMedia('(pointer: fine)').matches) {
     const img = avatar.querySelector('img');
     hero.addEventListener('pointermove', (ev) => {
+      if (document.documentElement.classList.contains('md-still')) return;
       const r = hero.getBoundingClientRect();
       const dx = (ev.clientX - r.left) / r.width - 0.5;
       const dy = (ev.clientY - r.top) / r.height - 0.5;
       img.style.translate = `${(dx * 18).toFixed(1)}px ${(dy * 12).toFixed(1)}px`;
     });
-    hero.addEventListener('pointerleave', () => { img.style.translate = '0 0'; });
+    hero.addEventListener('pointerleave', () => { if (!document.documentElement.classList.contains('md-still')) img.style.translate = '0 0'; });
   }
 
   /* ── Kontaktformular: Validierung + mailto-Versand (kein externer Dienst) ── */
