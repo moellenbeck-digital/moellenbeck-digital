@@ -49,6 +49,10 @@ Keine Nachricht geht ohne Genehmigung raus
 
 05
 
+Jeder Schritt protokolliert
+
+06
+
 Ein Nein zählt – Lauf gestoppt, Regel verbessert
 
 // 01 · Fähigkeiten
@@ -203,7 +207,7 @@ b · Sicherheit
 
 Kontrolle im System, nicht im Versprechen
 
-Ohne Freigabe eines Menschen geht nichts raus – im HV-Paket im Code erzwungen.
+Außer der Standardantwort geht ohne Freigabe eines Menschen nichts raus – im HV-Paket im Code erzwungen.
 
 Jede Freigabe ist belegt: wer, wann, welcher Vorgang.
 
