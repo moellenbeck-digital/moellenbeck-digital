@@ -1,0 +1,5 @@
+Lighthouse 13.6.0 live https://moellenbeck-digital.io (main 0068375 = #17), 26.11.2026 20:04, Median aus 3, Chrome headless
+hausverwaltung-desktop: n=3 Perf 100 A11y 100 BP 100 SEO 100 | LCP 0.37s CLS 0.000 TBT 0ms | perf runs [100, 100, 100]
+hausverwaltung-mobile: n=3 Perf 100 A11y 100 BP 100 SEO 100 | LCP 1.66s CLS 0.000 TBT 0ms | perf runs [100, 100, 100]
+home-desktop: n=3 Perf 100 A11y 100 BP 100 SEO 100 | LCP 0.38s CLS 0.000 TBT 0ms | perf runs [100, 100, 100]
+home-mobile: n=3 Perf 100 A11y 100 BP 100 SEO 100 | LCP 1.62s CLS 0.000 TBT 0ms | perf runs [100, 100, 100]
