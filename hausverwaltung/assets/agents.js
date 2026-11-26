@@ -1,5 +1,5 @@
 /* MD-Avatar und Agenten-Szenen.
-   Startet erst nach "load" (das Hero-Bild bleibt LCP), lädt agents.css (Platz reserviert der kleine
+   Wird erst nach "load" nachgeladen (siehe Seitenende; das Hero-Bild bleibt LCP), lädt agents.css (Platz reserviert der kleine
    <style>-Block im HTML) und bewegt nur, was im Viewport liegt und bei sichtbarem Tab.
    Der Avatar wird einmal aus dem vorhandenen Bild in Ebenen zerlegt (Kopf, Körper, Hände; Canvas,
    damit kein neuer LCP-Kandidat entsteht), Augen und Mund liegen als eigene Elemente darüber.

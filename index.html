@@ -539,7 +539,8 @@
   </footer>
 
   <script src="main.js" defer></script>
-  <script src="assets/agents.js" defer></script>
+  <!-- Avatar-Bewegung: erst nach load und kurzer Ruhe holen, damit nichts mit dem ersten Bildaufbau konkurriert -->
+  <script>addEventListener('load',()=>setTimeout(()=>{const s=document.createElement('script');s.src='assets/agents.js';document.body.append(s)},1000))</script>
   <noscript><link rel="stylesheet" href="assets/agents.css"></noscript>
 </body>
 </html>
