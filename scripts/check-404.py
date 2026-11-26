@@ -66,8 +66,9 @@ class Tags(HTMLParser):
         for k in ('href', 'src', 'poster'):   # exact attribute names: data-href etc. do not count
             if k in a:
                 self.refs.append(a[k].strip())   # an empty value is reported below
-        for url in srcset_urls(a.get('srcset', '')):
-            self.refs.append(url)
+        if 'srcset' in a:
+            urls = srcset_urls(a['srcset'])
+            self.refs += urls if urls else ['']   # srcset without any URL is reported as empty
     handle_startendtag = handle_starttag
 
 tags = Tags()
@@ -89,7 +90,7 @@ for ref in refs:
     if ref.lower().startswith(('mailto:', 'data:', '#')):
         continue
     if not ref:
-        fail.append('empty href/src/poster'); continue
+        fail.append('empty href/src/poster/srcset'); continue
     if not ref.startswith('/') or ref.startswith('//'):
         fail.append(f'not root-relative: {ref}'); continue
     path = ref.split('#')[0].split('?')[0].lstrip('/')
