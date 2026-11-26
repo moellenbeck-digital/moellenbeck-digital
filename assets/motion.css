@@ -2,7 +2,7 @@
    ohne JS existiert nichts davon. Grundzustand = Endbild. .mx-arm hält den Aufbau (.mx-b) zurück,
    .mx-play spielt Aufbau und Handlung (.mx-a) genau einmal. Handlungen beginnen und enden in Ruhe.
    Animiert werden nur transform und opacity. Seitentext wird nie ausgeblendet: Formen aus dem HTML
-   werden höchstens gedimmt (.mx-b-art), Marken nur verschoben (.mx-b-nudge). Skalierung höchstens 1.08.
+   werden höchstens gedimmt (.mx-b-art). Skalierung höchstens 1.08.
    Regeln und Ausnahmen: DESIGN.md §10. */
 
 .mx {
@@ -60,20 +60,30 @@ svg .mx-b, svg .mx-a { transform-box: fill-box; transform-origin: 50% 50%; }
 /* HV-Vorteile: ein Zeichen neben der Nummer */
 .mx-glyph { width: 26px; height: 24px; translate: 0 -50%; }
 
-/* HV-Abschluss: Dokument mit Freigabe-Haken */
-.mx-approve { position: absolute; display: block; pointer-events: none; }
+/* HV-Abschluss: Mitarbeiterin, daneben ein Dokument mit Freigabe-Haken.
+   Das Gesicht zeigt erst agents.css (Zeichnung und Farben des Mensch-Knotens). */
+.mx-approve { position: absolute; display: flex; align-items: center; pointer-events: none; }
+.mx-face { display: none; margin-right: 14px; }
+.mx-human { display: block; width: 56px; height: 56px; }
+.mx-sheet { position: relative; display: block; width: 40px; height: 52px; }
 .mx-doc { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; width: 100%; height: 100%; border: 1px solid var(--accent); border-radius: 5px; background: var(--doc-bg); }
-.mx-doc-line { display: block; width: 28px; height: 3px; border-radius: 1px; background: var(--human-mid); }
-.mx-doc-line:last-of-type { width: 18px; margin-right: 10px; }
-.mx-doc-seal, .mx-halo--ok { position: absolute; right: -10px; bottom: -10px; width: 26px; height: 26px; }
-.mx-doc-seal, .mx-doc-seal-in { display: block; }
-.mx-doc-seal-in { width: 100%; height: 100%; }
+.mx-doc-line { display: block; width: 24px; height: 3px; border-radius: 1px; background: var(--human-mid); }
+.mx-doc-line:last-of-type { width: 16px; margin-right: 8px; }
+.mx-doc-seal, .mx-halo--ok { position: absolute; display: block; right: -10px; bottom: -10px; width: 26px; height: 26px; }
 .mx-halo--ok { inset: auto -14px -14px auto; width: 34px; height: 34px; border-color: var(--ok); border-radius: 50%; }
+.mx-approve--small .mx-face { margin-right: 8px; }
+.mx-approve--small .mx-human { width: 30px; height: 30px; }
+.mx-approve--small .mx-sheet { width: 24px; height: 30px; }
 .mx-approve--small .mx-doc { gap: 4px; }
 .mx-approve--small .mx-doc-line { width: 14px; height: 2px; }
 .mx-approve--small .mx-doc-line:last-of-type { width: 9px; margin-right: 5px; }
 .mx-approve--small .mx-doc-seal { right: -6px; bottom: -6px; width: 16px; height: 16px; }
 .mx-approve--small .mx-halo--ok { right: -9px; bottom: -9px; width: 22px; height: 22px; }
+/* Nur Gesicht und Haken; ohne Gesicht stünde der Haken allein, darum entfällt dann alles */
+.mx-approve--face { display: none; }
+.mx-approve--face .mx-face { margin: 0; }
+.mx-approve--face .mx-sheet { position: absolute; inset: 0; width: auto; height: auto; }
+.mx-approve--face .mx-doc { display: none; }
 
 /* Begleiter: nur der Kopf, unten bündig mit der Kartenkante abgeschnitten */
 .mx-peek { z-index: 2; display: block; overflow: hidden; }
@@ -81,9 +91,8 @@ svg .mx-b, svg .mx-a { transform-box: fill-box; transform-origin: 50% 50%; }
 @media (max-width: 1023px) { .mx-peek { display: none !important; } }
 
 /* ════ Aufbau: vor dem Lauf zurückgehalten ════ */
-.mx-arm .mx-b:not(.mx-b-art, .mx-b-nudge, .mx-b-peek) { opacity: 0; }
+.mx-arm .mx-b:not(.mx-b-art, .mx-b-peek) { opacity: 0; }
 .mx-arm .mx-b-art { opacity: .25; }
-.mx-arm .mx-b-nudge { transform: translateY(6px) scale(.92); }
 .mx-arm .mx-b-peek { transform: translateY(100%); }
 
 .mx-play .mx-b-slide { animation: mx-slide .55s var(--mx-out) both; }
@@ -94,7 +103,6 @@ svg .mx-b, svg .mx-a { transform-box: fill-box; transform-origin: 50% 50%; }
 .mx-play .mx-b-fan { animation: mx-fan .6s var(--mx-out) both; }
 .mx-play .mx-b-shackle { animation: mx-shackle .85s var(--mx-move) both; }
 .mx-play .mx-b-art { animation: mx-art .5s ease-out both; }
-.mx-play .mx-b-nudge { animation: mx-nudge .5s var(--mx-spring) both; }
 .mx-play .mx-b-peek { animation: mx-peek .9s var(--mx-out) both; }
 .mx-play .mx-b, .mx-play.mx-peek .mx-b { animation-delay: calc(var(--s, 0s) + var(--d, 0s)); }
 
@@ -104,9 +112,14 @@ svg .mx-b, svg .mx-a { transform-box: fill-box; transform-origin: 50% 50%; }
 .mx-play .mx-a-halo { animation: mx-halo 1s var(--mx-out) both; }
 .mx-play .mx-a-bump { animation: mx-bump .55s var(--mx-move) both; }
 .mx-play .mx-a-lift { animation: mx-lift .5s var(--mx-move) both; }
-.mx-play .mx-a-blink { animation: mx-blink .7s ease-in-out both; }
+.mx-play .mx-a-pulse { animation: mx-pulse .5s var(--mx-move) both; }
 .mx-play .mx-a-glow { animation: mx-glow 1.4s ease-in-out both; }
 .mx-play .mx-a { animation-delay: calc(var(--s, 0s) + var(--a, 0s)); }
+
+/* Eigene Dauern: kurzer Lauf je Verbinder; HV-Abschluss endet nach 2,05 s */
+.mx-play .mx-token--wire.mx-a-travel { animation-duration: .55s; }
+.mx-play .mx-human.mx-b-fade { animation-duration: .35s; }
+.mx-play .mx-halo--ok.mx-a-halo { animation-duration: .9s; }
 
 /* Schon sichtbar, als die Szene gebaut wurde: neue Dekoration sanft einblenden */
 .mx-fresh :is(.mx-panel, .mx-glyph, .mx-check, .mx-approve), .mx-fresh.mx-peek { animation: mx-fade .5s ease-out both; }
@@ -119,7 +132,6 @@ svg .mx-b, svg .mx-a { transform-box: fill-box; transform-origin: 50% 50%; }
 @keyframes mx-fan { from { opacity: 0; transform: translateX(var(--fx, 0px)); } to { opacity: 1; transform: none; } }
 @keyframes mx-shackle { 0% { opacity: 0; transform: translateY(-9px); } 25% { opacity: 1; } 55% { transform: translateY(-9px); } 85% { transform: translateY(1px); } 100% { opacity: 1; transform: none; } }
 @keyframes mx-art { from { opacity: .25; } to { opacity: 1; } }
-@keyframes mx-nudge { from { transform: translateY(6px) scale(.92); } to { transform: none; } }
 @keyframes mx-peek { from { transform: translateY(100%); } to { transform: none; } }
 
 @keyframes mx-travel {
@@ -137,7 +149,7 @@ svg .mx-b, svg .mx-a { transform-box: fill-box; transform-origin: 50% 50%; }
 @keyframes mx-halo { 0% { opacity: 0; transform: scale(.96); } 35% { opacity: .9; } 100% { opacity: 0; transform: scale(1.08); } }
 @keyframes mx-bump { 0%, 100% { transform: scale(1); } 45% { transform: scale(1.08); } }
 @keyframes mx-lift { 0%, 100% { transform: translateY(0); } 45% { transform: translateY(-2.5px); } }
-@keyframes mx-blink { 0%, 40%, 80%, 100% { opacity: 1; } 20%, 60% { opacity: .15; } }
+@keyframes mx-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.06); } }
 @keyframes mx-glow { 0%, 100% { opacity: 0; } 35%, 65% { opacity: 1; } }
 
 /* ════ Anhalten: außerhalb des Viewports und bei verstecktem Tab. Die seitenweite Pause braucht keine Regel:
@@ -153,4 +165,5 @@ html.mx-hidden :is(.mx-play, .mx-fresh), html.mx-hidden :is(.mx-play, .mx-fresh)
 @media print {
   .mx, .mx * { animation: none !important; }
   .mx-arm .mx-b { opacity: 1 !important; transform: none !important; }
+  .mx-approve .mx-sheet * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }

@@ -262,6 +262,9 @@ Pflicht für jede Ausnahme:
   Trefferfläche mindestens 44px.
 - Außerhalb des Viewports und bei verstecktem Tab steht alles.
 - `prefers-reduced-motion: reduce` und ohne JavaScript: statisches Endbild.
+- Fehlt `assets/agents.css`, zeigt eine Szene im Bild ihre Bildunterschrift im
+  reservierten Platz; Szenen unter dem Bild entfallen.
+- Der Druck zeigt den Mensch-Knoten auch ohne Hintergrundgrafiken.
 - Bewegte Elemente verdecken weder Text noch Personen.
 
 ### Mikro-Szenen (`assets/motion.css`, `assets/motion.js`)
@@ -274,20 +277,19 @@ in dieser Tabelle; was hier nicht steht, wird nicht bewegt.
 | Fähigkeiten | je Kachel ein Linien-Diagramm: Verbinden, BPMN mit Freigabe, Oberfläche bis Deployment, Server mit Schloss |
 | Terminal | ein Hinweisring um „Freigeben“ |
 | Organisation | Aufgaben-Punkte zum Team, zwei neutrale Prüfhaken (Tester, Reviewer) |
-| MD_Process | Prozessmodell baut sich auf, ein Lauf bis „mensch gibt frei“ |
-| KI-Mitarbeiter | die Marken im Posteingang setzen sich nacheinander |
+| MD_Process | Prozessmodell baut sich auf, ein Punkt läuft auf den Verbindern bis „mensch gibt frei“ |
 | BloomMD | Knoten wachsen (der versteckte Knoten bleibt unberührt) |
-| wave-mesh | die direkten Verbindungen leuchten einmal auf; nichts läuft über den Koordinationsserver |
+| wave-mesh | alle direkten Verbindungen leuchten gleichzeitig einmal auf (keine Reihenfolge, kein Weg); nichts läuft über den Koordinationsserver |
 | HV Ablauf | je Schritt ein Bild: Eingang, Entwürfe mit Quelle, Freigabe, Akte |
 | HV Vorteile | ein Linien-Zeichen neben der Nummer, blendet einmal ein |
-| HV Pilot | ein Dokument, dann der Haken der Freigabe |
+| HV Pilot | die Mitarbeiterin gibt frei: Mensch-Knoten, ein Dokument, dann der Haken der Freigabe; ein Puls des Gesichts (höchstens 1.06), kein Nicken, kein Hüpfen, Ende nach höchstens 2,1 s; ganz schmal nur Gesicht und Haken |
 | Je Seite | höchstens ein Begleiter, nur ab 1024 px: der Avatar-Kopf lugt neben der Überschrift über eine Kartenkante (Startseite „Plattform“, HV „Sicherheit“) |
 
 Grenzen:
 
 - Seitentext wird nie ausgeblendet. Nur Dekoration (per Skript erzeugt,
   `aria-hidden`) startet unsichtbar. Formen aus dem HTML werden höchstens
-  gedimmt, Marken nur verschoben (höchstens 6 px, volle Deckkraft).
+  gedimmt.
 - Nur `transform` und `opacity`; keine Linien-Zeichnung per
   `stroke-dashoffset`, keine Rotationen, keine Skalierung über 1.08.
 - Jede Szene läuft einmal und dauert unter 5 s. Keine Schleife, kein
@@ -300,4 +302,6 @@ Grenzen:
   Umriss-Marke ohne Fläche und ohne Mauszeiger.
 - Linien-Zeichen sind hier erlaubt (Ausnahme zu „ASCII statt Icons“).
   Radien wie oben, in SVG-Diagrammen höchstens 9. Tokens `--ok`, `--ok-ink`,
-  `--human-mid`, `--doc-bg` gelten auch an `.mx`.
+  `--human-mid`, `--doc-bg` gelten auch an `.mx`. Der Mensch-Knoten im
+  HV Pilot kommt aus `assets/agents.css`; fehlt die Datei, bleibt das Gesicht
+  weg.

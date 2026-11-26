@@ -70,6 +70,18 @@
     const u = 1 - t;
     return [0, 1].map((a) => u * u * u * p0[a] + 3 * u * u * t * p1[a] + 3 * u * t * t * p2[a] + t * t * t * p3[a]);
   });
+  /* Sieben Punkte in gleichem Abstand auf einem Linienzug */
+  const sample = (path) => {
+    const lengths = path.slice(1).map((p, i) => Math.hypot(p[0] - path[i][0], p[1] - path[i][1]));
+    const total = lengths.reduce((a, b) => a + b, 0);
+    return [0, 1, 2, 3, 4, 5, 6].map((n) => {
+      let rest = (total * n) / 6;
+      let i = 0;
+      while (i < lengths.length - 1 && rest > lengths[i]) { rest -= lengths[i]; i += 1; }
+      const t = rest / lengths[i];
+      return [0, 1].map((a) => path[i][a] + (path[i + 1][a] - path[i][a]) * t);
+    });
+  };
   const traveller = (points, delay, r = 3) => act(route(dot(0, 0, r, 'mx-token'), points), 'travel', delay);
 
   /* ── Motor ── */
@@ -131,14 +143,17 @@
   /* ════ Fähigkeiten: jede Kachel zeigt eine Handlung zu ihrem eigenen Inhalt ════ */
   const capPanels = {
     connect(svg) { /* Wissen und Werkzeuge verbinden */
-      const a = [[40, 23], [96, 23], [108, 50], [168, 50]];
-      const b = [[40, 77], [96, 77], [108, 62], [168, 62]];
+      const a = [[38, 19], [96, 19], [108, 50], [168, 50]];
+      const b = [[38, 75], [96, 75], [108, 62], [168, 62]];
       const path = ([p0, p1, p2, p3]) => `M${p0}C${p1} ${p2} ${p3}`;
-      const paper = g(box(8, 7, 32, 32, 8), line('M17 17h14M17 23h14M17 29h9', 'mx-ink'));
-      const tool = g(box(8, 61, 32, 32, 8), line('M18 85l9-9M26 69a7 7 0 1 0 8 8l-4 1l-3-3l1-4a7 7 0 0 0-2-2z', 'mx-ink'));
+      const paper = g(box(8, 4, 30, 30, 8), line('M16 13h14M16 19h14M16 25h9', 'mx-ink'));
+      /* Schraubenschlüssel: offenes Maul oben rechts, Griff nach unten links */
+      const wrench = line('M17 2.6A5.5 5.5 0 0 0 10.7 9.4L3.4 16.7a2.75 2.75 0 0 0 3.9 3.9l7.3-7.3A5.5 5.5 0 0 0 21.4 7L17.9 9.4L14.6 6.1z', 'mx-ink');
+      wrench.setAttribute('transform', 'translate(10.6 63.4)');
+      const tool = g(box(8, 60, 30, 30, 8), wrench);
       const hub = g(dot(188, 56, 20, 'mx-hub'), line('M180 50l7 6l-7 6M190 63h8', 'mx-ink mx-ink--tone'));
       svg.append(
-        build(paper, 'pop', 0.15), build(label(8, 52, 'Wissen'), 'fade', 0.35),
+        build(paper, 'pop', 0.15), build(label(8, 50, 'Wissen'), 'fade', 0.35),
         build(tool, 'pop', 0.3), build(label(8, 108, 'Werkzeuge'), 'fade', 0.5),
         build(line(path(a)), 'fade', 0.55), build(line(path(b)), 'fade', 0.7),
         build(hub, 'pop', 0.95),
@@ -180,10 +195,9 @@
     host(svg) { /* selbst gehostet, Daten unter eigener Kontrolle */
       [0, 1, 2].forEach((i) => {
         const y = 6 + i * 31;
-        svg.append(build(g(box(10, y, 124, 25, 6), line(`M54 ${y + 9}h66M54 ${y + 16}h44`, 'mx-ink')), 'slide', 0.15 + i * 0.18),
-          dot(23, y + 12.5, 3, 'mx-dim'), dot(35, y + 12.5, 3, 'mx-dim'),
-          act(g(build(dot(23, y + 12.5, 3), 'pop', 0.8 + i * 0.22)), 'blink', 1.7 + i * 0.18),
-          act(g(build(dot(35, y + 12.5, 3, 'mx-fill mx-fill--soft'), 'pop', 0.9 + i * 0.22)), 'blink', 1.82 + i * 0.18));
+        const server = g(box(10, y, 124, 25, 6), line(`M54 ${y + 9}h66M54 ${y + 16}h44`, 'mx-ink'),
+          dot(23, y + 12.5, 3), dot(35, y + 12.5, 3, 'mx-fill mx-fill--soft'));
+        svg.append(build(server, 'slide', 0.15 + i * 0.18));
       });
       svg.append(
         build(line('M134 50H170'), 'fade', 1.35),
@@ -290,21 +304,19 @@
     });
   }
 
-  /* Die Bilder der Produktkarten stehen im HTML. Bewegt werden nur Formen und Marken, nie ihr Text ausgeblendet. */
+  /* Die Bilder der Produktkarten stehen im HTML. Bewegt werden nur Formen, nie wird ihr Text ausgeblendet. */
   const visuals = {
     process(visual) { /* Prozessmodell baut sich auf, dann ein Lauf bis zum Menschen */
       const svg = need(':scope > svg', visual);
       const [link, start, wires, task, gate, ask, human] = ['link', 'start', 'wires', 'task', 'gate', 'ask', 'human'].map((n) => part(n, svg));
       [link, start, wires, task, gate, ask, human].forEach((node, i) => build(node, 'art', 0.1 + i * 0.12));
-      const num = (node, name) => Number(node.getAttribute(name));
-      const gateBox = gate.getBBox();
-      const low = num(task, 'y') + num(task, 'height');
-      const mid = num(human, 'y') + num(human, 'height') / 2;
-      const branch = num(human, 'x') - 14;
-      svg.append(deco(traveller([
-        [num(start, 'cx'), num(start, 'cy')], [num(task, 'x'), low], [num(task, 'x') + num(task, 'width') / 2, low], [num(task, 'x') + num(task, 'width'), low],
-        [gateBox.x + gateBox.width / 2, gateBox.y + gateBox.height], [branch, mid], [num(human, 'x'), mid],
-      ], 1.25, 3.5)));
+      /* Ein Lauf über die drei Verbinder; in den Knoten ist der Punkt weg. Maße wie im SVG der Seite,
+         an den Enden um den Punktradius eingerückt */
+      [[[43, 110], [54.5, 110]], [[127.5, 110], [138.5, 110]], [[178, 114], [178, 136], [188.5, 136]]].forEach((wire, i) => {
+        const run = traveller(sample(wire), 1.25 + i * 0.55, 3.5);
+        run.classList.add('mx-token--wire');
+        svg.append(deco(run));
+      });
     },
     bloom(visual) { /* Knoten wachsen; der versteckte Knoten (#bloomLeaf) bleibt unberührt */
       const svg = need(':scope > svg', visual);
@@ -324,15 +336,10 @@
       const nodes = need('.mesh-nodes', svg);
       const at = (name) => { const c = part(name, nodes); return [c.getAttribute('cx'), c.getAttribute('cy')]; };
       const lit = deco(g(...[['laptop', 'server'], ['server', 'cluster'], ['cluster', 'nas']]
-        .map(([a, b], i) => act(line(`M${at(a)}L${at(b)}`, 'mx-line mx-line--lit'), 'glow', 0.2 + i * 0.35))));
+        .map(([a, b]) => act(line(`M${at(a)}L${at(b)}`, 'mx-line mx-line--lit'), 'glow', 0.2))));
       nodes.before(lit);
-      nodes.after(deco(g(...[['laptop', 0.2], ['server', 0.35], ['cluster', 0.7], ['nas', 1.05]]
-        .map(([name, delay]) => act(dot(...at(name), 11, 'mx-node'), 'glow', delay)))));
-    },
-    inbox(visual) { /* Marken setzen sich nacheinander */
-      const marks = $$('.inbox-row .tag, .inbox-row .mut', visual);
-      if (!marks.length) throw new Error('missing .inbox-row mark');
-      marks.forEach((mark, i) => build(mark, 'nudge', 0.2 + i * 0.4));
+      nodes.after(deco(g(...['laptop', 'server', 'cluster', 'nas']
+        .map((name) => act(dot(...at(name), 11, 'mx-node'), 'glow', 0.2)))));
     },
   };
 
@@ -405,10 +412,11 @@
     sorted: () => [line('M2 5h20M2 12h14M2 19h8', 'mx-line mx-line--tone')],
     everyone: () => [line('M3 12L21 4M3 12h18M3 12l18 8', 'mx-line mx-line--soft'), dot(3, 12, 3), dot(22, 4, 2.6), dot(22, 12, 2.6), dot(22, 20, 2.6)],
     alarm: () => [line('M5 17h14c-2-2-3-4-3-8a4 4 0 0 0-8 0c0 4-1 6-3 8zM10 20.5a2.5 2.5 0 0 0 4 0', 'mx-line mx-line--tone')],
-    four: () => [0, 1].flatMap((p) => [
-      s('rect', { x: 0.7, y: 3 + p * 10.5, width: 24, height: 8.6, rx: 4.3, class: 'mx-line mx-line--tone' }),
-      dot(8.4, 7.3 + p * 10.5, 2), dot(17, 7.3 + p * 10.5, 2),
-    ]),
+    /* zwei Augenpaare: je Mandelform mit Pupille */
+    four: () => [6, 18].flatMap((y) => [0.8, 14.2].flatMap((x) => [
+      line(`M${x} ${y}q5.5-7 11 0q-5.5 7-11 0z`, 'mx-line mx-line--tone'),
+      dot(x + 5.5, y, 1.7),
+    ])),
     proof: () => [line('M5 2h10l5 5v15H5zM15 2v5h5', 'mx-line mx-line--tone'), tick(12, 15)],
   };
 
@@ -438,7 +446,8 @@
     return Math.max(0, ...[...range.getClientRects()].map((r) => r.width));
   };
 
-  /* ════ Hausverwaltung, am Ende: ein Dokument, dann der Haken der Freigabe ════ */
+  /* ════ Hausverwaltung, am Ende: die Mitarbeiterin gibt frei (Mensch-Knoten, Dokument, Haken) ════
+     Gesicht und seine Farben kommen aus agents.css; ohne diese Datei bleibt das Gesicht weg. */
   function hvApproval() {
     const card = $('.hv-pilot');
     if (!card) return;
@@ -448,27 +457,27 @@
         const texts = [need('.marker', card), need('h2', card), need('p', card)];
         const doc = h('mx-doc', h('mx-doc-line'), h('mx-doc-line'), h('mx-doc-line'));
         const layer = deco(h('mx-approve',
-          build(doc, 'enter', 0.2),
-          act(h('mx-doc-seal', build(h('mx-doc-seal-in', seal('mx-seal', 'mx-ok', 'mx-tick mx-tick--ok')), 'pop', 0.9)), 'bump', 0.9),
-          act(h('mx-halo mx-halo--ok'), 'halo', 1.05)));
+          act(h('mx-face', build(h('mx-human'), 'fade')), 'pulse', 0.9),
+          h('mx-sheet',
+            build(doc, 'enter', 0.35),
+            build(h('mx-doc-seal', seal('mx-seal', 'mx-ok', 'mx-tick mx-tick--ok')), 'pop', 1),
+            act(h('mx-halo mx-halo--ok'), 'halo', 1.15))));
         card.append(layer);
         return () => {
           const W = card.clientWidth;
           const [marker, title, body] = texts;
-          /* breit: rechts neben Titel und Text · schmal: oben rechts neben der Zeile "Pilot" · sonst gar nicht */
+          /* breit: rechts neben Titel und Text · schmal: oben rechts über der Zeile "Pilot",
+             ganz schmal nur Gesicht und Haken · ohne Platz gar nicht */
           const side = (W - Math.max(textWidth(title), textWidth(body))) / 2;
-          const wide = side >= 120;
+          const wide = side >= 160;
           const corner = (W - textWidth(marker)) / 2;
           const room = title.offsetTop - 22;
           layer.classList.toggle('mx-approve--small', !wide);
+          layer.classList.toggle('mx-approve--face', !wide && corner < 84);
           layer.style.display = wide || (corner >= 56 && room >= 34) ? '' : 'none';
-          const width = wide ? 52 : 26;
-          const height = wide ? 64 : 32;
-          Object.assign(layer.style, {
-            width: `${width}px`, height: `${height}px`,
-            left: `${wide ? W - side / 2 - width / 2 : W - width - 22}px`,
-            top: `${wide ? (card.clientHeight - height) / 2 : 14}px`,
-          });
+          Object.assign(layer.style, wide
+            ? { left: `${W - side / 2}px`, right: 'auto', top: `${card.clientHeight / 2}px`, translate: '-50% -50%' }
+            : { left: 'auto', right: '20px', top: '18px', translate: 'none' });
         };
       },
     });

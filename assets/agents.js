@@ -9,7 +9,8 @@
   const scenes = [...document.querySelectorAll('[data-agx]')];
   const greeters = [...document.querySelectorAll('[data-greet]')];
   const steps = [...document.querySelectorAll('.hv-step')];
-  const orgs = [...document.querySelectorAll('.org')]; /* nur Gestaltung (Mensch-Knoten), auch bei Direktsprung */
+  /* nur Gestaltung (Mensch-Knoten im Organigramm und im HV-Abschluss), auch bei Direktsprung */
+  const orgs = [...document.querySelectorAll('.org, .hv-pilot')];
   if (!hero && !scenes.length && !greeters.length && !steps.length && !orgs.length) return;
 
   const root = document.documentElement;
@@ -30,8 +31,13 @@
     return styles;
   };
   /* Ohne Stylesheet wäre die Szene Bruchwerk: nichts zerlegen. Ausgeblendet wird nur, was noch unter dem
-     Bild liegt; was man sieht oder schon passiert hat, behält seinen Platz (kein Sprung). */
-  const unstyled = () => scenes.forEach((n) => { if (n.getBoundingClientRect().top >= window.innerHeight) n.hidden = true; });
+     Bild liegt; was man sieht oder schon passiert hat, behält seinen Platz (kein Sprung) und zeigt die
+     Bildunterschrift (.agx-fail im <style>-Block der Seite). */
+  const unstyled = () => scenes.forEach((n) => {
+    if (n.hidden) return;
+    if (n.getBoundingClientRect().top >= window.innerHeight) n.hidden = true;
+    else n.classList.add('agx-fail');
+  });
 
   const el = (cls, ...children) => {
     const node = document.createElement(cls === 'i' ? 'i' : 'span');
