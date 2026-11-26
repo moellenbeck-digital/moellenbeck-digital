@@ -309,6 +309,6 @@
     const script = document.createElement('script');
     script.src = 'assets/motion.js';
     document.body.append(script);
-  }, 1100), { once: true });
+  }, 1800), { once: true });
 
 })();
