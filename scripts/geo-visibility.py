@@ -4,10 +4,11 @@ Rate = rows with genannt=ja and korrekt=ja / all rows, per date and assistant.
 An empty file is N (not measured), not 0 %.
 Columns: datum,assistent,frage_nr,wortlaut,lauf,genannt,korrekt,zitierte_url,notiz
 Allowed: assistent in ASSISTANTS; genannt/korrekt in ja|nein; frage_nr = number in docs/geo/testfragen.md;
-korrekt=ja requires genannt=ja.
+korrekt=ja requires genannt=ja; datum is a real calendar date, not after today in Europe/Berlin.
 Run: python3 scripts/geo-visibility.py [--check]   (--check: validate only, exit 1 on error)
 """
-import csv, re, sys
+import csv, datetime, re, sys
+from zoneinfo import ZoneInfo
 from collections import defaultdict
 from pathlib import Path
 
@@ -21,7 +22,12 @@ err = []
 if header != COLS:
     err.append(f'header {header} != {COLS}')
 for i, r in enumerate(rows, 2):
-    if not re.fullmatch(r'\d{4}-\d{2}-\d{2}', r.get('datum') or ''): err.append(f'line {i}: datum YYYY-MM-DD')
+    try:
+        day = datetime.date.fromisoformat(r.get('datum') or '')
+        if not re.fullmatch(r'\d{4}-\d{2}-\d{2}', r['datum']): raise ValueError
+        if day > datetime.datetime.now(ZoneInfo('Europe/Berlin')).date(): err.append(f'line {i}: datum {r["datum"]} in the future')
+    except ValueError:
+        err.append(f'line {i}: datum must be a real date YYYY-MM-DD')
     if r.get('assistent') not in ASSISTANTS: err.append(f'line {i}: assistent {r.get("assistent")!r}')
     if not (r.get('frage_nr') or '').isdigit() or int(r['frage_nr']) not in questions: err.append(f'line {i}: frage_nr')
     if not (r.get('wortlaut') or '').strip(): err.append(f'line {i}: wortlaut empty')
