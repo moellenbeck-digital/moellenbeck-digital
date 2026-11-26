@@ -29,7 +29,7 @@
   <link rel="icon" href="assets/favicon-32x32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="assets/favicon-180x180.png">
   <!-- Platz für Avatar und Szenen; Rest lädt assets/agents.js nahe am Viewport -->
-  <style>.agx{margin-top:16px;padding:24px;border:1px solid transparent;min-height:491px;content-visibility:auto}.md-figure img{display:block}.md-host{display:flex;align-items:center;min-height:146px;margin-top:40px}.md-host img{width:112px;height:auto}@media(max-width:760px){.agx{padding:12px;min-height:388px}}@media(max-width:360px){.agx{min-height:400px}.md-host{min-height:115px}.md-host img{width:88px}}</style>
+  <style>.agx{margin-top:16px;padding:24px;border:1px solid transparent;min-height:459px;content-visibility:auto}.agx>*{visibility:hidden}.md-figure{display:block;flex:none;position:relative}.md-figure img{display:block}.md-host{display:flex;align-items:center;min-height:146px;margin-top:40px}.md-host img{width:112px;height:auto}@media(min-width:761px) and (max-width:1159px){.agx{min-height:477px}}@media(max-width:760px){.agx{padding:12px;min-height:358px}}@media(max-width:389px){.agx{min-height:376px}}@media(max-width:360px){.md-host{min-height:115px}.md-host img{width:88px}}</style>
   <link rel="preload" href="assets/fonts/space-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
@@ -402,7 +402,7 @@
 
   <script src="main.js" defer></script>
   <!-- Avatar-Bewegung: erst nach load und kurzer Ruhe holen, damit nichts mit dem ersten Bildaufbau konkurriert -->
-  <script>addEventListener('load',()=>setTimeout(()=>{const s=document.createElement('script');s.src='assets/agents.js';document.body.append(s)},1000))</script>
+  <script>addEventListener('load',()=>setTimeout(()=>{const s=document.createElement('script');s.src='assets/agents.js';s.onerror=()=>document.querySelectorAll('.agx').forEach(n=>n.hidden=true);document.body.append(s)},1000))</script>
   <noscript><link rel="stylesheet" href="assets/agents.css"></noscript>
 </body>
 </html>
