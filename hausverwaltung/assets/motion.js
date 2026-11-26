@@ -609,7 +609,7 @@
           const W = card.clientWidth;
           const H = card.clientHeight;
           const side = (W - Math.max(textWidth(title), textWidth(body))) / 2;
-          const wide = side >= 170;
+          const wide = side >= 184;
           layer.classList.toggle('mx-approve--strip', !wide);
           const top = marker.offsetTop;
           const size = wide ? 84 : Math.max(28, Math.min(40, top - 10));
@@ -621,7 +621,7 @@
           const hy = wide ? H / 2 - face - 6 : (top - face) / 2;
           Object.assign(from.style, { left: `${bx}px`, top: `${by}px`, width: `${size}px` });
           Object.assign(human.style, { left: `${hx}px`, top: `${hy}px`, width: `${face}px`, height: `${face}px` });
-          Object.assign(say.style, { left: `${hx + face / 2}px`, top: `${hy + face + 18}px`, width: `${Math.min(196, side - 28)}px` });
+          Object.assign(say.style, { left: `${hx + face / 2}px`, top: `${hy + face + 18}px`, width: `${Math.min(196, side - 12)}px` });
           const dw = doc.offsetWidth || 22;
           const dh = doc.offsetHeight || 28;
           const x0 = bx + size - 6;
@@ -705,13 +705,15 @@
     });
   }
 
-  /* Pause, versteckter Tab, "Bewegung reduzieren" */
+  /* Pause: was noch nicht lief oder außerhalb des Bildes läuft, zeigt das Endbild statt eines Zwischenstands */
   function settle() {
     hosts.forEach((spec) => {
-      if (!spec.host.classList.contains('mx-arm')) return;
-      spec.host.classList.remove('mx-arm');
-      spec.played = true;
-      player.unobserve(spec.trigger);
+      const { classList } = spec.host;
+      if (classList.contains('mx-arm')) {
+        classList.remove('mx-arm');
+        spec.played = true;
+        player.unobserve(spec.trigger);
+      } else if (classList.contains('mx-off')) classList.remove('mx-play', 'mx-replay');
     });
   }
 
