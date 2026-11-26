@@ -17,3 +17,10 @@ jobs:
           python-version: '3.12'
       - name: Verify public text mirror
         run: python3 scripts/generate-llms.py --check
+      - name: Build like GitHub Pages (Jekyll, github-pages gem)
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+      - name: Verify Pages publishes no internal files and copies the rest unchanged
+        run: python3 scripts/check-pages-exclude.py --built _site
