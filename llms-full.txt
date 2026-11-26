@@ -433,23 +433,19 @@ Prinzip
 
 Agenten bereiten vor, ein Mensch gibt frei.
 
-Team
-
-Emma Möllenbeck, Martin Möllenbeck, Max Möllenbeck, plus ein Team aus KI-Agenten
-
 Kontakt
 
 admin@moellenbeck-digital.io
 
-Produkte und Status
+Produkte im Überblick
 
-Produkte von Moellenbeck-Digital mit Status
+Produkte von Moellenbeck-Digital mit Einordnung
 
 Produkt
 
 Was es tut
 
-Status
+Einordnung
 
 Agentische Infrastruktur
 
@@ -461,7 +457,7 @@ MD_Process
 
 Einen Ablauf in normaler Sprache beschreiben, statt ihn zu programmieren.
 
-keine Angabe
+Prozesse mit Agenten
 
 KI-Mitarbeiter für Hausverwaltungen
 
@@ -506,10 +502,6 @@ BloomMD macht Markdown-Notizen zu Mindmaps – eine Wissensbasis, die Menschen l
 Was ist wave-mesh?
 
 wave-mesh verbindet Geräte direkt über WireGuard, auch hinter NAT – mit einem Koordinationsserver, den du selbst betreibst.
-
-Wer gehört zum Team?
-
-Emma Möllenbeck (CEO · Organisation), Martin Möllenbeck (Tech Lead · Software & KI) und Max Möllenbeck (Product Builder). Dazu kommt ein Team aus KI-Agenten.
 
 Wie erreiche ich Moellenbeck-Digital?
 
