@@ -28,6 +28,8 @@
   <link rel="icon" href="assets/md_favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/favicon-32x32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="assets/favicon-180x180.png">
+  <!-- Platz für Avatar und Szenen; Rest lädt assets/agents.js nahe am Viewport -->
+  <style>.agx{margin-top:16px;padding:24px;border:1px solid transparent;min-height:459px;content-visibility:auto}.agx>*{visibility:hidden}.md-figure{display:block;flex:none;position:relative}.md-figure img{display:block}.md-host{display:flex;align-items:center;min-height:146px;margin-top:40px}.md-host img{width:112px;height:auto}@media(min-width:761px) and (max-width:1159px){.agx{min-height:477px}}@media(max-width:760px){.agx{padding:12px;min-height:358px}}@media(max-width:389px){.agx{min-height:376px}}@media(max-width:360px){.md-host{min-height:115px}.md-host img{width:88px}}</style>
   <link rel="preload" href="assets/fonts/space-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
@@ -141,6 +143,24 @@
             <p>Die Vorgangsakte enthält Freigaben und Versionen – vorlegbar für Beirat, Eigentümer oder im Streitfall.</p>
           </li>
         </ol>
+        <div class="agx reveal" data-agx>
+          <div class="agx-top"><span class="agx-kicker" data-t="// Demo · fiktive Daten" aria-hidden="true"></span></div>
+          <div class="agx-fig" role="img" aria-label="Demo mit fiktiven Daten: Eine Schadensmeldung geht ein. Der KI-Mitarbeiter erkennt Objekt und Einheit, schätzt die Dringlichkeit ein und bereitet Entwürfe mit Quelle vor. Dann prüft Ihre Mitarbeiterin und gibt frei.">
+            <span class="agx-label agx-c1" data-t="Eingang"></span><span class="agx-label agx-c2" data-t="KI-Mitarbeiter"></span><span class="agx-label agx-c3" data-t="Ihre Mitarbeiterin"></span>
+            <span class="agx-slot agx-c1"></span><span class="agx-slot agx-c2"></span><span class="agx-slot agx-c3"></span><span class="agx-line"></span><span class="agx-human"></span>
+            <span class="agx-bot"><span class="md-figure"><img src="assets/img/avatar-200.webp" alt="" width="200" height="261" loading="lazy" decoding="async"></span></span>
+            <div class="agx-card"><div class="agx-card-in">
+              <span class="agx-title" data-t="„Wasser tropft von der Decke, Whg.&nbsp;3.&nbsp;OG.“"></span>
+              <div class="agx-states">
+                <div class="agx-state agx-state--new"><span class="agx-chip" data-t="Schadensmeldung"></span></div>
+                <div class="agx-state agx-state--work"><span class="agx-step"><i class="agx-box"></i><span data-t="Objekt und Einheit erkannt"></span></span><span class="agx-step"><i class="agx-box"></i><span data-t="Dringlichkeit eingeschätzt"></span></span><span class="agx-step"><i class="agx-box"></i><span data-t="Entwürfe mit Quelle"></span></span><span class="agx-bar"><i></i></span></div>
+                <div class="agx-state agx-state--wait"><span class="agx-note" data-t="Wartet auf Freigabe"></span><span class="agx-btn" data-t="Freigeben ->"></span></div>
+                <div class="agx-state agx-state--done"><span class="agx-ok"><i class="agx-box"></i><span data-t="Freigegeben"></span></span><span class="agx-note" data-t="In der Vorgangsakte"></span></div>
+              </div>
+            </div></div>
+          </div>
+          <p class="agx-caption" data-t="Ihre Mitarbeiterin prüft und gibt frei." aria-hidden="true"></p>
+        </div>
       </div>
     </section>
 
@@ -282,6 +302,7 @@
           <span class="marker">// 08 · Probetag</span>
           <h2 id="contactTitle">Probetag<br>anfragen.</h2>
           <p><span class="refs-c">//</span> Schreiben Sie uns. Beim Senden öffnet sich Ihr E-Mail-Programm mit einer fertigen Nachricht an <a href="mailto:admin@moellenbeck-digital.io">admin@<wbr>moellenbeck-digital.io</a>. Diese Seite speichert nichts.</p>
+          <div class="md-host" data-greet aria-hidden="true"><span class="md-figure"><img src="assets/img/avatar-200.webp" alt="" width="200" height="261" loading="lazy" decoding="async"></span><span class="md-say" data-t="Ihre Mitarbeiterin prüft und gibt frei."></span></div>
         </div>
         <noscript><p>Bitte nutzen Sie ohne JavaScript den E-Mail-Link oben.</p></noscript>
         <form class="contact-form reveal" id="contactForm" method="dialog" novalidate aria-describedby="formHint">
@@ -380,5 +401,8 @@
   </footer>
 
   <script src="main.js" defer></script>
+  <!-- Avatar-Bewegung: erst nach load und kurzer Ruhe holen, damit nichts mit dem ersten Bildaufbau konkurriert -->
+  <script>addEventListener('load',()=>setTimeout(()=>{const s=document.createElement('script');s.src='assets/agents.js';s.onerror=()=>document.querySelectorAll('.agx').forEach(n=>n.hidden=true);document.body.append(s)},1000))</script>
+  <noscript><link rel="stylesheet" href="assets/agents.css"></noscript>
 </body>
 </html>
