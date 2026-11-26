@@ -70,6 +70,7 @@ for url in locs:
  elif page.get('name')!=t: E(f'WebPage.name {page.get("name")!r} != title {t!r}')
  if meta('property','og:title')!=meta('name','twitter:title'): E('og:title != twitter:title')
  if meta('property','og:title')!=t: E(f'og:title {meta("property","og:title")!r} != title {t!r}')
+ if not (d==meta('property','og:description')==meta('name','twitter:description')): E('description, og:description and twitter:description differ')
  crumbs=next((n for n in nodes if n.get('@type')=='BreadcrumbList'),None)
  if not crumbs or crumbs['itemListElement'][-1]['item']!=url: E('BreadcrumbList missing or not ending at the page')
  for r in set(refs(nodes))-ids(nodes)-ids(home_nodes): E('unresolved @id '+r)
@@ -88,5 +89,5 @@ for url in locs:
 for e in errors: print('FAIL',e)
 if errors: sys.exit(1)
 print(f'meta ok: {len(locs)} sitemap pages, title/description unique, canonical, OG+Twitter complete (image 1200x630), '
- 'img alt, WebPage+BreadcrumbList, WebPage.name = og:title = twitter:title = title, '
+ 'img alt, WebPage+BreadcrumbList, WebPage.name = og:title = twitter:title = title, description = og = twitter, '
  '@id resolved, dateModified = visible date = sitemap lastmod')
