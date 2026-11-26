@@ -6,3 +6,5 @@ Thumbs.db
 node_modules/
 # Deploy-only files (IndexNow verification file)
 .deploy/
+_site/
+_site_*/

@@ -1,0 +1,284 @@
+{
+ "lighthouse": "13.6.0 mobile default (simulated throttling), 3 runs, median",
+ "live_main_c85cb3e": {
+  "home": {
+   "median": {
+    "perf": 100,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": 1453,
+    "cls": 0,
+    "tbt": 0
+   },
+   "runs": [
+    {
+     "time": "2026-11-26T06:33:26.200Z",
+     "perf": 98,
+     "a11y": 100,
+     "bp": 100,
+     "seo": 100,
+     "lcp": 1360,
+     "cls": 0,
+     "tbt": 0
+    },
+    {
+     "time": "2026-11-26T06:33:55.661Z",
+     "perf": 100,
+     "a11y": 100,
+     "bp": 100,
+     "seo": 100,
+     "lcp": 1453,
+     "cls": 0,
+     "tbt": 0
+    },
+    {
+     "time": "2026-11-26T06:34:20.520Z",
+     "perf": 100,
+     "a11y": 100,
+     "bp": 100,
+     "seo": 100,
+     "lcp": 1726,
+     "cls": 0,
+     "tbt": 24
+    }
+   ]
+  },
+  "hv": {
+   "median": {
+    "perf": 100,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": 1530,
+    "cls": 0,
+    "tbt": 0
+   },
+   "runs": [
+    {
+     "time": "2026-11-26T06:33:41.763Z",
+     "perf": 98,
+     "a11y": 100,
+     "bp": 100,
+     "seo": 100,
+     "lcp": 1568,
+     "cls": 0,
+     "tbt": 0
+    },
+    {
+     "time": "2026-11-26T06:34:08.757Z",
+     "perf": 100,
+     "a11y": 100,
+     "bp": 100,
+     "seo": 100,
+     "lcp": 1530,
+     "cls": 0,
+     "tbt": 0
+    },
+    {
+     "time": "2026-11-26T06:34:33.684Z",
+     "perf": 100,
+     "a11y": 100,
+     "bp": 100,
+     "seo": 100,
+     "lcp": 1503,
+     "cls": 0,
+     "tbt": 0
+    }
+   ]
+  }
+ },
+ "local_before_ed01514": {
+  "home": {
+   "median": {
+    "perf": 97,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": 2480,
+    "cls": 0,
+    "tbt": 0
+   },
+   "runs": [
+    {
+     "time": "2026-11-26T06:40:09.189Z",
+     "perf": 98,
+     "a11y": 100,
+     "bp": 100,
+     "seo": 100,
+     "lcp": 2480,
+     "cls": 0,
+     "tbt": 36
+    },
+    {
+     "time": "2026-11-26T06:40:52.428Z",
+     "perf": 97,
+     "a11y": 100,
+     "bp": 100,
+     "seo": 100,
+     "lcp": 2482,
+     "cls": 0,
+     "tbt": 0
+    },
+    {
+     "time": "2026-11-26T06:41:37.925Z",
+     "perf": 97,
+     "a11y": 100,
+     "bp": 100,
+     "seo": 100,
+     "lcp": 2479,
+     "cls": 0,
+     "tbt": 0
+    }
+   ]
+  },
+  "hv": {
+   "median": {
+    "perf": 99,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": 2184,
+    "cls": 0,
+    "tbt": 3
+   },
+   "runs": [
+    {
+     "time": "2026-11-26T06:40:19.940Z",
+     "perf": 99,
+     "a11y": 100,
+     "bp": 100,
+     "seo": 100,
+     "lcp": 2179,
+     "cls": 0,
+     "tbt": 3
+    },
+    {
+     "time": "2026-11-26T06:41:04.526Z",
+     "perf": 98,
+     "a11y": 100,
+     "bp": 100,
+     "seo": 100,
+     "lcp": 2334,
+     "cls": 0,
+     "tbt": 59
+    },
+    {
+     "time": "2026-11-26T06:41:48.177Z",
+     "perf": 99,
+     "a11y": 100,
+     "bp": 100,
+     "seo": 100,
+     "lcp": 2184,
+     "cls": 0,
+     "tbt": 0
+    }
+   ]
+  }
+ },
+ "local_after_round3": {
+  "home": {
+   "median": {
+    "perf": 97,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": 2482,
+    "cls": 0,
+    "tbt": 12
+   },
+   "runs": [
+    {
+     "time": "2026-11-26T06:40:30.706Z",
+     "perf": 98,
+     "a11y": 100,
+     "bp": 100,
+     "seo": 100,
+     "lcp": 2495,
+     "cls": 0,
+     "tbt": 12
+    },
+    {
+     "time": "2026-11-26T06:41:16.440Z",
+     "perf": 97,
+     "a11y": 100,
+     "bp": 100,
+     "seo": 100,
+     "lcp": 2482,
+     "cls": 0,
+     "tbt": 105
+    },
+    {
+     "time": "2026-11-26T06:41:58.584Z",
+     "perf": 97,
+     "a11y": 100,
+     "bp": 100,
+     "seo": 100,
+     "lcp": 2479,
+     "cls": 0,
+     "tbt": 3
+    }
+   ]
+  },
+  "hv": {
+   "median": {
+    "perf": 98,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": 2259,
+    "cls": 0,
+    "tbt": 2
+   },
+   "runs": [
+    {
+     "time": "2026-11-26T06:40:41.339Z",
+     "perf": 98,
+     "a11y": 100,
+     "bp": 100,
+     "seo": 100,
+     "lcp": 2328,
+     "cls": 0,
+     "tbt": 17
+    },
+    {
+     "time": "2026-11-26T06:41:27.581Z",
+     "perf": 98,
+     "a11y": 100,
+     "bp": 100,
+     "seo": 100,
+     "lcp": 2259,
+     "cls": 0,
+     "tbt": 2
+    },
+    {
+     "time": "2026-11-26T06:42:09.110Z",
+     "perf": 98,
+     "a11y": 100,
+     "bp": 100,
+     "seo": 100,
+     "lcp": 2254,
+     "cls": 0,
+     "tbt": 0
+    }
+   ]
+  }
+ },
+ "live_bytecheck": [
+  "/ live=5cc5c8ba52b91835 main=5cc5c8ba52b91835 IDENTICAL",
+  "/hausverwaltung/ live=803adda163a618fe main=803adda163a618fe IDENTICAL",
+  "/robots.txt live=e9b66b492cfaff3e main=e9b66b492cfaff3e IDENTICAL",
+  "/sitemap.xml live=a2331cd3dae53994 main=a2331cd3dae53994 IDENTICAL",
+  "/llms.txt live=1b12c3f6c5ef6877 main=1b12c3f6c5ef6877 IDENTICAL",
+  "/llms-full.txt live=a7b95eabcbd085ca main=a7b95eabcbd085ca IDENTICAL"
+ ],
+ "live_redirects": [
+  "http://moellenbeck-digital.io/ -> 200 redirects=1 final=https://moellenbeck-digital.io/",
+  "https://www.moellenbeck-digital.io/ -> 200 redirects=1 final=https://moellenbeck-digital.io/",
+  "http://www.moellenbeck-digital.io/hausverwaltung/ -> 200 redirects=1 final=https://moellenbeck-digital.io/hausverwaltung/",
+  "https://moellenbeck-digital.io/hausverwaltung -> 200 redirects=1 final=https://moellenbeck-digital.io/hausverwaltung/",
+  "https://moellenbeck-digital.io/gibt-es-nicht -> 404 redirects=0 final=https://moellenbeck-digital.io/gibt-es-nicht"
+ ],
+ "pages_build": "built c85cb3e38933c780435b205e54c7717e608914d2 2026-11-26T00:17:03Z",
+ "raw_reports": "AgenticOS/Dokumente/Projekte/md-website/belege/2026-11-26-round3/"
+}

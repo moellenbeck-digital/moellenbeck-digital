@@ -1,0 +1,45 @@
+name: SEO mirror drift
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify public text mirror
+        run: python3 scripts/generate-llms.py --check
+      - name: Build Pages site from the allowlist (every tracked file public or internal, none unknown)
+        run: python3 scripts/build-pages.py --out _site_allow
+      - name: Verify allowlist build = public files, byte-identical
+        run: python3 scripts/build-pages.py --verify _site_allow
+      - name: Build like GitHub Pages (Jekyll, github-pages gem)
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+      - name: Verify Pages publishes no internal files and copies the rest unchanged
+        run: python3 scripts/check-pages-exclude.py --built _site
+      # Until the switch to build_type=workflow the live site comes from this Jekyll build.
+      # It must publish exactly the allowlist, so the switch changes no public file.
+      - name: Verify legacy Jekyll build = allowlist (switch is a no-op for visitors)
+        run: python3 scripts/build-pages.py --verify _site
+      - name: Verify llms.txt (blockquote = footer, files, anchors, entity sentences = schema = hero)
+        run: python3 scripts/check-llms-txt.py
+      - name: Verify head metadata and JSON-LD of all sitemap pages
+        run: python3 scripts/check-meta.py
+      # dateModified comes from the commit date of each page. A squash merge on a later day
+      # gives main a new commit date, so this check is not squash-stable on main.
+      # It runs on pull requests only. After a squash merge on another day:
+      # run scripts/update-dates.py and scripts/generate-llms.py on main and commit.
+      - name: Verify dateModified = last commit date (pull requests only)
+        if: github.event_name == 'pull_request'
+        run: python3 scripts/update-dates.py --check

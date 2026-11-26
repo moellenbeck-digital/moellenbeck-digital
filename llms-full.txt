@@ -3,7 +3,9 @@ Quelle: https://moellenbeck-digital.io/
 
 Neu
 
-Film: One team of humans and agents
+Film:
+
+One team of humans and agents
 
 ->
 
@@ -13,7 +15,7 @@ Automatisierung.
 
 KI-Agenten
 
-Wir bauen Software, Automatisierung und KI-Agenten. Unsere Agenten bereiten vor – entscheiden tut ein Mensch.
+Moellenbeck-Digital baut Software, Automatisierung und KI-Agenten. Unsere Agenten bereiten vor – entscheiden tut ein Mensch.
 
 Kontakt aufnehmen
 
@@ -409,23 +411,97 @@ Datenschutzerklärung
 
 Nachricht vorbereiten ->
 
+Auf einen Blick
+
+Fakten zu Moellenbeck-Digital
+
+Unternehmen
+
+Moellenbeck-Digital UG (haftungsbeschränkt)
+
+Sitz
+
+Gelsenkirchen, laut
+
+Impressum
+
+Leistungen
+
+Software, Automatisierung und KI-Agenten. Digital & Remote.
+
+Prinzip
+
+Agenten bereiten vor, ein Mensch gibt frei.
+
+Kontakt
+
+admin@moellenbeck-digital.io
+
+Produkte im Überblick
+
+Produkte von Moellenbeck-Digital mit Einordnung
+
+Produkt
+
+Was es tut
+
+Einordnung
+
+Agentische Infrastruktur
+
+Agenten-Teams auf OpenClaw übernehmen Eingang, Recherche und Entwürfe.
+
+Kern · in Betrieb
+
+MD_Process
+
+Einen Ablauf in normaler Sprache beschreiben, statt ihn zu programmieren.
+
+Prozesse mit Agenten
+
+KI-Mitarbeiter für Hausverwaltungen
+
+Liest den Eingang, erkennt Notfälle, bereitet Maßnahmen mit Quellen vor.
+
+Pilotphase startet bald
+
+BloomMD
+
+Markdown-Notizen werden zu Mindmaps.
+
+Closed Beta
+
+wave-mesh
+
+Verbindet Geräte direkt über WireGuard, auch hinter NAT.
+
+Frühe Entwicklung
+
 Häufige Fragen
 
 Was baut Moellenbeck-Digital?
 
-Wir bauen Software, Automatisierung und KI-Agenten.
+Moellenbeck-Digital baut Software, Automatisierung und KI-Agenten.
 
 Wer entscheidet über die Arbeit der Agenten?
 
 Unsere Agenten bereiten vor – entscheiden tut ein Mensch.
 
+Was ist MD_Process?
+
+Einen Ablauf in normaler Sprache beschreiben, statt ihn zu programmieren. Daraus entsteht ein Prozessmodell. Agenten arbeiten die Schritte ab, der Mensch entscheidet.
+
+Was ist ein KI-Mitarbeiter?
+
+KI-Mitarbeiter übernehmen feste Aufgaben. Beispiel Hausverwaltung: Der KI-Mitarbeiter liest den Eingang, erkennt Notfälle und bereitet Maßnahmen mit Quellen vor. Pilotphase startet bald. Außer der Standardantwort geht ohne Freigabe nichts raus.
+
 Was ist BloomMD?
 
-Markdown-Notizen werden zu Mindmaps – eine Wissensbasis, die Menschen lesen und Agenten per MCP pflegen.
+BloomMD macht Markdown-Notizen zu Mindmaps – eine Wissensbasis, die Menschen lesen und Agenten per MCP pflegen.
 
 Was ist wave-mesh?
 
-Verbindet Geräte direkt über WireGuard, auch hinter NAT – mit einem Koordinationsserver, den du selbst betreibst.
+wave-mesh verbindet Geräte direkt über WireGuard, auch hinter NAT – mit einem Koordinationsserver, den du selbst betreibst.
 
 Wie erreiche ich Moellenbeck-Digital?
 
@@ -448,13 +524,15 @@ ein fertiger, belegter Vorgang.
 
 Ihre Mitarbeiterin prüft und gibt frei.
 
-Ein digitaler Backoffice-Kollege nach dem Eingang: Er liest die Meldung, ordnet sie dem Objekt zu und bereitet alle Nachrichten fertig vor – mit Quelle.
+Der KI-Mitarbeiter für Hausverwaltungen ist ein digitaler Backoffice-Kollege nach dem Eingang: Er liest die Meldung, ordnet sie dem Objekt zu und bereitet alle Nachrichten fertig vor – mit Quelle.
 
 Probetag anfragen
 
 Beispiel ansehen
 
 // 20 Sekunden, ohne Ton. Fiktive Demodaten.
+
+Transkript
 
 // 01 · Beispiel Wasserschaden
 
@@ -666,7 +744,59 @@ Datenschutzerklärung
 
 Nachricht vorbereiten ->
 
+Auf einen Blick
+
+Fakten zum KI-Mitarbeiter für Hausverwaltungen
+
+Angebot
+
+KI-Mitarbeiter für Hausverwaltungen
+
+Status
+
+Pilotphase startet bald
+
+Einsatz
+
+Nach dem Eingang, am Posteingang – vor Ihrer Verwaltungssoftware
+
+Freigabe
+
+Ihre Mitarbeiterin entscheidet. Außer der Standardantwort geht ohne Freigabe nichts raus.
+
+Daten im Pilot
+
+Fiktive Daten. Echte Daten erst mit Vertrag zur Auftragsverarbeitung (AVV).
+
+Anbieter
+
+Moellenbeck-Digital UG (haftungsbeschränkt)
+
+Transkript des Demo-Videos
+
+Untertitel des 20-Sekunden-Videos zum Beispiel Wasserschaden (ohne Ton, fiktive Demodaten):
+
+00:00
+
+Ein Mieter schreibt: „Bei mir tropft Wasser von der Decke.“
+
+00:03
+
+Notfall-Antwort nach 2 Sekunden. Die einzige Nachricht, die ohne Menschen rausgeht.
+
+00:07
+
+2,4 s später: die Freigabekarte. Wer zuständig ist, mit Fundstelle. 5 Entwürfe bereit.
+
+00:12
+
+Ein Tipp der Sachbearbeiterin. Dann geht alles raus. Freigegeben und protokolliert.
+
 Häufige Fragen
+
+Was ist der KI-Mitarbeiter für Hausverwaltungen?
+
+Der KI-Mitarbeiter für Hausverwaltungen ist ein digitaler Backoffice-Kollege nach dem Eingang. Pilotphase startet bald.
 
 Was macht der KI-Mitarbeiter nach dem Eingang?
 
@@ -676,13 +806,25 @@ Wer gibt Nachrichten frei?
 
 Ihre Mitarbeiterin entscheidet. Außer der Standardantwort geht ohne Freigabe nichts raus.
 
+Was macht die KI nicht?
+
+Keine Zahlungen und keine Rechtsauskunft durch die KI. Empfänger kommen nur aus den Stammdaten.
+
 Ersetzt das Angebot die Verwaltungssoftware?
 
 Wir ersetzen Ihre Software nicht. Wir arbeiten davor, am Posteingang. Stammdaten kommen als Export.
 
+Gibt es ein Vier-Augen-Prinzip?
+
+Ab einer Betragsgrenze braucht es eine zweite Person. Die Betragsgrenze für die zweite Freigabe legen Sie selbst fest.
+
 Welche Daten nutzt der Pilot?
 
 Der Pilot startet mit fiktiven Daten. Echte Daten verarbeiten wir erst mit einem Vertrag zur Auftragsverarbeitung (AVV).
+
+Wie läuft der Pilot ab?
+
+Wir zeigen Ihnen den Ablauf an einer Musterverwaltung mit fiktiven Daten. Danach testen Sie an einem Probetag.
 
 Was enthält die Vorgangsakte?
 

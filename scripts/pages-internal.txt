@@ -1,0 +1,21 @@
+# Internal files: tracked in Git, never published on GitHub Pages.
+# Same glob syntax as scripts/pages-allowlist.txt. Every tracked file must match exactly one list.
+
+# Work, audit and evidence files
+docs/**
+audit/**
+evidence/**
+scripts/**
+TODO.md
+DESIGN.md
+
+# Design drafts and image sources (not linked from the site)
+design.html
+og-banner.html
+hausverwaltung/README.md
+
+# Repo and build configuration
+.github/**
+.gitignore
+# _config.yml stays for the legacy Jekyll build and as the rollback path (build_type=legacy).
+_config.yml
