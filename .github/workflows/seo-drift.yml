@@ -18,6 +18,11 @@ jobs:
           python-version: '3.12'
       - name: Verify public text mirror
         run: python3 scripts/generate-llms.py --check
+      - name: Verify the Hausverwaltung copies of the avatar assets are byte-identical
+        run: |
+          for f in agents.css agents.js img/avatar-200.webp; do
+            cmp "assets/$f" "hausverwaltung/assets/$f"
+          done
       - name: Build Pages site from the allowlist (every tracked file public or internal, none unknown)
         run: python3 scripts/build-pages.py --out _site_allow
       - name: Verify allowlist build = public files, byte-identical

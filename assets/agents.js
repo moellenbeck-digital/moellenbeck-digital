@@ -9,7 +9,8 @@
   const scenes = [...document.querySelectorAll('[data-agx]')];
   const greeters = [...document.querySelectorAll('[data-greet]')];
   const steps = [...document.querySelectorAll('.hv-step')];
-  if (!hero && !scenes.length && !greeters.length && !steps.length) return;
+  const orgs = [...document.querySelectorAll('.org')]; /* nur Gestaltung (Mensch-Knoten), auch bei Direktsprung */
+  if (!hero && !scenes.length && !greeters.length && !steps.length && !orgs.length) return;
 
   const root = document.documentElement;
   const href = new URL('agents.css', document.currentScript.src).href;
@@ -350,7 +351,7 @@
 
   function start() {
     if (reduce.matches) { /* nur Gestaltung laden, nichts bewegen */
-      [...scenes, ...greeters, ...steps].forEach((n) => near(n, () => {}));
+      [...scenes, ...greeters, ...steps, ...orgs].forEach((n) => near(n, () => {}));
       return;
     }
     watcher = new IntersectionObserver((entries) => {
@@ -368,6 +369,7 @@
     greeters.forEach((n) => near(n, () => setupGreeter(n)));
     scenes.forEach((n) => near(n, () => setupScene(n)));
     steps.forEach((n) => near(n, () => once(n, 0.5, () => n.classList.add('md-hop'))));
+    orgs.forEach((n) => near(n, () => {}));
 
     reduce.addEventListener('change', () => {
       if (!reduce.matches) return;

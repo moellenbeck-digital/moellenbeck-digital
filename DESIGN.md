@@ -251,8 +251,8 @@ Bot-Team, die HV-Ablaufschritte und den Mensch-Knoten (`assets/agents.css`,
 |---|---|---|
 | Motion | Figuren dürfen sich neigen, drehen, springen und leicht überschwingen | Kurve höchstens `cubic-bezier(0.34, 1.25, 0.64, 1)`; Drehung beim Tragen ≤ 4°; Hover/Freude ≤ 1.08 Skalierung; keine Partikel oder Strahlen |
 | Zeiger | Der Avatar darf dem Zeiger folgen | nur bei feinem Zeiger; ruht ohne Bewegung |
-| Radien | `--r-ctl` (10px) für Knöpfe, `--r-card` (16px) für Flächen, 6/12px für Chips, Karten und Blasen; runde Formen für Mensch und Haken | keine neuen Radien an anderen Komponenten |
-| Farben | Eigene Tokens: `--ok`, `--ok-text`, `--ok-ink`, `--ok-glow` (Freigabe-Grün), `--led*` (Augen/Mund), `--human-hi`, `--human-mid`, `--doc-bg` | Grün nur für „freigegeben“; Hex-Werte nur in der Token-Definition und in Data-URI-SVGs |
+| Radien | `--r-ctl` (10px) für Knöpfe, `--r-card` (16px) für Flächen, 6/12px für Chips, Karten und Blasen; 5px für das Dokument in der Hand; runde Formen für Mensch und Haken | keine neuen Radien an anderen Komponenten |
+| Farben | Eigene Tokens: `--ok`, `--ok-text`, `--ok-ink`, `--ok-glow` (Freigabe-Grün), `--led*` (Augen/Mund), `--human-hi`, `--human-mid`, `--doc-bg`. Dazu ohne Token: `#030305` (Bildschirmfarbe im Avatar-Foto, übermalt Augen und Mund) und `#000` (nur Deckkraft in `mask-image`, nie sichtbare Farbe) | Grün nur für „freigegeben“; Hex-Werte nur in der Token-Definition, in Data-URI-SVGs sowie `#030305` in `assets/agents.js` und `#000` in Masken |
 
 Pflicht für jede Ausnahme:
 
