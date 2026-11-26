@@ -1,0 +1,87 @@
+{
+ "before_origin-main_2d040eb": {
+  "url": "http://127.0.0.1:8877/",
+  "lighthouse": "13.6.0",
+  "formFactor": "mobile",
+  "runs": 3,
+  "performance": [
+   97,
+   97,
+   97
+  ],
+  "accessibility": [
+   100,
+   100,
+   100
+  ],
+  "best_practices": [
+   100,
+   100,
+   100
+  ],
+  "seo": [
+   100,
+   100,
+   100
+  ],
+  "lcp_ms": [
+   2480.1,
+   2477.5,
+   2478.2
+  ],
+  "cls": [
+   0,
+   0,
+   0
+  ],
+  "tbt_ms": [
+   0,
+   0,
+   0
+  ],
+  "median_performance": 97
+ },
+ "after_fix-seo-geo-round5_allowlist-_site": {
+  "url": "http://127.0.0.1:8876/",
+  "lighthouse": "13.6.0",
+  "formFactor": "mobile",
+  "runs": 3,
+  "performance": [
+   97,
+   97,
+   97
+  ],
+  "accessibility": [
+   100,
+   100,
+   100
+  ],
+  "best_practices": [
+   100,
+   100,
+   100
+  ],
+  "seo": [
+   100,
+   100,
+   100
+  ],
+  "lcp_ms": [
+   2477.8,
+   2478.4,
+   2478.2
+  ],
+  "cls": [
+   0,
+   0,
+   0
+  ],
+  "tbt_ms": [
+   0,
+   0,
+   0
+  ],
+  "median_performance": 97
+ },
+ "note": "Local, 2026-11-26. before = git archive origin/main served as-is; after = scripts/build-pages.py --out _site served. Home route only, mobile preset."
+}
