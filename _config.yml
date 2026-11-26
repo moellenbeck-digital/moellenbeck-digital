@@ -1,5 +1,8 @@
+# Published files are defined by the allowlist scripts/pages-allowlist.txt (deploy: .github/workflows/pages.yml).
+# This file only matters while Pages uses build_type=legacy (before the switch, and as rollback):
 # GitHub Pages (legacy build from main, path "/") runs Jekyll on this repo.
 # There is no .nojekyll, so this exclude list applies: internal work files are not published.
+# CI checks that this Jekyll build publishes exactly the allowlist (scripts/build-pages.py --verify).
 # No page uses front matter or Liquid, so Jekyll copies every published file unchanged.
 # Check: python3 scripts/check-pages-exclude.py (also runs in CI).
 exclude:

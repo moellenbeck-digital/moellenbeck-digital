@@ -30,12 +30,13 @@ python3 scripts/indexnow.py
 
 ## 4. Schlüsseldatei veröffentlichen
 
-GitHub Pages veröffentlicht den Root von `main` (Build-Typ `legacy`, Domain `moellenbeck-digital.io`). Es gibt keinen Deploy-Workflow. **Die Datei in `.deploy/` geht deshalb nicht automatisch online.**
+GitHub Pages veröffentlicht nur Dateien aus der Erlaubnisliste `scripts/pages-allowlist.txt` (ab Build-Typ `workflow`; vorher baut Pages `main` mit Jekyll, CI hält beide Mengen gleich). **Die Datei in `.deploy/` geht deshalb nicht automatisch online.**
 
 1. Eigenen Branch von `main` anlegen.
 2. Datei in den Root kopieren: `cp .deploy/<key>.txt ./`
-3. Nur diese Datei committen, PR öffnen und mergen. Pages veröffentlicht sie danach.
-4. Prüfen: `curl -fsS https://moellenbeck-digital.io/<key>.txt` gibt exakt den Schlüssel aus.
+3. Dateinamen `<key>.txt` als eigene Zeile in `scripts/pages-allowlist.txt` eintragen. Ohne Eintrag schlägt CI fehl (unbekannte Datei).
+4. Nur diese zwei Änderungen committen, PR öffnen und mergen. Pages veröffentlicht die Datei danach.
+5. Prüfen: `curl -fsS https://moellenbeck-digital.io/<key>.txt` gibt exakt den Schlüssel aus.
 
 Der Schlüssel steht dann öffentlich im Web und in der Git-Historie. Das ist bei IndexNow so vorgesehen; er ist kein Geheimnis, beweist aber den Besitz der Domain. Er gehört nie in einen Feature-PR.
 

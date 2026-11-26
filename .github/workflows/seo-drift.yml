@@ -17,6 +17,10 @@ jobs:
           python-version: '3.12'
       - name: Verify public text mirror
         run: python3 scripts/generate-llms.py --check
+      - name: Build Pages site from the allowlist (every tracked file public or internal, none unknown)
+        run: python3 scripts/build-pages.py --out _site_allow
+      - name: Verify allowlist build = public files, byte-identical
+        run: python3 scripts/build-pages.py --verify _site_allow
       - name: Build like GitHub Pages (Jekyll, github-pages gem)
         uses: actions/jekyll-build-pages@v1
         with:
@@ -24,6 +28,10 @@ jobs:
           destination: ./_site
       - name: Verify Pages publishes no internal files and copies the rest unchanged
         run: python3 scripts/check-pages-exclude.py --built _site
+      # Until the switch to build_type=workflow the live site comes from this Jekyll build.
+      # It must publish exactly the allowlist, so the switch changes no public file.
+      - name: Verify legacy Jekyll build = allowlist (switch is a no-op for visitors)
+        run: python3 scripts/build-pages.py --verify _site
       - name: Verify llms.txt (blockquote = footer, files, anchors, entity sentences = schema = hero)
         run: python3 scripts/check-llms-txt.py
       - name: Verify head metadata and JSON-LD of all sitemap pages
