@@ -648,7 +648,7 @@ body::after {
 .facts-table th { color: var(--text); font-weight: 500; }
 .facts-table thead th { font-family: var(--mono); font-size: .75rem; color: var(--text-3); font-weight: 400; }
 .facts-table tbody th[scope="row"] { width: 30%; }
-.facts-table a { color: var(--accent); }
+.facts-table a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
 .facts h3 { margin-top: 48px; }
 .transcript { max-width: 860px; margin: 16px 0 0; padding-left: 0; list-style: none; color: var(--text-2); }
 .transcript li { padding: 6px 0; }

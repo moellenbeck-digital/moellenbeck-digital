@@ -499,11 +499,7 @@ Mit MD_Process beschreiben Sie einen Ablauf in normaler Sprache, statt ihn zu pr
 
 Was ist ein KI-Mitarbeiter?
 
-KI-Mitarbeiter übernehmen feste Aufgaben. Beispiel
-
-Hausverwaltung
-
-: Der KI-Mitarbeiter liest den Eingang, erkennt Notfälle und bereitet Maßnahmen mit Quellen vor. Raus geht nur, was ein Mensch freigibt.
+KI-Mitarbeiter übernehmen feste Aufgaben. Beispiel Hausverwaltung: Der KI-Mitarbeiter liest den Eingang, erkennt Notfälle und bereitet Maßnahmen mit Quellen vor. Raus geht nur, was ein Mensch freigibt.
 
 Was ist BloomMD?
 
