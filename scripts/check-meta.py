@@ -6,6 +6,7 @@ lang="de"; exactly one <h1>; every <img> has an alt attribute; complete Open Gra
 with @id <url>#webpage, isPartOf #website and a BreadcrumbList that ends at the page; every @id
 reference resolves on this page or on the start page; dateModified equals the visible date
 (<time datetime> or "Stand: <d>. <Monat> <yyyy>") and is only set when a visible date exists.
+WebPage.name = <title>; og:title = twitter:title.
 Start page: Organization (#org, logo) and WebSite (#website).
 
 Usage: python3 scripts/check-meta.py   (exit code 1 on failure)
@@ -63,6 +64,8 @@ for url in locs:
  page=next((n for n in nodes if n.get('@type')=='WebPage'),None)
  if not page or page.get('@id')!=url+'#webpage': E('WebPage node with @id '+url+'#webpage missing')
  elif page.get('isPartOf')!={'@id':ROOT+'/#website'}: E('WebPage.isPartOf != #website')
+ elif page.get('name')!=t: E(f'WebPage.name {page.get("name")!r} != title {t!r}')
+ if meta('property','og:title')!=meta('name','twitter:title'): E('og:title != twitter:title')
  crumbs=next((n for n in nodes if n.get('@type')=='BreadcrumbList'),None)
  if not crumbs or crumbs['itemListElement'][-1]['item']!=url: E('BreadcrumbList missing or not ending at the page')
  for r in set(refs(nodes))-ids(nodes)-ids(home_nodes): E('unresolved @id '+r)
@@ -80,4 +83,4 @@ for url in locs:
 for e in errors: print('FAIL',e)
 if errors: sys.exit(1)
 print(f'meta ok: {len(locs)} sitemap pages, title/description unique, canonical, OG+Twitter complete (image 1200x630), '
- 'img alt, WebPage+BreadcrumbList, @id resolved, dateModified = visible date')
+ 'img alt, WebPage+BreadcrumbList, WebPage.name = title, og:title = twitter:title, @id resolved, dateModified = visible date')
