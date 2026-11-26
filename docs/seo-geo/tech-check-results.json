@@ -1,0 +1,83 @@
+[
+  {
+    "url": "/",
+    "status": 200,
+    "schema": "JSON parse, IDs and visible FAQ parity passed (not external Schema.org validator)"
+  },
+  {
+    "url": "/hausverwaltung/",
+    "status": 200,
+    "schema": "JSON parse, IDs and visible FAQ parity passed (not external Schema.org validator)"
+  },
+  {
+    "url": "/impressum.html",
+    "status": 200,
+    "schema": "JSON parse, IDs and visible FAQ parity passed (not external Schema.org validator)"
+  },
+  {
+    "url": "/datenschutz.html",
+    "status": 200,
+    "schema": "JSON parse, IDs and visible FAQ parity passed (not external Schema.org validator)"
+  },
+  {
+    "url": "/legal/",
+    "status": 200,
+    "schema": "JSON parse, IDs and visible FAQ parity passed (not external Schema.org validator)"
+  },
+  {
+    "crawler": "Googlebot",
+    "six_routes": "curl 200, static HTML without JS"
+  },
+  {
+    "crawler": "Bingbot",
+    "six_routes": "curl 200, static HTML without JS"
+  },
+  {
+    "crawler": "GPTBot",
+    "six_routes": "curl 200, static HTML without JS"
+  },
+  {
+    "crawler": "OAI-SearchBot",
+    "six_routes": "curl 200, static HTML without JS"
+  },
+  {
+    "crawler": "ChatGPT-User",
+    "six_routes": "curl 200, static HTML without JS"
+  },
+  {
+    "crawler": "ClaudeBot",
+    "six_routes": "curl 200, static HTML without JS"
+  },
+  {
+    "crawler": "Claude-SearchBot",
+    "six_routes": "curl 200, static HTML without JS"
+  },
+  {
+    "crawler": "Claude-User",
+    "six_routes": "curl 200, static HTML without JS"
+  },
+  {
+    "crawler": "PerplexityBot",
+    "six_routes": "curl 200, static HTML without JS"
+  },
+  {
+    "crawler": "Perplexity-User",
+    "six_routes": "curl 200, static HTML without JS"
+  },
+  {
+    "crawler": "Google-Extended",
+    "six_routes": "curl 200, static HTML without JS"
+  },
+  {
+    "crawler": "Applebot-Extended",
+    "six_routes": "curl 200, static HTML without JS"
+  },
+  {
+    "crawler": "CCBot",
+    "six_routes": "curl 200, static HTML without JS"
+  },
+  {
+    "crawler": "*",
+    "six_routes": "curl 200, static HTML without JS"
+  }
+]
