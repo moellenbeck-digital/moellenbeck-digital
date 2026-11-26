@@ -207,7 +207,7 @@ b · Sicherheit
 
 Kontrolle im System, nicht im Versprechen
 
-Außer der Standardantwort geht ohne Freigabe eines Menschen nichts raus – im HV-Paket im Code erzwungen.
+Ohne Freigabe eines Menschen geht nichts raus – im HV-Paket im Code erzwungen.
 
 Jede Freigabe ist belegt: wer, wann, welcher Vorgang.
 
