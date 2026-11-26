@@ -1,6 +1,6 @@
 from html.parser import HTMLParser
 from pathlib import Path
-import json,re,subprocess,xml.etree.ElementTree as ET
+import json,os,re,subprocess,sys,xml.etree.ElementTree as ET
 from urllib.request import urlopen,Request
 class VisibleBody(HTMLParser):
  def __init__(self):
@@ -25,10 +25,14 @@ assert 'schema-only' not in visible_text('<body><script>schema-only</script></bo
 assert 'hidden-only' not in visible_text('<body><div hidden>hidden-only</div></body>')
 assert visible_text('<body><details><summary>A &amp; B?</summary><p>Visible answer</p></details></body>')=='A & B? Visible answer'
 root='https://moellenbeck-digital.io'
+# Port: --port=N or env PORT, default 8876 (python3 -m http.server N in the repo root).
+port=next((a.split('=',1)[1] for a in sys.argv[1:] if a.startswith('--port=')),os.environ.get('PORT','8876'))
+assert port.isdigit(),'Invalid port: '+port
+base='http://127.0.0.1:'+port
 urls=[x.text.replace(root,'') for x in ET.parse('sitemap.xml').findall('.//{*}loc')]
 results=[]
 for url in urls:
- s=urlopen('http://127.0.0.1:8876'+url).read().decode()
+ s=urlopen(base+url).read().decode()
  assert '<html lang="de">' in s
  assert 'href="'+root+url+'"' in s
  graphs=[json.loads(x) for x in re.findall(r'<script type="application/ld\+json">(.*?)</script>',s,re.S)]
@@ -42,7 +46,7 @@ for url in urls:
  results.append({'url':url,'status':200,'schema':'JSON parse, IDs and visible FAQ parity passed (not external Schema.org validator)'})
 for bot in re.findall('User-agent: (.+)',Path('robots.txt').read_text()):
  for url in ['/','/hausverwaltung/','/robots.txt','/sitemap.xml','/llms.txt','/llms-full.txt']:
-  r=subprocess.run(['curl','-fsS','-A',bot,'http://127.0.0.1:8876'+url],capture_output=True)
+  r=subprocess.run(['curl','-fsS','-A',bot,base+url],capture_output=True)
   assert r.returncode==0,(bot,url)
  results.append({'crawler':bot,'six_routes':'curl 200, static HTML without JS'})
 for f in ['impressum.html','datenschutz.html','legal/index.html']:
