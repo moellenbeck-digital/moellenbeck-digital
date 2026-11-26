@@ -114,7 +114,7 @@
   let resizer;
 
   const visibleEnough = (entry) => entry.isIntersecting
-    && (entry.intersectionRatio >= 0.55 || entry.intersectionRect.height >= window.innerHeight * 0.45);
+    && (entry.intersectionRatio >= 0.42 || entry.intersectionRect.height >= window.innerHeight * 0.4);
 
   function run(scene, mode, offset = 0) {
     const { host } = scene;
@@ -729,7 +729,7 @@
         run(spec, spec.seen ? 'mx-replay' : 'mx-play', spec.stagger * Math.min(n, 4));
         n += 1;
       });
-    }, { threshold: [0, 0.15, 0.3, 0.45, 0.55, 0.7, 0.85, 1] });
+    }, { threshold: [0, 0.15, 0.3, 0.42, 0.55, 0.7, 0.85, 1] });
     watcher = new IntersectionObserver((entries) => {
       entries.forEach((e) => e.target.classList.toggle('mx-off', !e.isIntersecting));
     });
