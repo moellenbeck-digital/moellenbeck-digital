@@ -6,7 +6,7 @@ lang="de"; exactly one <h1>; every <img> has an alt attribute; complete Open Gra
 with @id <url>#webpage, isPartOf #website and a BreadcrumbList that ends at the page; every @id
 reference resolves on this page or on the start page; dateModified equals the visible date
 (<time datetime> or "Stand: <d>. <Monat> <yyyy>") and is only set when a visible date exists.
-WebPage.name = <title>; og:title = twitter:title.
+WebPage.name = <title>; og:title = twitter:title = <title>; sitemap lastmod = dateModified where dateModified is set.
 Start page: Organization (#org, logo) and WebSite (#website).
 
 Usage: python3 scripts/check-meta.py   (exit code 1 on failure)
@@ -15,7 +15,10 @@ import html,json,re,struct,sys,xml.etree.ElementTree as ET
 from pathlib import Path
 ROOT='https://moellenbeck-digital.io'
 MONTHS=['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember']
-locs=[e.text for e in ET.parse('sitemap.xml').getroot().iter('{http://www.sitemaps.org/schemas/sitemap/0.9}loc')]
+SM='{http://www.sitemaps.org/schemas/sitemap/0.9}'
+urls=list(ET.parse('sitemap.xml').getroot().iter(SM+'url'))
+locs=[u.findtext(SM+'loc') for u in urls]
+lastmod={u.findtext(SM+'loc'):u.findtext(SM+'lastmod') for u in urls}
 def file_for(url):
  path=url[len(ROOT):].lstrip('/'); return Path(path+'index.html' if path.endswith('/') or path=='' else path)
 def png_size(p):
@@ -66,6 +69,7 @@ for url in locs:
  elif page.get('isPartOf')!={'@id':ROOT+'/#website'}: E('WebPage.isPartOf != #website')
  elif page.get('name')!=t: E(f'WebPage.name {page.get("name")!r} != title {t!r}')
  if meta('property','og:title')!=meta('name','twitter:title'): E('og:title != twitter:title')
+ if meta('property','og:title')!=t: E(f'og:title {meta("property","og:title")!r} != title {t!r}')
  crumbs=next((n for n in nodes if n.get('@type')=='BreadcrumbList'),None)
  if not crumbs or crumbs['itemListElement'][-1]['item']!=url: E('BreadcrumbList missing or not ending at the page')
  for r in set(refs(nodes))-ids(nodes)-ids(home_nodes): E('unresolved @id '+r)
@@ -75,6 +79,7 @@ for url in locs:
  dm=page and page.get('dateModified')
  if visible and dm not in visible: E(f'dateModified {dm} not in visible dates {sorted(set(visible))}')
  if dm and not visible: E('dateModified set without a visible date')
+ if dm and lastmod.get(url)!=dm: E(f'sitemap lastmod {lastmod.get(url)} != dateModified {dm}')
  if url==ROOT+'/':
   org=next((n for n in nodes if n.get('@type')=='Organization'),{})
   site=next((n for n in nodes if n.get('@type')=='WebSite'),{})
@@ -83,4 +88,5 @@ for url in locs:
 for e in errors: print('FAIL',e)
 if errors: sys.exit(1)
 print(f'meta ok: {len(locs)} sitemap pages, title/description unique, canonical, OG+Twitter complete (image 1200x630), '
- 'img alt, WebPage+BreadcrumbList, WebPage.name = title, og:title = twitter:title, @id resolved, dateModified = visible date')
+ 'img alt, WebPage+BreadcrumbList, WebPage.name = og:title = twitter:title = title, '
+ '@id resolved, dateModified = visible date = sitemap lastmod')
