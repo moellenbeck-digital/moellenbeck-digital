@@ -393,11 +393,12 @@
       /* Platz in der Kopfzeile, sonst über dem Posteingang (schmale Handys) */
       const free = tag.offsetLeft - (title.offsetLeft + title.offsetWidth);
       const inside = free >= 36;
-      const width = inside ? Math.min(40, free - 4) : 30;
+      /* oben: der sichtbare Bot (ca. 74 % der Breite hoch) liegt mittig im freien Rand */
+      const width = inside ? Math.min(40, free - 4) : Math.min(28, Math.round(inbox.offsetTop * 1.2));
       seat.style.display = inside || inbox.offsetTop >= 19 ? '' : 'none';
       seat.style.width = `${width}px`;
       seat.style.left = `${inbox.offsetLeft + (inside ? title.offsetLeft + title.offsetWidth + free / 2 : inbox.offsetWidth / 2)}px`;
-      seat.style.top = `${inside ? inbox.offsetTop + head.offsetTop + head.offsetHeight / 2 : inbox.offsetTop - 9}px`;
+      seat.style.top = `${inside ? inbox.offsetTop + head.offsetTop + head.offsetHeight / 2 : inbox.offsetTop / 2}px`;
       scan.style.top = `${rows[0].offsetTop}px`;
       scan.style.height = `${rows[0].offsetHeight}px`;
       scan.style.setProperty('--travel', `${rows[rows.length - 1].offsetTop - rows[0].offsetTop}px`);
