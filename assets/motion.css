@@ -166,4 +166,6 @@ html.mx-hidden :is(.mx-play, .mx-fresh), html.mx-hidden :is(.mx-play, .mx-fresh)
   .mx, .mx * { animation: none !important; }
   .mx-arm .mx-b { opacity: 1 !important; transform: none !important; }
   .mx-approve .mx-sheet * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  /* Druck: Lage nicht aus der Bildschirmbreite übernehmen, sonst skaliert der Browser die Seite */
+  .mx-approve { left: auto !important; right: 20px !important; top: 18px !important; translate: none !important; }
 }
