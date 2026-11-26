@@ -6,8 +6,9 @@
    html.md-still (Pause-Knöpfe, gilt seitenweit) halten alles an.
    Szenentexte stehen in data-t: dekorative Demo, nicht Teil des Seitentexts (llms-full.txt). */
 
-/* Farben nur dieser Komponenten (Ausnahme in DESIGN.md §10). Data-URI-SVGs unten können keine Variablen lesen. */
-:root {
+/* Farben nur dieser Komponenten (Ausnahme in DESIGN.md §10). Data-URI-SVGs unten können keine Variablen lesen.
+   Nicht auf :root: sonst zeichnet das Nachladen die ganze Seite neu und das HV-Poster zählt als spätes LCP-Element. */
+.agx, .hv-step, .md-rig, .org {
   --ok: #34d399; --ok-text: #6ee7b7; --ok-ink: #052e1c; --ok-glow: rgba(52,211,153,.55);
   --led: #fcc3ad; --led-top: #ffdccd; --led-bottom: #fcc8b3; --led-glow: rgba(255,100,30,.9);
   --human-hi: #ffedd5; --human-mid: #fdba74; --doc-bg: #241a12;
