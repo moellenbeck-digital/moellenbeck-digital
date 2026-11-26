@@ -3,6 +3,9 @@
 1. The blockquote equals the footer description of the start page and the HV page.
 2. Every link to moellenbeck-digital.io points to a file in the repo.
 3. Every #anchor exists as id="..." in that file.
+4. Entity sentences are word-identical: the llms.txt intro paragraph = Service.description of the
+   start page = visible hero text; the llms.txt line for /hausverwaltung/ starts with the HV
+   Service.description = visible HV hero text.
 
 Usage: python3 scripts/check-llms-txt.py   (exit code 1 on drift)
 """
@@ -26,6 +29,22 @@ for url in links:
  if path.endswith('/'): f=f/'index.html'
  if not f.is_file(): errors.append('missing file: '+url); continue
  if anchor and not re.search(r'\bid="'+re.escape(anchor)+'"',f.read_text()): errors.append('missing anchor: '+url)
+import json
+def service_desc(page,sid):
+ src=Path(page).read_text()
+ for block in re.findall(r'<script type="application/ld\+json">(.*?)</script>',src,re.S):
+  for n in json.loads(block)['@graph']:
+   if n.get('@id')==sid: return n.get('description'),src
+ return None,src
+def visible(src): return ' '.join(html.unescape(re.sub(r'<[^>]+>',' ',re.sub(r'<script.*?</script>','',src,flags=re.S))).split())
+home,src=service_desc('index.html',ROOT+'/#service')
+intro=next((l for l in text.split('\n\n')[2:3]),'').strip()
+if not home or intro!=home: errors.append(f'llms.txt intro {intro!r} != start Service.description {home!r}')
+if home and home not in visible(src): errors.append('start Service.description not visible on the page')
+hv,src=service_desc('hausverwaltung/index.html',ROOT+'/hausverwaltung/#service')
+line=re.search(r'^- \[Hausverwaltung\]\('+re.escape(ROOT)+r'/hausverwaltung/\): (.+)$',text,re.M)
+if not hv or not line or not line[1].startswith(hv): errors.append(f'llms.txt HV line does not start with HV Service.description {hv!r}')
+if hv and hv not in visible(src): errors.append('HV Service.description not visible on the page')
 for e in errors: print('FAIL',e)
 if errors: sys.exit(1)
-print(f'llms.txt ok: blockquote = footer (2 pages), {len(links)} links, files and anchors exist')
+print(f'llms.txt ok: blockquote = footer (2 pages), {len(links)} links, files and anchors exist, entity sentences = Service.description = hero (2 pages)')

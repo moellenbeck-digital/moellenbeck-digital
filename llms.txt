@@ -2,11 +2,11 @@
 
 > Software, Automatisierung und KI-Agenten. Digital & Remote.
 
-Moellenbeck-Digital UG (haftungsbeschränkt) baut Software, Automatisierung und KI-Agenten. Unsere Agenten bereiten vor – entscheiden tut ein Mensch.
+Moellenbeck-Digital baut Software, Automatisierung und KI-Agenten. Unsere Agenten bereiten vor – entscheiden tut ein Mensch.
 
 ## Kernseiten
 - [Startseite](https://moellenbeck-digital.io/): Moellenbeck-Digital baut Software, Automatisierung und KI-Agenten.
-- [Hausverwaltung](https://moellenbeck-digital.io/hausverwaltung/): Der KI-Mitarbeiter für Hausverwaltungen ist ein digitaler Backoffice-Kollege nach dem Eingang. Pilotphase startet bald.
+- [Hausverwaltung](https://moellenbeck-digital.io/hausverwaltung/): Der KI-Mitarbeiter für Hausverwaltungen ist ein digitaler Backoffice-Kollege nach dem Eingang: Er liest die Meldung, ordnet sie dem Objekt zu und bereitet alle Nachrichten fertig vor – mit Quelle. Pilotphase startet bald.
 
 ## Startseite: Abschnitte
 - [Fähigkeiten](https://moellenbeck-digital.io/#services): KI-Agenten & OpenClaw, Prozessautomatisierung, Web & Apps, Plattform & Infra.
