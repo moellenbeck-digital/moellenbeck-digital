@@ -659,3 +659,5 @@ h2[id], h3[id] { scroll-margin-top: 6rem; }
   .facts-table th, .facts-table td { overflow-wrap: anywhere; hyphens: auto; padding-right: 8px; }
   .facts-table tbody th[scope="row"] { width: 32%; }
 }
+/* E-mail addresses: no inserted hyphen (admin@moellen-/beck…), break only where needed */
+a[href^="mailto:"] { hyphens: manual; -webkit-hyphens: manual; overflow-wrap: anywhere; }
