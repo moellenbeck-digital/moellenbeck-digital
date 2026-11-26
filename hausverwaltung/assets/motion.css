@@ -61,7 +61,7 @@ svg .mx-b, svg .mx-a, .mx-cover { transform-box: fill-box; transform-origin: 50%
 .mx-member { display: block; width: var(--size, 34px); }
 .mx-member--human { width: calc(var(--size, 34px) * .66); margin-left: calc(var(--size, 34px) * .24); margin-right: 4px; }
 .mx-member--human .mx-human { width: 100%; aspect-ratio: 1; box-shadow: 0 0 0 3px rgba(251,146,60,.16); }
-.mx-sweep { position: absolute; display: block; inset: 2px -8px; border-radius: 6px; background: rgb(var(--c)); opacity: 0; transform-origin: 0 50%; pointer-events: none; }
+.mx-sweep { position: absolute; z-index: -1; display: block; inset: 2px -8px; border-radius: 6px; background: rgb(var(--c)); opacity: 0; transform-origin: 0 50%; pointer-events: none; }
 
 /* Organisation: Aufgaben-Punkte und Prüfhaken */
 .mx-pip { position: absolute; z-index: 2; left: 0; top: 0; display: block; width: 7px; height: 7px; margin: -3.5px 0 0 -3.5px; border-radius: 50%; background: rgb(var(--c)); box-shadow: 0 0 10px rgb(var(--c)); opacity: 0; pointer-events: none; }
