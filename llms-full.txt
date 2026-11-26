@@ -49,6 +49,10 @@ Keine Nachricht geht ohne Genehmigung raus
 
 05
 
+Jeder Schritt protokolliert
+
+06
+
 Ein Nein zählt – Lauf gestoppt, Regel verbessert
 
 // 01 · Fähigkeiten
