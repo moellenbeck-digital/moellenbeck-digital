@@ -47,20 +47,15 @@
   });
   document.querySelectorAll('[data-sound="click"]').forEach((el) => el.addEventListener('click', () => blip()));
 
-  /* ── Reveal: Fade-up + Blur-in; was gemeinsam ins Bild kommt, folgt leicht versetzt ── */
+  /* ── Reveal: Fade-up + Blur-in; gemeinsam Sichtbares folgt leicht versetzt ── */
   document.querySelectorAll('#faq .faq-item, .footer-grid > *').forEach((el) => el.classList.add('reveal'));
   if ('IntersectionObserver' in window && !reduce.matches) {
     const io = new IntersectionObserver((entries) => {
       let n = 0;
-      for (const e of entries) {
-        if (!e.isIntersecting) continue;
-        const el = e.target;
-        const delay = document.documentElement.classList.contains('md-still') ? 0 : Math.min(n++, 5) * 70;
-        if (delay) {
-          /* Versatz nur für diesen Auftritt, damit Hover-Übergänge danach ohne Verzögerung laufen */
-          el.style.transitionDelay = `${delay}ms`;
-          setTimeout(() => el.style.removeProperty('transition-delay'), delay + 700);
-        }
+      for (const { target: el, isIntersecting } of entries) {
+        if (!isIntersecting) continue;
+        const d = document.documentElement.matches('.md-still') ? 0 : Math.min(n++, 5) * 70;
+        if (d) { el.style.transitionDelay = `${d}ms`; setTimeout(() => { el.style.transitionDelay = ''; }, d + 700); }
         el.classList.add('is-in'); io.unobserve(el);
       }
     }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
@@ -304,11 +299,17 @@
     });
   }
 
-  /* ── Agentische Mikro-Szenen: erst nach load holen, damit nichts mit dem ersten Bildaufbau konkurriert ── */
-  addEventListener('load', () => setTimeout(() => {
-    const script = document.createElement('script');
-    script.src = 'assets/motion.js';
-    document.body.append(script);
-  }, 1800), { once: true });
+  /* Mikro-Szenen liegen unter dem ersten Bildschirm: beim ersten Scrollen oder Zeigen holen, sonst nach 5 s */
+  addEventListener('load', () => {
+    const wake = ['scroll', 'pointermove', 'pointerdown', 'keydown'];
+    let timer = 0;
+    const go = () => {
+      clearTimeout(timer);
+      wake.forEach((type) => removeEventListener(type, go));
+      document.body.append(Object.assign(document.createElement('script'), { src: 'assets/motion.js' }));
+    };
+    wake.forEach((type) => addEventListener(type, go, { passive: true }));
+    timer = setTimeout(go, scrollY ? 0 : 5000);
+  }, { once: true });
 
 })();

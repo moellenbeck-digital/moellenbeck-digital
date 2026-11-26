@@ -1,5 +1,6 @@
 /* Agentische Mikro-Szenen.
-   main.js holt diese Datei erst nach "load"; sie lädt motion.css und baut jede Szene erst nahe am Viewport.
+   main.js holt diese Datei nach "load" beim ersten Scrollen oder Zeigen (sonst nach 5 s); sie lädt motion.css
+   und baut jede Szene erst nahe am Viewport.
    Alle Elemente sind Dekoration (aria-hidden, per Skript erzeugt, absolut platziert): ohne JS ändert sich
    nichts am Inhalt, und kein Layout verschiebt sich.
    Grundzustand = Endzustand. .mx-arm blendet den Aufbau vor dem ersten Lauf aus, .mx-play spielt Aufbau

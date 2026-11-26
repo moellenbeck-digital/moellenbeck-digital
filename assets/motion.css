@@ -1,4 +1,4 @@
-/* Agentische Mikro-Szenen. assets/motion.js lädt diese Datei nach "load" und erzeugt alle Elemente selbst;
+/* Agentische Mikro-Szenen. assets/motion.js lädt diese Datei bei Bedarf (nach "load") und erzeugt alle Elemente selbst;
    ohne JS existiert nichts davon. Grundzustand = Endzustand. .mx-arm blendet den Aufbau (.mx-b) aus,
    .mx-play spielt Aufbau und Handlung (.mx-a), .mx-replay nur die Handlung. Handlungen beginnen und enden
    in Ruhe, darum springt beim Hover nichts. Bewegt wird transform/opacity; nur .mx-b-draw zeichnet
