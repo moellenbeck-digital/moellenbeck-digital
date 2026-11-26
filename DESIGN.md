@@ -189,6 +189,7 @@ Zurückhaltend, immer `ease-out`, kurz:
 | Cursor | `blink 1s step-end infinite` |
 
 Keine Bounce-Effekte, keine Rotationen, keine Parallax-Spielereien.
+Einzige Ausnahme: Avatar und Agenten-Szenen (siehe §10).
 
 ## 7. Grundgerüst pro Produkt
 
@@ -239,3 +240,25 @@ als Utility-Klassen oder Komponenten nachbauen.
 - Kein Space Grotesk im Fließtext, kein Mono für lange Absätze.
 - Keine Icon-Bibliotheken für Pfeile/Bullets, wo ASCII reicht.
 - Kein reines Weiß (`#fff`) und kein reines Schwarz (`#000`).
+
+## 10. Ausnahme: Avatar und Agenten-Szenen
+
+Gilt **nur** für den MD-Avatar, die Szene „Eingang → Agent → Freigabe“, das
+Bot-Team, die HV-Ablaufschritte und den Mensch-Knoten (`assets/agents.css`,
+`assets/agents.js`). Alle anderen Komponenten folgen §1–§9.
+
+| Thema | Ausnahme | Grenze |
+|---|---|---|
+| Motion | Figuren dürfen sich neigen, drehen, springen und leicht überschwingen | Kurve höchstens `cubic-bezier(0.34, 1.25, 0.64, 1)`; Drehung beim Tragen ≤ 4°; Hover/Freude ≤ 1.08 Skalierung; keine Partikel oder Strahlen |
+| Zeiger | Der Avatar darf dem Zeiger folgen | nur bei feinem Zeiger; ruht ohne Bewegung |
+| Radien | `--r-ctl` (10px) für Knöpfe, `--r-card` (16px) für Flächen, 6/12px für Chips, Karten und Blasen; runde Formen für Mensch und Haken | keine neuen Radien an anderen Komponenten |
+| Farben | Eigene Tokens: `--ok`, `--ok-text`, `--ok-ink`, `--ok-glow` (Freigabe-Grün), `--led*` (Augen/Mund), `--human-hi`, `--human-mid`, `--doc-bg` | Grün nur für „freigegeben“; Hex-Werte nur in der Token-Definition und in Data-URI-SVGs |
+
+Pflicht für jede Ausnahme:
+
+- Nur `transform` und `opacity` animieren.
+- Ein seitenweiter Pause-Knopf (Hero und Szene) hält alle Figuren an;
+  Trefferfläche mindestens 44px.
+- Außerhalb des Viewports und bei verstecktem Tab steht alles.
+- `prefers-reduced-motion: reduce` und ohne JavaScript: statisches Endbild.
+- Bewegte Elemente verdecken weder Text noch Personen.
