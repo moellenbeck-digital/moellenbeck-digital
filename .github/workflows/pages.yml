@@ -1,0 +1,66 @@
+# Deploy GitHub Pages from an allowlist (scripts/pages-allowlist.txt), not from the whole repo.
+#
+# Safe before the switch: the job "source" reads the Pages build type. While it is "legacy"
+# (Pages builds main with Jekyll), the deploy job is skipped and the live site does not change.
+# Switch (dev-cos, at merge):
+#   gh api -X PUT repos/moellenbeck-digital/moellenbeck-digital/pages -f build_type=workflow
+#   gh workflow run pages.yml --ref main
+# Rollback:
+#   gh api -X PUT repos/moellenbeck-digital/moellenbeck-digital/pages -f build_type=legacy \
+#     -f 'source[branch]=main' -f 'source[path]=/'
+name: Pages (allowlist deploy)
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Build _site from the allowlist (fails on unknown files)
+        run: python3 scripts/build-pages.py --out _site
+      - name: Verify _site = allowlist, byte-identical
+        run: python3 scripts/build-pages.py --verify _site
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site
+  source:
+    runs-on: ubuntu-latest
+    permissions:
+      pages: read
+    outputs:
+      build_type: ${{ steps.get.outputs.build_type }}
+    steps:
+      - id: get
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # On an API error: skip the deploy (warning), never fail main.
+          t=$(gh api "repos/${GITHUB_REPOSITORY}/pages" --jq .build_type) || { echo "::warning::Pages API not readable"; t=unknown; }
+          echo "build_type=$t" >> "$GITHUB_OUTPUT"
+          if [ "$t" != workflow ]; then
+            echo "::notice::Pages build type is '$t', not 'workflow': deploy skipped, live site unchanged."
+          fi
+  deploy:
+    needs: [build, source]
+    if: needs.source.outputs.build_type == 'workflow'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/configure-pages@v6
+      - id: deployment
+        uses: actions/deploy-pages@v5

@@ -1,0 +1,45 @@
+# Public files: GitHub Pages publishes ONLY tracked files that match a line below.
+# scripts/build-pages.py copies them unchanged into _site; nothing else is published.
+# Syntax: one glob per line, relative to the repo root. "*" = any characters except "/",
+# "**/" = zero or more directories, "?" = one character. "#" starts a comment.
+# A new public file: add it here. An internal file: add it to scripts/pages-internal.txt.
+# Every tracked file must match exactly one of the two lists, otherwise CI fails.
+
+# Domain, crawler and AI files
+CNAME
+robots.txt
+sitemap.xml
+llms.txt
+llms-full.txt
+
+# Pages
+index.html
+impressum.html
+datenschutz.html
+legal/index.html
+hausverwaltung/index.html
+
+# Code and styles of the pages
+main.js
+style.css
+hausverwaltung/main.js
+hausverwaltung/style.css
+
+# Assets (by file type; a file of another type in assets/ is not allowed automatically)
+assets/**/*.png
+assets/**/*.jpg
+assets/**/*.webp
+assets/**/*.svg
+assets/**/*.ico
+assets/**/*.mp4
+assets/**/*.woff2
+assets/fonts/fonts.css
+assets/fonts/*.txt
+hausverwaltung/assets/**/*.png
+hausverwaltung/assets/**/*.webp
+hausverwaltung/assets/**/*.svg
+hausverwaltung/assets/**/*.ico
+hausverwaltung/assets/**/*.mp4
+hausverwaltung/assets/**/*.vtt
+hausverwaltung/assets/**/*.woff2
+hausverwaltung/assets/fonts/*.txt
