@@ -1,0 +1,26 @@
+name: SEO mirror drift
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify public text mirror
+        run: python3 scripts/generate-llms.py --check
+      - name: Build like GitHub Pages (Jekyll, github-pages gem)
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+      - name: Verify Pages publishes no internal files and copies the rest unchanged
+        run: python3 scripts/check-pages-exclude.py --built _site

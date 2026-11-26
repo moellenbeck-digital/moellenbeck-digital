@@ -1,0 +1,20 @@
+# GitHub Pages (legacy build from main, path "/") runs Jekyll on this repo.
+# There is no .nojekyll, so this exclude list applies: internal work files are not published.
+# No page uses front matter or Liquid, so Jekyll copies every published file unchanged.
+# Check: python3 scripts/check-pages-exclude.py (also runs in CI).
+exclude:
+  - docs/
+  - audit/
+  - evidence/
+  - scripts/
+  - TODO.md
+  - DESIGN.md
+  - design.html
+  - og-banner.html
+  - hausverwaltung/README.md
+  - .github/
+  - .gitignore
+  - node_modules/
+
+# No theme: GitHub Pages would otherwise add assets/css/style.css from jekyll-theme-primer.
+theme: null
