@@ -47,10 +47,22 @@
   });
   document.querySelectorAll('[data-sound="click"]').forEach((el) => el.addEventListener('click', () => blip()));
 
-  /* ── Reveal: Fade-up + Blur-in ── */
+  /* ── Reveal: Fade-up + Blur-in; was gemeinsam ins Bild kommt, folgt leicht versetzt ── */
+  document.querySelectorAll('#faq .faq-item, .footer-grid > *').forEach((el) => el.classList.add('reveal'));
   if ('IntersectionObserver' in window && !reduce.matches) {
     const io = new IntersectionObserver((entries) => {
-      for (const e of entries) if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+      let n = 0;
+      for (const e of entries) {
+        if (!e.isIntersecting) continue;
+        const el = e.target;
+        const delay = document.documentElement.classList.contains('md-still') ? 0 : Math.min(n++, 5) * 70;
+        if (delay) {
+          /* Versatz nur für diesen Auftritt, damit Hover-Übergänge danach ohne Verzögerung laufen */
+          el.style.transitionDelay = `${delay}ms`;
+          setTimeout(() => el.style.removeProperty('transition-delay'), delay + 700);
+        }
+        el.classList.add('is-in'); io.unobserve(el);
+      }
     }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
     document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
   } else {
@@ -306,4 +318,12 @@
     const later = () => (window.requestIdleCallback ? requestIdleCallback(startVideo, { timeout: 3000 }) : setTimeout(startVideo, 1500));
     if (document.readyState === 'complete') later(); else window.addEventListener('load', later, { once: true });
   } else if (hvVideo) { hvVideo.controls = true; }
+
+  /* ── Agentische Mikro-Szenen: erst nach load holen, damit nichts mit dem ersten Bildaufbau konkurriert ── */
+  addEventListener('load', () => setTimeout(() => {
+    const script = document.createElement('script');
+    script.src = 'assets/motion.js';
+    document.body.append(script);
+  }, 1100), { once: true });
+
 })();
