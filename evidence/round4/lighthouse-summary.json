@@ -1,0 +1,207 @@
+{
+ "before_bd72bba": {
+  "home": {
+   "url": "http://127.0.0.1:8793/",
+   "lighthouse": "13.6.0",
+   "formFactor": "mobile",
+   "runs": 3,
+   "performance": [
+    97,
+    97,
+    97
+   ],
+   "accessibility": [
+    100,
+    100,
+    100
+   ],
+   "best_practices": [
+    100,
+    100,
+    100
+   ],
+   "seo": [
+    100,
+    100,
+    100
+   ],
+   "lcp_ms": [
+    2478.463,
+    2478.938,
+    2478.28
+   ],
+   "cls": [
+    0,
+    0,
+    0
+   ],
+   "tbt_ms": [
+    0,
+    0,
+    7
+   ],
+   "median": {
+    "performance": 97,
+    "accessibility": 100,
+    "best_practices": 100,
+    "seo": 100,
+    "lcp_ms": 2478.463,
+    "cls": 0,
+    "tbt_ms": 0
+   }
+  },
+  "hv": {
+   "url": "http://127.0.0.1:8793/hausverwaltung/",
+   "lighthouse": "13.6.0",
+   "formFactor": "mobile",
+   "runs": 3,
+   "performance": [
+    98,
+    98,
+    98
+   ],
+   "accessibility": [
+    100,
+    100,
+    100
+   ],
+   "best_practices": [
+    100,
+    100,
+    100
+   ],
+   "seo": [
+    100,
+    100,
+    100
+   ],
+   "lcp_ms": [
+    2254.727,
+    2253.697,
+    2254.455
+   ],
+   "cls": [
+    0,
+    0,
+    0
+   ],
+   "tbt_ms": [
+    0,
+    0,
+    0
+   ],
+   "median": {
+    "performance": 98,
+    "accessibility": 100,
+    "best_practices": 100,
+    "seo": 100,
+    "lcp_ms": 2254.455,
+    "cls": 0,
+    "tbt_ms": 0
+   }
+  }
+ },
+ "after_a18030d": {
+  "home": {
+   "url": "http://127.0.0.1:8765/",
+   "lighthouse": "13.6.0",
+   "formFactor": "mobile",
+   "runs": 3,
+   "performance": [
+    98,
+    97,
+    97
+   ],
+   "accessibility": [
+    100,
+    100,
+    100
+   ],
+   "best_practices": [
+    100,
+    100,
+    100
+   ],
+   "seo": [
+    100,
+    100,
+    100
+   ],
+   "lcp_ms": [
+    2482.425,
+    2478.035,
+    2477.989
+   ],
+   "cls": [
+    0,
+    0,
+    0
+   ],
+   "tbt_ms": [
+    0,
+    0,
+    0
+   ],
+   "median": {
+    "performance": 97,
+    "accessibility": 100,
+    "best_practices": 100,
+    "seo": 100,
+    "lcp_ms": 2478.035,
+    "cls": 0,
+    "tbt_ms": 0
+   }
+  },
+  "hv": {
+   "url": "http://127.0.0.1:8765/hausverwaltung/",
+   "lighthouse": "13.6.0",
+   "formFactor": "mobile",
+   "runs": 3,
+   "performance": [
+    98,
+    98,
+    98
+   ],
+   "accessibility": [
+    100,
+    100,
+    100
+   ],
+   "best_practices": [
+    100,
+    100,
+    100
+   ],
+   "seo": [
+    100,
+    100,
+    100
+   ],
+   "lcp_ms": [
+    2254.024,
+    2253.061,
+    2253.477
+   ],
+   "cls": [
+    0,
+    0,
+    0
+   ],
+   "tbt_ms": [
+    0,
+    0,
+    0
+   ],
+   "median": {
+    "performance": 98,
+    "accessibility": 100,
+    "best_practices": 100,
+    "seo": 100,
+    "lcp_ms": 2253.477,
+    "cls": 0,
+    "tbt_ms": 0
+   }
+  }
+ },
+ "note": "Local python3 -m http.server (no compression), Chrome headless, Lighthouse default mobile. Raw reports not committed."
+}
