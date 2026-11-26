@@ -1,0 +1,200 @@
+[
+ {
+  "page": "start",
+  "width": 320,
+  "table": 0,
+  "caption": "Fakten zu Moellenbeck-Digital",
+  "tableRight": 300,
+  "viewport": 320,
+  "cells": 12,
+  "bad": [],
+  "ok": true
+ },
+ {
+  "page": "start",
+  "width": 320,
+  "table": 1,
+  "caption": "Produkte von Moellenbeck-Digital mit Status",
+  "tableRight": 300,
+  "viewport": 320,
+  "cells": 18,
+  "bad": [],
+  "ok": true
+ },
+ {
+  "page": "start",
+  "width": 344,
+  "table": 0,
+  "caption": "Fakten zu Moellenbeck-Digital",
+  "tableRight": 324,
+  "viewport": 344,
+  "cells": 12,
+  "bad": [],
+  "ok": true
+ },
+ {
+  "page": "start",
+  "width": 344,
+  "table": 1,
+  "caption": "Produkte von Moellenbeck-Digital mit Status",
+  "tableRight": 324,
+  "viewport": 344,
+  "cells": 18,
+  "bad": [],
+  "ok": true
+ },
+ {
+  "page": "start",
+  "width": 360,
+  "table": 0,
+  "caption": "Fakten zu Moellenbeck-Digital",
+  "tableRight": 340,
+  "viewport": 360,
+  "cells": 12,
+  "bad": [],
+  "ok": true
+ },
+ {
+  "page": "start",
+  "width": 360,
+  "table": 1,
+  "caption": "Produkte von Moellenbeck-Digital mit Status",
+  "tableRight": 340,
+  "viewport": 360,
+  "cells": 18,
+  "bad": [],
+  "ok": true
+ },
+ {
+  "page": "start",
+  "width": 375,
+  "table": 0,
+  "caption": "Fakten zu Moellenbeck-Digital",
+  "tableRight": 355,
+  "viewport": 375,
+  "cells": 12,
+  "bad": [],
+  "ok": true
+ },
+ {
+  "page": "start",
+  "width": 375,
+  "table": 1,
+  "caption": "Produkte von Moellenbeck-Digital mit Status",
+  "tableRight": 355,
+  "viewport": 375,
+  "cells": 18,
+  "bad": [],
+  "ok": true
+ },
+ {
+  "page": "start",
+  "width": 390,
+  "table": 0,
+  "caption": "Fakten zu Moellenbeck-Digital",
+  "tableRight": 370,
+  "viewport": 390,
+  "cells": 12,
+  "bad": [],
+  "ok": true
+ },
+ {
+  "page": "start",
+  "width": 390,
+  "table": 1,
+  "caption": "Produkte von Moellenbeck-Digital mit Status",
+  "tableRight": 370,
+  "viewport": 390,
+  "cells": 18,
+  "bad": [],
+  "ok": true
+ },
+ {
+  "page": "start",
+  "width": 412,
+  "table": 0,
+  "caption": "Fakten zu Moellenbeck-Digital",
+  "tableRight": 392,
+  "viewport": 412,
+  "cells": 12,
+  "bad": [],
+  "ok": true
+ },
+ {
+  "page": "start",
+  "width": 412,
+  "table": 1,
+  "caption": "Produkte von Moellenbeck-Digital mit Status",
+  "tableRight": 392,
+  "viewport": 412,
+  "cells": 18,
+  "bad": [],
+  "ok": true
+ },
+ {
+  "page": "hv",
+  "width": 320,
+  "table": 0,
+  "caption": "Fakten zum KI-Mitarbeiter für Hausverwaltungen",
+  "tableRight": 300,
+  "viewport": 320,
+  "cells": 12,
+  "bad": [],
+  "ok": true
+ },
+ {
+  "page": "hv",
+  "width": 344,
+  "table": 0,
+  "caption": "Fakten zum KI-Mitarbeiter für Hausverwaltungen",
+  "tableRight": 324,
+  "viewport": 344,
+  "cells": 12,
+  "bad": [],
+  "ok": true
+ },
+ {
+  "page": "hv",
+  "width": 360,
+  "table": 0,
+  "caption": "Fakten zum KI-Mitarbeiter für Hausverwaltungen",
+  "tableRight": 340,
+  "viewport": 360,
+  "cells": 12,
+  "bad": [],
+  "ok": true
+ },
+ {
+  "page": "hv",
+  "width": 375,
+  "table": 0,
+  "caption": "Fakten zum KI-Mitarbeiter für Hausverwaltungen",
+  "tableRight": 355,
+  "viewport": 375,
+  "cells": 12,
+  "bad": [],
+  "ok": true
+ },
+ {
+  "page": "hv",
+  "width": 390,
+  "table": 0,
+  "caption": "Fakten zum KI-Mitarbeiter für Hausverwaltungen",
+  "tableRight": 370,
+  "viewport": 390,
+  "cells": 12,
+  "bad": [],
+  "ok": true
+ },
+ {
+  "page": "hv",
+  "width": 412,
+  "table": 0,
+  "caption": "Fakten zum KI-Mitarbeiter für Hausverwaltungen",
+  "tableRight": 392,
+  "viewport": 412,
+  "cells": 12,
+  "bad": [],
+  "ok": true
+ }
+]
