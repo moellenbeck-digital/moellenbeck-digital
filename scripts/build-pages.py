@@ -7,9 +7,11 @@ Checks (always):
  2. Every glob matches at least one tracked file (no stale entries).
  3. Every required public file is tracked and allowed.
  4. Public files are regular files (no symlinks, no submodules).
+ 5. No public path has a component that starts with "." (e.g. assets/.hidden.png).
 Modes:
  --check          checks only (default)
- --out DIR        checks, then copy the public files unchanged into DIR (DIR must be "_site*")
+ --out DIR        checks, then copy the public files unchanged into DIR
+                  (DIR must be "_site*", a direct child of the repo root, and not tracked)
  --verify DIR     DIR (e.g. the Pages artifact or a Jekyll build) contains exactly the public files,
                   each byte-identical to the repo file
  --list           print public and internal files
@@ -49,11 +51,13 @@ for f in REQUIRED:
  if f not in public: errors.append('required public file missing or not allowed: '+f)
 for f in public:
  if mode[f] not in ('100644','100755'): errors.append(f'public file is not a regular file (mode {mode[f]}): {f}')
+ if any(c.startswith('.') for c in f.split('/')): errors.append('public path has a component starting with ".": '+f)
 def arg(flag): return sys.argv[sys.argv.index(flag)+1] if flag in sys.argv else None
 if not errors and arg('--out'):
- out=Path(arg('--out'))
- if not out.name.startswith('_site') or any(f==out.name or f.startswith(out.name+'/') for f in files):
-  sys.exit(f'refusing output dir {out}: name must start with "_site" and must not be tracked')
+ out=Path(arg('--out')); root=Path.cwd().resolve()
+ if out.is_symlink() or out.resolve().parent!=root or not out.name.startswith('_site') or any(f==out.name or f.startswith(out.name+'/') for f in files):
+  sys.exit(f'refusing output dir {out}: must be a direct child of the repo root, name must start with "_site", not tracked, no symlink')
+ out=root/out.name
  if out.exists(): shutil.rmtree(out)
  for f in public:
   (out/f).parent.mkdir(parents=True,exist_ok=True); shutil.copyfile(f,out/f)
