@@ -11,8 +11,6 @@ exclude:
   - evidence/
   - scripts/
   - TODO.md
-  - DESIGN.md
-  - design.html
   - og-banner.html
   - hausverwaltung/README.md
   - .github/
@@ -21,3 +19,6 @@ exclude:
 
 # No theme: GitHub Pages would otherwise add assets/css/style.css from jekyll-theme-primer.
 theme: null
+
+# Serve DESIGN.md as raw agent-readable Markdown, including the legacy Pages build.
+markdown_ext: "markdown,mkdown,mkdn,mkd"

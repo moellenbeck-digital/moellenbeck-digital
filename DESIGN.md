@@ -1,307 +1,171 @@
-# Möllenbeck-Digital — Design-System
+# Moellenbeck-Digital — Design-System
 
-> Kanonische URL: <https://moellenbeck-digital.io/DESIGN.md>
-> — z. B. `curl -s https://moellenbeck-digital.io/DESIGN.md` als Design-Kontext in andere Projekte laden.
+Designstand: 27. November 2026. Abgeleitet aus der aktuellen Website, einschließlich Avatar und Agenten-Szenen. Dieser Stand ersetzt die frühere Vorgabe mit 4-px-Karten und extern geladenen Google Fonts.
 
-Referenz-Styleguide für alle Produkte und Web-Auftritte von Möllenbeck-Digital.
-Quelle der Wahrheit ist die Website (`style.css` in diesem Repo); dieses Dokument
-destilliert daraus wiederverwendbare Regeln, Tokens und Muster.
+- Visuelle Referenz: [design.html](https://moellenbeck-digital.io/design.html)
+- Regeln für Agenten: [DESIGN.md](https://moellenbeck-digital.io/DESIGN.md)
+- Wiederverwendbare Tokens und Komponenten: [assets/design-system.css](https://moellenbeck-digital.io/assets/design-system.css)
+- Website-Komposition: `style.css`, `index.html`; Verhalten: `main.js`
 
-**Charakter in einem Satz:** Dunkles, technisches "Terminal-Ästhetik trifft
-Editorial-Design" — ruhiger Dark-Mode-Hintergrund, ein einziger warmer
-Orange-Akzent, Monospace-Details mit Code-Anmutung (`>`, `//`, `->`) und eine
-markante Display-Schrift für Headlines.
+**Charakter:** dunkle, großzügige Flächen; warme orange Aktionen; prägnante Space-Grotesk-Überschriften; lesbarer Inter-Fließtext; technische Details in DM Mono. Der freundliche Roboter macht Agenten sichtbar. Die Entscheidung des Menschen bleibt im Inhalt erkennbar.
 
----
+## Schnellstart für Websites, Apps und Agenten
 
-## 1. Farben
+1. Diese Datei als Designkontext verwenden; `design.html` zeigt die tatsächlichen Komponenten.
+2. `assets/design-system.css`, den Ordner `assets/fonts/` einschließlich Lizenzdateien und die benötigten Bilder kopieren. Relative Pfade erhalten. Kein Build-Tool und kein Framework erforderlich.
+3. CSS laden und `md-ui` auf den Body oder einen abgegrenzten App-Bereich setzen. Die CSS-Datei definiert globale `:root`-Tokens und Font-Familien; Komponentenstile sind über Klassen adressiert. Bei Integration in eine bestehende App Token-Namen auf Kollisionen prüfen oder einen iframe verwenden.
+4. Für eine ganze Website passende Abschnitte aus `index.html` und `style.css` übernehmen. Die kleine Komponentenbasis allein enthält weder Filmsteuerung noch Kontaktformular-Logik.
 
-Alle Farben als CSS Custom Properties definieren. Kein Produkt weicht von
-diesen Tokens ab — neue Bedeutungen bekommen neue Tokens, keine Hex-Werte
-im Komponenten-Code.
-
-```css
-:root {
-  /* Flächen (von tief nach erhaben) */
-  --bg:          #08080a;   /* Seitenhintergrund */
-  --bg-elevated: #111114;   /* Cards, Sections, Panels */
-  --bg-card:     #16161a;   /* nochmals erhaben: Avatare, Inputs, Nested */
-
-  /* Text */
-  --text:        #e8e8ed;   /* Primärtext */
-  --text-muted:  #6b6b76;   /* Sekundärtext, Labels, Fließtext in Cards */
-
-  /* Akzent — Soft Orange (Tailwind orange-400) */
-  --accent:      #fb923c;
-  --accent-dim:  rgba(251, 146, 60, 0.10);  /* Tag-/Badge-Hintergründe */
-  --accent-glow: rgba(251, 146, 60, 0.28);  /* Glows, Schatten, Radial-Gradients */
-
-  /* Linien */
-  --border:      #222228;   /* 1px-Rahmen und Trennlinien */
-}
+```html
+<link rel="stylesheet" href="assets/design-system.css">
+<section class="md-ui" aria-label="Agenten-Assistent">
+  <article class="md-card">
+    <img class="md-avatar" src="assets/img/avatar-200.webp"
+         width="200" height="261" alt="MD-Agent">
+    <h2>Wie können wir helfen?</h2>
+    <p>Beschreiben Sie die Aufgabe. Wir bereiten den nächsten Schritt vor.</p>
+    <a class="md-button" href="mailto:admin@moellenbeck-digital.io">Kontakt aufnehmen</a>
+  </article>
+</section>
 ```
 
-### Regeln
+Für React/Vue die gleichen semantischen Elemente und Klassen verwenden. Links navigieren, Buttons führen Aktionen aus. Statusinformationen gehören zusätzlich in Text. Das Design ist auf dunkle Flächen ausgelegt; ein helles Theme ist nicht definiert.
 
-- **Ein Akzent, sparsam eingesetzt.** Orange markiert Interaktion, Marker,
-  Nummern, Status — nie große Flächen. Die Seite bleibt zu ~95 % Graustufen.
-- **Hierarchie über Flächenhelligkeit:** `--bg` → `--bg-elevated` → `--bg-card`.
-  Keine Schatten zur Tiefenstaffelung (Ausnahme: Mobile-Dropdown, Hover-Glow).
-- **Akzent-Transparenzen** immer aus dem Basiswert `251, 146, 60` ableiten:
-  `0.10` für Füllungen, `0.15–0.35` für Rahmen, `0.28` für Glows.
-- Text auf Akzentflächen (z. B. Primär-Button): `--bg`, nicht Weiß.
-- Es gibt **keinen Light Mode**. Produkte sind dark-only.
+## Farben
 
-## 2. Typografie
-
-Drei Schriften mit klar getrennten Rollen:
-
-```css
---display: 'Space Grotesk', sans-serif;                                  /* Headlines */
---sans:    'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; /* Fließtext */
---mono:    'DM Mono', 'Fira Code', monospace;                   /* UI-Details */
-```
-
-Google-Fonts-Import (Gewichte genau so laden):
-
-```css
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
-```
-
-| Rolle | Schrift | Gewicht | Größe | Besonderheit |
-|---|---|---|---|---|
-| H1 / Hero | Space Grotesk | 700 | `clamp(2rem, 8vw, 4.5rem)` | `letter-spacing: -0.03em`, `line-height: 1.05` |
-| H2 / Section | Space Grotesk | 700 | `clamp(1.75rem, 4vw, 2.5rem)` | `letter-spacing: -0.02em` |
-| H3 / Card-Titel | Space Grotesk | 700 | `1.1rem` | `letter-spacing: -0.01em` |
-| Fließtext | Inter | 400 | `0.85–1.05rem` | `line-height: 1.6` |
-| Labels, Nav, Tags, Buttons | DM Mono | 400–500 | `0.7–0.85rem` | `letter-spacing: 0.04–0.15em`, oft `uppercase` |
-
-### Regeln
-
-- **Space Grotesk nur für Überschriften**, nie für Fließtext oder UI-Elemente.
-- **DM Mono für alles "Technische":** Navigation, Buttons, Badges, Nummern,
-  Status, Meta-Angaben, Links. Mono-Text bekommt immer positives
-  Letter-Spacing; Display-Text immer negatives.
-- Headlines dürfen ein Wort/eine Zeile in `--accent` hervorheben
-  (auf eigener Zeile via `display: block`).
-- Basis: `html { font-size: 16px }`, Body `line-height: 1.6`.
-
-## 3. Signatur-Motive (Wiedererkennung)
-
-Diese Details machen den Look aus — mindestens zwei davon sollte jedes
-Produkt tragen:
-
-1. **Prompt-Zeichen `>`** als Aufzählungs- und Nav-Präfix (via `::before`,
-   in `--accent`, Listen-Items mit `padding-left: 1.2rem`).
-2. **Kommentar-Präfix `//`** vor Untertiteln/Subline (in `--border`-Farbe).
-3. **ASCII-Pfeile `->` und `<-`** für weiterführende Links bzw. Zurück-Links —
-   keine Icon-Fonts, keine SVG-Pfeile.
-4. **Punktraster-Hintergrund** auf dem Body:
-   ```css
-   background-image: radial-gradient(circle at 1px 1px, rgba(251,146,60,0.04) 1px, transparent 0);
-   background-size: 32px 32px;
-   ```
-5. **Blinkender Cursor** (2px breiter `--accent`-Balken, `blink 1s step-end infinite`)
-   am Ende von Hero-Headlines.
-6. **Akzent-Balken links:** 3px breiter `--accent`-Streifen an der linken
-   Kante von Cards/Sections, unsichtbar bis Hover (`opacity` 0 → 1).
-7. **Glow-Radial:** großer `radial-gradient(circle, var(--accent-glow), transparent)`
-   mit niedriger Opacity (0.15–0.3) hinter Hero/CTA-Bereichen, gern mit
-   langsamer `pulse`-Animation.
-8. **Status-Punkt:** 6px-Kreis in `--accent` mit `box-shadow: 0 0 8px var(--accent-glow)`
-   für "aktiv"; grau (`--text-muted`) ohne Glow für "archiviert/inaktiv".
-
-## 4. Form & Abstände
-
-- **Radii:** `4px` Standard (Cards, Buttons, Panels), `2px` für kleine
-  Chips/Tags. Nichts darüber — keine Pills, keine großen Rundungen.
-- **Rahmen:** immer `1px solid var(--border)`.
-- **Layoutbreiten:** Content-Blöcke `max-width: 1080px`, Text-/Leseseiten
-  und Hero `max-width: 720px`, jeweils zentriert.
-- **Seiten-Padding:** `2rem` horizontal (Desktop), `1.25rem` mobil.
-- **Vertikaler Rhythmus:** Sections `4rem` Padding oben/unten (mobil `3rem`),
-  Card-Innenabstand `1.5rem` (mobil `1.25rem`), Grid-Gap `1.25rem`.
-- **Grids:** `repeat(auto-fit, minmax(320px, 1fr))` für 2-spaltig,
-  `minmax(280px, 1fr)` für 3-spaltig; zwischen 601–880px einspaltig.
-- `scroll-margin-top: 5rem` auf Anker-Zielen (fixe Nav).
-
-## 5. Komponenten-Rezepte
-
-### Navigation
-Fixiert, `rgba(8,8,10,0.85)` mit `backdrop-filter: blur(12px)`,
-`1px` Border unten. Links in DM Mono `0.75rem`, `--text-muted`, mit
-`>`-Präfix; Hover färbt Link und Präfix `--accent`. Mobil (< 600px):
-Hamburger als `<details>/<summary>`, drei 20×2px-Balken in `--accent`
-auf `--accent-dim`-Fläche, Menü als abgedunkeltes Blur-Dropdown rechts.
-
-### Primär-Button
-```css
-font-family: var(--mono); font-size: 0.85rem; font-weight: 500;
-text-transform: uppercase; letter-spacing: 0.05em;
-color: var(--bg); background: var(--accent);
-border: 1px solid var(--accent); border-radius: 4px;
-padding: 0.75rem 1.25rem;
-```
-Hover: `translateY(-2px)` + `box-shadow: 0 6px 24px var(--accent-glow)`.
-Focus: `outline: 2px solid var(--accent); outline-offset: 3px`.
-
-### Sekundär-Link (Ghost)
-DM Mono, `--text-muted`, keine Border; Hover: Text `--accent` +
-`border-bottom: 1px solid var(--accent)`. Weiterführende Links hängen
-`->` via `::after` an.
-
-### Tag / Badge
-DM Mono `0.7rem`, uppercase, `letter-spacing: 0.1em`, Farbe `--accent`,
-Hintergrund `--accent-dim`, `1px` Rahmen `rgba(251,146,60,0.15)`,
-`border-radius: 2px`, Padding `0.3rem 0.75rem`.
-
-### Tech-/Stack-Chip (neutral)
-Wie Tag, aber `--text-muted` auf transparentem Grund mit `--border`-Rahmen —
-für Metadaten ohne Gewicht.
-
-### Card
-`--bg-elevated`, `1px --border`, `4px` Radius. Hover: Rahmen
-`rgba(251,146,60,0.25)`, `translateY(-2px)`, linker 3px-Akzentbalken
-blendet ein. Aufbau: Mono-Nummer/Marker (`01`, `02` …) → Space-Grotesk-H3 →
-muted Fließtext → optional `>`-Liste → Chips unten (`margin-top: auto`).
-
-### Section-Header
-Zeile aus: Mono-Marker (z. B. `01`, uppercase, `--accent`) + Space-Grotesk-H2 +
-1px-Linie in `--border`, die den Rest der Zeile füllt (mobil entfällt
-die Linie).
-
-### CTA- / Kontakt-Panel
-Zentrierte Card mit großem Glow-Radial hinter dem Inhalt
-(`opacity: 0.15`), Mono-Marker, Space-Grotesk-H2, E-Mail-Link in DM Mono
-`--accent` mit Border-Bottom-Hover.
-
-## 6. Motion
-
-Zurückhaltend, immer `ease-out`, kurz:
-
-| Zweck | Animation |
-|---|---|
-| Einstieg von oben (Nav) | `fadeDown 0.6s` (10px) |
-| Einstieg von unten (Inhalte) | `fadeUp 0.5–0.6s` (16px), gestaffelt mit Delays `0.2s / 0.35s / 0.5s / …` (~0.15s Schritte) |
-| Scroll-Reveal | `.reveal`: `opacity 0 → 1`, `translateY(20px → 0)`, `0.6s ease-out` — **nur bei `.js` auf `<html>`**, damit Inhalte ohne JS sichtbar bleiben |
-| Hover | `0.2–0.3s ease`, nur `color`, `border-color`, `opacity`, `transform: translateY(-2px)` |
-| Glow-Puls | `pulse 4s ease-in-out infinite alternate` (Opacity 0.2 ↔ 0.4, Scale 0.95 ↔ 1.05) |
-| Cursor | `blink 1s step-end infinite` |
-
-Keine Bounce-Effekte, keine Rotationen, keine Parallax-Spielereien.
-Einzige Ausnahme: Avatar und Agenten-Szenen (siehe §10).
-
-## 7. Grundgerüst pro Produkt
-
-Jedes neue Produkt startet mit diesem Fundament:
-
-```css
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-html { font-size: 16px; scroll-behavior: smooth; overflow-x: clip; }
-
-body {
-  font-family: var(--sans);
-  color: var(--text);
-  background-color: var(--bg);
-  line-height: 1.6;
-  min-height: 100vh;
-  overflow-x: hidden;
-  background-image:
-    radial-gradient(circle at 1px 1px, rgba(251, 146, 60, 0.04) 1px, transparent 0);
-  background-size: 32px 32px;
-}
-```
-
-Für Tailwind-Projekte die Tokens aus Abschnitt 1 als Theme-Variablen
-übernehmen (`--accent` ≙ `orange-400`); die Signatur-Motive (Abschnitt 3)
-als Utility-Klassen oder Komponenten nachbauen.
-
-## 8. Logo & Assets
-
-- Logos liegen in `assets/`: `md_variante1.svg` (Nav/Header, Höhe 28px),
-  `md_variante2.svg` (Alternative), `md_favicon.svg` + PNG-Favicons.
-- Avatare/Monogramme: 48×48px, `4px` Radius, `--bg-card`-Fläche,
-  `--border`-Rahmen, Initialen in DM Mono 700 `--accent`.
-- OG-Image-Stil: siehe `og-banner.html` — gleiche Tokens, Punktraster, Glow.
-
-## 9. Do & Don't
-
-**Do**
-- Dark-only, ein Orange-Akzent, viel Grau-Raum.
-- Mono für alles Technische, Space Grotesk nur für Headlines.
-- ASCII statt Icons (`>`, `//`, `->`, `<-`).
-- Hover-Feedback über Farbe/Border/2px-Lift.
-- Semantisches HTML, funktionsfähig ohne JavaScript.
-
-**Don't**
-- Keine zweite Akzentfarbe, keine Verläufe als Flächenfüllung.
-- Keine Radien > 4px, keine Pills, keine weichen Schatten-Stapel.
-- Kein Space Grotesk im Fließtext, kein Mono für lange Absätze.
-- Keine Icon-Bibliotheken für Pfeile/Bullets, wo ASCII reicht.
-- Kein reines Weiß (`#fff`) und kein reines Schwarz (`#000`).
-
-## 10. Ausnahme: Avatar und Agenten-Szenen
-
-Gilt **nur** für den MD-Avatar, die Szene „Eingang → Agent → Freigabe“, das
-Bot-Team, die HV-Ablaufschritte und den Mensch-Knoten (`assets/agents.css`,
-`assets/agents.js`) sowie für die Mikro-Szenen am Ende dieses Abschnitts.
-Alle anderen Komponenten folgen §1–§9.
-
-| Thema | Ausnahme | Grenze |
+| Token | Wert | Verwendung |
 |---|---|---|
-| Motion | Figuren dürfen sich neigen, drehen, springen und leicht überschwingen | Kurve höchstens `cubic-bezier(0.34, 1.25, 0.64, 1)`; Drehung beim Tragen ≤ 4°; Hover/Freude ≤ 1.08 Skalierung; keine Partikel oder Strahlen |
-| Zeiger | Der Avatar darf dem Zeiger folgen | nur bei feinem Zeiger; ruht ohne Bewegung |
-| Radien | `--r-ctl` (10px) für Knöpfe, `--r-card` (16px) für Flächen, 6/12px für Chips, Karten und Blasen; 5px für das Dokument in der Hand; runde Formen für Mensch und Haken | keine neuen Radien an anderen Komponenten |
-| Farben | Eigene Tokens: `--ok`, `--ok-text`, `--ok-ink`, `--ok-glow` (Freigabe-Grün), `--led*` (Augen/Mund), `--human-hi`, `--human-mid`, `--doc-bg`. Dazu ohne Token: `#030305` (Bildschirmfarbe im Avatar-Foto, übermalt Augen und Mund) und `#000` (nur Deckkraft in `mask-image`, nie sichtbare Farbe) | Grün nur für „freigegeben“; Hex-Werte nur in der Token-Definition, in Data-URI-SVGs sowie `#030305` in `assets/agents.js` und `#000` in Masken |
+| `--bg` | `#08080a` | Seitenhintergrund |
+| `--bg-elevated` | `#111114` | Karten, Panels |
+| `--bg-card` | `#16161a` | Eingabefelder, innere Flächen |
+| `--text` | `#e8e8ed` | Überschriften, Haupttext |
+| `--text-2` | `#a1a1aa` | Fließtext auf dunklen Flächen |
+| `--text-3` | `#8b8b96` | Metadaten, sekundäre Labels |
+| `--text-muted` | `#6b6b76` | Nur Dekoration, nicht lesbarer Text |
+| `--accent` | `#fb923c` | Primäre Aktion, Links, Fokus |
+| `--accent-dim` | `rgba(251,146,60,.10)` | Dezente Akzentflächen |
+| `--accent-glow` | `rgba(251,146,60,.28)` | Dekoratives Licht |
+| `--control-border` | `#71717c` | Erkennbare Umrisse von Eingabefeldern |
+| `--border` / `--line` | `#222228` | Dekorative Trennung |
+| `--line-2` | `#2c2c33` | Stärkere Trennlinien |
 
-Pflicht für jede Ausnahme:
+Orange Buttons erhalten dunklen Text (`--bg`). Helle Schrift auf Orange ist nicht vorgesehen. `--border` ist kein hinreichend deutlicher alleiniger Umriss eines Eingabefeldes: für erkennbare Bedienelemente Text, Flächen und `--control-border` als Rahmen einsetzen.
 
-- Nur `transform` und `opacity` animieren.
-- Ein seitenweiter Pause-Knopf (Hero und Szene) hält alle Figuren an;
-  Trefferfläche mindestens 44px.
-- Außerhalb des Viewports und bei verstecktem Tab steht alles.
-- `prefers-reduced-motion: reduce` und ohne JavaScript: statisches Endbild.
-- Fehlt `assets/agents.css`, zeigt eine Szene im Bild ihre Bildunterschrift im
-  reservierten Platz; Szenen unter dem Bild entfallen.
-- Der Druck zeigt den Mensch-Knoten auch ohne Hintergrundgrafiken.
-- Bewegte Elemente verdecken weder Text noch Personen.
+Blau (`--c-blue: 96,165,250`) und Violett (`--c-violet: 167,139,250`) sind dekoratives Hintergrundlicht. Einzelne Bots und Produktdiagramme haben eigene Farben. Grün (`--ok: #34d399`, `--ok-text: #6ee7b7`, `--ok-ink: #052e1c`) kennzeichnet Freigaben in Agenten-Szenen, immer zusammen mit einem Haken oder Text. Es ist keine zweite allgemeine CTA-Farbe.
 
-### Mikro-Szenen (`assets/motion.css`, `assets/motion.js`)
+## Typografie
 
-Maßstab: lieber wenig und hochwertig. Eine neue Szene braucht einen Eintrag
-in dieser Tabelle; was hier nicht steht, wird nicht bewegt.
+| Rolle | Familie / Gewicht | Größe / Verhalten |
+|---|---|---|
+| Hero | Space Grotesk / 700 | `clamp(3rem, 5.6vw, 6rem)` auf großem Desktop; mobil kleiner |
+| Abschnitt | Space Grotesk / 700 | 32–96 px nach Hierarchie; FAQs 32–56 px |
+| Komponententitel | Space Grotesk / 500–700 | 18–24 px |
+| Lesetext | Inter / 400–600 | 16–18 px, Zeilenhöhe 1,6–1,75 |
+| Navigation, Aktion, Metadaten | DM Mono / 400–500 | 12–14 px, Zeilenhöhe mindestens 1,4 |
 
-| Ort | Szene (einmal beim ersten Sichtkontakt) |
-|---|---|
-| Fähigkeiten | je Kachel ein Linien-Diagramm: Verbinden, BPMN mit Freigabe, Oberfläche bis Deployment, Server mit Schloss |
-| Terminal | ein Hinweisring um „Freigeben“ |
-| Organisation | Aufgaben-Punkte zum Team, zwei neutrale Prüfhaken (Tester, Reviewer) |
-| MD_Process | Prozessmodell baut sich auf, ein Punkt läuft auf den Verbindern bis „mensch gibt frei“ |
-| BloomMD | Knoten wachsen (der versteckte Knoten bleibt unberührt) |
-| wave-mesh | alle direkten Verbindungen leuchten gleichzeitig einmal auf (keine Reihenfolge, kein Weg); nichts läuft über den Koordinationsserver |
-| HV Ablauf | je Schritt ein Bild: Eingang, Entwürfe mit Quelle, Freigabe, Akte |
-| HV Vorteile | ein Linien-Zeichen neben der Nummer, blendet einmal ein |
-| HV Pilot | die Mitarbeiterin gibt frei: Mensch-Knoten, ein Dokument, dann der Haken der Freigabe; ein Puls des Gesichts (höchstens 1.06), kein Nicken, kein Hüpfen, Ende nach höchstens 2,1 s; ganz schmal nur Gesicht und Haken |
-| Je Seite | höchstens ein Begleiter, nur ab 1024 px: der Avatar-Kopf lugt neben der Überschrift über eine Kartenkante (Startseite „Plattform“, HV „Sicherheit“) |
+Überschriften mit enger Laufweite (−0,02 bis −0,045 em); lesbarer Text ohne künstliches Tracking. Mono ist für kurze Informationen gedacht. Versalien bleiben kurzen bestehenden Navigationslabels vorbehalten, nicht Absätzen oder langen Buttons.
 
-Grenzen:
+Lesebreite etwa 60–68 Zeichen, höchstens rund 80. In kleinen Metadaten unter 14 px muss der Kontrast besonders klar sein. Lange Wörter, E-Mail-Adressen und Code dürfen bei schmalen Viewports umbrechen.
 
-- Seitentext wird nie ausgeblendet. Nur Dekoration (per Skript erzeugt,
-  `aria-hidden`) startet unsichtbar. Formen aus dem HTML werden höchstens
-  gedimmt.
-- Nur `transform` und `opacity`; keine Linien-Zeichnung per
-  `stroke-dashoffset`, keine Rotationen, keine Skalierung über 1.08.
-- Jede Szene läuft einmal und dauert unter 5 s. Keine Schleife, kein
-  Hover-Replay, keine Parallaxe, kein Zeigerlicht.
-- Pause hält nicht mitten im Bild an: Sie setzt alle Szenen sofort auf das
-  Endbild. Das gilt auch für „Bewegung reduzieren“ und den Druck.
-- Szenentext ist gerendert mindestens 11 px groß. Reicht der Platz nicht,
-  entfällt das ganze Bild (bei den Fähigkeiten: alle vier).
-- Keine Elemente, die wie ein Knopf aussehen: „Freigabe“ ist eine
-  Umriss-Marke ohne Fläche und ohne Mauszeiger.
-- Linien-Zeichen sind hier erlaubt (Ausnahme zu „ASCII statt Icons“).
-  Radien wie oben, in SVG-Diagrammen höchstens 9. Tokens `--ok`, `--ok-ink`,
-  `--human-mid`, `--doc-bg` gelten auch an `.mx`. Der Mensch-Knoten im
-  HV Pilot kommt aus `assets/agents.css`; fehlt die Datei, bleibt das Gesicht
-  weg.
+### Lokale Schriften
+
+Keine externen Font-Requests. Die CSS-Datei lädt diese Dateien relativ zu ihrem eigenen Speicherort:
+
+- [Inter variable](https://moellenbeck-digital.io/assets/fonts/inter-var.woff2), Gewichte 400–600
+- [Space Grotesk variable](https://moellenbeck-digital.io/assets/fonts/space-grotesk-var.woff2), Gewichte 400–700
+- [DM Mono 400](https://moellenbeck-digital.io/assets/fonts/dm-mono-400.woff2)
+- [DM Mono 500](https://moellenbeck-digital.io/assets/fonts/dm-mono-500.woff2)
+- Lizenzen: [Inter](https://moellenbeck-digital.io/assets/fonts/OFL-Inter.txt), [Space Grotesk](https://moellenbeck-digital.io/assets/fonts/OFL-SpaceGrotesk.txt), [DM Mono](https://moellenbeck-digital.io/assets/fonts/OFL-DMMono.txt) (SIL OFL 1.1)
+
+Fallbacks: Inter → system-ui; Space Grotesk → sans-serif; DM Mono → Fira Code → monospace. Die vorhandenen Dateien sind Latin-Subsets; weitere Schriftsysteme benötigen passende Fonts.
+
+## Layout und Form
+
+- `--wrap: 1200px`, `--pad: clamp(20px, 4vw, 48px)`.
+- Karten: `--r-card: 16px`; Buttons und Felder: `--r-ctl: 10px`; kleine Statusmarken: 6 px. Die Navigation verwendet 14 px, Figuren/Sprechblasen dürfen organische Rundungen haben.
+- Abstände innerhalb von Komponenten: 8, 12, 16, 24, 32 px. Karten-Innenabstand 20–32 px.
+- Website-Abschnitte sind großzügig. Die FAQ nutzen 80–144 px vertikalen Abstand. Apps brauchen kompaktere Abstände, keine filmartigen Leerflächen zwischen Arbeitsbereichen.
+- Mobile Navigation und FAQ wechseln bei 760 px. Andere Grids dürfen früher umbrechen, wenn der Inhalt Platz braucht. Nie feste Mindestbreiten größer als der mobile Inhaltsbereich.
+- Dunkle Flächen unterscheiden Ebenen; ein heller Fokus zeigt Bedienung. Glows bleiben Dekoration und dürfen Text nicht beeinträchtigen.
+- `//`, `MD_` und kurze technische Bezeichnungen stiften Wiedererkennung. Keine dekorativen Nummern an Inhalten ohne Reihenfolge.
+
+## Komponenten
+
+### Aktionen und Karten
+
+`md-card`: erhöhte Fläche, 1-px-Trennrahmen, 16-px-Radius. Eine nicht klickbare Karte braucht keinen Hover-Lift.
+
+`md-button`: orange Hauptaktion mit dunklem Text, mindestens 44 px hoch. `md-button md-button--secondary`: ruhige Alternative mit erkennbarem Rahmen. Texte benennen die Folge, beispielsweise „Nachricht vorbereiten“ oder „Design übernehmen“. Keine vorgetäuschten Aktionen im Styleguide.
+
+`md-status`: kurzer Status als Text. Farbe unterstützt die Bedeutung, trägt sie aber nie allein.
+
+### FAQ
+
+Native `<details>` / `<summary>` mit Klassen `faq-item` / `faq-answer`; Gruppe in `faq-list`. Erste Antwort offen, mehrere dürfen offen bleiben. Funktioniert ohne JavaScript, per Enter/Leertaste und mit nativer Zustandsmeldung für assistive Technik. Keine zusätzlichen `role="button"` oder manuell gepflegten `aria-expanded`-Attribute nötig.
+
+```html
+<div class="faq-list">
+  <details class="faq-item" open>
+    <summary>Wer entscheidet?</summary>
+    <div class="faq-answer"><p>Ein Mensch prüft und gibt frei.</p></div>
+  </details>
+</div>
+```
+
+Auf Inhaltsseiten: Einleitung links, Fragen rechts; mobil untereinander. Antworten maximal 68ch breit. Der sichtbare Text und das FAQ-JSON-LD müssen dieselben Aussagen enthalten. Inhalte bleiben im HTML, auch wenn Antworten geschlossen sind.
+
+### Navigation und Einstellungen
+
+Wesentliche Ziele im Header; FAQ und Designressourcen zusätzlich im Footer. Mobile Menü- und Hauptaktionsflächen mindestens 44 × 44 px. Escape schließt das mobile Menü und setzt den Fokus zurück auf den Menüschalter.
+
+Der Lautsprecher bedeutet **optionale Klicktöne**, nicht Filmton. Er sitzt mit sichtbarem Label „Klicktöne: aus/an“ und Erklärung im Footer. Standard: aus; Einstellung lokal unter `md-sounds`. `aria-pressed` gibt den Zustand wieder, der zugängliche Name „Klicktöne“ bleibt stabil. Ohne JavaScript wird die Einstellung nicht eingeblendet. Filmton wird am Film selbst bedient.
+
+### Formulare
+
+Name und E-Mail stehen jeweils in einer eigenen Zeile über die volle Formularbreite, damit auch längere Eingaben Platz haben. Sichtbare Labels; verständliche Fehlermeldungen mit Zuordnung zum Feld. Das Kontaktformular bereitet eine E-Mail im lokalen Mailprogramm vor; die Beschriftung darf keinen bereits erfolgten Versand behaupten. Keine Produktlogik allein durch Übernahme der visuellen CSS-Klassen erwarten.
+
+## Avatar und Bewegung
+
+Originale verwenden; Proportionen beibehalten. Die Figur nicht strecken oder in einen quadratischen Ausschnitt zwingen. Für quadratische App-Profile die dafür vorhandene PNG-Datei verwenden.
+
+| Asset | Maße | Einsatz |
+|---|---|---|
+| [avatar-200.webp](https://moellenbeck-digital.io/assets/img/avatar-200.webp) | 200 × 261 | Freigestellte Figur; kompakte Begleitung |
+| [roboter.webp](https://moellenbeck-digital.io/assets/img/roboter.webp) | 760 × 760 | Hero / große Illustration |
+| [roboter.png](https://moellenbeck-digital.io/assets/img/roboter.png) | 760 × 760 | PNG-Alternative |
+| [github-avatar.png](https://moellenbeck-digital.io/assets/github-avatar.png) | 460 × 460 | Quadratisches Profil für Apps und Agenten |
+| [md_variante1.svg](https://moellenbeck-digital.io/assets/md_variante1.svg) | viewBox 400 × 120 | Wortmarke, gewöhnlich 26–28 px hoch |
+| [md_variante2.svg](https://moellenbeck-digital.io/assets/md_variante2.svg) | siehe SVG | Alternative |
+| [md_favicon.svg](https://moellenbeck-digital.io/assets/md_favicon.svg) | siehe SVG | App-Zeichen / Favicon |
+
+Die SVG-Wortmarke enthält Text mit Monospace-Fallbacks, keine fest in Pfade umgewandelten Buchstaben. Für pixelidentische Darstellung über Plattformen wäre ein separat freigegebenes Pfad-Logo nötig.
+
+**Statische Einbettung ist der Standard.** `md-avatar` setzt eine Breite von 112 px und erhält das Seitenverhältnis. Bei informativer Verwendung ein kurzes `alt`; bei reiner Dekoration `alt=""`. Einen Agenten als Agent kennzeichnen, nicht als reale Person.
+
+### Bestehende Website-Animationen
+
+`assets/agents.js` und `assets/agents.css` bilden ein eigenes Modul. Das Skript zerlegt die Originalbilder in Canvas-Ebenen; die Geometrie ist auf die natürlichen Breiten 760 und 200 px abgestimmt. Nicht einfach ein anderes Bild unter demselben Namen einsetzen. Host-Markup und reservierte Abmessungen sind in `index.html` dokumentiert; Bilder bleiben als Fallback vorhanden. Beim Übernehmen der Animation das ganze Modul und die zugehörige Struktur übernehmen, nicht nur das Bild.
+
+- Bewegung über `transform` und `opacity`; Avatar darf schweben, blinzeln, den Kopf neigen und kurz winken.
+- Ein sichtbarer seitenweiter Pauseknopf mit mindestens 44-px-Ziel hält Figuren an. Kein neues Bewegungssystem ohne Pausensteuerung.
+- `prefers-reduced-motion`, unsichtbarer Tab, außerhalb des Viewports: Figuren ruhen. Ohne JavaScript bleibt ein statisches Bild.
+- Bewegte Elemente verdecken keinen Text und keine Personen. Inhalt wird nie allein durch Animation verständlich.
+- `assets/motion.css` / `assets/motion.js`: einmalige Mikro-Szenen unter fünf Sekunden; keine Schleifen oder Hover-Replays. Pause setzt sie auf das Endbild.
+- Freigabe-Grün nur für Freigaben; LED-, Haut- und Dokumentfarben bleiben lokal in den Szenen (`--led*`, `--human-*`, `--doc-bg`).
+
+Bestehende Mikro-Szenen: Fähigkeiten (Linien-Diagramme), Terminal (Freigabehinweis), Organisation (Aufgaben / Prüfhaken), MD_Process (Prozess bis Mensch), BloomMD (Mindmap), wave-mesh (gleichzeitige direkte Verbindungen), HV-Ablauf (vier Stationen), HV-Vorteile (Linienzeichen), HV-Pilot (Mensch gibt frei). Höchstens ein Avatar-Begleiter pro Seite, erst ab 1024 px. Szenentexte mindestens 11 px; bei Platzmangel Dekoration weglassen.
+
+## Zugänglichkeit und Prüfung
+
+- Lesetext auf seiner tatsächlichen Fläche prüfen; Ziel mindestens 4,5:1 für normalen Text, 3:1 für große Schrift. Dekorative Linien sind keine garantierten Kontrollumrisse.
+- Sichtbarer Fokus, semantische Landmarken, ein H1, logische Überschriftenfolge, Skip-Link.
+- Tastatur prüfen: Menü, Links, FAQ, Formular und Mediaplayer. Automatische Scans ersetzen keine Screenreader-Prüfung.
+- 320 px, 375 px, Tablet und Desktop prüfen; bei 200 % Zoom bleiben Inhalte und Aktionen erreichbar.
+- Ohne JavaScript: Kerninhalte, Kontaktlink, FAQs und statische Bilder erreichbar.
+- Keine Sounds ohne aktivierte Einstellung. Filmton hat eine eigene Steuerung.
+
+## Pflege
+
+`assets/design-system.css` ist die gemeinsame Quelle für Tokens und FAQ-Komponenten. `style.css` importiert sie. Die Hausverwaltungsseite bleibt als eigener Web-Root nutzbar und führt deshalb eine byteidentische Kopie unter `hausverwaltung/assets/design-system.css`; CI prüft die Übereinstimmung.
+
+Bei Designänderungen CSS, diesen Text und `design.html` gemeinsam aktualisieren. `DESIGN.md`, `design.html` und CSS sind in der Pages-Allowlist öffentlich freigegeben. Die Legacy-Jekyll-Konfiguration schließt `.md` aus der Markdown-Konvertierung aus, damit dieses Dokument unter seiner Original-URL abrufbar bleibt. Die übrigen internen Markdown-Dateien bleiben ausgeschlossen.

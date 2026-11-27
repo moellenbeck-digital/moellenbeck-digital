@@ -1,0 +1,122 @@
+[
+  {
+    "route": "/",
+    "width": 320,
+    "errors": [],
+    "overflow": false,
+    "brokenImages": [],
+    "badAnchors": [],
+    "axeScanned": false,
+    "violations": []
+  },
+  {
+    "route": "/",
+    "width": 375,
+    "errors": [],
+    "overflow": false,
+    "brokenImages": [],
+    "badAnchors": [],
+    "axeScanned": true,
+    "violations": []
+  },
+  {
+    "route": "/",
+    "width": 768,
+    "errors": [],
+    "overflow": false,
+    "brokenImages": [],
+    "badAnchors": [],
+    "axeScanned": false,
+    "violations": []
+  },
+  {
+    "route": "/",
+    "width": 1440,
+    "errors": [],
+    "overflow": false,
+    "brokenImages": [],
+    "badAnchors": [],
+    "axeScanned": true,
+    "violations": []
+  },
+  {
+    "route": "/hausverwaltung/",
+    "width": 320,
+    "errors": [],
+    "overflow": false,
+    "brokenImages": [],
+    "badAnchors": [],
+    "axeScanned": false,
+    "violations": []
+  },
+  {
+    "route": "/hausverwaltung/",
+    "width": 375,
+    "errors": [],
+    "overflow": false,
+    "brokenImages": [],
+    "badAnchors": [],
+    "axeScanned": true,
+    "violations": []
+  },
+  {
+    "route": "/hausverwaltung/",
+    "width": 768,
+    "errors": [],
+    "overflow": false,
+    "brokenImages": [],
+    "badAnchors": [],
+    "axeScanned": false,
+    "violations": []
+  },
+  {
+    "route": "/hausverwaltung/",
+    "width": 1440,
+    "errors": [],
+    "overflow": false,
+    "brokenImages": [],
+    "badAnchors": [],
+    "axeScanned": true,
+    "violations": []
+  },
+  {
+    "route": "/design.html",
+    "width": 320,
+    "errors": [],
+    "overflow": false,
+    "brokenImages": [],
+    "badAnchors": [],
+    "axeScanned": false,
+    "violations": []
+  },
+  {
+    "route": "/design.html",
+    "width": 375,
+    "errors": [],
+    "overflow": false,
+    "brokenImages": [],
+    "badAnchors": [],
+    "axeScanned": true,
+    "violations": []
+  },
+  {
+    "route": "/design.html",
+    "width": 768,
+    "errors": [],
+    "overflow": false,
+    "brokenImages": [],
+    "badAnchors": [],
+    "axeScanned": false,
+    "violations": []
+  },
+  {
+    "route": "/design.html",
+    "width": 1440,
+    "errors": [],
+    "overflow": false,
+    "brokenImages": [],
+    "badAnchors": [],
+    "axeScanned": true,
+    "violations": []
+  }
+]

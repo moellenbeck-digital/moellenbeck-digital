@@ -56,18 +56,7 @@
         </nav>
       </details>
       <div class="nav-actions">
-        <button class="sound-toggle" id="soundToggle" type="button"
-                aria-label="UI-Sounds einschalten" aria-pressed="false"
-                title="UI-Sounds (Standard: aus)">
-          <svg class="sound-off" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-            <path d="M2 5H4L7 2V12L4 9H2V5Z" stroke="currentColor" stroke-width="1.2"/>
-            <path d="M10 4.5L12.5 9.5M12.5 4.5L10 9.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          </svg>
-          <svg class="sound-on" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" hidden>
-            <path d="M2 5H4L7 2V12L4 9H2V5Z" stroke="currentColor" stroke-width="1.2"/>
-            <path d="M9 4.5C9.8 5.3 10.5 6.1 10.5 7C10.5 7.9 9.8 8.7 9 9.5M11 2.5C12.5 3.8 13.5 5.3 13.5 7C13.5 8.7 12.5 10.2 11 11.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          </svg>
-        </button>
+
         <a class="nav-cta" href="#kontakt" data-subject="HV-Pilot" data-sound="click">Probetag</a>
       </div>
     </div>
@@ -362,7 +351,56 @@
     <p>Untertitel des 20-Sekunden-Videos zum Beispiel Wasserschaden (ohne Ton, fiktive Demodaten):</p>
     <ol class="transcript"><li><span class="transcript-time">00:00</span> Ein Mieter schreibt: „Bei mir tropft Wasser von der Decke.“</li><li><span class="transcript-time">00:03</span> Notfall-Antwort nach 2 Sekunden. Die einzige Nachricht, die ohne Menschen rausgeht.</li><li><span class="transcript-time">00:07</span> 2,4 s später: die Freigabekarte. Wer zuständig ist, mit Fundstelle. 5 Entwürfe bereit.</li><li><span class="transcript-time">00:12</span> Ein Tipp der Sachbearbeiterin. Dann geht alles raus. Freigegeben und protokolliert.</li></ol>
   </div></section>
-  <section class="section" id="faq" aria-labelledby="faq-title"><div class="container"><h2 id="faq-title">Häufige Fragen</h2><div class="faq-item"><h3>Was ist der KI-Mitarbeiter für Hausverwaltungen?</h3><p>Der KI-Mitarbeiter für Hausverwaltungen ist ein digitaler Backoffice-Kollege nach dem Eingang. Pilotphase startet bald.</p></div><div class="faq-item"><h3>Was macht der KI-Mitarbeiter nach dem Eingang?</h3><p>Er liest die Meldung, ordnet sie dem Objekt zu und bereitet alle Nachrichten fertig vor – mit Quelle.</p></div><div class="faq-item"><h3>Wer gibt Nachrichten frei?</h3><p>Ihre Mitarbeiterin entscheidet. Außer der Standardantwort geht ohne Freigabe nichts raus.</p></div><div class="faq-item"><h3>Was macht die KI nicht?</h3><p>Keine Zahlungen und keine Rechtsauskunft durch die KI. Empfänger kommen nur aus den Stammdaten.</p></div><div class="faq-item"><h3>Ersetzt das Angebot die Verwaltungssoftware?</h3><p>Wir ersetzen Ihre Software nicht. Wir arbeiten davor, am Posteingang. Stammdaten kommen als Export.</p></div><div class="faq-item"><h3>Gibt es ein Vier-Augen-Prinzip?</h3><p>Ab einer Betragsgrenze braucht es eine zweite Person. Die Betragsgrenze für die zweite Freigabe legen Sie selbst fest.</p></div><div class="faq-item"><h3>Welche Daten nutzt der Pilot?</h3><p>Der Pilot startet mit fiktiven Daten. Echte Daten verarbeiten wir erst mit einem Vertrag zur Auftragsverarbeitung (AVV).</p></div><div class="faq-item"><h3>Wie läuft der Pilot ab?</h3><p>Wir zeigen Ihnen den Ablauf an einer Musterverwaltung mit fiktiven Daten. Danach testen Sie an einem Probetag.</p></div><div class="faq-item"><h3>Was enthält die Vorgangsakte?</h3><p>Die Vorgangsakte enthält Freigaben und Versionen.</p></div><p>Zuletzt aktualisiert: <time datetime="2026-11-26">26. November 2026</time></p></div></section>
+  <section class="section faq" id="faq" aria-labelledby="faq-title">
+    <div class="container faq-layout">
+      <header class="faq-intro">
+        <h2 id="faq-title">Häufige Fragen</h2>
+        <p>Zu Pilot, Freigaben und dem Alltag in Ihrer Verwaltung.</p>
+        <a href="#kontakt">Ihre Frage ist noch offen? Schreiben Sie uns.</a>
+      </header>
+      <div>
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary>Was ist der KI-Mitarbeiter für Hausverwaltungen?</summary>
+            <div class="faq-answer"><p>Der KI-Mitarbeiter für Hausverwaltungen ist ein digitaler Backoffice-Kollege nach dem Eingang. Pilotphase startet bald.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Was macht der KI-Mitarbeiter nach dem Eingang?</summary>
+            <div class="faq-answer"><p>Er liest die Meldung, ordnet sie dem Objekt zu und bereitet alle Nachrichten fertig vor – mit Quelle.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Wer gibt Nachrichten frei?</summary>
+            <div class="faq-answer"><p>Ihre Mitarbeiterin entscheidet. Außer der Standardantwort geht ohne Freigabe nichts raus.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Was macht die KI nicht?</summary>
+            <div class="faq-answer"><p>Keine Zahlungen und keine Rechtsauskunft durch die KI. Empfänger kommen nur aus den Stammdaten.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Ersetzt das Angebot die Verwaltungssoftware?</summary>
+            <div class="faq-answer"><p>Wir ersetzen Ihre Software nicht. Wir arbeiten davor, am Posteingang. Stammdaten kommen als Export.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Gibt es ein Vier-Augen-Prinzip?</summary>
+            <div class="faq-answer"><p>Ab einer Betragsgrenze braucht es eine zweite Person. Die Betragsgrenze für die zweite Freigabe legen Sie selbst fest.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Welche Daten nutzt der Pilot?</summary>
+            <div class="faq-answer"><p>Der Pilot startet mit fiktiven Daten. Echte Daten verarbeiten wir erst mit einem Vertrag zur Auftragsverarbeitung (AVV).</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Wie läuft der Pilot ab?</summary>
+            <div class="faq-answer"><p>Wir zeigen Ihnen den Ablauf an einer Musterverwaltung mit fiktiven Daten. Danach testen Sie an einem Probetag.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Was enthält die Vorgangsakte?</summary>
+            <div class="faq-answer"><p>Die Vorgangsakte enthält Freigaben und Versionen.</p></div>
+          </details>
+        </div>
+        <p class="faq-updated">Zuletzt aktualisiert: <time datetime="2026-11-26">26. November 2026</time></p>
+      </div>
+    </div>
+  </section>
 </main>
 
   <!-- ══ FOOTER: groß ══ -->
@@ -374,6 +412,8 @@
       </div>
       <nav class="footer-col" aria-label="Seite">
         <span class="footer-h">Seite</span>
+        <a href="#faq">Häufige Fragen</a>
+        <a href="../design.html">Design &amp; Assets</a>
         <a href="#ablauf">Ablauf</a>
         <a href="#nutzen">Nutzen</a>
         <a href="#sicherheit">Sicherheit</a>
@@ -396,7 +436,22 @@
     <div class="footer-wordmark" aria-hidden="true"></div>
     <div class="container footer-base">
       <span>© 2026 Moellenbeck-Digital UG (haftungsbeschränkt)</span>
-      <span>UI-Sounds: Standard aus</span>
+      <div class="sound-setting" id="soundSetting" hidden>
+        <button class="sound-toggle" id="soundToggle" type="button"
+                aria-label="Klicktöne" aria-describedby="soundHint" aria-pressed="false"
+                title="Optionale Klicktöne für Bedienelemente">
+          <svg class="sound-off" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M2 5H4L7 2V12L4 9H2V5Z" stroke="currentColor" stroke-width="1.2"/>
+            <path d="M10 4.5L12.5 9.5M12.5 4.5L10 9.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+          <svg class="sound-on" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" hidden>
+            <path d="M2 5H4L7 2V12L4 9H2V5Z" stroke="currentColor" stroke-width="1.2"/>
+            <path d="M9 4.5C9.8 5.3 10.5 6.1 10.5 7C10.5 7.9 9.8 8.7 9 9.5M11 2.5C12.5 3.8 13.5 5.3 13.5 7C13.5 8.7 12.5 10.2 11 11.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+          <span>Klicktöne: <span id="soundState">aus</span></span>
+        </button>
+        <p id="soundHint">Kurze Töne beim Klicken. Den Filmton steuern Sie direkt im Player.</p>
+      </div>
     </div>
   </footer>
 

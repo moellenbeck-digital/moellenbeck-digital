@@ -1,0 +1,76 @@
+/* Selbst gehostete Schriften (SIL Open Font License), Latin-Subset – keine Verbindung zu Google */
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 400 600; font-display: swap; src: url('fonts/inter-var.woff2') format('woff2'); }
+@font-face { font-family: 'Space Grotesk'; font-style: normal; font-weight: 400 700; font-display: swap; src: url('fonts/space-grotesk-var.woff2') format('woff2'); }
+@font-face { font-family: 'DM Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('fonts/dm-mono-400.woff2') format('woff2'); }
+@font-face { font-family: 'DM Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url('fonts/dm-mono-500.woff2') format('woff2'); }
+
+:root {
+  /* Aktuelle Website-Tokens; dokumentiert in DESIGN.md. */
+  --bg: #08080a;
+  --bg-elevated: #111114;
+  --bg-card: #16161a;
+  --border: #222228;
+  --control-border: #71717c; /* Erkennbare Eingabefelder auf dunklen Flächen */
+  --text: #e8e8ed;
+  --text-2: #a1a1aa;          /* Fließtext auf Flächen */
+  --text-3: #8b8b96;          /* Sekundäre Labels */
+  --text-muted: #6b6b76;
+  --accent: #fb923c;
+  --accent-dim: rgba(251, 146, 60, 0.10);
+  --accent-glow: rgba(251, 146, 60, 0.28);
+  /* Kompatibilität */
+  --line: var(--border);
+  --line-2: #2c2c33;
+  --c-orange: 251, 146, 60;
+  /* Licht im Hintergrund (nur Glow, nie Fläche/Interaktion) */
+  --c-blue: 96, 165, 250;
+  --c-violet: 167, 139, 250;
+
+  --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono: 'DM Mono', 'Fira Code', monospace;
+  --display: 'Space Grotesk', sans-serif;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --wrap: 1200px;
+  --pad: clamp(20px, 4vw, 48px);
+  --r-card: 16px;
+  --r-ctl: 10px;
+}
+
+
+/* Portabler Komponentenbereich: auf <body> oder einen App-Container setzen. */
+.md-ui { font-family: var(--sans); font-size: 16px; line-height: 1.6; color: var(--text); background: var(--bg); }
+.md-ui *, .md-ui *::before, .md-ui *::after { box-sizing: border-box; }
+.md-ui h1, .md-ui h2, .md-ui h3 { font-family: var(--display); line-height: 1.15; letter-spacing: -.03em; }
+.md-ui p { max-width: 68ch; }
+.md-ui img { max-width: 100%; height: auto; }
+.md-ui a { color: var(--accent); text-underline-offset: .22em; }
+.md-ui :focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.md-card { padding: clamp(20px, 3vw, 32px); border: 1px solid var(--border); border-radius: var(--r-card); background: var(--bg-elevated); }
+.md-button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 44px; padding: 12px 20px; border: 1px solid var(--accent); border-radius: var(--r-ctl); font: 500 .85rem/1.4 var(--mono); background: var(--accent); color: var(--bg); text-decoration: none; cursor: pointer; }
+.md-ui a.md-button { color: var(--bg); }
+.md-button:hover { filter: brightness(1.08); }
+.md-button--secondary, .md-ui a.md-button--secondary { color: var(--text); background: transparent; border-color: var(--text-3); }
+.md-avatar { display: block; width: 112px; height: auto; object-fit: contain; }
+.md-status { display: inline-block; padding: 4px 10px; font: .75rem/1.6 var(--mono); border: 1px solid currentColor; border-radius: 6px; color: var(--accent); background: var(--accent-dim); }
+
+/* Native FAQ: funktioniert ohne Skript, mehrere Antworten dürfen offen bleiben. */
+.section.faq { padding-block: clamp(80px, 10vw, 144px); }
+.faq-layout { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.5fr); gap: clamp(32px, 6vw, 88px); align-items: start; }
+.faq-intro h2 { font: 700 clamp(2rem, 4vw, 3.5rem)/1.08 var(--display); letter-spacing: -.035em; margin: 0 0 20px; }
+.faq-intro p { color: var(--text-2); max-width: 30ch; margin: 0 0 20px; }
+.faq-intro a, .faq-answer a { color: var(--accent); text-decoration: underline; text-underline-offset: .2em; overflow-wrap: anywhere; }
+.faq-intro a { display: inline-flex; align-items: center; min-height: 44px; }
+.faq-list { min-width: 0; border-top: 1px solid var(--line-2); }
+.faq-item { border-bottom: 1px solid var(--line-2); }
+.faq-item summary { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 24px 4px; min-height: 64px; cursor: pointer; list-style: none; font: 500 clamp(1rem, 1.5vw, 1.2rem)/1.5 var(--display); color: var(--text); }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: ''; flex: none; width: 10px; height: 10px; border-right: 2px solid var(--text-3); border-bottom: 2px solid var(--text-3); transform: rotate(45deg); margin: -5px 8px 0 0; }
+.faq-item[open] summary::after { transform: rotate(225deg); margin-top: 5px; border-color: var(--accent); }
+.faq-item summary:hover { color: var(--accent); }
+.faq-item summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.faq-answer { padding: 0 36px 24px 4px; max-width: 68ch; color: var(--text-2); font-size: 1rem; line-height: 1.75; }
+.faq-answer p { margin: 0; }
+.faq-updated { margin: 24px 0 0; font-size: .75rem; color: var(--text-3); }
+@media (max-width: 760px) { .faq-layout { grid-template-columns: 1fr; } .faq-intro p { max-width: 48ch; } .faq-item summary { padding-block: 20px; } .faq-answer { padding-right: 20px; } }
+@media (prefers-reduced-motion: reduce) { .md-ui *, .md-ui *::before, .md-ui *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; } }

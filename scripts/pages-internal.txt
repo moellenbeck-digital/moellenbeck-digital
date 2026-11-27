@@ -7,10 +7,8 @@ audit/**
 evidence/**
 scripts/**
 TODO.md
-DESIGN.md
 
-# Design drafts and image sources (not linked from the site)
-design.html
+# Internal image drafts and documentation
 og-banner.html
 hausverwaltung/README.md
 

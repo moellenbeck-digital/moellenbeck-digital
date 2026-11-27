@@ -1,0 +1,32 @@
+[
+  {
+    "route": "/",
+    "menuEscape": true,
+    "faqKeyboard": true,
+    "faqSchemaParity": true,
+    "soundPersistence": true,
+    "soundIconVisibility": true,
+    "targets44px": true,
+    "zoomEquivalent": true,
+    "noJS": true
+  },
+  {
+    "route": "/hausverwaltung/",
+    "menuEscape": true,
+    "faqKeyboard": true,
+    "faqSchemaParity": true,
+    "soundPersistence": true,
+    "soundIconVisibility": true,
+    "targets44px": true,
+    "zoomEquivalent": true,
+    "noJS": true
+  },
+  {
+    "route": "/design.html",
+    "clipboard": true,
+    "clipboardDeniedFallback": true
+  },
+  {
+    "normalMotionPause": true
+  }
+]

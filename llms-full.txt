@@ -295,7 +295,7 @@ Jede Notiz ist ein Ast – auch diese.
 
 04
 
-Closed Beta
+Wissen für Menschen und Agenten
 
 BloomMD
 
@@ -315,7 +315,7 @@ cluster
 
 05
 
-Frühe Entwicklung
+Sichere Vernetzung
 
 wave-mesh
 
@@ -469,15 +469,19 @@ BloomMD
 
 Markdown-Notizen werden zu Mindmaps.
 
-Closed Beta
+Wissen für Menschen und Agenten
 
 wave-mesh
 
 Verbindet Geräte direkt über WireGuard, auch hinter NAT.
 
-Frühe Entwicklung
+Sichere Vernetzung
 
 Häufige Fragen
+
+Zu Leistungen, Produkten und der Zusammenarbeit.
+
+Ihre Frage ist noch offen? Schreiben Sie uns.
 
 Was baut Moellenbeck-Digital?
 
@@ -505,7 +509,11 @@ wave-mesh verbindet Geräte direkt über WireGuard, auch hinter NAT – mit eine
 
 Wie erreiche ich Moellenbeck-Digital?
 
-Schreiben Sie uns an admin@moellenbeck-digital.io.
+Schreiben Sie uns an
+
+admin@moellenbeck-digital.io
+
+.
 
 Zuletzt aktualisiert:
 
@@ -793,6 +801,10 @@ Notfall-Antwort nach 2 Sekunden. Die einzige Nachricht, die ohne Menschen rausge
 Ein Tipp der Sachbearbeiterin. Dann geht alles raus. Freigegeben und protokolliert.
 
 Häufige Fragen
+
+Zu Pilot, Freigaben und dem Alltag in Ihrer Verwaltung.
+
+Ihre Frage ist noch offen? Schreiben Sie uns.
 
 Was ist der KI-Mitarbeiter für Hausverwaltungen?
 

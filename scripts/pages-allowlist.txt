@@ -13,6 +13,8 @@ llms.txt
 llms-full.txt
 
 # Pages
+DESIGN.md
+design.html
 index.html
 impressum.html
 datenschutz.html
@@ -25,10 +27,12 @@ main.js
 style.css
 hausverwaltung/main.js
 hausverwaltung/style.css
+assets/design-system.css
 assets/agents.css
 assets/agents.js
 assets/motion.css
 assets/motion.js
+hausverwaltung/assets/design-system.css
 hausverwaltung/assets/agents.css
 hausverwaltung/assets/agents.js
 hausverwaltung/assets/motion.css

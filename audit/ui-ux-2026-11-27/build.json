@@ -1,0 +1,8 @@
+{
+  "allowlist": "passed",
+  "jekyll": "3.10.0",
+  "plugin": "jekyll-optional-front-matter 0.3.2",
+  "legacyByteIdentical": true,
+  "rawDesignMarkdown": true,
+  "liveDeployed": false
+}

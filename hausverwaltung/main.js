@@ -12,6 +12,11 @@
   syncMenu();
   mq.addEventListener('change', syncMenu);
   navMenu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => { if (mq.matches) navMenu.removeAttribute('open'); }));
+  navMenu.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && mq.matches && navMenu.open) {
+      navMenu.open = false; navMenu.querySelector('summary').focus();
+    }
+  });
   const siteNav = $('siteNav');
 
   /* ── UI-Sounds: optional, Standard aus ── */
@@ -35,11 +40,13 @@
   }
   function renderSound() {
     soundToggle.setAttribute('aria-pressed', String(soundsOn));
-    soundToggle.setAttribute('aria-label', soundsOn ? 'UI-Sounds ausschalten' : 'UI-Sounds einschalten');
-    soundToggle.querySelector('.sound-off').hidden = soundsOn;
-    soundToggle.querySelector('.sound-on').hidden = !soundsOn;
+    $('soundState').textContent = soundsOn ? 'an' : 'aus';
+    // SVG elements do not reflect the HTML hidden property to an attribute.
+    soundToggle.querySelector('.sound-off').toggleAttribute('hidden', soundsOn);
+    soundToggle.querySelector('.sound-on').toggleAttribute('hidden', !soundsOn);
   }
   renderSound();
+  $('soundSetting').hidden = false;
   soundToggle.addEventListener('click', () => {
     soundsOn = !soundsOn;
     try { localStorage.setItem('md-sounds', soundsOn ? 'on' : 'off'); } catch (e) { /* ok */ }

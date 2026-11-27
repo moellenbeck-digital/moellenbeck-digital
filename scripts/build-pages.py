@@ -32,7 +32,7 @@ def regex(glob):
   else: out+=re.escape(glob[i]);i+=1
  return re.compile(out+r'\Z')
 PUBLIC=globs('pages-allowlist.txt'); INTERNAL=globs('pages-internal.txt')
-REQUIRED=['CNAME','robots.txt','sitemap.xml','llms.txt','llms-full.txt','index.html','style.css','main.js',
+REQUIRED=['DESIGN.md','design.html','assets/design-system.css','CNAME','robots.txt','sitemap.xml','llms.txt','llms-full.txt','index.html','style.css','main.js',
  'hausverwaltung/index.html','impressum.html','datenschutz.html','legal/index.html','assets/og-image.png']
 entries=[l.split(None,3) for l in subprocess.check_output(['git','ls-files','-s','-z'],text=True).split('\0') if l]
 mode={e[3]:e[0] for e in entries}; files=sorted(mode)

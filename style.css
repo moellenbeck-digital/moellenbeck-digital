@@ -2,46 +2,10 @@
    MOELLENBECK-DIGITAL — Relaunch 2026 (Phase 7: farbige Agenten-Optik)
    Richtung x.ai: Weite, kinoartiges Licht, große ruhige Headlines, weiche Karten.
    MD-Identität: Orange einziger Akzent, Space Grotesk / Inter / DM Mono, // und ->.
-   Abweichungen von DESIGN.md stehen im PR-Text.
+   Tokens und Komponenten: assets/design-system.css; Regeln: DESIGN.md.
    ════════════════════════════════════════════════════════ */
 
-/* Selbst gehostete Schriften (SIL Open Font License), Latin-Subset – keine Verbindung zu Google */
-@font-face { font-family: 'Inter'; font-style: normal; font-weight: 400 600; font-display: swap; src: url('assets/fonts/inter-var.woff2') format('woff2'); }
-@font-face { font-family: 'Space Grotesk'; font-style: normal; font-weight: 400 700; font-display: swap; src: url('assets/fonts/space-grotesk-var.woff2') format('woff2'); }
-@font-face { font-family: 'DM Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('assets/fonts/dm-mono-400.woff2') format('woff2'); }
-@font-face { font-family: 'DM Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url('assets/fonts/dm-mono-500.woff2') format('woff2'); }
-
-:root {
-  /* Tokens aus DESIGN.md */
-  --bg: #08080a;
-  --bg-elevated: #111114;
-  --bg-card: #16161a;
-  --border: #222228;
-  --text: #e8e8ed;
-  --text-2: #a1a1aa;          /* Fließtext auf Flächen */
-  --text-3: #8b8b96;          /* Labels; DESIGN --text-muted #6b6b76 nur für Deko (Kontrast) */
-  --text-muted: #6b6b76;
-  --accent: #fb923c;
-  --accent-dim: rgba(251, 146, 60, 0.10);
-  --accent-glow: rgba(251, 146, 60, 0.28);
-  /* Kompatibilität */
-  --line: var(--border);
-  --line-2: #2c2c33;
-  --c-orange: 251, 146, 60;
-  /* Licht im Hintergrund (nur Glow, nie Fläche/Interaktion) */
-  --c-blue: 96, 165, 250;
-  --c-violet: 167, 139, 250;
-
-  --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --mono: 'DM Mono', 'Fira Code', monospace;
-  --display: 'Space Grotesk', sans-serif;
-
-  --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --wrap: 1200px;
-  --pad: clamp(20px, 4vw, 48px);
-  --r-card: 16px;
-  --r-ctl: 10px;
-}
+@import url('assets/design-system.css');
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { font-size: 16px; scroll-behavior: smooth; overflow-x: clip; -webkit-text-size-adjust: 100%; }
@@ -124,7 +88,7 @@ body::after {
 .nav-links a { padding: 8px 12px; border-radius: 8px; font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--text-3); transition: color .25s ease, background-color .25s ease; }
 .nav-links a:hover { color: var(--text); background: rgba(255,255,255,.05); }
 .nav-actions { display: flex; align-items: center; gap: 8px; }
-.sound-toggle { width: 36px; height: 36px; display: grid; place-items: center; border-radius: var(--r-ctl); color: var(--text-3); border: 1px solid rgba(255,255,255,.08); transition: color .25s ease, border-color .25s ease; }
+.sound-toggle { min-height: 44px; display: inline-flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: var(--r-ctl); color: var(--text-2); border: 1px solid var(--text-3); font: .75rem/1.5 var(--mono); }
 .sound-toggle:hover, .sound-toggle[aria-pressed="true"] { color: var(--accent); border-color: rgba(251,146,60,.4); }
 .nav-cta { font-family: var(--mono); font-size: .75rem; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; padding: .6rem 1rem; border-radius: var(--r-ctl); color: var(--bg); background: var(--accent); border: 1px solid var(--accent); transition: transform .25s ease, box-shadow .25s ease; }
 .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 30px -6px rgba(251,146,60,.55); }
@@ -424,14 +388,14 @@ body::after {
 .contact-intro p { color: var(--text-2); max-width: 26rem; }
 .contact-intro a, .form-hint a { color: var(--text); border-bottom: 1px solid var(--line-2); }
 .contact-intro a:hover, .form-hint a:hover { color: var(--accent); border-color: var(--accent); }
-.contact-form { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem 1rem; padding: clamp(24px, 3vw, 36px); border-radius: var(--r-card); border: 1px solid rgba(255,255,255,.08); background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.015)); box-shadow: 0 40px 100px -40px rgba(0,0,0,.8); }
+.contact-form { position: relative; display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.25rem 1rem; padding: clamp(24px, 3vw, 36px); border-radius: var(--r-card); border: 1px solid rgba(255,255,255,.08); background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.015)); box-shadow: 0 40px 100px -40px rgba(0,0,0,.8); }
 .field { display: flex; flex-direction: column; gap: 8px; }
 .field--full { grid-column: 1 / -1; }
 .field label { font-family: var(--mono); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: #8b8b96; }
 .field label::before { content: '> '; color: var(--accent); }
 .field input, .field select, .field textarea {
   width: 100%; font: inherit; font-size: 16px; color: var(--text);
-  background: rgba(8,8,10,.6); border: 1px solid rgba(255,255,255,.1); border-radius: var(--r-ctl);
+  background: rgba(8,8,10,.6); border: 1px solid var(--control-border); border-radius: var(--r-ctl);
   padding: .8rem 1rem; transition: border-color .25s ease;
 }
 .field select { appearance: none; -webkit-appearance: none; padding-right: 2.5rem; background-image: none; }
@@ -439,7 +403,7 @@ body::after {
 .select-wrap::after { content: 'v'; position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); font-family: var(--mono); font-size: .8rem; color: var(--accent); pointer-events: none; }
 .field select option { background: #16161a; color: var(--text); }
 .field textarea { resize: vertical; min-height: 140px; }
-.field input:hover, .field select:hover, .field textarea:hover { border-color: rgba(251,146,60,.25); }
+.field input:hover, .field select:hover, .field textarea:hover { border-color: var(--accent); }
 .field input:focus-visible, .field select:focus-visible, .field textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-color: var(--accent); }
 .field [aria-invalid="true"] { border-color: var(--accent); }
 .field-err { min-height: 1em; font-family: var(--mono); font-size: .75rem; letter-spacing: .02em; color: var(--accent); }
@@ -538,7 +502,7 @@ body::after {
   .person + .person { border-top: 1px solid var(--line); }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px 24px; }
   .footer-wordmark { margin-top: 48px; }
-  .contact-form { grid-template-columns: 1fr; }
+  .contact-form { padding: 24px 16px; }
   .form-foot .md-btn { width: 100%; }
 }
 
@@ -664,3 +628,10 @@ a[href^="mailto:"] { hyphens: manual; -webkit-hyphens: manual; overflow-wrap: an
 
 /* Druck: alles sichtbar, auch was noch nicht ins Bild gescrollt wurde */
 @media print { .js .fadeup, .js .blurin, .js .reveal, .film-head { opacity: 1 !important; transform: none !important; filter: none !important; animation: none !important; transition: none !important; } }
+
+/* Bedienung: große Ziele und erklärter Ton-Schalter. */
+.nav-links a, .nav-cta { display: inline-flex; align-items: center; min-height: 44px; }
+.sound-setting { display: grid; gap: 8px; justify-items: start; }
+.sound-setting p { max-width: 36ch; color: var(--text-3); font: .75rem/1.5 var(--sans); }
+.footer-base { align-items: start; }
+@media (max-width: 760px) { .nav-menu summary { width: 44px; height: 44px; } .nav-links { top: 52px; } }

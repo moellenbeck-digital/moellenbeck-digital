@@ -1,560 +1,162 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <script>document.documentElement.classList.add('js')</script>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Das Design-System von Moellenbeck-Digital — Farben, Typografie, Motive und Komponenten.">
-  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Das aktuelle Design von Moellenbeck-Digital: Farben, Schriften, Komponenten und Avatar zum Übernehmen in Websites, Apps und Agenten.">
+  <meta name="robots" content="noindex, follow">
   <meta name="theme-color" content="#08080a">
-
-  <title>Design-System — Moellenbeck-Digital</title>
-  <link rel="icon" href="assets/favicon.ico" sizes="48x48">
+  <title>Design &amp; Assets · Moellenbeck-Digital</title>
   <link rel="icon" href="assets/md_favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="assets/design-system.css">
   <style>
-    /* ---- seitenspezifisch: Design-Showcase ---- */
-
-    .design-hero { min-height: auto; padding-bottom: 3rem; }
-
-    .swatch-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 1.25rem;
-    }
-
-    .swatch {
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      overflow: hidden;
-      background: var(--bg-elevated);
-    }
-
-    .swatch .chip {
-      height: 72px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .swatch .meta {
-      padding: 0.75rem 0.9rem;
-    }
-
-    .swatch .meta .token {
-      display: block;
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--text);
-      letter-spacing: 0.03em;
-      margin-bottom: 0.2rem;
-    }
-
-    .swatch .meta .value {
-      display: block;
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      color: var(--text-muted);
-      letter-spacing: 0.03em;
-      margin-bottom: 0.35rem;
-    }
-
-    .swatch .meta .desc {
-      display: block;
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    .type-sample { margin-bottom: 0.75rem; }
-
-    .type-sample .sample-display {
-      font-family: var(--display);
-      font-weight: 700;
-      font-size: clamp(1.6rem, 4vw, 2.6rem);
-      letter-spacing: -0.03em;
-      line-height: 1.1;
-      color: var(--text);
-    }
-
-    .type-sample .sample-sans {
-      font-size: 0.95rem;
-      color: var(--text);
-      max-width: 46ch;
-    }
-
-    .type-sample .sample-mono {
-      font-family: var(--mono);
-      font-size: 0.8rem;
-      color: var(--accent);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .spec {
-      display: block;
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      color: var(--text-muted);
-      letter-spacing: 0.04em;
-      margin-top: 0.4rem;
-    }
-
-    .spec::before { content: '// '; color: var(--border); }
-
-    .demo-row {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 1rem 1.5rem;
-      margin-bottom: 0.75rem;
-    }
-
-    /* Motive-Demos */
-    .motif-demo {
-      font-family: var(--mono);
-      font-size: 0.85rem;
-      color: var(--text);
-      letter-spacing: 0.03em;
-    }
-
-    .motif-demo .dim { color: var(--border); }
-    .motif-demo .hi  { color: var(--accent); }
-
-    .dotgrid-demo {
-      height: 88px;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      background-color: var(--bg);
-      background-image: radial-gradient(circle at 1.5px 1.5px, rgba(251, 146, 60, 0.35) 1.5px, transparent 0);
-      background-size: 24px 24px;
-      margin-bottom: 0.5rem;
-    }
-
-    .glow-demo {
-      position: relative;
-      height: 88px;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      background: var(--bg);
-      overflow: hidden;
-      margin-bottom: 0.5rem;
-    }
-
-    .glow-demo::before {
-      content: '';
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 220px; height: 220px;
-      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-      opacity: 0.5;
-    }
-
-    /* Demo-Buttons ohne .hero-Kontext */
-    .btn-primary-demo {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.75rem 1.25rem;
-      font-family: var(--mono);
-      font-size: 0.85rem;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--bg);
-      background: var(--accent);
-      border: 1px solid var(--accent);
-      border-radius: 4px;
-      text-decoration: none;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .btn-primary-demo:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 24px var(--accent-glow);
-    }
-
-    .btn-link-demo {
-      font-family: var(--mono);
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      letter-spacing: 0.04em;
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: color 0.2s ease, border-color 0.2s ease;
-    }
-
-    .btn-link-demo:hover { color: var(--accent); border-color: var(--accent); }
-
-    .tag-demo {
-      display: inline-block;
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      font-weight: 500;
-      color: var(--accent);
-      background: var(--accent-dim);
-      border: 1px solid rgba(251, 146, 60, 0.15);
-      padding: 0.3rem 0.75rem;
-      border-radius: 2px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .resource-list { list-style: none; padding: 0; }
-
-    .resource-list li {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: baseline;
-      gap: 0.5rem 1rem;
-      padding: 0.85rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .resource-list li:last-child { border-bottom: none; }
-
-    .resource-list .what {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      flex: 1 1 300px;
-    }
-
-    code.inline {
-      font-family: var(--mono);
-      font-size: 0.78rem;
-      color: var(--accent);
-      background: var(--accent-dim);
-      padding: 0.1rem 0.4rem;
-      border-radius: 2px;
-      letter-spacing: 0.02em;
-    }
+    body { margin: 0; }
+    .shell { max-width: 1200px; margin-inline: auto; padding-inline: clamp(20px, 4vw, 48px); }
+    .guide-nav { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-block: 24px; border-bottom: 1px solid var(--border); }
+    .guide-nav img { width: 93px; display: block; }
+    .guide-nav a { display: inline-flex; align-items: center; min-height: 44px; font: .8rem var(--mono); }
+    .guide-hero { position: relative; display: grid; grid-template-columns: 1.4fr 1fr; align-items: center; gap: 40px; padding-block: 80px 64px; }
+    .guide-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 80% 45%, var(--accent-glow), transparent 50%); pointer-events: none; z-index: -1; }
+    .eyebrow { color: var(--text-3); font: .8rem var(--mono); }
+    h1 { font-size: clamp(3rem, 7vw, 5.8rem); margin: 24px 0; }
+    .lead { font-size: clamp(1rem, 2vw, 1.2rem); color: var(--text-2); }
+    .hero-robot { width: 100%; max-width: 400px; justify-self: center; }
+    .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 28px; }
+    .jump-nav { display: flex; flex-wrap: wrap; column-gap: 28px; padding-block: 16px; border-block: 1px solid var(--border); }
+    .jump-nav a { display: inline-flex; align-items: center; min-height: 44px; font: .85rem var(--mono); }
+    .guide-section { padding-block: 72px; border-bottom: 1px solid var(--border); scroll-margin-top: 24px; }
+    .section-heading { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; margin-bottom: 32px; }
+    h2 { font-size: clamp(1.8rem, 4vw, 3rem); margin: 0; }
+    h3 { font-size: 1.35rem; margin: 0 0 16px; }
+    .section-heading p { color: var(--text-2); margin: 0; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+    .palette { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+    .swatch { overflow: hidden; border: 1px solid var(--border); border-radius: var(--r-card); background: var(--bg-elevated); }
+    .swatch-color { height: 88px; background: var(--swatch); border-bottom: 1px solid var(--border); }
+    .swatch-copy { padding: 16px; font: .8rem/1.8 var(--mono); }
+    .swatch-copy strong, .swatch-copy span { display: block; }
+    .swatch-copy span, .note { color: var(--text-2); }
+    .type-display { font: 700 clamp(2rem, 4vw, 3rem)/1.12 var(--display); letter-spacing: -.035em; margin: 0 0 24px; }
+    .type-body { font: 1rem/1.7 var(--sans); }
+    .type-mono { font: .85rem/1.6 var(--mono); }
+    .type-label { color: var(--text-3); font: .75rem/1.6 var(--mono); }
+    .asset-preview { height: 220px; display: flex; align-items: center; justify-content: center; gap: 28px; margin-bottom: 24px; background: radial-gradient(ellipse at center, var(--accent-dim), transparent 70%); }
+    .asset-preview img { max-height: 200px; width: auto; }
+    .asset-preview .profile { width: 120px; border-radius: 50%; }
+    .asset-preview .brand-logo { width: 210px; }
+    .resource-links { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+    .resource-links a { display: inline-flex; min-height: 44px; align-items: center; }
+    .code-panel { position: relative; border: 1px solid var(--border); border-radius: var(--r-card); background: var(--bg-card); overflow: hidden; margin-top: 24px; }
+    .code-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 20px; border-bottom: 1px solid var(--border); font: .75rem var(--mono); color: var(--text-2); }
+    pre { overflow-x: auto; padding: 24px; margin: 0; font: .8rem/1.8 var(--mono); white-space: pre-wrap; overflow-wrap: anywhere; }
+    code { font-family: var(--mono); font-size: .85em; }
+    pre code { font-size: inherit; }
+    .copy-status { min-height: 1.6em; color: var(--text-2); font-size: .85rem; }
+    .rules { padding-left: 20px; color: var(--text-2); }
+    .rules li { margin-block: 12px; }
+    .guide-footer { padding-block: 32px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; color: var(--text-3); font-size: .8rem; }
+    .skip { position: absolute; left: 16px; top: -100px; padding: 12px; background: var(--bg-card); z-index: 5; }
+    .skip:focus { top: 16px; }
+    [hidden] { display: none !important; }
+    @media (max-width: 760px) { .guide-hero { grid-template-columns: 1fr; padding-block: 48px; gap: 24px; } .hero-robot { width: 180px; justify-self: start; } .section-heading, .grid { grid-template-columns: 1fr; } .palette { grid-template-columns: repeat(2, minmax(0, 1fr)); } .guide-section { padding-block: 48px; } .guide-nav { gap: 12px; } .code-toolbar { flex-wrap: wrap; } }
   </style>
 </head>
-<body>
-  <nav>
-    <a class="logo" href="index.html"><img src="assets/md_variante1.svg" alt="Moellenbeck-Digital" height="28"></a>
-    <details class="nav-menu" open>
-      <summary aria-label="Menü öffnen"><span></span><span></span><span></span></summary>
-      <div class="nav-links">
-        <a href="#warum">Warum</a>
-        <a href="#farben">Farben</a>
-        <a href="#typografie">Typografie</a>
-        <a href="#motive">Motive</a>
-        <a href="#komponenten">Komponenten</a>
-        <a href="#mehr">Mehr</a>
-      </div>
-    </details>
-  </nav>
-
-  <main>
-    <!-- HERO -->
-    <section class="hero-wrapper design-hero">
-      <div class="hero">
-        <div class="tag">Design System</div>
-        <h1>Ein Look.<span>Alle Produkte.</span></h1>
-        <div class="suffix">terminal-ästhetik trifft editorial-design<span class="cursor"></span></div>
-        <p class="lead">
-          Das Design-System von Moellenbeck-Digital: ein dunkler, technischer Look
-          mit einem einzigen warmen Akzent. Diese Seite zeigt live, woraus er besteht
-          &mdash; und wo Produkte die verbindlichen Regeln finden.
-        </p>
-        <div class="hero-cta">
-          <a class="btn-primary" href="https://moellenbeck-digital.io/DESIGN.md">DESIGN.md laden &rarr;</a>
-          <a class="btn-link" href="#warum">Warum ein Design-System? &darr;</a>
+<body class="md-ui">
+  <a class="skip" href="#main">Zum Inhalt</a>
+  <div class="shell">
+    <header class="guide-nav">
+      <a href="index.html" aria-label="Moellenbeck-Digital – Startseite"><img src="assets/md_variante1.svg" width="93" height="28" alt=""></a>
+      <a href="DESIGN.md" download>Designregeln herunterladen</a>
+    </header>
+    <main id="main">
+      <section class="guide-hero" aria-labelledby="title">
+        <div>
+          <p class="eyebrow">Moellenbeck-Digital / Design &amp; Assets</p>
+          <h1 id="title">Ein Look.<br>Viele Werkzeuge.</h1>
+          <p class="lead">Das Design unserer Website für Ihre nächste Seite, App oder Ihren Agenten. Mit echten Komponenten, lokalen Schriften und unserem Avatar.</p>
+          <div class="actions"><a class="md-button" href="#start">Design übernehmen</a><a class="md-button md-button--secondary" href="#avatar">Avatar &amp; Logos</a></div>
         </div>
-      </div>
-    </section>
-
-    <!-- WARUM -->
-    <section id="warum" class="block">
-      <div class="block-header reveal">
-        <span class="marker">// 01</span>
-        <h2>Warum</h2>
-        <div class="line"></div>
-      </div>
-      <div class="grid cols-3">
-        <article class="card reveal">
-          <span class="card-num">WHY/01</span>
-          <h3>Wiedererkennung</h3>
-          <p>Website, Tools und Produkte von Moellenbeck-Digital sollen auf den ersten Blick als Familie erkennbar sein &mdash; gleiche Farben, gleiche Schriften, gleiche Details.</p>
-          <ul>
-            <li>Ein Akzent: Soft Orange</li>
-            <li>Drei Schriften, klare Rollen</li>
-            <li>ASCII-Motive statt Icon-Sets</li>
-          </ul>
-        </article>
-        <article class="card reveal">
-          <span class="card-num">WHY/02</span>
-          <h3>Schneller bauen</h3>
-          <p>Neue Produkte starten nicht bei null: Tokens, Komponenten-Rezepte und ein Copy-paste-Fundament stehen bereit. Design-Entscheidungen sind einmal getroffen.</p>
-          <ul>
-            <li>CSS-Tokens zum Übernehmen</li>
-            <li>Fertige Komponenten-Rezepte</li>
-            <li>Do &amp; Don't als Leitplanken</li>
-          </ul>
-        </article>
-        <article class="card reveal">
-          <span class="card-num">WHY/03</span>
-          <h3>Maschinenlesbar</h3>
-          <p>Die Regeln liegen als Markdown unter einer stabilen URL. Agenten und Codegeneratoren laden sie als Kontext und leiten daraus konsistente Designs ab.</p>
-          <div class="stack">
-            <span>DESIGN.md</span>
-            <span>curl</span>
-            <span>Agent-Kontext</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- FARBEN -->
-    <section id="farben" class="block">
-      <div class="block-header reveal">
-        <span class="marker">// 02</span>
-        <h2>Farben</h2>
-        <div class="line"></div>
-      </div>
-      <div class="swatch-grid reveal">
-        <div class="swatch">
-          <div class="chip" style="background:#08080a"></div>
-          <div class="meta">
-            <span class="token">--bg</span>
-            <span class="value">#08080a</span>
-            <span class="desc">Seitenhintergrund</span>
-          </div>
+        <img class="hero-robot" src="assets/img/roboter.webp" alt="MD-Roboter mit orange leuchtendem Gesicht" width="760" height="760">
+      </section>
+      <nav class="jump-nav" aria-label="Design-Themen"><a href="#farben">Farben</a><a href="#typografie">Typografie</a><a href="#komponenten">Komponenten</a><a href="#avatar">Avatar &amp; Logos</a><a href="#start">Übernehmen</a></nav>
+      <section class="guide-section" id="farben" aria-labelledby="colorsTitle">
+        <div class="section-heading"><h2 id="colorsTitle">Dunkel. Klar.<br>Ein warmer Akzent.</h2><p>Drei dunkle Flächen schaffen Tiefe. Orange zeigt die nächste Aktion. Blau und Violett bleiben dezentes Hintergrundlicht oder kennzeichnen einzelne Agenten.</p></div>
+        <div class="palette">
+          <div class="swatch"><div class="swatch-color" style="--swatch:var(--bg)"></div><div class="swatch-copy"><strong>--bg</strong><span>#08080a · Hintergrund</span></div></div>
+          <div class="swatch"><div class="swatch-color" style="--swatch:var(--bg-elevated)"></div><div class="swatch-copy"><strong>--bg-elevated</strong><span>#111114 · Karten</span></div></div>
+          <div class="swatch"><div class="swatch-color" style="--swatch:var(--bg-card)"></div><div class="swatch-copy"><strong>--bg-card</strong><span>#16161a · Felder</span></div></div>
+          <div class="swatch"><div class="swatch-color" style="--swatch:var(--accent)"></div><div class="swatch-copy"><strong>--accent</strong><span>#fb923c · Aktionen</span></div></div>
+          <div class="swatch"><div class="swatch-color" style="--swatch:var(--text)"></div><div class="swatch-copy"><strong>--text</strong><span>#e8e8ed · Haupttext</span></div></div>
+          <div class="swatch"><div class="swatch-color" style="--swatch:var(--text-2)"></div><div class="swatch-copy"><strong>--text-2</strong><span>#a1a1aa · Fließtext</span></div></div>
+          <div class="swatch"><div class="swatch-color" style="--swatch:var(--text-3)"></div><div class="swatch-copy"><strong>--text-3</strong><span>#8b8b96 · Metadaten</span></div></div>
+          <div class="swatch"><div class="swatch-color" style="--swatch:var(--border)"></div><div class="swatch-copy"><strong>--border</strong><span>#222228 · Trennlinien</span></div></div>
         </div>
-        <div class="swatch">
-          <div class="chip" style="background:#111114"></div>
-          <div class="meta">
-            <span class="token">--bg-elevated</span>
-            <span class="value">#111114</span>
-            <span class="desc">Cards, Panels, Sections</span>
-          </div>
+        <p class="note">Auf Orange steht dunkler Text. <code>--text-muted</code> ist nur für Dekoration reserviert; für lesbare Labels verwenden wir <code>--text-3</code>.</p>
+      </section>
+      <section class="guide-section" id="typografie" aria-labelledby="typeTitle">
+        <div class="section-heading"><h2 id="typeTitle">Drei Schriften.<br>Klare Aufgaben.</h2><p>Markante Überschriften, ruhiger Lesetext und technische Details. Alle Schriften werden lokal geladen; die Lizenzdateien liegen im Font-Ordner.</p></div>
+        <div class="grid">
+          <div class="md-card"><p class="type-label">Space Grotesk · 700 · Überschriften</p><p class="type-display">Agenten bereiten vor.<br>Ein Mensch entscheidet.</p><p class="type-label">Inter · 400–600 · Lesetext</p><p class="type-body">Software wird verständlich, wenn sie den nächsten Schritt klar benennt. Kurze Absätze und begrenzte Zeilenlängen geben dem Inhalt Raum.</p><p class="type-label">DM Mono · 400/500 · Bedienung &amp; Metadaten</p><p class="type-mono">MD_Process / Entwurf zur Prüfung</p></div>
+          <div class="md-card"><h3>Rhythmus &amp; Form</h3><ul class="rules"><li>Lesetext: 16–18 px, Zeilenhöhe 1,6–1,75, bis etwa 68 Zeichen pro Zeile.</li><li>Überschriften: enge Laufweite, responsive Größe, keine langen Versalien.</li><li>Karten: 16 px Radius. Bedienelemente: 10 px. Kleine Statusmarken: 6 px.</li><li>Inhalt: bis 1200 px breit; Seitenränder 20–48 px, Komponentenabstand 16–32 px.</li><li>Große Bühnen auf der Website; dichtere Abstände in produktiven Apps.</li></ul></div>
         </div>
-        <div class="swatch">
-          <div class="chip" style="background:#16161a"></div>
-          <div class="meta">
-            <span class="token">--bg-card</span>
-            <span class="value">#16161a</span>
-            <span class="desc">Avatare, Inputs, Nested</span>
-          </div>
+      </section>
+      <section class="guide-section" id="komponenten" aria-labelledby="componentsTitle">
+        <div class="section-heading"><h2 id="componentsTitle">Bausteine, die<br>etwas erklären.</h2><p>Eine klare Hauptaktion, sichtbarer Tastaturfokus und Rückmeldung im Text. Die Beispiele verwenden dieselbe CSS-Datei wie die Website.</p></div>
+        <div class="grid">
+          <article class="md-card"><span class="md-status">Zur Prüfung</span><h3 style="margin-top:24px">Ein Entwurf ist bereit.</h3><p class="note">Ein Agent bereitet die nächsten Schritte vor. Die Entscheidung bleibt beim Menschen.</p><div class="actions"><a class="md-button" href="#start">Komponente übernehmen</a><a class="md-button md-button--secondary" href="DESIGN.md">Regeln lesen</a></div></article>
+          <div class="md-card"><h3>Fragen mit klarer Antwort</h3><div class="faq-list"><details class="faq-item" open><summary>Funktioniert das ohne JavaScript?</summary><div class="faq-answer"><p>Ja. Native HTML-Elemente öffnen und schließen die Antwort per Klick, Enter oder Leertaste.</p></div></details><details class="faq-item"><summary>Wie verwende ich diese Komponenten?</summary><div class="faq-answer"><p>CSS und Schriften kopieren, <code>md-ui</code> auf den Container setzen und das Beispiel unten übernehmen.</p></div></details></div></div>
         </div>
-        <div class="swatch">
-          <div class="chip" style="background:#e8e8ed"></div>
-          <div class="meta">
-            <span class="token">--text</span>
-            <span class="value">#e8e8ed</span>
-            <span class="desc">Primärtext &mdash; kein reines Weiß</span>
-          </div>
+      </section>
+      <section class="guide-section" id="avatar" aria-labelledby="assetsTitle">
+        <div class="section-heading"><h2 id="assetsTitle">Ein Gesicht<br>für die Agenten.</h2><p>Der MD-Roboter ist ein visueller Begleiter. Er ersetzt keine Statusmeldung und wird nicht als menschlicher Gesprächspartner dargestellt.</p></div>
+        <div class="grid">
+          <article class="md-card"><div class="asset-preview"><img src="assets/img/avatar-200.webp" alt="MD-Roboter als freigestellte Figur" width="200" height="261" loading="lazy"><img class="profile" src="assets/github-avatar.png" alt="Quadratisches MD-Profilbild, hier rund dargestellt" width="460" height="460" loading="lazy"></div><h3>Avatar &amp; Profilbild</h3><p class="note">Die freigestellte Figur für Begrüßungen, das quadratische Profilbild für Agenten und App-Konten.</p><div class="resource-links"><a href="assets/img/avatar-200.webp" download>Figur · WebP</a><a href="assets/github-avatar.png" download>Profil · PNG</a><a href="assets/img/roboter.png" download>Groß · PNG</a><a href="assets/img/roboter.webp" download>Groß · WebP</a></div></article>
+          <article class="md-card"><div class="asset-preview"><img class="brand-logo" src="assets/md_variante1.svg" alt="MD-Wortmarke" width="400" height="120" loading="lazy"></div><h3>Logo &amp; App-Zeichen</h3><p class="note">Originalproportionen und Orange erhalten. Die SVG-Wortmarke verwendet eine System-Monospace-Schrift; die Darstellung kann je Plattform variieren.</p><div class="resource-links"><a href="assets/md_variante1.svg" download>Wortmarke · SVG</a><a href="assets/md_variante2.svg" download>Alternative · SVG</a><a href="assets/md_favicon.svg" download>App-Zeichen · SVG</a></div></article>
         </div>
-        <div class="swatch">
-          <div class="chip" style="background:#6b6b76"></div>
-          <div class="meta">
-            <span class="token">--text-muted</span>
-            <span class="value">#6b6b76</span>
-            <span class="desc">Sekundärtext, Labels, Meta</span>
-          </div>
-        </div>
-        <div class="swatch">
-          <div class="chip" style="background:#fb923c"></div>
-          <div class="meta">
-            <span class="token">--accent</span>
-            <span class="value">#fb923c</span>
-            <span class="desc">Der einzige Akzent &mdash; sparsam einsetzen</span>
-          </div>
-        </div>
-        <div class="swatch">
-          <div class="chip" style="background:rgba(251,146,60,0.10)"></div>
-          <div class="meta">
-            <span class="token">--accent-dim</span>
-            <span class="value">rgba(251,146,60,.10)</span>
-            <span class="desc">Tag- und Badge-Flächen</span>
-          </div>
-        </div>
-        <div class="swatch">
-          <div class="chip" style="background:#222228"></div>
-          <div class="meta">
-            <span class="token">--border</span>
-            <span class="value">#222228</span>
-            <span class="desc">1px-Rahmen und Linien</span>
-          </div>
-        </div>
-      </div>
-      <p style="font-size:0.85rem; color:var(--text-muted); margin-top:1.5rem;" class="reveal">
-        Regel: Die Fläche bleibt zu ~95&nbsp;% Graustufen. Orange markiert Interaktion,
-        Marker und Status &mdash; nie große Flächen. Es gibt keinen Light Mode.
-      </p>
-    </section>
+        <p class="note">Statisch ist der Standard beim Einbetten. Die Website animiert die Figur über <code>agents.js</code> und <code>agents.css</code>; dafür sind Pausensteuerung, reduzierte Bewegung und die originale Bildgeometrie erforderlich. Details stehen in der <a href="DESIGN.md#avatar-und-bewegung">DESIGN.md</a>.</p>
+      </section>
+      <section class="guide-section" id="start" aria-labelledby="startTitle">
+        <div class="section-heading"><h2 id="startTitle">Mitnehmen.<br>Weiterbauen.</h2><p>Für Agenten: die Designregeln als Kontext laden. Für Websites und Apps: CSS, Font-Ordner inklusive Lizenzen und die benötigten Bilder mit derselben Ordnerstruktur übernehmen.</p></div>
+        <div class="resource-links"><a href="DESIGN.md" download>DESIGN.md</a><a href="assets/design-system.css" download>Komponenten &amp; Tokens · CSS</a><a href="assets/fonts/README.txt">Schriften &amp; Lizenzen</a></div>
+        <div class="code-panel"><div class="code-toolbar"><span>Startpunkt für Agenten</span><button class="md-button md-button--secondary" type="button" data-copy="agent-code" hidden>Kopieren</button></div><pre><code id="agent-code">Lies https://moellenbeck-digital.io/DESIGN.md und verwende
+https://moellenbeck-digital.io/assets/design-system.css als Basis.
+Übernimm die dort dokumentierten Farben, Schriften und Komponenten.
+Verwende den MD-Avatar aus den angegebenen Originaldateien.
+Beachte Tastaturbedienung, Kontraste und reduzierte Bewegung.</code></pre></div>
+        <div class="code-panel"><div class="code-toolbar"><span>HTML · nach dem Kopieren der Assets</span><button class="md-button md-button--secondary" type="button" data-copy="html-code" hidden>Kopieren</button></div><pre><code id="html-code">&lt;link rel="stylesheet" href="assets/design-system.css"&gt;
 
-    <!-- TYPOGRAFIE -->
-    <section id="typografie" class="block">
-      <div class="block-header reveal">
-        <span class="marker">// 03</span>
-        <h2>Typografie</h2>
-        <div class="line"></div>
-      </div>
-      <div class="grid cols-3">
-        <article class="card reveal">
-          <span class="card-num">TYP/01 · Display</span>
-          <div class="type-sample">
-            <div class="sample-display">Space Grotesk 700</div>
-          </div>
-          <p>Nur für Headlines. Immer schwer (700&ndash;800), immer eng gesetzt.</p>
-          <span class="spec">letter-spacing: -0.03em · line-height: 1.05</span>
-        </article>
-        <article class="card reveal">
-          <span class="card-num">TYP/02 · Text</span>
-          <div class="type-sample">
-            <p class="sample-sans">Inter für Fließtext &mdash; ruhig, neutral, gut lesbar. Trägt den Inhalt, nie die Bühne.</p>
-          </div>
-          <p>Fließtext und UI-Copy in 400&ndash;600.</p>
-          <span class="spec">line-height: 1.6 · 0.85&ndash;1.05rem</span>
-        </article>
-        <article class="card reveal">
-          <span class="card-num">TYP/03 · Mono</span>
-          <div class="type-sample">
-            <span class="sample-mono">DM Mono · Technik</span>
-          </div>
-          <p>Für alles Technische: Nav, Buttons, Badges, Nummern, Status, Links.</p>
-          <span class="spec">letter-spacing: 0.04&ndash;0.15em · oft uppercase</span>
-        </article>
-      </div>
-    </section>
-
-    <!-- MOTIVE -->
-    <section id="motive" class="block">
-      <div class="block-header reveal">
-        <span class="marker">// 04</span>
-        <h2>Signatur-Motive</h2>
-        <div class="line"></div>
-      </div>
-      <div class="grid cols-2">
-        <article class="card reveal">
-          <span class="card-num">SIG/01 · ASCII statt Icons</span>
-          <h3>Prompt, Kommentar, Pfeil</h3>
-          <p class="motif-demo"><span class="hi">&gt;</span> Listenpunkte mit Prompt-Zeichen</p>
-          <p class="motif-demo"><span class="dim">//</span> Subline im Kommentar-Stil</p>
-          <p class="motif-demo">Weiterführender Link <span class="hi">-&gt;</span> &nbsp;·&nbsp; Zurück <span class="hi">&lt;-</span></p>
-          <span class="spec">via ::before / ::after &mdash; keine Icon-Fonts</span>
-        </article>
-        <article class="card reveal">
-          <span class="card-num">SIG/02 · Cursor &amp; Status</span>
-          <h3>Leben im Detail</h3>
-          <p class="motif-demo">Blinkender Cursor<span class="cursor"></span></p>
-          <p class="project-status" style="margin-top:0.75rem;">Aktiv</p>
-          <p class="project-status archived">Archiviert</p>
-          <span class="spec">blink 1s step-end · 6px-Punkt mit Glow</span>
-        </article>
-        <article class="card reveal">
-          <span class="card-num">SIG/03 · Punktraster</span>
-          <h3>Hintergrund-Textur</h3>
-          <div class="dotgrid-demo" role="img" aria-label="Punktraster-Demo"></div>
-          <span class="spec">radial-gradient 1px · 32px Raster · hier verstärkt dargestellt</span>
-        </article>
-        <article class="card reveal">
-          <span class="card-num">SIG/04 · Glow</span>
-          <h3>Akzent-Leuchten</h3>
-          <div class="glow-demo" role="img" aria-label="Glow-Demo"></div>
-          <span class="spec">radial-gradient mit --accent-glow · opacity 0.15&ndash;0.3</span>
-        </article>
-      </div>
-    </section>
-
-    <!-- KOMPONENTEN -->
-    <section id="komponenten" class="block">
-      <div class="block-header reveal">
-        <span class="marker">// 05</span>
-        <h2>Komponenten</h2>
-        <div class="line"></div>
-      </div>
-      <div class="grid cols-2">
-        <article class="card reveal">
-          <span class="card-num">CMP/01</span>
-          <h3>Buttons &amp; Links</h3>
-          <div class="demo-row">
-            <a class="btn-primary-demo" href="#komponenten">Primär &rarr;</a>
-            <a class="btn-link-demo" href="#komponenten">Sekundär-Link</a>
-          </div>
-          <span class="spec">Mono · uppercase · 4px Radius · Hover: 2px-Lift + Glow</span>
-        </article>
-        <article class="card reveal">
-          <span class="card-num">CMP/02</span>
-          <h3>Tags &amp; Chips</h3>
-          <div class="demo-row">
-            <span class="tag-demo">Akzent-Tag</span>
-          </div>
-          <div class="stack">
-            <span>TypeScript</span>
-            <span>BPMN 2.0</span>
-            <span>Claude</span>
-          </div>
-          <span class="spec">2px Radius · Akzent für Gewicht, neutral für Metadaten</span>
-        </article>
-        <article class="card reveal">
-          <span class="card-num">CMP/03</span>
-          <h3>Diese Card</h3>
-          <p>Cards sind das Grundmodul: erhabene Fläche, 1px-Rahmen, Mono-Nummer, Space-Grotesk-Titel. Beim Hover: Rahmen färbt sich, die Card hebt sich 2px, links blendet ein 3px-Akzentbalken ein &mdash; probier es aus.</p>
-          <span class="spec">--bg-elevated · 4px Radius · Aufbau: Nummer &gt; Titel &gt; Text &gt; Chips</span>
-        </article>
-        <article class="card reveal">
-          <span class="card-num">CMP/04</span>
-          <h3>Section-Header</h3>
-          <p>Jede Sektion beginnt mit Mono-Marker (<code class="inline">// 01</code>), Space-Grotesk-Headline und einer Linie, die den Rest der Zeile füllt &mdash; wie oben auf dieser Seite.</p>
-          <span class="spec">Marker uppercase · Linie in --border · mobil ohne Linie</span>
-        </article>
-      </div>
-    </section>
-
-    <!-- MEHR INFORMATIONEN -->
-    <section id="mehr" class="contact">
-      <div class="contact-card reveal">
-        <div class="marker">// 06 · Mehr Informationen</div>
-        <h2>Wo finde ich die Regeln?</h2>
-        <ul class="resource-list" style="text-align:left; max-width:640px; margin:1.5rem auto 0; position:relative;">
-          <li>
-            <a class="project-link" style="margin-top:0;" href="https://moellenbeck-digital.io/DESIGN.md">DESIGN.md</a>
-            <span class="what">Der verbindliche Styleguide: alle Tokens, Regeln, Komponenten-Rezepte und Do/Don'ts &mdash; als Markdown, auch für Agenten: <code class="inline">curl -s https://moellenbeck-digital.io/DESIGN.md</code></span>
-          </li>
-          <li>
-            <a class="project-link" style="margin-top:0;" href="https://github.com/moellenbeck-digital/moellenbeck-digital">GitHub-Repo</a>
-            <span class="what">Quelle der Wahrheit: <code class="inline">style.css</code> ist die Referenz-Implementierung, <code class="inline">assets/</code> enthält Logos und Favicons.</span>
-          </li>
-          <li>
-            <a class="project-link" style="margin-top:0;" href="index.html">Website</a>
-            <span class="what">Das lebende Beispiel &mdash; jede Sektion der Startseite nutzt exakt diese Bausteine.</span>
-          </li>
-          <li>
-            <a class="project-link" style="margin-top:0;" href="https://moellenbeck-holding.de/design.html">moellenbeck-holding</a>
-            <span class="what">Das Schwester-Design: gleiches Fundament, Sky-Blue-Akzent, nur zwei Schriften &mdash; bewusst reduzierter.</span>
-          </li>
-        </ul>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <a href="impressum.html">Impressum</a>
-    <span class="separator">/</span>
-    <a href="datenschutz.html">Datenschutzerklärung</a>
-  </footer>
-
+&lt;section class="md-ui" aria-label="Agenten-Assistent"&gt;
+  &lt;article class="md-card"&gt;
+    &lt;img class="md-avatar" src="assets/img/avatar-200.webp"
+         width="200" height="261" alt="MD-Agent"&gt;
+    &lt;h2&gt;Wie können wir helfen?&lt;/h2&gt;
+    &lt;p&gt;Beschreiben Sie die Aufgabe. Wir bereiten den nächsten Schritt vor.&lt;/p&gt;
+    &lt;a class="md-button" href="mailto:admin@moellenbeck-digital.io"&gt;
+      Kontakt aufnehmen
+    &lt;/a&gt;
+  &lt;/article&gt;
+&lt;/section&gt;</code></pre></div>
+        <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
+      </section>
+    </main>
+    <footer class="guide-footer"><span>Moellenbeck-Digital · Designstand 27. November 2026</span><a href="index.html">Zur Website</a><a href="DESIGN.md">Designregeln als Markdown</a></footer>
+  </div>
   <script>
-    const navMenu = document.querySelector('.nav-menu');
-    const mq = window.matchMedia('(max-width: 600px)');
-    const syncMenu = () => { if (mq.matches) navMenu.removeAttribute('open'); else navMenu.setAttribute('open', ''); };
-    syncMenu();
-    mq.addEventListener('change', syncMenu);
-    navMenu.querySelectorAll('.nav-links a').forEach((a) => {
-      a.addEventListener('click', () => { if (mq.matches) navMenu.removeAttribute('open'); });
-    });
-
-    const io = new IntersectionObserver((entries) => {
-      for (const e of entries) {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          io.unobserve(e.target);
+    document.querySelectorAll('[data-copy]').forEach((button) => {
+      button.hidden = false;
+      button.addEventListener('click', async () => {
+        const code = document.getElementById(button.dataset.copy);
+        const status = document.getElementById('copy-status');
+        try {
+          await navigator.clipboard.writeText(code.textContent);
+          status.textContent = 'Kopiert. Sie können das Beispiel jetzt einfügen.';
+        } catch {
+          const range = document.createRange(); range.selectNodeContents(code);
+          const selection = window.getSelection(); selection.removeAllRanges(); selection.addRange(range);
+          status.textContent = 'Der Text ist markiert. Kopieren Sie ihn mit Strg+C oder ⌘C.';
         }
-      }
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+      });
+    });
   </script>
 </body>
 </html>

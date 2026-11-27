@@ -25,6 +25,10 @@ Moellenbeck-Digital baut Software, Automatisierung und KI-Agenten. Unsere Agente
 ## Volltext
 - [Kernseiten](https://moellenbeck-digital.io/llms-full.txt): Sichtbarer Text der Startseite und der Hausverwaltungsseite.
 
+## Design für Websites, Apps und Agenten
+- [Designregeln](https://moellenbeck-digital.io/DESIGN.md): Aktuelle Tokens, Komponenten, Avatar und Hinweise zur Wiederverwendung.
+- [Visueller Styleguide](https://moellenbeck-digital.io/design.html): Komponenten, Downloads und Einbettungsbeispiele.
+
 ## Optional
 - [Impressum](https://moellenbeck-digital.io/impressum.html): Impressum von Moellenbeck-Digital.
 - [Datenschutzerklärung](https://moellenbeck-digital.io/datenschutz.html): Datenschutzerklärung von Moellenbeck-Digital.
