@@ -306,4 +306,17 @@
     const later = () => (window.requestIdleCallback ? requestIdleCallback(startVideo, { timeout: 3000 }) : setTimeout(startVideo, 1500));
     if (document.readyState === 'complete') later(); else window.addEventListener('load', later, { once: true });
   } else if (hvVideo) { hvVideo.controls = true; }
+
+  /* Mikro-Szenen liegen unter dem ersten Bildschirm: beim ersten Scrollen oder Zeigen holen, sonst nach 5 s */
+  addEventListener('load', () => {
+    const wake = ['scroll', 'pointermove', 'pointerdown', 'keydown'];
+    let timer = 0;
+    const go = () => {
+      clearTimeout(timer);
+      wake.forEach((type) => removeEventListener(type, go));
+      document.body.append(Object.assign(document.createElement('script'), { src: 'assets/motion.js' }));
+    };
+    wake.forEach((type) => addEventListener(type, go, { passive: true }));
+    timer = setTimeout(go, scrollY ? 0 : 5000);
+  }, { once: true });
 })();

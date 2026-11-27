@@ -27,8 +27,12 @@ hausverwaltung/main.js
 hausverwaltung/style.css
 assets/agents.css
 assets/agents.js
+assets/motion.css
+assets/motion.js
 hausverwaltung/assets/agents.css
 hausverwaltung/assets/agents.js
+hausverwaltung/assets/motion.css
+hausverwaltung/assets/motion.js
 
 # Assets (by file type; a file of another type in assets/ is not allowed automatically)
 assets/**/*.png
