@@ -535,6 +535,74 @@ test('Zählung der R3-Proben', async (t) => {
   assert.equal(contested, 0);
 });
 
+/* ── Korrektur R4 ── */
+// Je Wortform mindestens ein Satz. Davor oder danach: unklar, kein Widerspruch.
+const R4_PROBES = {
+  'wallbox-kosten': [
+    'Die Versammlung beschloss im Mai die Übernahme der Kosten.',
+    'Die Versammlung beschloß im Mai die Übernahme.',
+    'Die Eigentümerversammlung beschließt seit Mai die Übernahme.',
+    'Die Eigentümer beschließen die Übernahme im Mai.',
+    'Die Eigentümer beschliessen die Übernahme im Mai.',
+    'Die Eigentümerversammlung beschliesst die Übernahme im Mai.',
+    'Die Versammlung beschlösse die Übernahme erneut.',
+    'Die Übernahme wurde im Mai beschlossen.',
+    'Der Beschluss zur Übernahme stammt vom Mai.',
+    'Zwei Beschlüsse regeln die Übernahme.',
+    'Die Beschluesse vom Mai regeln die Übernahme.',
+    'Die Versammlung hat der Übernahme im Mai zugestimmt.',
+    'Die Verwaltung hat mir die Übernahme zugesagt.'
+  ],
+  'minderung-ohne-anzeige': [
+    'Der Vermieter kennt den Mangel seit Januar.',
+    'Sie kennen den Schaden seit März.',
+    'Du kennst den Schimmel seit dem Winter.',
+    'Die Vermieterin sagt, sie kenne den Schaden.',
+    'Der Vermieter hat den Schaden seit März gekannt.',
+    'Der Vermieter erkennt den Mangel seit Januar an.',
+    'Ich habe dem Vermieter den Mangel im Januar mitgeteilt.',
+    'Meine Mitteilung zum Schimmel ging im Januar an den Vermieter.',
+    'Ich habe den Mangel im Januar angezeigt.',
+    'Der Vermieter hat den Schimmel im Januar gesehen.',
+    'Der Vermieter hat den Schaden im Januar notiert.'
+  ]
+};
+
+for (const [id, probes] of Object.entries(R4_PROBES)) {
+  for (const probe of probes) {
+    test(`R4 ${id}, Kontextsatz davor und danach: ${probe}`, async () => {
+      const e = entry(id);
+      for (const letter of r3Letters(id, probe)) {
+        const { claims, draft } = await analyzeLetter(letter);
+        const own = claims.filter((c) => normalize(c.text) === normalize(e.sentence));
+        assert.deepEqual(own.map((c) => c.rating), ['unklar'], letter);
+        assert.deepEqual(decided(claims), [], letter);
+        assert.doesNotMatch(draft, DISAGREE, letter);
+        assert.ok(!draft.includes(e.reply), letter);
+      }
+    });
+  }
+}
+
+test('R4 Regression: brief-03 („keinen Beschluss“) bleibt bei den Wallbox-Kosten fraglich', async () => {
+  const e = entry('wallbox-kosten');
+  const letter = read('tests/ki-brief-check/fixtures/brief-03.txt');
+  assert.match(letter, /keinen Beschluss/);
+  const { claims, draft } = await analyzeLetter(letter);
+  assert.deepEqual(claims.filter((c) => c.text === e.sentence).map((c) => c.rating), ['fraglich']);
+  assert.ok(draft.includes(e.reply));
+});
+
+test('R4: der Hinweis zur Grenze steht beim Ergebnis und ist an die Überschrift gebunden', () => {
+  const source = read(`${PAGE}/index.html`);
+  const hint = source.match(/<p id="limitHint"[^>]*>([^<]+)<\/p>/);
+  assert.ok(hint, 'limitHint fehlt');
+  assert.equal(hint[1], 'Prototyp: erkennt nur bekannte Formulierungen. Andere Aussagen werden als „unklar“ gewertet. Unbekannt formulierte Umstände im Brief können unerkannt bleiben. Prüfen Sie auch „belegt“ und „fraglich“ selbst.');
+  assert.match(source, /<h2 id="claimsTitle"[^>]*aria-describedby="limitHint"/);
+  const at = (needle) => source.indexOf(needle);
+  assert.ok(at('<div id="result"') < at('id="limitHint"') && at('id="limitHint"') < at('<ol id="claims"'));
+});
+
 /* ── XSS ── */
 function fakeDocument() {
   const node = (tag) => ({
