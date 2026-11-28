@@ -1,0 +1,60 @@
+{
+  "brief-01.txt": [
+    {"contains": "Hausgeld ab sofort", "rating": "fraglich", "source": "§ 28 Abs. 1 WEG; § 16 Abs. 2 WEG"},
+    {"contains": "Aufzug nutze ich nicht", "rating": "fraglich", "source": "§ 16 Abs. 2 WEG"},
+    {"contains": "Einsicht in die Verwaltungsunterlagen", "rating": "belegt", "source": "§ 18 Abs. 4 WEG"},
+    {"contains": "bis zum 31. März", "rating": "fraglich", "source": "§ 28 Abs. 2 WEG"},
+    {"contains": "haftet für sämtliche", "rating": "unklar", "source": "keine Quelle in der Wissensbasis"}
+  ],
+  "brief-02.txt": [
+    {"contains": "ohne die Zustimmung aller", "rating": "fraglich", "source": "§ 28 Abs. 1 WEG; § 25 Abs. 1 WEG"},
+    {"contains": "gegen die Sonderumlage gestimmt", "rating": "fraglich", "source": "§ 23 Abs. 4 WEG; § 16 Abs. 2 WEG"},
+    {"contains": "innerhalb eines Monats", "rating": "belegt", "source": "§ 45 WEG"}
+  ],
+  "brief-03.txt": [
+    {"contains": "Wallbox an meinem Stellplatz", "rating": "belegt", "source": "§ 20 Abs. 2 WEG"},
+    {"contains": "keinen Beschluss der Gemeinschaft", "rating": "unklar", "source": "keine Quelle in der Wissensbasis"},
+    {"contains": "muss die Gemeinschaft tragen", "rating": "fraglich", "source": "§ 21 Abs. 1 WEG"}
+  ],
+  "brief-04.txt": [
+    {"contains": "Widerspruch gegen den Beschluss", "rating": "fraglich", "source": "§ 44 Abs. 1 WEG; § 45 WEG"},
+    {"contains": "zwei Monate Zeit", "rating": "fraglich", "source": "§ 45 WEG"},
+    {"contains": "Zugang des Protokolls", "rating": "fraglich", "source": "§ 45 WEG"},
+    {"contains": "Beschluss aus meiner Sicht nichtig", "rating": "unklar", "source": "§ 23 Abs. 4 WEG"}
+  ],
+  "brief-05.txt": [
+    {"contains": "kostenlos Kopien", "rating": "fraglich", "source": "§ 18 Abs. 4 WEG"},
+    {"contains": "Jahresabrechnung aufzustellen", "rating": "belegt", "source": "§ 28 Abs. 2 WEG"},
+    {"contains": "Frist von zwei Wochen", "rating": "fraglich", "source": "§ 24 Abs. 4 WEG"},
+    {"contains": "V ZR 999/99", "rating": "unklar", "source": "keine Quelle in der Wissensbasis"}
+  ],
+  "brief-06.txt": [
+    {"contains": "Nachforderung ist ausgeschlossen", "rating": "belegt", "source": "§ 556 Abs. 3 BGB"},
+    {"contains": "Einsicht in die Belege", "rating": "belegt", "source": "§ 556 Abs. 4 BGB"}
+  ],
+  "brief-07.txt": [
+    {"contains": "berechtigt, die Miete zu mindern", "rating": "belegt", "source": "§ 536 Abs. 1 BGB"},
+    {"contains": "um 80 Prozent", "rating": "unklar", "source": "§ 536 Abs. 1 BGB"},
+    {"contains": "rückwirkend", "rating": "fraglich", "source": "§ 536c BGB"},
+    {"contains": "rückwirkend", "rating": "unklar", "source": "§ 536 Abs. 1 BGB; § 536c BGB"},
+    {"contains": "vertragsgemäßen Zustand", "rating": "belegt", "source": "§ 535 Abs. 1 BGB"}
+  ],
+  "brief-08.txt": [
+    {"contains": "drei Monate vor Beginn", "rating": "belegt", "source": "§ 555c Abs. 1 BGB"},
+    {"contains": "um 11 Prozent", "rating": "fraglich", "source": "§ 559 Abs. 1 BGB"},
+    {"contains": "Ohne meine Zustimmung", "rating": "fraglich", "source": "§ 555d Abs. 1 BGB; § 559 Abs. 1 BGB"},
+    {"contains": "Sonderkündigungsrecht", "rating": "belegt", "source": "§ 561 Abs. 1 BGB"}
+  ],
+  "brief-09.txt": [
+    {"contains": "nach § 556 BGB muss sie", "rating": "fraglich", "source": "§ 556 Abs. 3 BGB; § 28 Abs. 2 WEG"},
+    {"contains": "Nach § 46 WEG", "rating": "fraglich", "source": "§§ 44, 45 WEG"},
+    {"contains": "immer nach Wohnfläche", "rating": "fraglich", "source": "§ 16 Abs. 2 WEG"},
+    {"contains": "Notmaßnahme am Dach", "rating": "unklar", "source": "§ 18 Abs. 3 WEG"}
+  ],
+  "brief-10.txt": [
+    {"contains": "innerhalb von sechs Monaten", "rating": "fraglich", "source": "§ 556 Abs. 3 BGB"},
+    {"contains": "jederzeit und ohne Frist", "rating": "fraglich", "source": "§ 556 Abs. 3 BGB"},
+    {"contains": "Gartenpflege", "rating": "unklar", "source": "keine Quelle in der Wissensbasis"},
+    {"contains": "Habe ich ein Recht auf Mietminderung", "rating": "unklar", "source": "§ 536 Abs. 1 BGB"}
+  ]
+}
