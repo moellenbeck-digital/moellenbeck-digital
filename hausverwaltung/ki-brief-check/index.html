@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'none'">
+  <meta name="referrer" content="no-referrer">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#08080a">
+  <meta name="description" content="Prototyp: Rechtsbehauptungen in Eigentümer- und Mieterbriefen mit Quelle einordnen. Kein Rechtsrat.">
+  <title>KI-Brief-Check (Prototyp) · Moellenbeck-Digital</title>
+  <link rel="icon" href="../assets/favicon.ico" sizes="48x48">
+  <link rel="icon" href="../assets/md_favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/favicon-180x180.png">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="page.css">
+  <script src="knowledge.js" defer></script>
+  <script src="analyzer.js" defer></script>
+  <script src="page.js" defer></script>
+</head>
+<body class="kbc">
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <header class="kbc-head">
+    <a class="logo" href="https://moellenbeck-digital.io/" aria-label="Moellenbeck-Digital – Startseite">
+      <img src="../assets/md_variante1.svg" alt="" width="93" height="28">
+    </a>
+    <nav aria-label="Hauptnavigation">
+      <a href="../index.html">Hausverwaltung</a>
+    </nav>
+  </header>
+
+  <main id="main" class="kbc-main">
+    <p class="marker">// Prototyp · nur mit Fiktivdaten testen</p>
+    <h1>KI-Brief-Check</h1>
+    <p class="kbc-lede">Fügen Sie ein geschwärztes Eigentümer- oder Mieterschreiben ein. Sie erhalten Hinweise zu den Rechtsbehauptungen mit Quelle und einen Antwortentwurf.</p>
+    <p class="kbc-disclaimer"><strong>Hinweise mit Quelle, kein Rechtsrat.</strong> Das Ergebnis ersetzt keine anwaltliche Prüfung.</p>
+    <p class="kbc-note">Dieser Prototyp nutzt noch kein KI-Modell. Er erkennt typische Formulierungen nach festen Regeln und übersieht Behauptungen. Ihr Text bleibt in diesem Browserfenster: Die Seite speichert und sendet ihn nicht.</p>
+
+    <noscript><p class="kbc-error">Für die Prüfung braucht diese Seite JavaScript.</p></noscript>
+
+    <form id="letterForm" class="kbc-panel" novalidate autocomplete="off">
+      <p id="redactHint" class="kbc-redact"><strong>Erst schwärzen:</strong> Fügen Sie keine Namen, Adressen, Kontodaten, E-Mail-Adressen oder Telefonnummern ein. Ersetzen Sie sie zum Beispiel durch „Eigentümer A“.</p>
+      <div class="field">
+        <label for="letter">Geschwärzter Brieftext</label>
+        <textarea id="letter" rows="12" aria-describedby="redactHint letterCount letterError" autocomplete="off" spellcheck="false" autocapitalize="off" autocorrect="off" data-gramm="false" data-enable-grammarly="false"></textarea>
+      </div>
+      <p id="letterCount" class="kbc-count">0 von 8.000 Zeichen</p>
+      <p id="letterError" class="kbc-error" role="alert"></p>
+      <div class="kbc-actions">
+        <button type="submit" class="md-btn" id="checkButton" disabled>Brief prüfen</button>
+        <button type="button" class="kbc-secondary" id="clearButton" disabled>Eingabe leeren</button>
+      </div>
+    </form>
+
+    <p id="status" class="kbc-status" role="status" aria-live="polite"></p>
+
+    <div id="result" hidden>
+      <section class="kbc-section" aria-labelledby="claimsTitle">
+        <h2 id="claimsTitle" tabindex="-1">Rechtsbehauptungen im Brief</h2>
+        <dl class="kbc-legend">
+          <div><dt class="kbc-badge" data-rating="belegt">belegt</dt><dd>Die Quelle trägt die behauptete Regel. Ob sie im Einzelfall greift, ist offen.</dd></div>
+          <div><dt class="kbc-badge" data-rating="fraglich">fraglich</dt><dd>Die Quelle sagt etwas anderes oder gibt die Behauptung nicht her.</dd></div>
+          <div><dt class="kbc-badge" data-rating="unklar">unklar</dt><dd>Einzelfall oder keine passende Regel. Bitte prüfen.</dd></div>
+        </dl>
+        <ol id="claims" class="kbc-claims"></ol>
+      </section>
+
+      <section class="kbc-section" aria-labelledby="draftTitle">
+        <h2 id="draftTitle">Antwortentwurf</h2>
+        <div class="field">
+          <label for="draft">Entwurf – vor dem Versand prüfen und Platzhalter ersetzen</label>
+          <textarea id="draft" rows="18" spellcheck="false" autocomplete="off" data-gramm="false" data-enable-grammarly="false"></textarea>
+        </div>
+        <p id="resultDisclaimer" class="kbc-disclaimer"></p>
+      </section>
+
+      <section class="kbc-section kbc-panel" aria-labelledby="newsTitle">
+        <h2 id="newsTitle">KI-Brief der Woche</h2>
+        <p>Ein Fall mit Quelle und Antwortvorlage, alle zwei Wochen.</p>
+        <form id="newsForm" novalidate>
+          <label class="kbc-check" for="optin">
+            <input type="checkbox" id="optin" autocomplete="off">
+            <span>Ja, ich möchte den Newsletter „KI-Brief der Woche“ per E-Mail erhalten. Die Einwilligung kann ich jederzeit widerrufen.</span>
+          </label>
+          <div class="field">
+            <label for="email">E-Mail-Adresse</label>
+            <input type="email" id="email" autocomplete="email" aria-describedby="newsHint newsStatus">
+          </div>
+          <p id="newsHint" class="kbc-count">Double-Opt-in folgt – Prototyp, es wird nichts gespeichert oder gesendet.</p>
+          <button type="submit" class="md-btn" id="newsButton" disabled>Anmeldung testen</button>
+          <p id="newsStatus" class="kbc-status" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <footer class="kbc-foot">
+    <a href="https://moellenbeck-digital.io/impressum.html">Impressum</a>
+    <a href="https://moellenbeck-digital.io/datenschutz.html">Datenschutzerklärung</a>
+    <a href="https://moellenbeck-digital.io/legal/">AGB</a>
+  </footer>
+</body>
+</html>
