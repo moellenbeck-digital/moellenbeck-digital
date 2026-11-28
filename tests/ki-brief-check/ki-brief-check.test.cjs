@@ -15,9 +15,14 @@ const expected = require('./fixtures/expected.json');
 const counter = require('./counter-statements.json');
 const findingsR1 = require('./befunde-r1.json');
 const ownR1 = require('./gegenproben-r1-eigen.json');
-const supported = require('./belegt-beispiele.json');
+const findingsR2 = require('./befunde-r2.json');
 
-const { analyzeLetter, mockProvider, remoteProvider, splitSentences, MAX_LENGTH, DISCLAIMER, NO_SOURCE } = api;
+const { analyzeLetter, mockProvider, remoteProvider, splitSentences, normalize, MAX_LENGTH, DISCLAIMER, NO_SOURCE } = api;
+const { CATALOG, TOPICS } = knowledge;
+const inCatalog = new Set(CATALOG.map((e) => normalize(e.sentence)));
+const decided = (claims) => claims.filter((c) => c.rating !== 'unklar').map((c) => `${c.rating} | ${c.source} | ${c.text}`);
+const DISAGREE = /Ihrer Darstellung können wir so nicht folgen/;
+const entry = (id) => CATALOG.find((e) => e.id === id);
 const key = (c) => `${c.rating} | ${c.source} | ${c.text}`;
 
 /* ── Fixtures ── */
@@ -56,41 +61,53 @@ for (const { text, mustNot } of counter.cases) {
   });
 }
 
-test('ein nicht geprüftes Urteil macht auch eine passende Regel höchstens unklar', async () => {
+test('ein zitiertes Urteil wird nie bewertet', async () => {
   const { claims } = await analyzeLetter('Die Anfechtungsklage muss laut BGH, Az. V ZR 1/20, innerhalb eines Monats erhoben werden.');
-  assert.ok(claims.length >= 2);
-  assert.ok(claims.every((c) => c.rating === 'unklar'));
+  assert.deepEqual(claims.map((c) => [c.rating, c.source]), [['unklar', NO_SOURCE]]);
 });
 
-test('Sätze mit Rechtsbezug ohne Regel erscheinen als unklar ohne Quelle', async () => {
+test('Sätze mit Rechtsbezug ohne Thema erscheinen als unklar ohne Quelle', async () => {
   const { claims } = await analyzeLetter('Die Hausordnung ist rechtswidrig.');
   assert.deepEqual(claims.map((c) => [c.rating, c.source]), [['unklar', NO_SOURCE]]);
 });
 
 /* ── Wissensbasis ── */
-test('Wissensbasis zitiert nur Paragrafen, deren Wortlaut abgeglichen wurde', () => {
-  const verified = {
-    WEG: ['16', '18', '19', '20', '21', '23', '24', '25', '26', '28', '44', '45'],
-    BGB: ['535', '536', '536c', '555c', '555d', '556', '559', '559b', '561']
-  };
-  const ids = new Set();
-  for (const rule of knowledge.RULES) {
-    assert.ok(!ids.has(rule.id), 'doppelte id ' + rule.id);
-    ids.add(rule.id);
-    assert.ok(api.RATINGS.includes(rule.rating), rule.id);
-    assert.ok(rule.reason && rule.reply && rule.label && rule.topic && rule.when.length, rule.id);
-    for (const part of rule.source.split('; ')) {
-      if (part === NO_SOURCE) { assert.equal(rule.rating, 'unklar', rule.id); continue; }
+const VERIFIED = {
+  WEG: ['16', '18', '20', '21', '23', '24', '25', '26', '28', '44', '45', '46'],
+  BGB: ['535', '536', '536b', '536c', '555b', '555c', '555d', '556', '559', '561']
+};
+
+test('der Katalog ist klein, eindeutig und vollständig ausgefüllt', () => {
+  assert.equal(CATALOG.length, 27);
+  assert.equal(inCatalog.size, CATALOG.length, 'doppelter Satz');
+  assert.equal(new Set(CATALOG.map((e) => e.id)).size, CATALOG.length, 'doppelte id');
+  for (const e of CATALOG) {
+    assert.ok(['belegt', 'fraglich'].includes(e.rating), e.id);
+    assert.ok(['weg', 'miete'].includes(e.area), e.id);
+    assert.ok(e.label && e.topic && e.reason.length > 40 && e.reply, e.id);
+    assert.deepEqual(splitSentences(e.sentence), [e.sentence], e.id);
+  }
+});
+
+test('Katalog und Themen zitieren nur abgeglichene Paragrafen', () => {
+  for (const item of [...CATALOG, ...TOPICS]) {
+    if (item.source === knowledge.HEATING_SOURCE) continue; // HeizkostenV §§ 3, 7 abgeglichen
+    for (const part of item.source.split('; ')) {
       const law = part.match(/(WEG|BGB)$/);
-      assert.ok(law, `${rule.id}: ${part}`);
+      assert.ok(law, `${item.id}: ${part}`);
       const numbers = part.startsWith('§§') ? part.match(/\d+[a-e]?/g) : [part.match(/^§ (\d+[a-e]?)/)[1]];
-      for (const n of numbers) assert.ok(verified[law[1]].includes(n), `${rule.id}: § ${n} ${law[1]} nicht abgeglichen`);
+      for (const n of numbers) assert.ok(VERIFIED[law[1]].includes(n), `${item.id}: § ${n} ${law[1]} nicht abgeglichen`);
     }
-    for (const text of [rule.reason, rule.reply]) {
-      for (const [, n] of text.matchAll(/§§? ?(\d+[a-e]?)/g)) {
-        assert.ok([...verified.WEG, ...verified.BGB, '22', '555b', '558', '559c', '559e'].includes(n), `${rule.id}: § ${n} im Text`);
-      }
-    }
+  }
+});
+
+test('belegt-Begründungen nennen die Grenzen (N-a, N-b)', () => {
+  const rent = entry('modernisierung-8-prozent');
+  for (const text of [rent.reason, rent.reply]) assert.match(text, /§ 555b Nummer 1, 3, 4, 5 oder 6/);
+  assert.match(entry('minderung-grundsatz').reason, /unerhebliche Minderung der Tauglichkeit bleibt außer Betracht/);
+  assert.match(entry('minderung-grundsatz').reply, /nicht nur unerheblich/);
+  for (const text of [entry('modernisierung-ankuendigung').reason, entry('modernisierung-ankuendigung').reply]) {
+    assert.match(text, /unerheblichen Einwirkung auf die Mietsache verbunden .*und nur zu einer unerheblichen Mieterhöhung/);
   }
 });
 
@@ -121,8 +138,16 @@ test('Satztrennung hält Abkürzungen, Paragrafen und Datumsangaben zusammen', (
     splitSentences('Nach § 556 Abs. 3 BGB gilt z. B. eine Frist. Am 3. Mai kam der Brief, ca. 10 Uhr.\n\nGruß'),
     ['Nach § 556 Abs. 3 BGB gilt z. B. eine Frist.', 'Am 3. Mai kam der Brief, ca. 10 Uhr.', 'Gruß']
   );
-  assert.deepEqual(splitSentences('Das war 2025. Jetzt reicht es!\n- Punkt eins\n- Punkt zwei'),
-    ['Das war 2025.', 'Jetzt reicht es!', '- Punkt eins', '- Punkt zwei']);
+  assert.deepEqual(splitSentences('Das war 2025. Jetzt reicht es!\n- Punkt eins.\n- Punkt zwei'),
+    ['Das war 2025.', 'Jetzt reicht es!', '- Punkt eins.', '- Punkt zwei']);
+});
+
+test('Zeilen und Absätze ohne Satzzeichen gehören zusammen, nur die Anrede steht allein', () => {
+  assert.deepEqual(splitSentences('Er muss zahlen\n\nallerdings erst später.'), ['Er muss zahlen allerdings erst später.']);
+  assert.deepEqual(splitSentences('Sie schreiben:\n- Es gilt.'), ['Sie schreiben: - Es gilt.']);
+  assert.deepEqual(splitSentences('Er muss zahlen\n\nDas Gegenteil.'), ['Er muss zahlen Das Gegenteil.']);
+  assert.deepEqual(splitSentences('Sehr geehrte Damen und Herren,\n\nich frage.'), ['Sehr geehrte Damen und Herren,', 'ich frage.']);
+  assert.deepEqual(splitSentences('Guten Tag,\nich frage.'), ['Guten Tag,', 'ich frage.']);
 });
 
 test('gleiche Eingabe ergibt gleiches Ergebnis', async () => {
@@ -138,10 +163,18 @@ test('der Entwurf nutzt Platzhalter und übernimmt keinen Text aus dem Brief', a
   assert.doesNotMatch(draft, /Geheimname|999888777/);
 });
 
-test('der Entwurf nennt ein Thema nur einmal und bestätigt bei Widerspruch nichts', async () => {
-  const { draft } = await analyzeLetter('Die Anfechtungsklage ist innerhalb eines Monats zu erheben. Zur Anfechtung des Beschlusses habe ich eine Frist von sechs Wochen.');
-  assert.equal(draft.match(/Frist der Anfechtungsklage/g).length, 1);
-  assert.match(draft, /prüfen wir anhand der Unterlagen/);
+test('der Entwurf nennt ein Thema nur einmal und bleibt bei gemischten Urteilen neutral', async () => {
+  const { draft } = await analyzeLetter(`${entry('anfechtung-ein-monat').sentence} Zur Anfechtung des Beschlusses habe ich eine Frist von sechs Wochen.`);
+  assert.equal(draft.match(/^\d+\. /gm).length, 1, draft);
+  assert.match(draft, /Wir prüfen Ihren Hinweis zu „Frist der Anfechtungsklage“ und melden uns\./);
+  assert.ok(!draft.includes(entry('anfechtung-ein-monat').reply));
+});
+
+test('zwei fraglich-Sätze zum selben Thema: ein Absatz, ein Widerspruch, beide Bausteine', async () => {
+  const [a, b] = [entry('anfechtung-zwei-monate'), entry('anfechtung-protokoll')];
+  const { draft } = await analyzeLetter(`${a.sentence} ${b.sentence}`);
+  assert.equal(draft.match(new RegExp(DISAGREE, 'g')).length, 1);
+  assert.ok(draft.includes(a.reply) && draft.includes(b.reply));
 });
 
 test('der Hinweis ist immer vorhanden', async () => {
@@ -206,105 +239,213 @@ test('die Oberfläche nutzt den übergebenen Provider', async () => {
   assert.equal(nodes.get('draft').value, 'vom Provider');
 });
 
-/* ── Korrektur R1: "belegt" ist konservativ ── */
-for (const [name, set] of [['Befund R1', findingsR1], ['Eigene Gegenprobe', ownR1]]) {
-  for (const text of set.sentences) {
-    test(`${name}, nie belegt: ${text}`, async () => {
+/* ── Katalog und Eigenschaften ── */
+for (const e of CATALOG) {
+  test(`Katalog ${e.id}: allein ${e.rating}, auch bei anderer Schreibweise`, async () => {
+    for (const text of [e.sentence, `  „${e.sentence}“  `, e.sentence.toLowerCase(), e.sentence.replace(/,/g, '').replace(/ /g, '\n')]) {
+      const { claims, draft } = await analyzeLetter(text);
+      assert.deepEqual(claims.map((c) => [c.rating, c.source]), [[e.rating, e.source]], text);
+      assert.equal(DISAGREE.test(draft), e.rating === 'fraglich', text);
+      assert.ok(draft.includes(e.reply));
+    }
+  });
+}
+
+const NUMBER_SWAPS = [
+  ['eines Monats', 'zweier Monate'], ['zwei Monate', 'drei Monate'], ['zwei Wochen', 'drei Wochen'], ['drei Monate', 'zwei Monate'],
+  ['sechs Monaten', 'zwölf Monaten'], ['sechs Monate', 'drei Monate'], ['zwölf Monaten', 'sechs Monaten'], ['8 Prozent', '11 Prozent'],
+  ['11 Prozent', '8 Prozent'], ['31. März', '30. Juni'], ['§ 46', '§ 45']
+];
+const variants = (e) => {
+  const s = e.sentence;
+  const foreign = e.area === 'weg'
+    ? ['Es geht um meinen Mietvertrag.', 'Ich bin Mieter.', 'Es geht um unser Gewerbe.']
+    : ['Es geht um unsere WEG.', 'Ich bin Eigentümerin.', 'Es geht um unseren Gewerbemietvertrag.'];
+  return [
+    s.replace(/ (\S+)\.$/, ' nicht $1.'),
+    s.replace(/^(\S+ \S+) /, '$1 keinesfalls '),
+    `Es stimmt nicht, dass ${s}`,
+    s.replace(/\.$/, ', aber nur mit Zustimmung.'),
+    s.replace(/\.$/, '?'),
+    s.replace(/\.$/, '\n\nallerdings ausschließlich in Ausnahmefällen.'),
+    `Sie behaupten Folgendes:\n- ${s}`,
+    `${s} Das gilt allerdings nicht.`,
+    `${s}\n\nDas ist falsch.`,
+    `${s} Das sehen wir anders.`,
+    `${s} Diese Regel wurde abgeschafft.`,
+    `${s} Wir haben nichts zu ergänzen. Dies gilt jedoch erst, wenn der Beirat zustimmt.`,
+    `Das Folgende ist falsch. ${s}`,
+    `${s} Ein solches Recht gibt es nicht.`,
+    `${s} In unserem Fall greift das nicht.`,
+    `${s} Voraussetzung ist die Zustimmung des Beirats.`,
+    ...foreign.flatMap((f) => [`${f} ${s}`, `${s} ${f}`]),
+    ...NUMBER_SWAPS.filter(([from]) => s.includes(from)).map(([from, to]) => s.replace(from, to))
+  ];
+};
+
+test('Eigenschaft: jede Variante eines Katalog-Satzes ist unklar, ohne Widerspruch und ohne Bestätigung', async () => {
+  let checked = 0;
+  for (const e of CATALOG) {
+    for (const text of variants(e)) {
+      assert.notEqual(text, e.sentence);
+      const { claims, draft } = await analyzeLetter(text);
+      assert.deepEqual(decided(claims), [], text);
+      assert.doesNotMatch(draft, DISAGREE, text);
+      assert.ok(!draft.includes(e.reply), text);
+      checked += 1;
+    }
+  }
+  assert.ok(checked >= CATALOG.length * 22, String(checked));
+});
+
+test('jeder Katalog-Satz mit Zahl wird auch mit geänderter Zahl geprüft', () => {
+  for (const e of CATALOG.filter((c) => /\d|\b(?:eines|zwei|drei|sechs|zwölf)\b/.test(c.sentence))) {
+    assert.ok(NUMBER_SWAPS.some(([from]) => e.sentence.includes(from)), e.id);
+  }
+});
+
+test('Invariante: ohne Katalogtreffer gibt es nur "unklar"', async () => {
+  const letters = [
+    ...Object.keys(expected).map((f) => read(`tests/ki-brief-check/fixtures/${f}`)),
+    ...counter.cases.map((c) => c.text), ...findingsR1.sentences, ...ownR1.sentences,
+    ...findingsR2.falsch, ...findingsR2.rekonstruiert, ...findingsR2.richtig, ...CATALOG.flatMap(variants),
+    // Teilsätze und Zusätze: kein Teilstring-Treffer.
+    ...CATALOG.flatMap((e) => [e.sentence.split(' ').slice(0, -1).join(' ') + '.', `Ich meine: ${e.sentence}`, e.sentence.replace(/\.$/, ' und mehr.')])
+  ];
+  for (const letter of letters) {
+    for (const claim of (await analyzeLetter(letter)).claims) {
+      if (claim.rating !== 'unklar') assert.ok(inCatalog.has(normalize(claim.text)), claim.text);
+      else assert.match(claim.source, new RegExp(`^(?:Zum Nachlesen: .+|${NO_SOURCE})$`), claim.text);
+    }
+  }
+});
+
+test('Themen-Erkennung: unklar mit Paragraf zum Nachlesen und neutralem Entwurf', async () => {
+  const { claims, draft } = await analyzeLetter('Zur Anfechtung des Beschlusses habe ich ein ganzes Jahr.');
+  assert.deepEqual(claims.map((c) => [c.rating, c.source, c.reason]),
+    [['unklar', 'Zum Nachlesen: § 45 WEG', 'Thema erkannt, Aussage im Einzelfall prüfen.']]);
+  assert.match(draft, /Wir prüfen Ihren Hinweis zu „Anfechtung eines Beschlusses“ und melden uns\./);
+  assert.doesNotMatch(draft, DISAGREE);
+});
+
+test('eine Anrede sperrt den Katalog nicht, eine offene Überschrift schon', async () => {
+  const e = entry('anfechtung-ein-monat');
+  assert.deepEqual(decided((await analyzeLetter(`Guten Tag,\n\n${e.sentence}`)).claims).length, 1);
+  assert.deepEqual(decided((await analyzeLetter(`Ein Gerücht\n\n${e.sentence}`)).claims), []);
+});
+
+test('die eigenen Sperren der Einträge greifen', async () => {
+  for (const [id, other] of [
+    ['wallbox-kosten', 'Der Einbau wurde mit Zweidrittelmehrheit beschlossen.'],
+    ['einladung-zwei-wochen', 'Es lag besondere Dringlichkeit vor.'],
+    ['modernisierung-11-prozent', 'Die Ankündigung stammt von 2018.'],
+    ['aufzug-nutzung', 'Die Teilungserklärung regelt das.'],
+    ['sonderumlage-dagegen', 'Das Gericht hat den Beschluss aufgehoben.'],
+    ['widerspruch-beschluss', 'Klage ist eingereicht.']
+  ]) {
+    assert.deepEqual(decided((await analyzeLetter(`${entry(id).sentence} ${other}`)).claims), [], id);
+  }
+});
+
+/* ── Regressionen aus den Prüfrunden ── */
+for (const [name, sentences] of [['Befund R1', findingsR1.sentences], ['Eigene Gegenprobe R1', ownR1.sentences]]) {
+  for (const text of sentences) {
+    test(`${name}, nur unklar: ${text}`, async () => {
       const { claims, draft } = await analyzeLetter(text);
       assert.ok(claims.length >= 1, 'kein Hinweis');
-      assert.deepEqual(claims.filter((c) => !['fraglich', 'unklar'].includes(c.rating)).map(key), []);
-      for (const rule of knowledge.RULES.filter((r) => r.rating === 'belegt')) assert.ok(!draft.includes(rule.reply), 'Entwurf bestätigt: ' + rule.id);
+      assert.deepEqual(decided(claims), []);
+      assert.doesNotMatch(draft, DISAGREE);
     });
   }
+}
+
+for (const text of [...findingsR2.falsch, ...findingsR2.rekonstruiert]) {
+  test(`Befund R2 falsch, nie belegt: ${JSON.stringify(text)}`, async () => {
+    const { claims, draft } = await analyzeLetter(text);
+    assert.ok(claims.length >= 1, 'kein Hinweis');
+    assert.deepEqual(decided(claims), []);
+    for (const e of CATALOG.filter((c) => c.rating === 'belegt')) assert.ok(!draft.includes(e.reply), e.id);
+  });
+}
+
+for (const text of findingsR2.richtig) {
+  test(`Befund R2 richtig, nie fraglich: ${text}`, async () => {
+    const { claims, draft } = await analyzeLetter(text);
+    assert.ok(claims.length >= 1, 'kein Hinweis');
+    assert.deepEqual(decided(claims), []);
+    assert.doesNotMatch(draft, DISAGREE);
+  });
 }
 
 test('es gibt genau 15 eigene Gegenproben', () => {
   assert.equal(new Set(ownR1.sentences).size, 15);
 });
 
-const supportedRules = knowledge.RULES.filter((r) => r.rating === 'belegt');
-
-test('jede belegt-Regel hat enge Formen, Rollen- und Zahlenprüfung und ein Beispiel', () => {
-  for (const rule of supportedRules) {
-    assert.ok(rule.forms.length && rule.foreign.length && Array.isArray(rule.numbers), rule.id);
-    for (const re of rule.forms) assert.ok(re.source.startsWith('^') && re.source.endsWith('$'), rule.id);
-    if (rule.slots) assert.ok(rule.wrong.reason && rule.wrong.reply, rule.id);
-  }
-  assert.deepEqual(Object.keys(supported).filter((k) => k !== '_comment').sort(), supportedRules.map((r) => r.id).sort());
-});
-
-// Jede Abwandlung eines bestätigten Satzes muss die Bestätigung verlieren.
-const VARIANTS = [
-  (s) => s.replace(/\.$/, ', aber nicht in diesem Fall.'),
-  (s) => s.replace(/\.$/, ', wenn der Beirat zustimmt.'),
-  (s) => s.replace(/\.$/, ' und ich zahle nichts.'),
-  (s) => s.replace(/\.$/, '?'),
-  (s) => 'Nur ' + s,
-  (s) => 'Es ist falsch: ' + s,
-  (s) => s.replace(/ (\S+)\.$/, ' nicht $1.'),
-  (s) => s.replace(/ (\S+)\.$/, ' höchstens $1.'),
-  (s) => s.replace(/ (\S+)\.$/, ' erst nach 5 Jahren $1.')
-];
-
-for (const rule of supportedRules) {
-  test(`${rule.id}: Beispiel ist belegt, jede Abwandlung nicht`, async () => {
-    for (const text of supported[rule.id]) {
-      const { claims } = await analyzeLetter(text);
-      assert.deepEqual(claims.map((c) => [c.rating, c.source]), [['belegt', rule.source]], text);
-      for (const variant of VARIANTS) {
-        const changed = variant(text);
-        assert.notEqual(changed, text);
-        assert.deepEqual((await analyzeLetter(changed)).claims.filter((c) => c.rating === 'belegt').map(key), [], changed);
-      }
-    }
-  });
-}
-
-test('eine abweichende Zahl ergibt fraglich mit Hinweis auf die richtige Frist', async () => {
-  for (const [text, hint] of [
-    ['Die Anfechtungsklage muss innerhalb eines Monats begründet werden.', /zwei Monate/],
-    ['Die Anfechtungsklage ist innerhalb eines Monats zu begründen.', /zwei Monate/],
-    ['Die Anfechtungsklage muss innerhalb von drei Monaten erhoben werden.', /einen Monat/],
-    ['Die Anfechtungsklage ist innerhalb von zwei Monaten zu erheben und innerhalb eines Monats zu begründen.', /innerhalb zweier Monate/],
-    ['Die Einladungsfrist beträgt zwei Wochen.', /drei Wochen/],
-    ['Die Betriebskostenabrechnung muss innerhalb von 24 Monaten nach Ende des Abrechnungszeitraums zugehen.', /zwölf Monate/],
-    ['Einwendungen sind innerhalb von sechs Monaten nach Zugang der Abrechnung mitzuteilen.', /zwölf/],
-    ['Eine Modernisierung muss einen Monat vor Beginn angekündigt werden.', /./],
-    ['Die Modernisierung ist innerhalb eines Monats anzukündigen.', null],
-    ['Eine Modernisierung muss 1 Monat vor Beginn angekündigt werden.', /drei Monate/]
-  ]) {
-    const { claims, draft } = await analyzeLetter(text);
-    assert.ok(claims.every((c) => c.rating !== 'belegt'), text);
-    if (hint === null) continue;
-    assert.deepEqual(claims.map((c) => c.rating), ['fraglich'], text);
-    assert.match(claims[0].reason, hint, text);
-    assert.match(draft, /Ihrer Darstellung können wir so nicht folgen/);
-  }
+test('Zählung der Befund-Sätze', async (t) => {
+  const count = async (list, rating) => {
+    let n = 0;
+    for (const text of list) if ((await analyzeLetter(text)).claims.some((c) => c.rating === rating)) n += 1;
+    return n;
+  };
+  const wrong = [...findingsR2.falsch, ...findingsR2.rekonstruiert];
+  const result = [
+    [`R1 belegt (${findingsR1.sentences.length} Fassungen)`, await count(findingsR1.sentences, 'belegt')],
+    [`R2 falsch belegt (${wrong.length} Briefe)`, await count(wrong, 'belegt')],
+    [`R2 richtig fraglich (${findingsR2.richtig.length} Sätze)`, await count(findingsR2.richtig, 'fraglich')]
+  ];
+  for (const [label, n] of result) { t.diagnostic(`${label}: ${n}`); assert.equal(n, 0, label); }
+  t.diagnostic(`Katalog: ${CATALOG.length} Einträge (${CATALOG.filter((e) => e.rating === 'belegt').length} belegt, ${CATALOG.filter((e) => e.rating === 'fraglich').length} fraglich); Themen: ${TOPICS.length}`);
 });
 
 test('bei fraglich widerspricht der Entwurf sachlich', async () => {
-  const letter = 'Ich halte das Hausgeld zurück. Die Einladung zur Versammlung ist mit einer Frist von zwei Wochen ausreichend.';
+  const letter = `${entry('hausgeld-zurueck').sentence} ${entry('einladung-zwei-wochen').sentence}`;
   const { claims, draft } = await analyzeLetter(letter);
   assert.deepEqual(claims.map((c) => c.rating), ['fraglich', 'fraglich']);
   assert.equal(draft.match(/Ihrer Darstellung können wir so nicht folgen; wir prüfen den Punkt/g).length, 2);
 });
 
-test('Heizkosten werden nicht nach § 16 WEG bewertet', async () => {
+test('Heizung, Wärme, Gas, Brennstoff, Warmwasser: nur unklar mit HeizkostenV', async () => {
   for (const text of [
     'Nach der HeizkostenV müssen die Heizkosten zwingend nach Verbrauch und nur zum Rest nach Wohnfläche verteilt werden.',
-    'Die Heizkosten müssen immer nach Wohnfläche verteilt werden.',
     'Die Warmwasserkosten sind gesetzlich zwingend nach Verbrauch und Wohnfläche umzulegen.',
-    'Die Heizkosten werden nach Miteigentumsanteilen verteilt.'
+    'Die Wärmekosten werden nach Miteigentumsanteilen verteilt.',
+    'Die Gaskosten muss jeder nach Anteilen tragen.',
+    'Die Brennstoffkosten werden nach Wohnfläche verteilt.',
+    'Die Kosten der Heizanlage zahlt, wer sie nutzt.'
   ]) {
     const { claims, draft } = await analyzeLetter(text);
-    assert.ok(claims.length && claims.every((c) => c.rating === 'unklar'), text + ' ' + claims.map(key).join());
-    assert.doesNotMatch(draft, /Miteigentumsanteil/, text);
+    assert.deepEqual(claims.map((c) => [c.rating, c.source]), [['unklar', 'Zum Nachlesen: HeizkostenV, §§ 3, 7']], text);
+    assert.doesNotMatch(draft, /§ 16|Miteigentumsanteil/, text);
   }
 });
 
-test('Baukosten bei qualifizierter Mehrheit sind unklar (§ 21 Abs. 2 WEG)', async () => {
-  const { claims } = await analyzeLetter('Die Kosten für den Treppenlift muss die Gemeinschaft tragen, weil er mit Zweidrittelmehrheit beschlossen wurde.');
-  assert.deepEqual(claims.map((c) => [c.rating, c.source]), [['unklar', '§ 21 Abs. 2 WEG']]);
+test('Heizung im Brief sperrt jedes Katalog-Urteil über § 16 WEG', async () => {
+  for (const e of CATALOG.filter((c) => c.source.includes('§ 16 '))) {
+    for (const other of ['Die Heizung ist alt.', 'Das Gas ist teuer.', 'Es geht um Warmwasser.', 'Der Brennstoff fehlt.']) {
+      const { claims, draft } = await analyzeLetter(`${e.sentence} ${other}`);
+      assert.deepEqual(decided(claims), [], e.id);
+      assert.equal(claims[0].source, 'Zum Nachlesen: HeizkostenV, §§ 3, 7');
+      assert.doesNotMatch(draft, /§ 16/);
+    }
+  }
+});
+
+test('"Zum Nachlesen" trägt nie ein Urteil; fremde Paragrafen fallen weg', async () => {
+  const claim = (source) => ({ text: 't', rating: 'belegt', reason: 'r', source });
+  const provider = { analyze: () => ({ draft: '', claims: [claim('Zum Nachlesen: § 45 WEG'), claim('Zum Nachlesen: § 999 BGB')] }) };
+  const { claims } = await analyzeLetter('x', { provider });
+  assert.deepEqual(claims.map((c) => [c.rating, c.source]), [['unklar', 'Zum Nachlesen: § 45 WEG'], ['unklar', NO_SOURCE]]);
+});
+
+test('die Seite nennt die Grenze des Prototyps und zeigt "Zum Nachlesen" ohne Quellen-Vorsatz', () => {
+  assert.ok(read(`${PAGE}/index.html`).includes('Der Prototyp bewertet nur bekannte Musterformulierungen; alle anderen Aussagen erscheinen als „unklar“ mit Paragraf zum Nachlesen.'));
+  const doc = fakeDocument();
+  const list = doc.createElement('ol');
+  page.renderClaims(doc, list, [
+    { text: 'a', rating: 'unklar', reason: 'r', source: 'Zum Nachlesen: § 45 WEG' },
+    { text: 'b', rating: 'belegt', reason: 'r', source: '§ 45 WEG' }
+  ]);
+  assert.deepEqual(list.children.map((li) => li.children.at(-1).textContent), ['Zum Nachlesen: § 45 WEG', 'Quelle: § 45 WEG']);
 });
 
 /* ── XSS ── */

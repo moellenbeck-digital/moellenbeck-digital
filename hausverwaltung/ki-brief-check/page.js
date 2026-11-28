@@ -21,7 +21,7 @@
         badge,
         el(doc, 'blockquote', 'kbc-quote', claim.text),
         el(doc, 'p', 'kbc-reason', claim.reason),
-        el(doc, 'p', 'kbc-source', 'Quelle: ' + claim.source)
+        el(doc, 'p', 'kbc-source', claim.source.startsWith('Zum Nachlesen: ') ? claim.source : 'Quelle: ' + claim.source)
       );
       list.append(item);
     }

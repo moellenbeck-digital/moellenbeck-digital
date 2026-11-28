@@ -57,7 +57,7 @@ const server = http.createServer((req, res) => {
       assert.equal(await page.locator('#claims img, #claims script').count(), 0);
       assert.ok((await page.textContent('#claims')).includes('<img src="x" onerror="alert(1)">'));
 
-      // Vier falsche Aussagen: keine wird bestätigt, der Entwurf widerspricht.
+      // Vier unbekannte Aussagen: alle unklar, der Entwurf bleibt neutral.
       await page.fill('#letter', [
         'Die Anfechtungsklage muss innerhalb eines Monats begründet werden.',
         'Der Verwalter hat das Recht, uns die Einsicht in die Verwaltungsunterlagen zu verweigern.',
@@ -66,8 +66,17 @@ const server = http.createServer((req, res) => {
       ].join(' '));
       await page.click('#checkButton');
       await page.waitForSelector('#claims li');
-      assert.equal(await page.textContent('#status'), '4 Hinweise: 0 belegt, 1 fraglich, 3 unklar.');
-      assert.match(await page.inputValue('#draft'), /Ihrer Darstellung können wir so nicht folgen/);
+      assert.equal(await page.textContent('#status'), '4 Hinweise: 0 belegt, 0 fraglich, 4 unklar.');
+      assert.doesNotMatch(await page.inputValue('#draft'), /Ihrer Darstellung können wir so nicht folgen/);
+      assert.match(await page.inputValue('#draft'), /Wir prüfen Ihren Hinweis zu „/);
+      assert.ok((await page.textContent('#claims')).includes('Zum Nachlesen: § 45 WEG'));
+      assert.ok((await page.textContent('body')).includes('Der Prototyp bewertet nur bekannte Musterformulierungen'));
+
+      // Katalog-Satz mit widersprechendem Folgesatz: keine Bestätigung.
+      await page.fill('#letter', 'Als Wohnungseigentümer habe ich das Recht, Einsicht in die Verwaltungsunterlagen zu nehmen.\n\nDas gilt allerdings nicht.');
+      await page.click('#checkButton');
+      await page.waitForSelector('#claims li');
+      assert.match(await page.textContent('#status'), /0 belegt, 0 fraglich/);
 
       await page.fill('#letter', letter);
       assert.equal(await page.locator('#result').isVisible(), false, 'altes Ergebnis wird bei Änderung verborgen');

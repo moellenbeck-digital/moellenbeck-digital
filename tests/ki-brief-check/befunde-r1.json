@@ -1,5 +1,5 @@
 {
-  "_comment": "Sätze aus der Prüfrunde 1 an Commit 3681aec. Keiner darf 'belegt' ergeben; jeder muss mindestens einen Hinweis 'fraglich' oder 'unklar' liefern. Wo die Befundliste einen Satz mit '…' kürzt oder nur ein Stichwort nennt, steht hier eine ausformulierte Fassung (teils mehrere).",
+  "_comment": "Sätze aus der Prüfrunde 1 an Commit 3681aec. Keiner darf 'belegt' ergeben; jeder muss mindestens einen Hinweis liefern (seit R2: 'unklar', da nicht im Katalog). Wo die Befundliste einen Satz mit '…' kürzt oder nur ein Stichwort nennt, steht hier eine ausformulierte Fassung (teils mehrere).",
   "sentences": [
     "Die Anfechtungsklage muss innerhalb eines Monats begründet werden.",
     "Die Anfechtungsklage muss innerhalb eines Monats nach der Versammlung erhoben und begründet werden.",
