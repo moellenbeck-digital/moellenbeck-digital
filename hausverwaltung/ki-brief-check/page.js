@@ -35,7 +35,7 @@
     return `${claims.length} ${claims.length === 1 ? 'Hinweis' : 'Hinweise'}: ${count('belegt')} belegt, ${count('fraglich')} fraglich, ${count('unklar')} unklar.`;
   }
 
-  function init(doc, api) {
+  function init(doc, api, provider) {
     const $ = (id) => doc.getElementById(id);
     const letter = $('letter'), result = $('result'), status = $('status'), error = $('letterError');
     const optin = $('optin'), email = $('email'), newsStatus = $('newsStatus');
@@ -68,7 +68,7 @@
       reset();
       const current = run;
       try {
-        const analysis = await api.analyzeLetter(letter.value);
+        const analysis = await api.analyzeLetter(letter.value, { provider });
         if (current !== run) return;
         renderClaims(doc, $('claims'), analysis.claims);
         $('draft').value = analysis.draft;
@@ -111,5 +111,5 @@
   }
 
   if (typeof module === 'object' && module.exports) module.exports = { renderClaims, summary, init };
-  else init(root.document, root.KiBriefCheck);
+  else init(root.document, root.KiBriefCheck, root.KiBriefCheck.mockProvider);
 }(typeof self !== 'undefined' ? self : this));

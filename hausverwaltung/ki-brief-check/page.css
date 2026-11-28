@@ -30,9 +30,9 @@
 .kbc-legend div { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 12px; align-items: start; }
 .kbc-legend dt { justify-self: start; }
 /* Farbe unterstützt nur: das Urteil steht immer als Wort da. */
-[data-rating="belegt"] { --rating: #6ee7b7; }
-[data-rating="fraglich"] { --rating: #fb923c; }
-[data-rating="unklar"] { --rating: #a1a1aa; }
+[data-rating="belegt"] { --rating: rgb(var(--c-blue)); }
+[data-rating="fraglich"] { --rating: var(--accent); }
+[data-rating="unklar"] { --rating: var(--text-2); }
 .kbc-badge { display: inline-block; padding: 2px 10px; border: 1px solid var(--rating); border-radius: 6px; color: var(--rating); font: 500 .75rem/1.7 var(--mono); }
 .kbc-claims { display: grid; gap: 12px; }
 .kbc-claim { padding: clamp(16px, 4vw, 24px); border: 1px solid var(--border); border-left: 3px solid var(--rating); border-radius: var(--r-card); background: var(--bg-elevated); }
