@@ -25,6 +25,16 @@
   const COURT = /klage|gericht/i;
   const OLD_LAW = /a\.? ?F\.|alte[nrs]? (?:fassung|recht|gesetz)|fr(?:ü|ue)her|\b(?:19\d\d|200\d|201[0-8])\b/i;
 
+  // Umstände in einem anderen Satz, die ein "fraglich" tragfähig widerlegen können. Im Zweifel "unklar".
+  const either = (...patterns) => new RegExp(patterns.map((p) => p.source).join('|'), 'i');
+  const RESOLUTION = /beschl(?:u(?:ss|ß)|ü(?:ss|ß)|oss|ie(?:ß|ss))/i;
+  // § 21 WEG: Mehrheit, Amortisation oder abweichender Beschluss. "kein(en) Beschluss" sperrt nicht.
+  const COST_RESOLVED = /mehrheit|zwei ?drittel|2\/3|amortis|alle (?:wohnungs)?eigent|beschlossen|einstimmig|(?<!\bkein(?:e[nms]?)? )beschl(?:u(?:ss|ß)|ü(?:ss|ß))|kosten(?:ü|ue)bernahme|vereinbar/i;
+  const URGENT = /dringlich|dringend|eilbed|eilig|notfall/i;
+  const COPIES_PROMISED = /verwalt(?:er|ungs)vertrag|zugesagt|zugesicher|zusage|zusicherung/i;
+  // § 536c Abs. 2 BGB: Der Vermieter kann den Mangel schon kennen.
+  const DEFECT_KNOWN = /angezeigt|gemeldet|bekannt|wu(?:ss|ß)te|kannte|gewu(?:ss|ß)t|(?<![a-zäöüß])(?:wei(?:ß|ss)t?|wissen|wisst)(?![a-zäöüß])|bescheid|informier|besichtig|kenntnis|hausmeister.{0,300}?aufgenommen|aufgenommen.{0,300}?hausmeister/i;
+
   const CATALOG = [
     /* ───── Wohnungseigentum ───── */
     {
@@ -35,7 +45,7 @@
       reply: 'Die Vorschüsse zum Hausgeld haben die Wohnungseigentümer beschlossen (§ 28 Abs. 1 WEG). Ein Recht, die Zahlung einseitig zurückzuhalten, ergibt sich daraus nach unserem Verständnis nicht. Wir bitten Sie, fristgerecht weiterzuzahlen. Ihre Fragen beantworten wir gesondert.'
     },
     {
-      id: 'aufzug-nutzung', topic: 'kosten', label: 'Kosten bei fehlender Nutzung', area: 'weg', lock: AGREEMENT,
+      id: 'aufzug-nutzung', topic: 'kosten', label: 'Kosten bei fehlender Nutzung', area: 'weg', lock: either(AGREEMENT, RESOLUTION),
       sentence: 'Den Aufzug nutze ich nicht, deshalb muss ich mich an dessen Kosten auch nicht beteiligen.',
       rating: 'fraglich', source: '§ 16 Abs. 2 WEG',
       reason: 'Nach dem gesetzlichen Grundsatz trägt jeder Wohnungseigentümer die Kosten nach seinem Anteil, unabhängig von der Nutzung. Eine abweichende Verteilung braucht eine Vereinbarung oder einen Beschluss.',
@@ -85,7 +95,7 @@
     },
     {
       id: 'wallbox-kosten', topic: 'bau-kosten', label: 'Kosten der baulichen Veränderung', area: 'weg',
-      lock: /mehrheit|zwei ?drittel|2\/3|amortis|alle (?:wohnungs)?eigent/i,
+      lock: COST_RESOLVED,
       sentence: 'Die Kosten für die Wallbox muss die Gemeinschaft tragen.',
       rating: 'fraglich', source: '§ 21 Abs. 1 WEG',
       reason: 'Die Kosten einer baulichen Veränderung, die einem Wohnungseigentümer gestattet oder auf sein Verlangen durchgeführt wird, hat dieser Eigentümer zu tragen.',
@@ -115,7 +125,8 @@
       reply: 'Die Fristen für Klage und Begründung rechnen ab der Beschlussfassung, nicht ab dem Zugang des Protokolls (§ 45 WEG).'
     },
     {
-      id: 'kopien-kostenlos', topic: 'einsicht-kopien', label: 'Zusendung von Kopien', area: 'weg', lock: AGREEMENT,
+      id: 'kopien-kostenlos', topic: 'einsicht-kopien', label: 'Zusendung von Kopien', area: 'weg',
+      lock: either(AGREEMENT, RESOLUTION, COPIES_PROMISED),
       sentence: 'Ich habe Anspruch darauf, dass mir die Verwaltung kostenlos Kopien aller Verwaltungsunterlagen zusendet.',
       rating: 'fraglich', source: '§ 18 Abs. 4 WEG',
       reason: 'Der Wortlaut gibt ein Recht auf Einsicht. Einen Anspruch auf kostenlose Zusendung von Kopien nennt er nicht.',
@@ -130,7 +141,7 @@
     },
     {
       id: 'einladung-zwei-wochen', topic: 'einladung', label: 'Einberufungsfrist', area: 'weg',
-      lock: /dringlich|dringend|eilbed|eilig|notfall/i,
+      lock: either(URGENT, AGREEMENT),
       sentence: 'Die Einladung zur Versammlung ist mit einer Frist von zwei Wochen ausreichend.',
       rating: 'fraglich', source: '§ 24 Abs. 4 WEG',
       reason: 'Die Frist der Einberufung soll mindestens drei Wochen betragen, sofern nicht ein Fall besonderer Dringlichkeit vorliegt.',
@@ -161,7 +172,7 @@
     },
     {
       id: 'minderung-ohne-anzeige', topic: 'minderung', label: 'Mietminderung', area: 'miete',
-      lock: /angezeigt|gemeldet|bekannt|wusste|kannte/i,
+      lock: DEFECT_KNOWN,
       sentence: 'Außerdem mindere ich die Miete rückwirkend für die letzten sechs Monate, auch ohne vorherige Anzeige.',
       rating: 'fraglich', source: '§ 536c BGB',
       reason: 'Mängel sind unverzüglich anzuzeigen. Soweit der Vermieter wegen der unterlassenen Anzeige nicht Abhilfe schaffen konnte, ist der Mieter nicht zur Minderung berechtigt. Die Anzeige ist also nicht in jedem Fall entbehrlich.',
@@ -192,7 +203,7 @@
       id: 'modernisierung-8-prozent', topic: 'modernisierung-hoehe', label: 'Höhe der Mieterhöhung nach Modernisierung', area: 'miete', lock: OLD_LAW,
       sentence: 'Nach einer Modernisierung darf die jährliche Miete um 8 Prozent der aufgewendeten Kosten erhöht werden.',
       rating: 'belegt', source: '§ 559 Abs. 1 BGB',
-      reason: 'Der Satz von 8 Prozent der für die Wohnung aufgewendeten Kosten gilt bei Modernisierungsmaßnahmen nach § 555b Nummer 1, 3, 4, 5 oder 6, nicht bei den übrigen Nummern. Erhaltungskosten sind abzuziehen; Kappungsgrenzen, Härtefälle und Sonderregeln (§ 559 Abs. 2 bis 5 BGB) sind zu beachten.',
+      reason: 'Der Satz von 8 Prozent der für die Wohnung aufgewendeten Kosten gilt bei Modernisierungsmaßnahmen nach § 555b Nummer 1, 3, 4, 5 oder 6 (§ 559 Abs. 1 Satz 1 BGB). Im Fall der Nummer 4a ist die Erhöhung nur zulässig, wenn der Mieter seinen Anbieter öffentlich zugänglicher Telekommunikationsdienste über den Anschluss frei wählen kann und der Vermieter kein Bereitstellungsentgelt nach § 72 TKG als Betriebskosten umlegt oder umgelegt hat (§ 559 Abs. 1 Satz 2 BGB). Für Nummer 1a gilt § 559e BGB: Erfüllt die Maßnahme dem Grunde nach die Fördervoraussetzungen und wurden Drittmittel genutzt, sind es 10 Prozent der aufgewendeten Kosten abzüglich dieser Drittmittel. Erfolgt keine Förderung, obwohl die Voraussetzungen dem Grunde nach erfüllt sind, ist eine Erhöhung nach Maßgabe des § 559 möglich. Erhaltungskosten sind abzuziehen; Kappungsgrenzen, Härtefälle und Sonderregeln (§ 559 Abs. 2 bis 5 BGB) sind zu beachten.',
       reply: 'Bei Modernisierungsmaßnahmen nach § 555b Nummer 1, 3, 4, 5 oder 6 BGB kann die jährliche Miete um 8 Prozent der für die Wohnung aufgewendeten Kosten erhöht werden (§ 559 Abs. 1 BGB). Erhaltungskosten sind abzuziehen, Kappungsgrenzen und Härtefälle zu beachten. Die Berechnung erläutern wir Ihnen.'
     },
     {

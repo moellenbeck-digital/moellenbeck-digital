@@ -16,6 +16,7 @@ const counter = require('./counter-statements.json');
 const findingsR1 = require('./befunde-r1.json');
 const ownR1 = require('./gegenproben-r1-eigen.json');
 const findingsR2 = require('./befunde-r2.json');
+const findingsR3 = require('./befunde-r3.json');
 
 const { analyzeLetter, mockProvider, remoteProvider, splitSentences, normalize, MAX_LENGTH, DISCLAIMER, NO_SOURCE } = api;
 const { CATALOG, TOPICS } = knowledge;
@@ -446,6 +447,92 @@ test('die Seite nennt die Grenze des Prototyps und zeigt "Zum Nachlesen" ohne Qu
     { text: 'b', rating: 'belegt', reason: 'r', source: '§ 45 WEG' }
   ]);
   assert.deepEqual(list.children.map((li) => li.children.at(-1).textContent), ['Zum Nachlesen: § 45 WEG', 'Quelle: § 45 WEG']);
+});
+
+/* ── Korrektur R3 ── */
+test('B1: die 8-Prozent-Begründung nennt Nr. 4a und § 559e und schließt die übrigen Nummern nicht aus', () => {
+  const { reason, reply } = entry('modernisierung-8-prozent');
+  assert.doesNotMatch(`${reason} ${reply}`, /nicht bei den übrigen Nummern/);
+  assert.match(reason, /§ 555b Nummer 1, 3, 4, 5 oder 6 \(§ 559 Abs\. 1 Satz 1 BGB\)/);
+  assert.match(reason, /Nummer 4a ist die Erhöhung nur zulässig, wenn .*Anbieter .*frei wählen kann .*kein Bereitstellungsentgelt .*\(§ 559 Abs\. 1 Satz 2 BGB\)/);
+  assert.match(reason, /Für Nummer 1a gilt § 559e BGB: .*10 Prozent .*abzüglich .*Drittmittel/);
+  assert.match(reason, /Erfolgt keine Förderung, obwohl die Voraussetzungen dem Grunde nach erfüllt sind, .*nach Maßgabe des § 559/);
+});
+
+const R3_IDS = ['aufzug-nutzung', 'wallbox-kosten', 'einladung-zwei-wochen', 'kopien-kostenlos', 'minderung-ohne-anzeige'];
+const r3Letters = (id, probe) => {
+  const { sentence } = entry(id);
+  return [`${probe} ${sentence}`, `${sentence} ${probe}`, `${probe}\n\n${sentence}`, `${sentence}\n\n${probe}`];
+};
+
+test('R3: Proben für genau fünf Einträge, je zwei eigene Umformulierungen', () => {
+  for (const group of [findingsR3.pruefung, findingsR3.eigen]) assert.deepEqual(Object.keys(group), R3_IDS);
+  for (const id of R3_IDS) assert.equal(new Set(findingsR3.eigen[id]).size, 2, id);
+});
+
+for (const id of R3_IDS) {
+  test(`R3 ${id}: ohne Kontextsatz weiter fraglich, mit Widerspruch im Entwurf`, async () => {
+    const { claims, draft } = await analyzeLetter(entry(id).sentence);
+    assert.deepEqual(claims.map((c) => c.rating), ['fraglich']);
+    assert.match(draft, DISAGREE);
+    assert.ok(draft.includes(entry(id).reply));
+  });
+
+  for (const probe of [...findingsR3.pruefung[id], ...findingsR3.eigen[id]]) {
+    test(`R3 ${id}, Kontextsatz davor und danach: ${probe}`, async () => {
+      const e = entry(id);
+      for (const letter of r3Letters(id, probe)) {
+        const { claims, draft } = await analyzeLetter(letter);
+        const own = claims.filter((c) => normalize(c.text) === normalize(e.sentence));
+        assert.deepEqual(own.map((c) => c.rating), ['unklar'], letter);
+        assert.deepEqual(decided(claims), [], letter);
+        assert.doesNotMatch(draft, DISAGREE, letter);
+        assert.ok(!draft.includes(e.reply), letter);
+        assert.ok(draft.includes(`Wir prüfen Ihren Hinweis zu „${e.label}“ und melden uns.`), letter);
+      }
+    });
+  }
+}
+
+test('R3: der Umstand wirkt auch mit Abstand, nicht nur im Nachbarsatz', async () => {
+  const filler = 'Der Hof wurde gefegt.';
+  for (const id of R3_IDS) {
+    const probe = findingsR3.pruefung[id][0];
+    for (const letter of [`${probe} ${filler} ${entry(id).sentence}`, `${entry(id).sentence} ${filler} ${probe}`]) {
+      assert.deepEqual(decided((await analyzeLetter(letter)).claims), [], letter);
+    }
+    assert.deepEqual(decided((await analyzeLetter(`${entry(id).sentence} ${filler}`)).claims).length, 1, id);
+  }
+});
+
+test('R3: „keinen Beschluss“ sperrt wallbox-kosten nicht (brief-03), ein bejahter Beschluss schon', async () => {
+  const { sentence } = entry('wallbox-kosten');
+  for (const other of ['Dafür brauche ich keinen Beschluss der Gemeinschaft.', 'Es gibt dazu kein Beschluss.']) {
+    const own = (await analyzeLetter(`${other} ${sentence}`)).claims.filter((c) => c.text === sentence);
+    assert.deepEqual(own.map((c) => c.rating), ['fraglich'], other);
+  }
+  for (const other of ['Laut Beschluss zahlen alle.', 'Der Beschluss dazu liegt vor.']) {
+    assert.deepEqual(decided((await analyzeLetter(`${other} ${sentence}`)).claims), [], other);
+  }
+});
+
+test('Zählung der R3-Proben', async (t) => {
+  let letters = 0;
+  let contested = 0;
+  for (const group of [findingsR3.pruefung, findingsR3.eigen]) {
+    for (const [id, probes] of Object.entries(group)) {
+      for (const probe of probes) {
+        for (const letter of r3Letters(id, probe)) {
+          const { claims, draft } = await analyzeLetter(letter);
+          letters += 1;
+          if (claims.some((c) => c.rating === 'fraglich') || DISAGREE.test(draft)) contested += 1;
+        }
+      }
+    }
+  }
+  const count = (group) => Object.values(group).flat().length;
+  t.diagnostic(`R3 Proben: ${count(findingsR3.pruefung)} aus der Prüfung, ${count(findingsR3.eigen)} eigene; ${letters} Briefe; fraglich oder Widerspruch: ${contested}`);
+  assert.equal(contested, 0);
 });
 
 /* ── XSS ── */
