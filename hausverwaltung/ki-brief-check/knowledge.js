@@ -28,12 +28,14 @@
   // Umstände in einem anderen Satz, die ein "fraglich" tragfähig widerlegen können. Im Zweifel "unklar".
   const either = (...patterns) => new RegExp(patterns.map((p) => p.source).join('|'), 'i');
   const RESOLUTION = /beschl(?:u(?:ss|ß)|ü(?:ss|ß)|oss|ie(?:ß|ss))/i;
-  // § 21 WEG: Mehrheit, Amortisation oder abweichender Beschluss. "kein(en) Beschluss" sperrt nicht.
-  const COST_RESOLVED = /mehrheit|zwei ?drittel|2\/3|amortis|alle (?:wohnungs)?eigent|beschlossen|einstimmig|(?<!\bkein(?:e[nms]?)? )beschl(?:u(?:ss|ß)|ü(?:ss|ß))|kosten(?:ü|ue)bernahme|vereinbar/i;
+  // § 21 WEG: Mehrheit, Amortisation oder abweichender Beschluss. Jede Beschluss-Form sperrt
+  // (beschloss, beschließt, beschlossen, Beschlüsse), nur "kein(en) Beschluss" nicht.
+  const COST_RESOLVED = /mehrheit|zwei ?drittel|2\/3|amortis|alle (?:wohnungs)?eigent|einstimmig|(?<!\bkein(?:e[nms]?)? )beschl(?:u(?:ss|ß)|(?:ü|ue|ö)(?:ss|ß)|o(?:ss|ß)|ie(?:ß|ss))|zugestimmt|zugesagt|kosten(?:ü|ue)bernahme|vereinbar/i;
   const URGENT = /dringlich|dringend|eilbed|eilig|notfall/i;
   const COPIES_PROMISED = /verwalt(?:er|ungs)vertrag|zugesagt|zugesicher|zusage|zusicherung/i;
   // § 536c Abs. 2 BGB: Der Vermieter kann den Mangel schon kennen.
-  const DEFECT_KNOWN = /angezeigt|gemeldet|bekannt|wu(?:ss|ß)te|kannte|gewu(?:ss|ß)t|(?<![a-zäöüß])(?:wei(?:ß|ss)t?|wissen|wisst)(?![a-zäöüß])|bescheid|informier|besichtig|kenntnis|hausmeister.{0,300}?aufgenommen|aufgenommen.{0,300}?hausmeister/i;
+  // "kenn…" ohne Wortgrenze: Auch "erkennt" sperrt. Im Zweifel "unklar".
+  const DEFECT_KNOWN = /angezeigt|gemeldet|bekannt|wu(?:ss|ß)te|kannte|gekannt|kenn(?:e|t|st)|mitgeteilt|mitteil|gesehen|notiert|gewu(?:ss|ß)t|(?<![a-zäöüß])(?:wei(?:ß|ss)t?|wissen|wisst)(?![a-zäöüß])|bescheid|informier|besichtig|kenntnis|hausmeister.{0,300}?aufgenommen|aufgenommen.{0,300}?hausmeister/i;
 
   const CATALOG = [
     /* ───── Wohnungseigentum ───── */
