@@ -18,6 +18,8 @@ jobs:
           python-version: '3.12'
       - name: Verify public text mirror
         run: python3 scripts/generate-llms.py --check
+      - name: KI-Brief-Check tests (prototype, not published)
+        run: node --test tests/ki-brief-check/*.test.cjs
       - name: Verify the Hausverwaltung copies of the avatar and motion assets are byte-identical
         run: |
           for f in design-system.css agents.css agents.js motion.css motion.js img/avatar-200.webp; do

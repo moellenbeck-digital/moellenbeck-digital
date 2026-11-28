@@ -12,6 +12,11 @@ TODO.md
 og-banner.html
 hausverwaltung/README.md
 
+# KI-Brief-Check prototype: not published until privacy and legal review are done.
+# Go-live: move the page folder to pages-allowlist.txt and drop it from _config.yml exclude.
+hausverwaltung/ki-brief-check/**
+tests/**
+
 # Repo and build configuration
 .github/**
 .gitignore

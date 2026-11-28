@@ -1,0 +1,47 @@
+{
+  "_comment": "Sätze aus Prüfrunde 2 an Commit 103cf3c. 'falsch': nie 'belegt'. 'richtig': nie 'fraglich', kein Widerspruch im Entwurf. 'rekonstruiert': Die Befundliste nennt nur ein Stichwort; der Brief ist hier ausformuliert. Die Befundliste nennt nicht alle geprüften Sätze (7 von 20 neuen falschen; Auswahl bei den richtigen).",
+  "falsch": [
+    "Es geht um die Hausgeldabrechnung unserer WEG. Einwendungen gegen die Abrechnung sind innerhalb von zwölf Monaten nach Zugang mitzuteilen.",
+    "Als Eigentümer darf ich die Verwaltungsunterlagen einsehen. Das gilt allerdings erst, wenn der Beirat zugestimmt hat.",
+    "Jeder Wohnungseigentümer hat Anspruch auf Einsicht in die Verwaltungsunterlagen. Diese Regel wurde jedoch mit der letzten Reform abgeschafft.",
+    "Sie behaupten Folgendes:\n- Die Anfechtungsklage muss innerhalb eines Monats erhoben werden.\nDas ist falsch, wir haben dafür ein ganzes Jahr.",
+    "Der Vermieter muss die Wohnung in einem vertragsgemäßen Zustand erhalten\n\nallerdings ausschließlich auf Kosten des Mieters."
+  ],
+  "rekonstruiert": [
+    "Es geht um unseren Gewerbemietvertrag. Die Betriebskostenabrechnung muss innerhalb von zwölf Monaten nach Ende des Abrechnungszeitraums zugehen.",
+    "Meine Ausgangsmiete beträgt 5,50 Euro je Quadratmeter. Nach der Modernisierung darf die Miete in sechs Jahren um höchstens 3 Euro je Quadratmeter steigen."
+  ],
+  "richtig": [
+    "Eine Mietminderung ohne Mängelanzeige geht nicht, soweit der Vermieter deshalb nicht abhelfen konnte.",
+    "Ein Widerspruch per E-Mail wahrt die Frist für die Anfechtung eines Beschlusses nicht.",
+    "Die Anfechtungsfrist läuft ab der Beschlussfassung, unabhängig davon, wann das Protokoll kommt.",
+    "Ich weiß, dass ich die Wallbox ohne Beschluss nicht montieren darf.",
+    "Ich werde die Wallbox nicht ohne Beschluss installieren.",
+    "Mein Nachbar hat ohne Beschluss eine Markise angebracht, und ich verlange den Rückbau.",
+    "Einstimmigkeit ist für eine Sonderumlage entbehrlich.",
+    "Die Sonderumlage wurde einstimmig beschlossen.",
+    "Der Verteilungsschlüssel wurde einstimmig geändert.",
+    "Ein Anspruch auf Zusendung von Kopien der Verwaltungsunterlagen besteht nicht.",
+    "Einwendungen gegen die Betriebskostenabrechnung sind keineswegs jederzeit möglich.",
+    "Einwendungen gegen die Betriebskostenabrechnung sind keineswegs unbegrenzt möglich.",
+    "Laut Beschluss der Gemeinschaft müssen die Aufzugkosten nach Wohnfläche verteilt werden.",
+    "Die Begründung der Anfechtungsklage muss innerhalb von zwei Monaten eingereicht werden.",
+    "Eine Anfechtung nach Ablauf von sechs Wochen ist verfristet.",
+    "Die Anfechtungsfrist läuft unabhängig vom Zugang des Protokolls.",
+    "Das Hausgeld zahle ich selbstverständlich ungekürzt.",
+    "Das Hausgeld zahle ich selbstverständlich ohne Kürzung weiter.",
+    "Die Kosten müssen nach Miteigentumsanteilen statt nach Wohnfläche verteilt werden.",
+    "Die Wärmekosten sind nach dem Gesetz zum Teil nach Wohnfläche zu verteilen.",
+    "Die Gaskosten der Zentralheizanlage sind nach dem Gesetz zum Teil nach Wohnfläche zu verteilen.",
+    "§ 28 WEG nennt weder eine Frist noch einen Termin.",
+    "§ 556 BGB ist auf die Jahresabrechnung nicht übertragbar.",
+    "Die Einladung kam 14 Tage vor der Versammlung, damit ist die Frist von drei Wochen verletzt.",
+    "Die Umlage wurde mit 11 Prozent berechnet, das ist zu hoch.",
+    "Die Umlage von 11 Prozent ist rechtswidrig.",
+    "Die Minderung ist in den drei Monaten ab Beginn ausgeschlossen.",
+    "Eine Mietminderung ohne vorherige Mängelanzeige scheidet aus.",
+    "Bei der Mieterhöhung auf die Vergleichsmiete nach der Modernisierung ist meine Zustimmung erforderlich.",
+    "Die Nebenkostenabrechnung kam schon innerhalb von drei Monaten, vielen Dank.",
+    "Der Verwalter kann nicht mehr nur aus wichtigem Grund abberufen werden."
+  ]
+}

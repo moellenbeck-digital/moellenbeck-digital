@@ -1,0 +1,49 @@
+/* KI-Brief-Check. Tokens: ../assets/design-system.css; Felder und Buttons: ../style.css. Mobil zuerst. */
+.kbc-head, .kbc-foot, .kbc-main { width: 100%; max-width: 820px; margin-inline: auto; padding-inline: var(--pad); }
+.kbc-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-block: 16px; border-bottom: 1px solid var(--border); }
+.kbc-head a { display: inline-flex; align-items: center; min-height: 44px; }
+.kbc-head nav a { font: .75rem/1.5 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--text-2); }
+.kbc-head nav a:hover, .kbc-foot a:hover { color: var(--accent); }
+.kbc-main { padding-block: 40px 64px; overflow-wrap: anywhere; }
+.kbc-main h1 { font: 700 clamp(2.25rem, 7vw, 3.5rem)/1.08 var(--display); letter-spacing: -.035em; margin-block: 16px 20px; }
+.kbc-main h2 { font: 700 clamp(1.375rem, 4vw, 1.75rem)/1.25 var(--display); letter-spacing: -.02em; margin-bottom: 16px; }
+.kbc-lede { color: var(--text-2); font-size: 1.0625rem; max-width: 60ch; }
+.kbc-note, .kbc-count { color: var(--text-3); font-size: .875rem; }
+.kbc-note { margin-top: 12px; max-width: 68ch; }
+.kbc-disclaimer { margin-top: 20px; padding: 12px 16px; border: 1px solid var(--accent); border-radius: var(--r-ctl); background: var(--accent-dim); color: var(--text); }
+.kbc-panel { margin-top: 28px; padding: clamp(16px, 4vw, 32px); border: 1px solid var(--border); border-radius: var(--r-card); background: var(--bg-elevated); }
+.kbc-panel > * + *, .kbc-panel form > * + * { margin-top: 16px; }
+.kbc-redact { padding-left: 12px; border-left: 3px solid var(--accent); color: var(--text); font-size: .9375rem; }
+.kbc textarea { line-height: 1.6; }
+.kbc-count { margin-top: 8px; }
+.kbc-error { color: var(--accent); font-size: .9375rem; }
+.kbc-error:empty { margin: 0; }
+.kbc-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.kbc .md-btn, .kbc-secondary { min-height: 48px; width: 100%; }
+.kbc-secondary { padding: .8rem 1.4rem; font: 500 .85rem/1.4 var(--mono); text-transform: uppercase; letter-spacing: .05em; color: var(--text); border: 1px solid var(--control-border); border-radius: var(--r-ctl); }
+.kbc-secondary:hover { border-color: var(--accent); color: var(--accent); }
+.kbc button:disabled { opacity: .5; cursor: not-allowed; transform: none; box-shadow: none; }
+.kbc-status { margin-top: 20px; color: var(--text); font-weight: 600; }
+.kbc-status:empty { margin: 0; }
+.kbc-section { margin-top: 40px; }
+.kbc-legend { display: grid; gap: 8px; margin-bottom: 20px; color: var(--text-2); font-size: .875rem; }
+.kbc-legend div { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 12px; align-items: start; }
+.kbc-legend dt { justify-self: start; }
+/* Farbe unterstützt nur: das Urteil steht immer als Wort da. */
+[data-rating="belegt"] { --rating: rgb(var(--c-blue)); }
+[data-rating="fraglich"] { --rating: var(--accent); }
+[data-rating="unklar"] { --rating: var(--text-2); }
+.kbc-badge { display: inline-block; padding: 2px 10px; border: 1px solid var(--rating); border-radius: 6px; color: var(--rating); font: 500 .75rem/1.7 var(--mono); }
+.kbc-claims { display: grid; gap: 12px; }
+.kbc-claim { padding: clamp(16px, 4vw, 24px); border: 1px solid var(--border); border-left: 3px solid var(--rating); border-radius: var(--r-card); background: var(--bg-elevated); }
+.kbc-quote { margin-block: 12px; font-size: 1rem; color: var(--text); }
+.kbc-quote::before { content: '„'; }
+.kbc-quote::after { content: '“'; }
+.kbc-reason { color: var(--text-2); font-size: .9375rem; }
+.kbc-source { margin-top: 10px; font: .8125rem/1.6 var(--mono); color: var(--text); }
+.kbc-check { display: flex; align-items: flex-start; gap: 12px; min-height: 44px; cursor: pointer; }
+.kbc-check input { flex: none; width: 24px; height: 24px; margin-top: 2px; accent-color: var(--accent); }
+.kbc-foot { display: flex; flex-wrap: wrap; gap: 16px; padding-block: 20px 32px; border-top: 1px solid var(--border); color: var(--text-2); font-size: .875rem; }
+.kbc-foot a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: underline; text-underline-offset: .2em; }
+@media (min-width: 600px) { .kbc .md-btn, .kbc-secondary { width: auto; } }
+@media (prefers-reduced-motion: reduce) { .kbc * { transition: none !important; scroll-behavior: auto !important; } }

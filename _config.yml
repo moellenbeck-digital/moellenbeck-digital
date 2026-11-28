@@ -5,6 +5,8 @@
 # CI checks that this Jekyll build publishes exactly the allowlist (scripts/build-pages.py --verify).
 # No page uses front matter or Liquid, so Jekyll copies every published file unchanged.
 # Check: python3 scripts/check-pages-exclude.py (also runs in CI).
+# hausverwaltung/ki-brief-check/ is a prototype and stays unpublished until the legal review; tests/ is internal.
+# No comment lines inside the list: scripts/check-pages-exclude.py stops reading at the first one.
 exclude:
   - docs/
   - audit/
@@ -16,6 +18,8 @@ exclude:
   - .github/
   - .gitignore
   - node_modules/
+  - hausverwaltung/ki-brief-check/
+  - tests/
 
 # No theme: GitHub Pages would otherwise add assets/css/style.css from jekyll-theme-primer.
 theme: null

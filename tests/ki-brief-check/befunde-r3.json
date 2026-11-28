@@ -1,0 +1,47 @@
+{
+  "hinweis": "Korrektur R3, Befund B2: Kontextsätze zu fünf Katalog-Einträgen. 'pruefung' = Proben aus der Endprüfung (Reviewer, Tester; die Kurzzitate „… selbst besichtigt“, „… informiert“ und die Kopien-Beschluss-Probe sind zu ganzen Sätzen ergänzt). 'eigen' = je zwei eigene Umformulierungen, vor der Codeänderung geschrieben und separat committet.",
+  "pruefung": {
+    "aufzug-nutzung": [
+      "Laut Beschluss vom Mai 2022 tragen Erdgeschosseigentümer keine Aufzugkosten."
+    ],
+    "wallbox-kosten": [
+      "Auf der Versammlung wurde die Kostenübernahme durch die Gemeinschaft beschlossen.",
+      "Die Versammlung hat die Übernahme im Mai einstimmig beschlossen."
+    ],
+    "einladung-zwei-wochen": [
+      "In der Teilungserklärung ist eine Frist von 14 Tagen vereinbart."
+    ],
+    "kopien-kostenlos": [
+      "Im Verwaltervertrag ist der kostenlose Versand von Kopien zugesagt.",
+      "Per Beschluss ist der kostenlose Versand von Kopien zugesagt."
+    ],
+    "minderung-ohne-anzeige": [
+      "Der Vermieter weiß seit Januar Bescheid.",
+      "Der Vermieter hat den Mangel selbst besichtigt.",
+      "Ich habe den Vermieter informiert.",
+      "Ihr Hausmeister hat den Wasserschaden selbst aufgenommen."
+    ]
+  },
+  "eigen": {
+    "aufzug-nutzung": [
+      "Wir Eigentümer haben 2021 beschlossen, dass das Erdgeschoss für den Lift nichts zahlt.",
+      "Unsere Gemeinschaftsordnung nimmt das Erdgeschoss von den Liftkosten aus."
+    ],
+    "wallbox-kosten": [
+      "Alle Anwesenden haben einstimmig dafür gestimmt, dass die Gemeinschaft zahlt.",
+      "Zur Kostenübernahme gibt es einen Beschluss vom Juni."
+    ],
+    "einladung-zwei-wochen": [
+      "Unsere Gemeinschaftsordnung lässt für die Ladung vierzehn Tage genügen.",
+      "Die Eigentümer haben untereinander eine kürzere Ladefrist vereinbart."
+    ],
+    "kopien-kostenlos": [
+      "Ihre Vorgängerin hat mir den Gratisversand schriftlich zugesichert.",
+      "Die Versammlung hat beschlossen, dass Abschriften nichts kosten."
+    ],
+    "minderung-ohne-anzeige": [
+      "Die Vermieterin hat von dem Schimmel schon seit dem Winter Kenntnis.",
+      "Den Schaden hat sich der Vermieter im Februar angesehen, er wusste also alles."
+    ]
+  }
+}

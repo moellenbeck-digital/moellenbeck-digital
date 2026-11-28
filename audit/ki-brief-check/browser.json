@@ -1,0 +1,55 @@
+[
+  {
+    "width": 320,
+    "status": "5 Hinweise: 1 belegt, 3 fraglich, 1 unklar.",
+    "overflow": false,
+    "axeViolations": 0,
+    "requestsOnLoad": 13,
+    "requestsAfterLoadOtherThanStatic": 0,
+    "externalRequests": 0,
+    "stored": {
+      "local": 0,
+      "session": 0,
+      "cookie": "",
+      "databases": 0
+    },
+    "errors": 0
+  },
+  {
+    "width": 375,
+    "status": "5 Hinweise: 1 belegt, 3 fraglich, 1 unklar.",
+    "overflow": false,
+    "axeViolations": 0,
+    "requestsOnLoad": 13,
+    "requestsAfterLoadOtherThanStatic": 0,
+    "externalRequests": 0,
+    "stored": {
+      "local": 0,
+      "session": 0,
+      "cookie": "",
+      "databases": 0
+    },
+    "errors": 0
+  },
+  {
+    "width": 1440,
+    "status": "5 Hinweise: 1 belegt, 3 fraglich, 1 unklar.",
+    "overflow": false,
+    "axeViolations": 0,
+    "requestsOnLoad": 13,
+    "requestsAfterLoadOtherThanStatic": 0,
+    "externalRequests": 0,
+    "stored": {
+      "local": 0,
+      "session": 0,
+      "cookie": "",
+      "databases": 0
+    },
+    "errors": 0
+  },
+  {
+    "javascript": false,
+    "buttonDisabled": true,
+    "noscriptInSource": true
+  }
+]
