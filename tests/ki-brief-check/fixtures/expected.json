@@ -29,26 +29,26 @@
     {"contains": "V ZR 999/99", "rating": "unklar", "source": "keine Quelle in der Wissensbasis"}
   ],
   "brief-06.txt": [
-    {"contains": "Nachforderung ist ausgeschlossen", "rating": "belegt", "source": "§ 556 Abs. 3 BGB"},
+    {"contains": "Nachforderung ist ausgeschlossen", "rating": "unklar", "source": "§ 556 Abs. 3 BGB"},
     {"contains": "Einsicht in die Belege", "rating": "belegt", "source": "§ 556 Abs. 4 BGB"}
   ],
   "brief-07.txt": [
-    {"contains": "berechtigt, die Miete zu mindern", "rating": "belegt", "source": "§ 536 Abs. 1 BGB"},
+    {"contains": "berechtigt, die Miete zu mindern", "rating": "unklar", "source": "§ 536 Abs. 1 BGB"},
     {"contains": "um 80 Prozent", "rating": "unklar", "source": "§ 536 Abs. 1 BGB"},
     {"contains": "rückwirkend", "rating": "fraglich", "source": "§ 536c BGB"},
     {"contains": "rückwirkend", "rating": "unklar", "source": "§ 536 Abs. 1 BGB; § 536c BGB"},
     {"contains": "vertragsgemäßen Zustand", "rating": "belegt", "source": "§ 535 Abs. 1 BGB"}
   ],
   "brief-08.txt": [
-    {"contains": "drei Monate vor Beginn", "rating": "belegt", "source": "§ 555c Abs. 1 BGB"},
+    {"contains": "drei Monate vor Beginn", "rating": "unklar", "source": "§ 555c Abs. 1 BGB"},
     {"contains": "um 11 Prozent", "rating": "fraglich", "source": "§ 559 Abs. 1 BGB"},
     {"contains": "Ohne meine Zustimmung", "rating": "fraglich", "source": "§ 555d Abs. 1 BGB; § 559 Abs. 1 BGB"},
-    {"contains": "Sonderkündigungsrecht", "rating": "belegt", "source": "§ 561 Abs. 1 BGB"}
+    {"contains": "Sonderkündigungsrecht", "rating": "unklar", "source": "§ 561 Abs. 1 BGB"}
   ],
   "brief-09.txt": [
     {"contains": "nach § 556 BGB muss sie", "rating": "fraglich", "source": "§ 556 Abs. 3 BGB; § 28 Abs. 2 WEG"},
     {"contains": "Nach § 46 WEG", "rating": "fraglich", "source": "§§ 44, 45 WEG"},
-    {"contains": "immer nach Wohnfläche", "rating": "fraglich", "source": "§ 16 Abs. 2 WEG"},
+    {"contains": "immer nach Wohnfläche", "rating": "unklar", "source": "keine Quelle in der Wissensbasis"},
     {"contains": "Notmaßnahme am Dach", "rating": "unklar", "source": "§ 18 Abs. 3 WEG"}
   ],
   "brief-10.txt": [

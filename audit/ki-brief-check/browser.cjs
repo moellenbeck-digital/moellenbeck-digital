@@ -57,6 +57,18 @@ const server = http.createServer((req, res) => {
       assert.equal(await page.locator('#claims img, #claims script').count(), 0);
       assert.ok((await page.textContent('#claims')).includes('<img src="x" onerror="alert(1)">'));
 
+      // Vier falsche Aussagen: keine wird bestätigt, der Entwurf widerspricht.
+      await page.fill('#letter', [
+        'Die Anfechtungsklage muss innerhalb eines Monats begründet werden.',
+        'Der Verwalter hat das Recht, uns die Einsicht in die Verwaltungsunterlagen zu verweigern.',
+        'Mein Nachbar hat Anspruch auf Entfernung meiner Wallbox.',
+        'Nach der Modernisierung erhöht sich Ihre Miete jährlich um 8 Prozent.'
+      ].join(' '));
+      await page.click('#checkButton');
+      await page.waitForSelector('#claims li');
+      assert.equal(await page.textContent('#status'), '4 Hinweise: 0 belegt, 1 fraglich, 3 unklar.');
+      assert.match(await page.inputValue('#draft'), /Ihrer Darstellung können wir so nicht folgen/);
+
       await page.fill('#letter', letter);
       assert.equal(await page.locator('#result').isVisible(), false, 'altes Ergebnis wird bei Änderung verborgen');
       await page.focus('#checkButton');

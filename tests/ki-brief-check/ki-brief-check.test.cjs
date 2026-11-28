@@ -13,6 +13,9 @@ const knowledge = require(path.join(ROOT, PAGE, 'knowledge.js'));
 const page = require(path.join(ROOT, PAGE, 'page.js'));
 const expected = require('./fixtures/expected.json');
 const counter = require('./counter-statements.json');
+const findingsR1 = require('./befunde-r1.json');
+const ownR1 = require('./gegenproben-r1-eigen.json');
+const supported = require('./belegt-beispiele.json');
 
 const { analyzeLetter, mockProvider, remoteProvider, splitSentences, MAX_LENGTH, DISCLAIMER, NO_SOURCE } = api;
 const key = (c) => `${c.rating} | ${c.source} | ${c.text}`;
@@ -77,6 +80,7 @@ test('Wissensbasis zitiert nur Paragrafen, deren Wortlaut abgeglichen wurde', ()
     assert.ok(api.RATINGS.includes(rule.rating), rule.id);
     assert.ok(rule.reason && rule.reply && rule.label && rule.topic && rule.when.length, rule.id);
     for (const part of rule.source.split('; ')) {
+      if (part === NO_SOURCE) { assert.equal(rule.rating, 'unklar', rule.id); continue; }
       const law = part.match(/(WEG|BGB)$/);
       assert.ok(law, `${rule.id}: ${part}`);
       const numbers = part.startsWith('§§') ? part.match(/\d+[a-e]?/g) : [part.match(/^§ (\d+[a-e]?)/)[1]];
@@ -164,11 +168,143 @@ test('remoteProvider wirft ohne Konfiguration', async () => {
 test('ungültige Provider-Antworten werden abgefangen', async () => {
   await assert.rejects(analyzeLetter('x', { provider: { analyze: () => ({}) } }), { code: 'BAD_RESPONSE' });
   const provider = { analyze: async () => ({ draft: '', claims: [
-    { text: 'a', rating: 'sicher', reason: 'r', source: '§ 1' }, { text: 'b', rating: 'belegt', reason: 'r', source: '' }
+    { text: 'a', rating: 'sicher', reason: 'r', source: '§ 45 WEG' }, { text: 'b', rating: 'belegt', reason: 'r', source: '' }
   ] }) };
   const { claims } = await analyzeLetter('x', { provider });
   assert.deepEqual(claims.map((c) => c.rating), ['unklar', 'unklar']);
   assert.equal(claims[1].source, NO_SOURCE);
+});
+
+test('belegt und fraglich gelten nur mit einer Quelle aus der Wissensbasis', async () => {
+  const claim = (source, rating = 'belegt') => ({ text: 't', rating, reason: 'r', source });
+  const provider = { analyze: () => ({ draft: '', claims: [
+    claim(NO_SOURCE), claim('§ 999 BGB'), claim('§ 45 WEG; § 999 WEG'), claim('irgendwas', 'fraglich'), claim(undefined), claim(['§ 45 WEG']),
+    claim('§ 45 WEG'), claim('§ 44 Abs. 1 WEG; § 45 WEG', 'fraglich')
+  ] }) };
+  const { claims } = await analyzeLetter('x', { provider });
+  assert.deepEqual(claims.map((c) => c.rating), ['unklar', 'unklar', 'unklar', 'unklar', 'unklar', 'unklar', 'belegt', 'fraglich']);
+  assert.ok(claims.slice(0, 6).every((c) => c.source === NO_SOURCE));
+});
+
+test('die Oberfläche nutzt den übergebenen Provider', async () => {
+  const nodes = new Map();
+  const doc = fakeDocument();
+  doc.getElementById = (id) => {
+    if (!nodes.has(id)) {
+      const listeners = {};
+      nodes.set(id, Object.assign(doc.createElement('div'), {
+        value: 'Brieftext', listeners, addEventListener: (type, fn) => { listeners[type] = fn; },
+        removeAttribute() {}, focus() {}
+      }));
+    }
+    return nodes.get(id);
+  };
+  const seen = [];
+  page.init(doc, api, { analyze: (text) => { seen.push(text); return { claims: [], draft: 'vom Provider' }; } });
+  await nodes.get('letterForm').listeners.submit({ preventDefault() {} });
+  assert.deepEqual(seen, ['Brieftext']);
+  assert.equal(nodes.get('draft').value, 'vom Provider');
+});
+
+/* ── Korrektur R1: "belegt" ist konservativ ── */
+for (const [name, set] of [['Befund R1', findingsR1], ['Eigene Gegenprobe', ownR1]]) {
+  for (const text of set.sentences) {
+    test(`${name}, nie belegt: ${text}`, async () => {
+      const { claims, draft } = await analyzeLetter(text);
+      assert.ok(claims.length >= 1, 'kein Hinweis');
+      assert.deepEqual(claims.filter((c) => !['fraglich', 'unklar'].includes(c.rating)).map(key), []);
+      for (const rule of knowledge.RULES.filter((r) => r.rating === 'belegt')) assert.ok(!draft.includes(rule.reply), 'Entwurf bestätigt: ' + rule.id);
+    });
+  }
+}
+
+test('es gibt genau 15 eigene Gegenproben', () => {
+  assert.equal(new Set(ownR1.sentences).size, 15);
+});
+
+const supportedRules = knowledge.RULES.filter((r) => r.rating === 'belegt');
+
+test('jede belegt-Regel hat enge Formen, Rollen- und Zahlenprüfung und ein Beispiel', () => {
+  for (const rule of supportedRules) {
+    assert.ok(rule.forms.length && rule.foreign.length && Array.isArray(rule.numbers), rule.id);
+    for (const re of rule.forms) assert.ok(re.source.startsWith('^') && re.source.endsWith('$'), rule.id);
+    if (rule.slots) assert.ok(rule.wrong.reason && rule.wrong.reply, rule.id);
+  }
+  assert.deepEqual(Object.keys(supported).filter((k) => k !== '_comment').sort(), supportedRules.map((r) => r.id).sort());
+});
+
+// Jede Abwandlung eines bestätigten Satzes muss die Bestätigung verlieren.
+const VARIANTS = [
+  (s) => s.replace(/\.$/, ', aber nicht in diesem Fall.'),
+  (s) => s.replace(/\.$/, ', wenn der Beirat zustimmt.'),
+  (s) => s.replace(/\.$/, ' und ich zahle nichts.'),
+  (s) => s.replace(/\.$/, '?'),
+  (s) => 'Nur ' + s,
+  (s) => 'Es ist falsch: ' + s,
+  (s) => s.replace(/ (\S+)\.$/, ' nicht $1.'),
+  (s) => s.replace(/ (\S+)\.$/, ' höchstens $1.'),
+  (s) => s.replace(/ (\S+)\.$/, ' erst nach 5 Jahren $1.')
+];
+
+for (const rule of supportedRules) {
+  test(`${rule.id}: Beispiel ist belegt, jede Abwandlung nicht`, async () => {
+    for (const text of supported[rule.id]) {
+      const { claims } = await analyzeLetter(text);
+      assert.deepEqual(claims.map((c) => [c.rating, c.source]), [['belegt', rule.source]], text);
+      for (const variant of VARIANTS) {
+        const changed = variant(text);
+        assert.notEqual(changed, text);
+        assert.deepEqual((await analyzeLetter(changed)).claims.filter((c) => c.rating === 'belegt').map(key), [], changed);
+      }
+    }
+  });
+}
+
+test('eine abweichende Zahl ergibt fraglich mit Hinweis auf die richtige Frist', async () => {
+  for (const [text, hint] of [
+    ['Die Anfechtungsklage muss innerhalb eines Monats begründet werden.', /zwei Monate/],
+    ['Die Anfechtungsklage ist innerhalb eines Monats zu begründen.', /zwei Monate/],
+    ['Die Anfechtungsklage muss innerhalb von drei Monaten erhoben werden.', /einen Monat/],
+    ['Die Anfechtungsklage ist innerhalb von zwei Monaten zu erheben und innerhalb eines Monats zu begründen.', /innerhalb zweier Monate/],
+    ['Die Einladungsfrist beträgt zwei Wochen.', /drei Wochen/],
+    ['Die Betriebskostenabrechnung muss innerhalb von 24 Monaten nach Ende des Abrechnungszeitraums zugehen.', /zwölf Monate/],
+    ['Einwendungen sind innerhalb von sechs Monaten nach Zugang der Abrechnung mitzuteilen.', /zwölf/],
+    ['Eine Modernisierung muss einen Monat vor Beginn angekündigt werden.', /./],
+    ['Die Modernisierung ist innerhalb eines Monats anzukündigen.', null],
+    ['Eine Modernisierung muss 1 Monat vor Beginn angekündigt werden.', /drei Monate/]
+  ]) {
+    const { claims, draft } = await analyzeLetter(text);
+    assert.ok(claims.every((c) => c.rating !== 'belegt'), text);
+    if (hint === null) continue;
+    assert.deepEqual(claims.map((c) => c.rating), ['fraglich'], text);
+    assert.match(claims[0].reason, hint, text);
+    assert.match(draft, /Ihrer Darstellung können wir so nicht folgen/);
+  }
+});
+
+test('bei fraglich widerspricht der Entwurf sachlich', async () => {
+  const letter = 'Ich halte das Hausgeld zurück. Die Einladung zur Versammlung ist mit einer Frist von zwei Wochen ausreichend.';
+  const { claims, draft } = await analyzeLetter(letter);
+  assert.deepEqual(claims.map((c) => c.rating), ['fraglich', 'fraglich']);
+  assert.equal(draft.match(/Ihrer Darstellung können wir so nicht folgen; wir prüfen den Punkt/g).length, 2);
+});
+
+test('Heizkosten werden nicht nach § 16 WEG bewertet', async () => {
+  for (const text of [
+    'Nach der HeizkostenV müssen die Heizkosten zwingend nach Verbrauch und nur zum Rest nach Wohnfläche verteilt werden.',
+    'Die Heizkosten müssen immer nach Wohnfläche verteilt werden.',
+    'Die Warmwasserkosten sind gesetzlich zwingend nach Verbrauch und Wohnfläche umzulegen.',
+    'Die Heizkosten werden nach Miteigentumsanteilen verteilt.'
+  ]) {
+    const { claims, draft } = await analyzeLetter(text);
+    assert.ok(claims.length && claims.every((c) => c.rating === 'unklar'), text + ' ' + claims.map(key).join());
+    assert.doesNotMatch(draft, /Miteigentumsanteil/, text);
+  }
+});
+
+test('Baukosten bei qualifizierter Mehrheit sind unklar (§ 21 Abs. 2 WEG)', async () => {
+  const { claims } = await analyzeLetter('Die Kosten für den Treppenlift muss die Gemeinschaft tragen, weil er mit Zweidrittelmehrheit beschlossen wurde.');
+  assert.deepEqual(claims.map((c) => [c.rating, c.source]), [['unklar', '§ 21 Abs. 2 WEG']]);
 });
 
 /* ── XSS ── */
